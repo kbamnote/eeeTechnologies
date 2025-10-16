@@ -1,0 +1,1 @@
+// RegisterCTA component - placeholder

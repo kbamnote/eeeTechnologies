@@ -1,0 +1,1 @@
+// MapEmbed component - placeholder

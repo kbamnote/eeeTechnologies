@@ -1,0 +1,1 @@
+// useSmoothScroll custom hook - placeholder

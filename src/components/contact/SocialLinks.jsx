@@ -1,0 +1,1 @@
+// SocialLinks component - placeholder

@@ -1,0 +1,1 @@
+// MissionVision component - placeholder

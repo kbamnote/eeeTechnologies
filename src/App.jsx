@@ -1,59 +1,52 @@
 import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import Header from "./components/common/Header.jsx";
+import Footer from "./components/common/Footer.jsx";
+import Landing from "./pages/Landing.jsx";
+import About from "./pages/About.jsx";
+import Courses from "./pages/Courses.jsx";
+import Placement from "./pages/Placement.jsx";
+import Blog from "./pages/Blog.jsx";
+import Contact from "./pages/Contact.jsx";
+
+// PageWrapper handles animation and fills available space
+function PageWrapper({ children }) {
+  return (
+    <motion.main
+      className="flex-1 w-full"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.25 }}
+    >
+      {children}
+    </motion.main>
+  );
+}
 
 function App() {
+  const location = useLocation();
+
   return (
-    <div
-      className="h-screen w-full bg-cover bg-center flex items-center justify-center px-4 text-center"
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1470&q=80')",
-      }}
-    >
-      <div className="max-w-2xl bg-black/50 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-        {/* Logo / Brand Name */}
-        <h1 className="text-white text-4xl md:text-6xl font-extrabold mb-4">
-          EEE Technologies
-        </h1>
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      {/* Header */}
+      <Header />
 
-        {/* Tagline */}
-        <p className="text-white/90 text-lg md:text-xl mb-8">
-          Empowering Futures with Technology & IT Training
-        </p>
+      {/* Main Content */}
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Landing />} />
+          <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+          <Route path="/courses" element={<PageWrapper><Courses /></PageWrapper>} />
+          <Route path="/placement" element={<PageWrapper><Placement /></PageWrapper>} />
+          <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
+          <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+        </Routes>
+      </AnimatePresence>
 
-        {/* Coming Soon Box */}
-        <div className="bg-white/10 rounded-xl py-8 px-6 border border-white/20 shadow-lg">
-          <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
-            🚀 Coming Soon
-          </h2>
-          <p className="text-white/80 mb-6">
-            Our website is under construction. Stay tuned for something amazing!
-          </p>
-
-          {/* Email Form */}
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="flex flex-col sm:flex-row gap-3 justify-center"
-          >
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="px-4 py-2 rounded-lg focus:outline-none text-gray-800 flex-1"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-white text-indigo-600 font-semibold px-6 py-2 rounded-lg hover:bg-indigo-100 transition"
-            >
-              Notify Me
-            </button>
-          </form>
-        </div>
-
-        {/* Footer */}
-        <footer className="mt-10 text-white/70 text-sm">
-          © {new Date().getFullYear()} EEE Technologies. All rights reserved.
-        </footer>
-      </div>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

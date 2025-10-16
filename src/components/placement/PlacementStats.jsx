@@ -1,0 +1,1 @@
+// PlacementStats component - placeholder

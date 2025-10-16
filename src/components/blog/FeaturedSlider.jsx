@@ -1,0 +1,1 @@
+// FeaturedSlider component - placeholder

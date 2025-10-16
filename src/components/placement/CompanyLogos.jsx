@@ -1,0 +1,1 @@
+// CompanyLogos component - placeholder

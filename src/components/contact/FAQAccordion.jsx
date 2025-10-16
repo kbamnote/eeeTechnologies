@@ -1,0 +1,1 @@
+// FAQAccordion component - placeholder
