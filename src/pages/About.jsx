@@ -1,67 +1,127 @@
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { useSEO } from '../hooks/useSEO';
+import { CheckCircle, Award, Users, BookOpen, Target, Zap } from 'lucide-react';
+
+// Import all about components
+import MissionVision from '../components/about/MissionVision';
+import TeamSection from '../components/about/TeamSection';
+import Timeline from '../components/about/Timeline';
+import Infrastructure from '../components/about/Infrastructure';
+import JoinCTA from '../components/about/JoinCTA';
+import AboutHeroSection from '../components/about/AboutHeroSection';
 
 const About = () => {
-  useSEO({
-    title: 'About Us - eee Technologies',
-    description: 'Learn about eee Technologies - your trusted partner in technical education and career development.',
-    keywords: 'about eee technologies, technical education, career development, training institute'
-  });
-
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen pt-20 px-4 sm:px-6 lg:px-8"
-    >
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-            About <span className="text-blue-600">eee Technologies</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Empowering the next generation of tech professionals through comprehensive education and hands-on training.
-          </p>
-        </div>
+    <>
+      <Helmet>
+        <title>About Us - eee Technologies | Leading Tech Education Institute</title>
+        <meta name="description" content="Learn about eee Technologies - 15+ years of excellence in technology education, 20,000+ successful students, and industry-leading placement rates." />
+        <meta name="keywords" content="about eee technologies, tech education, programming courses, placement assistance, technology training" />
+      </Helmet>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Our Mission</h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              At eee Technologies, we bridge the gap between academic learning and industry requirements. 
-              Our mission is to provide world-class technical education that prepares students for successful careers in technology.
-            </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              We believe in practical, hands-on learning that gives our students the confidence and skills 
-              they need to excel in today's competitive tech landscape.
-            </p>
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900/20">
+        {/* Hero Section */}
+       <AboutHeroSection/>
+
+        {/* Mission, Vision & Values */}
+        <MissionVision />
+
+        {/* Company Timeline */}
+        <Timeline />
+
+        {/* Team Section */}
+        <TeamSection />
+
+        {/* Infrastructure */}
+        <Infrastructure />
+
+        {/* Why Choose Us - Enhanced */}
+        <section className="py-20 bg-white dark:bg-gray-800">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                Why Choose <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">eee Technologies?</span>
+              </h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                Discover what makes us the preferred choice for technology education and career transformation.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Award,
+                  title: "Industry Recognition",
+                  description: "Recognized by top tech companies and industry leaders worldwide",
+                  color: "from-yellow-500 to-orange-600"
+                },
+                {
+                  icon: Users,
+                  title: "Expert Faculty",
+                  description: "Learn from industry professionals with 10+ years of real-world experience",
+                  color: "from-blue-500 to-cyan-600"
+                },
+                {
+                  icon: BookOpen,
+                  title: "Comprehensive Curriculum",
+                  description: "Updated curriculum aligned with latest industry trends and technologies",
+                  color: "from-green-500 to-emerald-600"
+                },
+                {
+                  icon: Target,
+                  title: "100% Placement Assistance",
+                  description: "Dedicated placement cell with extensive industry network and partnerships",
+                  color: "from-purple-500 to-pink-600"
+                },
+                {
+                  icon: Zap,
+                  title: "Hands-on Learning",
+                  description: "Practical projects, real-world applications, and industry-standard tools",
+                  color: "from-red-500 to-rose-600"
+                },
+                {
+                  icon: CheckCircle,
+                  title: "Modern Infrastructure",
+                  description: "State-of-the-art facilities with latest technology and learning resources",
+                  color: "from-indigo-500 to-blue-600"
+                }
+              ].map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
+                  className="bg-gray-50 dark:bg-gray-700 rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group cursor-pointer border border-gray-100 dark:border-gray-600"
+                  whileHover={{ y: -10, scale: 1.02 }}
+                >
+                  <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <feature.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {feature.description}
+                  </p>
+                  
+                  {/* Hover Effect */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
+                </motion.div>
+              ))}
+            </div>
           </div>
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 md:p-10 rounded-2xl shadow-lg">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Why Choose Us?</h3>
-            <ul className="space-y-4 text-gray-700">
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Industry-experienced instructors
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Hands-on project-based learning
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                100% placement assistance
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Modern curriculum aligned with industry needs
-              </li>
-            </ul>
-          </div>
-        </div>
+        </section>
+
+        {/* Call to Action */}
+        <JoinCTA />
       </div>
-    </motion.div>
+    </>
   );
 };
 

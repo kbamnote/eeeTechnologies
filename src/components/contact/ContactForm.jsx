@@ -159,27 +159,27 @@ const ContactForm = ({ onSubmit }) => {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 text-center"
+        className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 text-center"
       >
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-          className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-6"
+          className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
         >
-          <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
+          <CheckCircle className="w-10 h-10 text-green-600" />
         </motion.div>
-        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+        <h3 className="text-2xl font-bold text-gray-900 mb-4">
           Message Sent Successfully!
         </h3>
-        <p className="text-gray-600 dark:text-gray-400 mb-6">
+        <p className="text-gray-600 mb-6">
           Thank you for reaching out. We'll get back to you within 24 hours.
         </p>
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsSubmitted(false)}
-          className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
+          className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 font-medium shadow-lg"
         >
           Send Another Message
         </motion.button>
@@ -192,13 +192,13 @@ const ContactForm = ({ onSubmit }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700"
+      className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20"
     >
       <motion.div variants={itemVariants} className="mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">
           Get in Touch
         </h2>
-        <p className="text-gray-600 dark:text-gray-400">
+        <p className="text-gray-600">
           Ready to start your tech journey? Send us a message and we'll get back to you as soon as possible.
         </p>
       </motion.div>
@@ -206,14 +206,14 @@ const ContactForm = ({ onSubmit }) => {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Inquiry Type */}
         <motion.div variants={itemVariants}>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             Inquiry Type
           </label>
           <select
             name="inquiryType"
             value={formData.inquiryType}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
+            className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 text-gray-900 transition-all duration-200"
           >
             {inquiryTypes.map(type => (
               <option key={type.value} value={type.value}>
@@ -226,7 +226,7 @@ const ContactForm = ({ onSubmit }) => {
         {/* Name and Email Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Full Name *
             </label>
             <div className="relative">
@@ -239,8 +239,8 @@ const ContactForm = ({ onSubmit }) => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Enter your full name"
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200 ${
-                  errors.name ? 'border-red-500' : 'border-gray-200 dark:border-gray-600'
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 text-gray-900 placeholder-gray-500 transition-all duration-200 ${
+                  errors.name ? 'border-red-500' : 'border-gray-200'
                 }`}
               />
             </div>
@@ -248,7 +248,7 @@ const ContactForm = ({ onSubmit }) => {
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-sm text-red-600 dark:text-red-400 flex items-center"
+                className="mt-2 text-sm text-red-600 flex items-center"
               >
                 <AlertCircle className="w-4 h-4 mr-1" />
                 {errors.name}
@@ -257,7 +257,7 @@ const ContactForm = ({ onSubmit }) => {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Email Address *
             </label>
             <div className="relative">
@@ -270,8 +270,8 @@ const ContactForm = ({ onSubmit }) => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200 ${
-                  errors.email ? 'border-red-500' : 'border-gray-200 dark:border-gray-600'
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 text-gray-900 placeholder-gray-500 transition-all duration-200 ${
+                  errors.email ? 'border-red-500' : 'border-gray-200'
                 }`}
               />
             </div>
@@ -279,7 +279,7 @@ const ContactForm = ({ onSubmit }) => {
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-sm text-red-600 dark:text-red-400 flex items-center"
+                className="mt-2 text-sm text-red-600 flex items-center"
               >
                 <AlertCircle className="w-4 h-4 mr-1" />
                 {errors.email}
@@ -291,7 +291,7 @@ const ContactForm = ({ onSubmit }) => {
         {/* Phone and Company Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Phone Number
             </label>
             <div className="relative">
@@ -304,8 +304,8 @@ const ContactForm = ({ onSubmit }) => {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Enter your phone number"
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200 ${
-                  errors.phone ? 'border-red-500' : 'border-gray-200 dark:border-gray-600'
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 text-gray-900 placeholder-gray-500 transition-all duration-200 ${
+                  errors.phone ? 'border-red-500' : 'border-gray-200'
                 }`}
               />
             </div>
@@ -313,7 +313,7 @@ const ContactForm = ({ onSubmit }) => {
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-sm text-red-600 dark:text-red-400 flex items-center"
+                className="mt-2 text-sm text-red-600 flex items-center"
               >
                 <AlertCircle className="w-4 h-4 mr-1" />
                 {errors.phone}
@@ -322,7 +322,7 @@ const ContactForm = ({ onSubmit }) => {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Company/Organization
             </label>
             <div className="relative">
@@ -335,7 +335,7 @@ const ContactForm = ({ onSubmit }) => {
                 value={formData.company}
                 onChange={handleChange}
                 placeholder="Enter your company name"
-                className="w-full pl-12 pr-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200"
+                className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 text-gray-900 placeholder-gray-500 transition-all duration-200"
               />
             </div>
           </motion.div>
@@ -343,7 +343,7 @@ const ContactForm = ({ onSubmit }) => {
 
         {/* Subject */}
         <motion.div variants={itemVariants}>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             Subject
           </label>
           <motion.input
@@ -354,13 +354,13 @@ const ContactForm = ({ onSubmit }) => {
             value={formData.subject}
             onChange={handleChange}
             placeholder="Enter the subject of your inquiry"
-            className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200"
+            className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 text-gray-900 placeholder-gray-500 transition-all duration-200"
           />
         </motion.div>
 
         {/* Message */}
         <motion.div variants={itemVariants}>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             Message *
           </label>
           <div className="relative">
@@ -373,8 +373,8 @@ const ContactForm = ({ onSubmit }) => {
               onChange={handleChange}
               rows={6}
               placeholder="Tell us about your requirements, questions, or how we can help you..."
-              className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200 resize-none ${
-                errors.message ? 'border-red-500' : 'border-gray-200 dark:border-gray-600'
+              className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 text-gray-900 placeholder-gray-500 transition-all duration-200 resize-none ${
+                errors.message ? 'border-red-500' : 'border-gray-200'
               }`}
             />
           </div>
@@ -382,7 +382,7 @@ const ContactForm = ({ onSubmit }) => {
             <motion.p
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-2 text-sm text-red-600 dark:text-red-400 flex items-center"
+              className="mt-2 text-sm text-red-600 flex items-center"
             >
               <AlertCircle className="w-4 h-4 mr-1" />
               {errors.message}
@@ -421,9 +421,9 @@ const ContactForm = ({ onSubmit }) => {
       {/* Additional Info */}
       <motion.div
         variants={itemVariants}
-        className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700"
+        className="mt-8 pt-6 border-t border-gray-200"
       >
-        <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
+        <p className="text-sm text-gray-500 text-center">
           We typically respond within 24 hours. For urgent inquiries, please call us directly.
         </p>
       </motion.div>

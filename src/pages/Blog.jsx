@@ -1,114 +1,133 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, BookOpen, TrendingUp, Calendar, Users } from 'lucide-react';
+import { 
+  BookOpen, 
+  TrendingUp, 
+  Users, 
+  Star, 
+  Search, 
+  Filter,
+  ArrowRight,
+  Sparkles,
+  Brain,
+  Code,
+  Lightbulb
+} from 'lucide-react';
 import BlogList from '../components/blog/BlogList';
 import BlogSidebar from '../components/blog/BlogSidebar';
 import { useSEO } from '../hooks/useSEO';
 
 const Blog = () => {
+  const [loading, setLoading] = useState(true);
+
   // SEO optimization
   useSEO({
     title: 'Tech Blog - Latest Insights & Tutorials | EEE Technologies',
-    description: 'Stay updated with the latest tech trends, tutorials, and insights. Expert articles on web development, data science, AI/ML, mobile development, and career tips.',
-    keywords: 'tech blog, programming tutorials, web development, data science, AI, machine learning, mobile development, career tips, technology news',
-    ogImage: '/images/blog-og.jpg'
+    description: 'Stay updated with the latest tech trends, tutorials, and insights from industry experts. Learn about web development, AI/ML, data science, and more.',
+    keywords: 'tech blog, programming tutorials, web development, AI, machine learning, data science, career tips'
   });
 
-  const [loading, setLoading] = useState(false);
-
+  // Sample blog posts data
   const blogPosts = [
     {
       id: 1,
-      title: 'Complete Guide to React Hooks in 2024',
-      excerpt: 'Master React Hooks with practical examples and best practices. Learn useState, useEffect, useContext, and custom hooks.',
-      date: 'December 15, 2024',
-      category: 'Web Development',
-      readTime: '12 min read',
-      author: 'Sarah Johnson',
-      image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['React', 'JavaScript', 'Frontend', 'Hooks'],
+      title: "Complete Guide to React Hooks in 2024",
+      excerpt: "Master React Hooks with practical examples and best practices. Learn useState, useEffect, useContext, and custom hooks.",
+      date: "Dec 15, 2024",
+      category: "Web Development",
+      readTime: "8 min read",
+      author: {
+        name: "Sarah Johnson",
+        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+      },
+      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      tags: ["React", "JavaScript", "Hooks", "Frontend"],
       likes: 245,
-      isLiked: false,
-      isBookmarked: false,
       rating: 4.8
     },
     {
       id: 2,
-      title: 'Python for Data Science: Advanced Techniques',
-      excerpt: 'Discover advanced Python techniques for data analysis, visualization, and machine learning with real-world examples.',
-      date: 'December 12, 2024',
-      category: 'Data Science',
-      readTime: '15 min read',
-      author: 'Dr. Michael Chen',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['Python', 'Data Science', 'Machine Learning', 'Pandas'],
+      title: "Building Scalable APIs with Node.js and Express",
+      excerpt: "Learn how to create robust, scalable APIs using Node.js, Express, and modern best practices for enterprise applications.",
+      date: "Dec 12, 2024",
+      category: "Web Development",
+      readTime: "12 min read",
+      author: {
+        name: "Mike Chen",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+      },
+      image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      tags: ["Node.js", "Express", "API", "Backend"],
       likes: 189,
-      isLiked: false,
-      isBookmarked: false,
-      rating: 4.9
-    },
-    {
-      id: 3,
-      title: 'Building Scalable APIs with Node.js and Express',
-      excerpt: 'Learn to build robust, scalable APIs using Node.js, Express, and MongoDB. Includes authentication, validation, and deployment.',
-      date: 'December 10, 2024',
-      category: 'Web Development',
-      readTime: '18 min read',
-      author: 'Alex Rodriguez',
-      image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['Node.js', 'Express', 'API', 'Backend'],
-      likes: 156,
-      isLiked: false,
-      isBookmarked: false,
       rating: 4.7
     },
     {
+      id: 3,
+      title: "Machine Learning Fundamentals for Beginners",
+      excerpt: "Start your ML journey with this comprehensive guide covering algorithms, data preprocessing, and practical implementations.",
+      date: "Dec 10, 2024",
+      category: "AI/ML",
+      readTime: "15 min read",
+      author: {
+        name: "Dr. Emily Rodriguez",
+        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+      },
+      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      tags: ["Machine Learning", "Python", "AI", "Data Science"],
+      likes: 312,
+      rating: 4.9
+    },
+    {
       id: 4,
-      title: 'Mobile App Development with React Native',
-      excerpt: 'Create cross-platform mobile apps with React Native. From setup to deployment on iOS and Android app stores.',
-      date: 'December 8, 2024',
-      category: 'Mobile Development',
-      readTime: '20 min read',
-      author: 'Emily Davis',
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['React Native', 'Mobile', 'iOS', 'Android'],
-      likes: 134,
-      isLiked: false,
-      isBookmarked: false,
+      title: "CSS Grid vs Flexbox: When to Use Which",
+      excerpt: "Master CSS layout with this detailed comparison of Grid and Flexbox, including practical examples and use cases.",
+      date: "Dec 8, 2024",
+      category: "Web Development",
+      readTime: "10 min read",
+      author: {
+        name: "Alex Thompson",
+        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+      },
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      tags: ["CSS", "Grid", "Flexbox", "Layout"],
+      likes: 156,
       rating: 4.6
     },
     {
       id: 5,
-      title: 'DevOps Best Practices for Modern Development',
-      excerpt: 'Essential DevOps practices including CI/CD, containerization with Docker, and cloud deployment strategies.',
-      date: 'December 5, 2024',
-      category: 'DevOps',
-      readTime: '16 min read',
-      author: 'James Wilson',
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['DevOps', 'Docker', 'CI/CD', 'AWS'],
-      likes: 198,
-      isLiked: false,
-      isBookmarked: false,
-      rating: 4.8
+      title: "Data Visualization with Python and Matplotlib",
+      excerpt: "Create stunning data visualizations using Python's Matplotlib library. Learn charts, graphs, and interactive plots.",
+      date: "Dec 5, 2024",
+      category: "Data Science",
+      readTime: "14 min read",
+      author: {
+        name: "Lisa Wang",
+        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+      },
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      tags: ["Python", "Matplotlib", "Data Visualization", "Analytics"],
+      likes: 203,
+      rating: 4.7
     },
     {
       id: 6,
-      title: 'Career Growth Strategies for Tech Professionals',
-      excerpt: 'Proven strategies to accelerate your tech career. From skill development to networking and leadership tips.',
-      date: 'December 3, 2024',
-      category: 'Career Tips',
-      readTime: '14 min read',
-      author: 'Lisa Thompson',
-      image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['Career', 'Professional Development', 'Leadership'],
-      likes: 167,
-      isLiked: false,
-      isBookmarked: false,
-      rating: 4.5
+      title: "Career Tips: Landing Your First Tech Job",
+      excerpt: "Essential advice for breaking into the tech industry, from building your portfolio to acing technical interviews.",
+      date: "Dec 3, 2024",
+      category: "Career Tips",
+      readTime: "11 min read",
+      author: {
+        name: "David Kumar",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+      },
+      image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      tags: ["Career", "Job Search", "Interview", "Portfolio"],
+      likes: 278,
+      rating: 4.8
     }
   ];
 
+  // Handle functions
   const handleLike = (postId) => {
     console.log('Liked post:', postId);
   };
@@ -125,10 +144,17 @@ const Blog = () => {
     console.log('Subscribed with email:', email);
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Animation variants
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
+      y: 0,
       transition: {
         duration: 0.6,
         staggerChildren: 0.1
@@ -137,103 +163,168 @@ const Blog = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
+      transition: { duration: 0.6 }
     }
   };
 
+  const statsData = [
+    { icon: BookOpen, value: "150+", label: "Articles Published", color: "from-blue-500 to-cyan-500" },
+    { icon: Users, value: "25K+", label: "Monthly Readers", color: "from-purple-500 to-pink-500" },
+    { icon: TrendingUp, value: "95%", label: "Reader Satisfaction", color: "from-green-500 to-emerald-500" },
+    { icon: Star, value: "4.9", label: "Average Rating", color: "from-yellow-500 to-orange-500" }
+  ];
+
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className="min-h-screen bg-gray-50 dark:bg-gray-900"
-    >
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+      {loading && (
+        <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-purple-600"></div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <motion.section
-        variants={itemVariants}
-        className="relative bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-700 text-white py-20 overflow-hidden"
+        className="relative bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-600 py-24 overflow-hidden"
+        variants={sectionVariants}
+        initial="hidden"
+        animate="visible"
       >
-        {/* Background Animation */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-black/20"></div>
-          {[...Array(6)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-32 h-32 bg-white/10 rounded-full blur-xl"
-              animate={{
-                x: [0, 100, 0],
-                y: [0, -100, 0],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 8 + i * 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 1.5
-              }}
-              style={{
-                left: `${10 + i * 15}%`,
-                top: `${20 + (i % 3) * 20}%`,
-              }}
-            />
-          ))}
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            className="absolute -top-20 -left-20 w-96 h-96 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-3xl"
+          />
+          <motion.div
+            animate={{
+              scale: [1.2, 1, 1.2],
+              rotate: [360, 0],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            className="absolute top-40 right-0 w-[500px] h-[500px] bg-gradient-to-r from-blue-500/30 to-cyan-500/30 rounded-full blur-3xl"
+          />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Tech <span className="text-yellow-400">Insights</span> & Tutorials
-            </h1>
-            <p className="text-xl md:text-2xl text-purple-100 max-w-3xl mx-auto mb-8">
-              Stay ahead with expert articles, in-depth tutorials, and the latest trends in technology
-            </p>
-            
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            {/* Badge */}
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white text-sm font-semibold mb-8"
+            >
+              <Sparkles className="w-4 h-4 mr-2 text-yellow-400" />
+              Latest Tech Insights & Tutorials
+            </motion.div>
+
+            {/* Main Heading */}
+            <motion.h1
+              variants={itemVariants}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+            >
+              Tech Blog &{' '}
+              <span className="bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+                Learning Hub
+              </span>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              variants={itemVariants}
+              className="text-xl text-purple-100 mb-12 max-w-3xl mx-auto leading-relaxed"
+            >
+              Stay ahead of the curve with expert insights, practical tutorials, and industry trends. 
+              Learn from experienced developers and advance your tech career.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 bg-white text-purple-600 font-bold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                <span className="flex items-center justify-center">
+                  <BookOpen className="w-5 h-5 mr-2" />
+                  Start Reading
+                </span>
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 bg-white/20 backdrop-blur-xl border border-white/30 text-white font-bold rounded-2xl hover:bg-white/30 transition-all duration-300"
+              >
+                <span className="flex items-center justify-center">
+                  <Search className="w-5 h-5 mr-2" />
+                  Explore Topics
+                </span>
+              </motion.button>
+            </motion.div>
+
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-yellow-400">150+</div>
-                <div className="text-purple-200">Articles</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-yellow-400">25K+</div>
-                <div className="text-purple-200">Readers</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-yellow-400">15+</div>
-                <div className="text-purple-200">Authors</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-yellow-400">4.8★</div>
-                <div className="text-purple-200">Rating</div>
-              </div>
-            </div>
-          </motion.div>
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
+            >
+              {statsData.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="relative group"
+                >
+                  <div className="text-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
+                    <div className={`flex items-center justify-center w-12 h-12 bg-gradient-to-r ${stat.color} rounded-xl mb-3 mx-auto`}>
+                      <stat.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="text-2xl font-bold text-white mb-1">
+                      {stat.value}
+                    </div>
+                    <div className="text-sm text-purple-100 font-medium">
+                      {stat.label}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </motion.section>
 
       {/* Main Content */}
       <motion.section
-        variants={itemVariants}
-        className="py-16 px-4 sm:px-6 lg:px-8"
+        className="py-20"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-4 gap-8">
-            {/* Main Blog Content */}
-            <div className="lg:col-span-3">
-              <BlogList
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-3 gap-12">
+            {/* Blog List */}
+            <div className="lg:col-span-2">
+              <BlogList 
                 posts={blogPosts}
-                loading={loading}
                 onLike={handleLike}
                 onShare={handleShare}
                 onBookmark={handleBookmark}
@@ -242,7 +333,7 @@ const Blog = () => {
 
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <BlogSidebar
+              <BlogSidebar 
                 onSubscribe={handleSubscribe}
               />
             </div>
@@ -252,28 +343,46 @@ const Blog = () => {
 
       {/* Newsletter CTA */}
       <motion.section
-        variants={itemVariants}
-        className="py-16 bg-gradient-to-r from-purple-600 to-blue-600 text-white"
+        className="py-20 bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
       >
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Never Miss an Update
-          </h2>
-          <p className="text-xl text-purple-100 mb-8">
-            Join thousands of developers who get our latest articles delivered to their inbox
-          </p>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center px-8 py-4 bg-white text-purple-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors duration-200"
+            variants={itemVariants}
+            className="bg-white/10 backdrop-blur-xl rounded-3xl p-12 border border-white/20"
           >
-            <BookOpen className="w-5 h-5 mr-2" />
-            Subscribe to Newsletter
-            <ArrowRight className="w-5 h-5 ml-2" />
+            <div className="flex items-center justify-center mb-6">
+              <div className="p-4 bg-white/20 rounded-2xl">
+                <Brain className="w-8 h-8 text-white" />
+              </div>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Never Miss an Update
+            </h2>
+            <p className="text-xl text-purple-100 mb-8">
+              Join our community of learners and get the latest tutorials, tips, and insights delivered to your inbox.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-6 py-4 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-transparent"
+              />
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 bg-white text-purple-600 font-bold rounded-xl hover:bg-gray-100 transition-colors duration-200"
+              >
+                Subscribe
+              </motion.button>
+            </div>
           </motion.div>
         </div>
       </motion.section>
-    </motion.div>
+    </div>
   );
 };
 

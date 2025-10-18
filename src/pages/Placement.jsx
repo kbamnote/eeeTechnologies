@@ -1,568 +1,373 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  TrendingUp, 
+  ArrowRight, 
+  Target, 
   Users, 
-  Building2, 
-  DollarSign, 
-  FileText, 
-  MessageSquare, 
-  UserCheck, 
-  Network,
-  Award,
-  Target,
-  CheckCircle,
+  Award, 
+  TrendingUp,
   Star,
-  ArrowRight,
+  CheckCircle,
   Briefcase,
-  GraduationCap,
-  MapPin,
-  Calendar
+  Clock,
+  MapPin
 } from 'lucide-react';
-import { useSEO } from '../hooks/useSEO';
-import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation';
+
+// Import placement components
+import PlacementStats from '../components/placement/PlacementStats';
+import CompanyLogos from '../components/placement/CompanyLogos';
+import ProcessTimeline from '../components/placement/ProcessTimeline';
 import SuccessStories from '../components/placement/SuccessStories';
+import RegisterCTA from '../components/placement/RegisterCTA';
 
 const Placement = () => {
-  useSEO({
-    title: 'Placement Assistance & Success Stories | EEE Technologies',
-    description: '95% placement rate with comprehensive career support. Read inspiring success stories of our students who landed jobs at top companies like Google, Microsoft, Amazon.',
-    keywords: 'placement assistance, career support, job placement, success stories, tech jobs, google jobs, microsoft careers, amazon placement, student success',
-    ogImage: '/images/placement-og.jpg'
-  });
-
-  const { ref, controls, isInView } = useScrollAnimation();
-  const { ref: statsRef, controls: statsControls, isInView: statsInView } = useScrollAnimation();
-
-  const stats = [
-    { 
-      number: 95, 
-      suffix: '%', 
-      label: 'Placement Rate',
+  const heroFeatures = [
+    {
+      icon: Target,
+      title: "95% Placement Rate",
+      description: "Industry-leading success rate"
+    },
+    {
       icon: TrendingUp,
-      color: 'from-green-500 to-emerald-600'
+      title: "180% Salary Hike",
+      description: "Average increase guaranteed"
     },
-    { 
-      number: 500, 
-      suffix: '+', 
-      label: 'Students Placed',
+    {
       icon: Users,
-      color: 'from-blue-500 to-cyan-600'
+      title: "200+ Partners",
+      description: "Top-tier company network"
     },
-    { 
-      number: 100, 
-      suffix: '+', 
-      label: 'Partner Companies',
-      icon: Building2,
-      color: 'from-purple-500 to-violet-600'
-    },
-    { 
-      number: 8.5, 
-      prefix: '₹', 
-      suffix: 'L', 
-      label: 'Average Package',
-      icon: DollarSign,
-      color: 'from-orange-500 to-red-600'
+    {
+      icon: Award,
+      title: "Job Guarantee",
+      description: "100% money-back promise"
     }
   ];
 
-  const companies = [
-    { name: 'TCS', logo: '🏢' },
-    { name: 'Infosys', logo: '💼' },
-    { name: 'Wipro', logo: '🌟' },
-    { name: 'Accenture', logo: '⚡' },
-    { name: 'IBM', logo: '🔵' },
-    { name: 'Microsoft', logo: '🪟' },
-    { name: 'Amazon', logo: '📦' },
-    { name: 'Google', logo: '🔍' },
-    { name: 'Cognizant', logo: '🧠' },
-    { name: 'HCL', logo: '💻' },
-    { name: 'Tech Mahindra', logo: '🚀' },
-    { name: 'Capgemini', logo: '⭐' }
+  const quickStats = [
+    { value: "2,500+", label: "Students Placed", icon: Users },
+    { value: "₹45L", label: "Highest Package", icon: TrendingUp },
+    { value: "19 weeks", label: "Avg. Placement Time", icon: Clock },
+    { value: "200+", label: "Partner Companies", icon: Briefcase }
   ];
 
-  const services = [
-    {
-      title: 'Resume Building',
-      description: 'Professional resume crafting to highlight your skills and achievements effectively.',
-      icon: FileText,
-      features: ['ATS-Optimized Format', 'Industry-Specific Templates', 'Professional Review']
-    },
-    {
-      title: 'Interview Preparation',
-      description: 'Mock interviews and technical preparation to boost your confidence.',
-      icon: MessageSquare,
-      features: ['Technical Rounds', 'HR Interviews', 'Group Discussions']
-    },
-    {
-      title: 'Soft Skills Training',
-      description: 'Communication and presentation skills development for workplace success.',
-      icon: UserCheck,
-      features: ['Communication Skills', 'Leadership Training', 'Team Collaboration']
-    },
-    {
-      title: 'Industry Connections',
-      description: 'Direct connections with hiring managers and recruitment teams.',
-      icon: Network,
-      features: ['Direct Referrals', 'Industry Networking', 'Job Alerts']
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1
+      }
     }
-  ];
+  };
 
-  const placementProcess = [
-    {
-      step: '01',
-      title: 'Skill Assessment',
-      description: 'Comprehensive evaluation of your technical and soft skills',
-      icon: Target
-    },
-    {
-      step: '02',
-      title: 'Profile Building',
-      description: 'Create compelling resume and online professional profiles',
-      icon: FileText
-    },
-    {
-      step: '03',
-      title: 'Interview Training',
-      description: 'Intensive mock interviews and feedback sessions',
-      icon: MessageSquare
-    },
-    {
-      step: '04',
-      title: 'Job Matching',
-      description: 'Connect with relevant opportunities based on your profile',
-      icon: Briefcase
-    },
-    {
-      step: '05',
-      title: 'Placement Success',
-      description: 'Secure your dream job with ongoing support',
-      icon: Award
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
     }
-  ];
-
-  const successStories = [
-    {
-      name: 'Priya Sharma',
-      role: 'Software Engineer',
-      company: 'Microsoft',
-      package: '₹12 LPA',
-      image: '👩‍💻',
-      story: 'From zero coding experience to Microsoft in 6 months!'
-    },
-    {
-      name: 'Rahul Kumar',
-      role: 'Data Scientist',
-      company: 'Amazon',
-      package: '₹15 LPA',
-      image: '👨‍💼',
-      story: 'Career transition from mechanical to tech was seamless.'
-    },
-    {
-      name: 'Anita Patel',
-      role: 'Full Stack Developer',
-      company: 'Google',
-      package: '₹18 LPA',
-      image: '👩‍🎓',
-      story: 'Landed my dream job at Google after completing the course.'
-    }
-  ];
-
-  const StatCard = ({ stat, index }) => {
-    const { count } = useCountUp(statsInView ? stat.number : 0, stat.number, 2000);
-    const Icon = stat.icon;
-    
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5, y: 50 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: index * 0.1 }}
-        whileHover={{ scale: 1.05, y: -5 }}
-        className="relative group"
-      >
-        <div className={`bg-gradient-to-br ${stat.color} rounded-2xl p-6 text-white shadow-xl hover:shadow-2xl transition-all duration-300`}>
-          <div className="absolute inset-0 bg-white/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <div className="relative z-10">
-            <Icon className="w-8 h-8 mb-4 mx-auto" />
-            <div className="text-3xl md:text-4xl font-bold mb-2">
-              {stat.prefix}{count}{stat.suffix}
-            </div>
-            <div className="text-white/90 font-medium text-sm">
-              {stat.label}
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    );
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="min-h-screen"
-    >
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50" />
-        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-        
-        <div className="relative max-w-7xl mx-auto">
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-24"
-          >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-blue-100 text-blue-600 px-6 py-3 rounded-full text-sm font-medium mb-8"
-            >
-              <Award className="w-4 h-4" />
-              100% Placement Guarantee
-            </motion.div>
-            
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8">
-              Your <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Dream Job</span>
-              <br />Awaits You
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
-              We don't just teach you skills – we ensure you land your dream job with our comprehensive placement support and industry connections.
-            </p>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-6 justify-center"
-            >
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-4 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center gap-2">
-                <GraduationCap className="w-5 h-5" />
-                Start Your Journey
-                <ArrowRight className="w-4 h-4" />
-              </button>
-              <button className="border-2 border-gray-300 text-gray-700 px-10 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300">
-                View Success Stories
-              </button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-            <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="space-y-20"
+      >
+        {/* Hero Section */}
+        <section className="relative pt-20 pb-16 overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10"></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
+          
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
               <motion.div
-                ref={statsRef}
-                initial={{ opacity: 0, y: 30 }}
-                animate={statsInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8 }}
-                className="text-center mb-16"
+                variants={cardVariants}
+                className="inline-block bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full text-sm font-medium mb-6"
               >
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                  Our Track Record
-                </h2>
-                <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                  Numbers that speak for our commitment to your success
-                </p>
+                🚀 #1 Placement Program in India
               </motion.div>
+              
+              <motion.h1
+                variants={cardVariants}
+                className="text-5xl md:text-7xl font-bold text-gray-900 mb-6"
+              >
+                Land Your
+                <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                  {" "}Dream Job
+                </span>
+              </motion.h1>
+              
+              <motion.p
+                variants={cardVariants}
+                className="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto"
+              >
+                Join our proven placement program and transform your career with guaranteed job placement, 
+                industry mentorship, and comprehensive skill development.
+              </motion.p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white rounded-2xl p-8 md:p-10 shadow-lg hover:shadow-xl transition-all duration-300 group border border-gray-100 hover:border-blue-200"
+              <motion.div
+                variants={cardVariants}
+                className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+              >
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-2xl transition-all duration-200 flex items-center justify-center space-x-2"
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                    {Icon && <Icon className="w-8 h-8 text-blue-600" />}
-                  </div>
+                  <span>Start Your Journey</span>
+                  <ArrowRight className="w-5 h-5" />
+                </motion.button>
                 
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
-                  {service.title}
-                </h3>
-                
-                <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-                  {service.description}
-                </p>
-                
-                <ul className="space-y-3">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-purple-50 transition-all duration-200"
+                >
+                  Watch Success Stories
+                </motion.button>
               </motion.div>
-              );
-            })}
+
+              {/* Hero Features */}
+              <motion.div
+                variants={cardVariants}
+                className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
+              >
+                {heroFeatures.map((feature, index) => {
+                  const IconComponent = feature.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      variants={cardVariants}
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20 text-center"
+                    >
+                      <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <IconComponent className="w-6 h-6" />
+                      </div>
+                      <h3 className="font-bold text-gray-900 mb-1 text-sm md:text-base">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-600 text-xs md:text-sm">
+                        {feature.description}
+                      </p>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Placement Process */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our Placement <span className="text-blue-600">Process</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A systematic approach to ensure your career success
-            </p>
-          </motion.div>
+        {/* Quick Stats */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              variants={cardVariants}
+              className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-8 md:p-12 text-white"
+            >
+              <div className="text-center mb-8">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  Proven Track Record of Success
+                </h2>
+                <p className="text-purple-100 text-lg">
+                  Numbers that speak for our excellence in career transformation
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {quickStats.map((stat, index) => {
+                  const IconComponent = stat.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      variants={cardVariants}
+                      whileHover={{ scale: 1.05 }}
+                      className="text-center"
+                    >
+                      <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <IconComponent className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="text-3xl md:text-4xl font-bold mb-2">{stat.value}</div>
+                      <div className="text-purple-100">{stat.label}</div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
-          <div className="relative">
-            {/* Process Line */}
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transform -translate-y-1/2" />
-            
-            <div className="grid md:grid-cols-5 gap-8">
-              {placementProcess.map((process, index) => {
-                const Icon = process.icon;
+        {/* Placement Stats Component */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div variants={cardVariants}>
+              <PlacementStats />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Company Logos Component */}
+        <section className="py-16 bg-gradient-to-r from-gray-50 to-blue-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div variants={cardVariants}>
+              <CompanyLogos />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Process Timeline Component */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div variants={cardVariants}>
+              <ProcessTimeline />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Success Stories Component */}
+        <section className="py-16 bg-gradient-to-r from-purple-50 to-pink-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div variants={cardVariants}>
+              <SuccessStories />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Why Choose Us */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div variants={cardVariants} className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Why Choose Our Placement Program?
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                We don't just teach - we guarantee your career transformation with our comprehensive approach
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Target,
+                  title: "Guaranteed Placement",
+                  description: "100% job guarantee or full money back. We're confident in our ability to place you.",
+                  color: "purple"
+                },
+                {
+                  icon: Users,
+                  title: "Industry Mentorship",
+                  description: "Learn from industry experts who have worked at top companies and understand market needs.",
+                  color: "blue"
+                },
+                {
+                  icon: TrendingUp,
+                  title: "Salary Negotiation",
+                  description: "Our career counselors help you negotiate the best possible salary package.",
+                  color: "green"
+                },
+                {
+                  icon: Award,
+                  title: "Skill Certification",
+                  description: "Get industry-recognized certifications that employers value and trust.",
+                  color: "orange"
+                },
+                {
+                  icon: Clock,
+                  title: "Lifetime Support",
+                  description: "Career guidance doesn't end with placement. We support you throughout your career journey.",
+                  color: "pink"
+                },
+                {
+                  icon: CheckCircle,
+                  title: "Proven Methodology",
+                  description: "Our time-tested approach has successfully placed thousands of students in top companies.",
+                  color: "indigo"
+                }
+              ].map((feature, index) => {
+                const IconComponent = feature.icon;
                 return (
                   <motion.div
-                    key={process.step}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="relative text-center"
+                    key={index}
+                    variants={cardVariants}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20"
                   >
-                    <div className="relative z-10 bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group hover:scale-105">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-                      <div className="text-2xl font-bold text-blue-600 mb-2">{process.step}</div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2">{process.title}</h3>
-                      <p className="text-gray-600 text-sm">{process.description}</p>
+                    <div className={`w-16 h-16 bg-${feature.color}-100 text-${feature.color}-600 rounded-2xl flex items-center justify-center mb-6`}>
+                      <IconComponent className="w-8 h-8" />
                     </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600">
+                      {feature.description}
+                    </p>
                   </motion.div>
                 );
               })}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Services Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Placement <span className="text-blue-600">Services</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive support to land your dream job
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -10 }}
-                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
-                >
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    {Icon && <Icon className="w-8 h-8 text-blue-600" />}
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-6">
-                    {service.description}
-                  </p>
-                  
-                  <ul className="space-y-2">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-sm text-gray-600">
-                        <CheckCircle className="w-4 h-4 text-green-500" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              );
-            })}
+        {/* Register CTA Component */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div variants={cardVariants}>
+              <RegisterCTA />
+            </motion.div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Success Stories */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Success <span className="text-blue-600">Stories</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real students, real success stories
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {successStories.map((story, index) => (
-              <motion.div
-                key={story.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="text-center mb-6">
-                  <div className="text-6xl mb-4">{story.image}</div>
-                  <h3 className="text-xl font-bold text-gray-900">{story.name}</h3>
-                  <p className="text-blue-600 font-medium">{story.role}</p>
-                  <p className="text-gray-600">{story.company}</p>
-                </div>
-                
-                <div className="text-center mb-6">
-                  <div className="text-2xl font-bold text-green-600 mb-2">{story.package}</div>
-                  <div className="flex justify-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                </div>
-                
-                <p className="text-gray-600 text-center italic">
-                  "{story.story}"
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Partner Companies */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our Placement <span className="text-blue-600">Partners</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Top companies trust our graduates
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {companies.map((company, index) => (
-              <motion.div
-                key={company.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center group"
-              >
-                <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {company.logo}
-                </div>
-                <span className="text-gray-700 font-medium text-sm text-center">
-                  {company.name}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Success Stories Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <SuccessStories />
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 rounded-3xl p-12 text-center text-white overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-black/20" />
-            <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to Start Your Career Journey?
-              </h3>
-              <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Join thousands of successful graduates who landed their dream jobs with our comprehensive placement support.
+        {/* Final CTA */}
+        <section className="py-16 bg-gradient-to-r from-gray-900 to-gray-800">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div variants={cardVariants}>
+              <Star className="w-20 h-20 text-yellow-400 mx-auto mb-6" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Transform Your Career?
+              </h2>
+              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                Join thousands of successful graduates who trusted us with their career transformation. 
+                Your dream job is just one decision away.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white text-blue-600 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-300 flex items-center gap-2 justify-center"
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-12 py-4 rounded-lg font-bold text-lg hover:shadow-2xl transition-all duration-200 flex items-center justify-center space-x-2"
                 >
-                  <Briefcase className="w-5 h-5" />
-                  Get Placement Support
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Enroll Now</span>
+                  <ArrowRight className="w-5 h-5" />
                 </motion.button>
                 
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="border-2 border-white/30 text-white font-bold py-4 px-8 rounded-xl hover:bg-white/10 transition-all duration-300"
+                  className="border-2 border-white text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-gray-900 transition-all duration-200"
                 >
-                  Schedule Consultation
+                  Schedule Free Consultation
                 </motion.button>
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </motion.div>
+
+              <div className="mt-8 text-sm text-gray-400">
+                <p>✅ No hidden fees • ✅ 100% job guarantee • ✅ EMI options available</p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      </motion.div>
+    </div>
   );
 };
 

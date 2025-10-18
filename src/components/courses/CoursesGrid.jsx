@@ -249,7 +249,7 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
         whileHover={{ y: -8, scale: 1.02 }}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
-        className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 group"
+        className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200 group"
       >
         {/* Course Image */}
         <div className="relative h-48 overflow-hidden">
@@ -289,7 +289,7 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
           </motion.div>
 
           {/* Price Badge */}
-          <div className="absolute top-4 right-4 bg-white dark:bg-gray-800 rounded-lg p-2 shadow-lg">
+          <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-2 shadow-lg">
             <div className="text-right">
               <div className="text-lg font-bold text-purple-600">₹{course.price?.toLocaleString()}</div>
               {course.originalPrice && (
@@ -303,21 +303,21 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
         <div className="p-6">
           {/* Category & Level */}
           <div className="flex items-center justify-between mb-3">
-            <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-sm font-medium rounded-full">
+            <span className="px-3 py-1 bg-purple-100 text-purple-600 text-sm font-medium rounded-full">
               {course.category}
             </span>
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <span className="text-sm text-gray-500">
               {course.level}
             </span>
           </div>
 
           {/* Title */}
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-200">
+          <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-purple-600 transition-colors duration-200">
             {course.title}
           </h3>
 
           {/* Description */}
-          <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2 text-sm leading-relaxed">
+          <p className="text-gray-600 mb-4 line-clamp-2 text-sm leading-relaxed">
             {course.description}
           </p>
 
@@ -328,13 +328,13 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
               alt={course.instructor}
               className="w-8 h-8 rounded-full mr-3 object-cover"
             />
-            <span className="text-sm text-gray-600 dark:text-gray-400">
+            <span className="text-sm text-gray-600">
               {course.instructor}
             </span>
           </div>
 
           {/* Stats */}
-          <div className="flex items-center justify-between mb-4 text-sm text-gray-500 dark:text-gray-400">
+          <div className="flex items-center justify-between mb-4 text-sm text-gray-500">
             <div className="flex items-center">
               <Clock className="w-4 h-4 mr-1" />
               <span>{course.duration}</span>
@@ -356,13 +356,13 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
               {course.skills?.slice(0, 4).map((skill, index) => (
                 <span
                   key={skill}
-                  className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs rounded-md"
+                  className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-md"
                 >
                   {skill}
                 </span>
               ))}
               {course.skills?.length > 4 && (
-                <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs rounded-md">
+                <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-md">
                   +{course.skills.length - 4} more
                 </span>
               )}
@@ -373,7 +373,7 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
           <div className="mb-6">
             <div className="grid grid-cols-2 gap-2">
               {course.features?.slice(0, 4).map((feature, index) => (
-                <div key={feature} className="flex items-center text-xs text-gray-600 dark:text-gray-400">
+                <div key={feature} className="flex items-center text-xs text-gray-600">
                   <CheckCircle className="w-3 h-3 mr-1 text-green-500" />
                   <span>{feature}</span>
                 </div>
@@ -382,12 +382,12 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
           </div>
 
           {/* Next Batch */}
-          <div className="flex items-center justify-between mb-6 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+          <div className="flex items-center justify-between mb-6 p-3 bg-gray-50 rounded-lg">
             <div className="flex items-center text-sm">
               <Calendar className="w-4 h-4 mr-2 text-purple-600" />
-              <span className="text-gray-600 dark:text-gray-400">Next Batch:</span>
+              <span className="text-gray-600">Next Batch:</span>
             </div>
-            <span className="text-sm font-semibold text-purple-600 dark:text-purple-400">
+            <span className="text-sm font-semibold text-purple-600">
               {course.nextBatch}
             </span>
           </div>
@@ -432,7 +432,7 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
       {/* Filters */}
       <motion.div
         variants={cardVariants}
-        className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700"
+        className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200"
       >
         {/* Search */}
         <div className="relative mb-6">
@@ -442,7 +442,7 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
             placeholder="Search courses, skills, or instructors..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200"
+            className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 text-gray-900 placeholder-gray-500 transition-all duration-200"
           />
         </div>
 
@@ -450,13 +450,13 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {/* Category Filter */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Category
             </label>
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+              className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 text-gray-900 text-sm"
             >
               {categories.map(category => (
                 <option key={category.id} value={category.id}>
@@ -468,13 +468,13 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
 
           {/* Level Filter */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Level
             </label>
             <select
               value={selectedLevel}
               onChange={(e) => setSelectedLevel(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+              className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 text-gray-900 text-sm"
             >
               {levels.map(level => (
                 <option key={level.id} value={level.id}>
@@ -486,13 +486,13 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
 
           {/* Sort Filter */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Sort By
             </label>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+              className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 text-gray-900 text-sm"
             >
               {sortOptions.map(option => (
                 <option key={option.id} value={option.id}>
@@ -504,7 +504,7 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
 
           {/* Results Count */}
           <div className="flex items-end">
-            <div className="text-sm text-gray-600 dark:text-gray-400">
+            <div className="text-sm text-gray-600">
               <span className="font-semibold text-purple-600">{filteredCourses.length}</span> courses found
             </div>
           </div>
@@ -533,10 +533,10 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
               <div className="text-gray-400 mb-4">
                 <BookOpen className="w-16 h-16 mx-auto mb-4 opacity-50" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-600 dark:text-gray-400 mb-2">
+              <h3 className="text-xl font-semibold text-gray-600 mb-2">
                 No courses found
               </h3>
-              <p className="text-gray-500 dark:text-gray-500">
+              <p className="text-gray-500">
                 Try adjusting your search terms or filters
               </p>
             </motion.div>

@@ -112,7 +112,7 @@ const BlogCard = ({
       viewport={{ once: true, margin: "-50px" }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 hover:border-purple-200 dark:hover:border-purple-600"
+      className="group relative bg-white/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 hover:border-purple-200"
     >
       {/* Image Section */}
       <div className="relative h-48 sm:h-56 overflow-hidden">
@@ -185,11 +185,11 @@ const BlogCard = ({
         className="p-6"
       >
         {/* Meta Information */}
-        <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-3">
+        <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-1">
               <User size={14} />
-              <span>{author || "John Doe"}</span>
+              <span>{typeof author === 'object' ? author.name : author || "John Doe"}</span>
             </div>
             <div className="flex items-center space-x-1">
               <Calendar size={14} />
@@ -204,7 +204,7 @@ const BlogCard = ({
 
         {/* Title */}
         <motion.h3
-          className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300"
+          className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-purple-600 transition-colors duration-300"
           whileHover={{ x: 5 }}
           transition={{ duration: 0.2 }}
         >
@@ -212,7 +212,7 @@ const BlogCard = ({
         </motion.h3>
 
         {/* Excerpt */}
-        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 leading-relaxed">
+        <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
           {excerpt || "Discover the latest techniques and best practices for creating scalable, performant web applications using modern React patterns and Next.js features."}
         </p>
 
@@ -225,7 +225,7 @@ const BlogCard = ({
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4 + index * 0.1 }}
-                className="px-2 py-1 text-xs font-medium text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/30 rounded-md"
+                className="px-2 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded-md"
               >
                 #{tag}
               </motion.span>
@@ -246,8 +246,8 @@ const BlogCard = ({
             }}
             className={`flex items-center space-x-2 px-3 py-1 rounded-full transition-colors duration-200 ${
               isLiked 
-                ? 'text-red-500 bg-red-50 dark:bg-red-900/30' 
-                : 'text-gray-500 dark:text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30'
+                ? 'text-red-500 bg-red-50' 
+                : 'text-gray-500 hover:text-red-500 hover:bg-red-50'
             }`}
           >
             <Heart size={16} fill={isLiked ? 'currentColor' : 'none'} />

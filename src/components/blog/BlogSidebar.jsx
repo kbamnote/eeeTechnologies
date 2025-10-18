@@ -12,6 +12,7 @@ import {
   ArrowRight,
   BookOpen,
   Users,
+  Eye,
   Award
 } from 'lucide-react';
 
@@ -105,15 +106,15 @@ const BlogSidebar = ({
 
   return (
     <motion.aside
+      className="space-y-8"
       variants={sidebarVariants}
       initial="hidden"
       animate="visible"
-      className="space-y-8"
     >
       {/* Newsletter Subscription */}
       <motion.div
+        className="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl p-6 text-white relative overflow-hidden"
         variants={itemVariants}
-        className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl p-6 text-white relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-black/10 rounded-2xl"></div>
         <div className="relative z-10">
@@ -159,9 +160,9 @@ const BlogSidebar = ({
       {/* Blog Stats */}
       <motion.div
         variants={itemVariants}
-        className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700"
+        className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/20"
       >
-        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+        <h3 className="text-lg font-bold text-gray-900 mb-4">
           Blog Statistics
         </h3>
         <div className="space-y-4">
@@ -174,12 +175,12 @@ const BlogSidebar = ({
               className="flex items-center justify-between"
             >
               <div className="flex items-center">
-                <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg mr-3">
-                  <stat.icon className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                <div className="p-2 bg-purple-100 rounded-lg mr-3">
+                  <stat.icon className="w-4 h-4 text-purple-600" />
                 </div>
-                <span className="text-gray-600 dark:text-gray-400">{stat.label}</span>
+                <span className="text-gray-600">{stat.label}</span>
               </div>
-              <span className="font-bold text-gray-900 dark:text-white">{stat.value}</span>
+              <span className="font-bold text-gray-900">{stat.value}</span>
             </motion.div>
           ))}
         </div>
@@ -187,12 +188,12 @@ const BlogSidebar = ({
 
       {/* Popular Posts */}
       <motion.div
+        className="bg-white backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/20"
         variants={itemVariants}
-        className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700"
       >
         <div className="flex items-center mb-4">
           <TrendingUp className="w-5 h-5 text-purple-600 mr-2" />
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+          <h3 className="text-lg font-bold text-gray-900">
             Popular Posts
           </h3>
         </div>
@@ -215,14 +216,15 @@ const BlogSidebar = ({
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-sm font-semibold text-gray-900 dark:text-white line-clamp-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-200">
+                  <h4 className="font-semibold text-gray-900 text-sm line-clamp-2 group-hover:text-purple-600 transition-colors duration-200">
                     {post.title}
                   </h4>
-                  <div className="flex items-center mt-2 text-xs text-gray-500 dark:text-gray-400">
-                    <Calendar className="w-3 h-3 mr-1" />
+                  <div className="flex items-center justify-between text-xs text-gray-500 mt-1">
                     <span>{post.date}</span>
-                    <span className="mx-2">•</span>
-                    <span>{post.views?.toLocaleString()} views</span>
+                    <div className="flex items-center space-x-1">
+                      <Eye className="w-3 h-3" />
+                      <span>{post.views}</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -233,12 +235,11 @@ const BlogSidebar = ({
 
       {/* Categories */}
       <motion.div
+        className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/20"
         variants={itemVariants}
-        className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700"
-      >
-        <div className="flex items-center mb-4">
+      >   <div className="flex items-center mb-4">
           <Tag className="w-5 h-5 text-purple-600 mr-2" />
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+          <h3 className="text-lg font-bold text-gray-900">
             Categories
           </h3>
         </div>
@@ -252,15 +253,15 @@ const BlogSidebar = ({
               whileHover={{ x: 5 }}
               className="group cursor-pointer"
             >
-              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
+              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                 <div className="flex items-center">
                   <div className={`w-3 h-3 rounded-full ${category.color} mr-3`}></div>
-                  <span className="text-gray-700 dark:text-gray-300 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-200">
+                  <span className="text-gray-700 group-hover:text-purple-600 transition-colors duration-200">
                     {category.name}
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-sm text-gray-500 dark:text-gray-400 mr-2">
+                  <span className="text-sm text-gray-500 mr-2">
                     {category.count}
                   </span>
                   <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 group-hover:translate-x-1 transition-all duration-200" />
@@ -274,11 +275,11 @@ const BlogSidebar = ({
       {/* Tags Cloud */}
       <motion.div
         variants={itemVariants}
-        className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700"
+        className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/20"
       >
         <div className="flex items-center mb-4">
           <Tag className="w-5 h-5 text-purple-600 mr-2" />
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+          <h3 className="text-lg font-bold text-gray-900">
             Popular Tags
           </h3>
         </div>
@@ -290,7 +291,7 @@ const BlogSidebar = ({
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.05 }}
               whileHover={{ scale: 1.05 }}
-              className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full hover:bg-purple-100 dark:hover:bg-purple-900/30 hover:text-purple-600 dark:hover:text-purple-400 cursor-pointer transition-all duration-200"
+              className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full hover:bg-purple-100 hover:text-purple-600 cursor-pointer transition-all duration-200"
             >
               #{tag}
             </motion.span>
@@ -300,13 +301,12 @@ const BlogSidebar = ({
 
       {/* Author Spotlight */}
       <motion.div
+        className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/20"
         variants={itemVariants}
-        className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700"
-      >
-        <div className="flex items-center mb-4">
+      >   <div className="flex items-center mb-4">
           <User className="w-5 h-5 text-purple-600 mr-2" />
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-            Featured Author
+          <h3 className="text-lg font-bold text-gray-900">
+            Author Spotlight
           </h3>
         </div>
         <div className="text-center">
@@ -316,10 +316,10 @@ const BlogSidebar = ({
             alt="Featured Author"
             className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
           />
-          <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+          <h4 className="font-semibold text-gray-900 mb-2">
             Alex Johnson
           </h4>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <p className="text-sm text-gray-600 mb-4">
             Senior Full-Stack Developer with 8+ years of experience in modern web technologies.
           </p>
           <motion.button

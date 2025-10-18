@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useAnimation } from 'framer-motion';
-import { ArrowRight, Play, Star, Users, Award, TrendingUp, Code, Zap, Target, X, Sparkles, Rocket, Brain, Globe, ChevronRight } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Award, Users, GraduationCap, TrendingUp, ArrowRight, Sparkles, Target, BookOpen, Code, Brain, Globe, Zap, Rocket, ChevronRight, Star, Building2 } from 'lucide-react';
 
-const HeroSection = () => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+const AboutHeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [particles, setParticles] = useState([]);
   const [currentWord, setCurrentWord] = useState(0);
@@ -12,7 +11,7 @@ const HeroSection = () => {
   const y2 = useTransform(scrollY, [0, 300], [0, -100]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0.3]);
 
-  const words = ["Tech Career", "Future", "Skills", "Success"];
+  const words = ["Excellence", "Innovation", "Leadership", "Success"];
 
   // Rotating words effect
   useEffect(() => {
@@ -24,7 +23,7 @@ const HeroSection = () => {
 
   // Generate floating particles
   useEffect(() => {
-    const newParticles = Array.from({ length: 30 }, (_, i) => ({
+    const newParticles = Array.from({ length: 40 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -47,26 +46,32 @@ const HeroSection = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.15,
-        delayChildren: 0.3
-      }
+  const stats = [
+    {
+      icon: GraduationCap,
+      value: '20,000+',
+      label: 'Successful Students',
+      color: 'from-blue-500 to-cyan-500'
+    },
+    {
+      icon: Award,
+      value: '15+',
+      label: 'Years Excellence',
+      color: 'from-purple-500 to-pink-500'
+    },
+    {
+      icon: Building2,
+      value: '500+',
+      label: 'Industry Partners',
+      color: 'from-orange-500 to-red-500'
+    },
+    {
+      icon: TrendingUp,
+      value: '98%',
+      label: 'Placement Rate',
+      color: 'from-green-500 to-emerald-500'
     }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
-  };
+  ];
 
   const floatingVariants = {
     animate: {
@@ -92,15 +97,8 @@ const HeroSection = () => {
     }
   };
 
-  const statsData = [
-    { icon: Users, value: "10K+", label: "Students Trained", color: "from-blue-500 to-cyan-500" },
-    { icon: Award, value: "95%", label: "Placement Rate", color: "from-purple-500 to-pink-500" },
-    { icon: Star, value: "4.9", label: "Average Rating", color: "from-yellow-500 to-orange-500" },
-    { icon: TrendingUp, value: "500+", label: "Companies Hiring", color: "from-green-500 to-emerald-500" }
-  ];
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-20">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Animated Gradient Orbs */}
@@ -175,9 +173,9 @@ const HeroSection = () => {
 
       <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
           className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center"
         >
           {/* Left Content */}
@@ -190,7 +188,9 @@ const HeroSection = () => {
           >
             {/* Animated Badge */}
             <motion.div
-              variants={itemVariants}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
               whileHover={{ scale: 1.05 }}
               className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-xl border border-purple-400/30 rounded-full text-white text-sm font-semibold mb-8 shadow-lg shadow-purple-500/20"
             >
@@ -200,19 +200,23 @@ const HeroSection = () => {
               >
                 <Sparkles className="w-4 h-4 mr-2 text-yellow-400" />
               </motion.div>
-              #1 Tech Training Institute
+              Leading Tech Education Institute
               <ChevronRight className="w-4 h-4 ml-2" />
             </motion.div>
 
             {/* Main Heading with Rotating Words */}
-            <motion.div variants={itemVariants}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                Transform Your
+                About
                 <span className="block mt-2 relative h-20 lg:h-24">
                   {words.map((word, index) => (
                     <motion.span
                       key={word}
-                      className="absolute left-0 right-0 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
+                      className="absolute left-0 right-0 lg:left-0 lg:right-auto bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
                       initial={{ opacity: 0, y: 50, rotateX: -90 }}
                       animate={{
                         opacity: currentWord === index ? 1 : 0,
@@ -225,21 +229,25 @@ const HeroSection = () => {
                     </motion.span>
                   ))}
                 </span>
-                with Expert Training
+                <span className="text-white">eee Technologies</span>
               </h1>
             </motion.div>
 
             {/* Subtitle */}
             <motion.p
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0"
             >
-              Join thousands of successful professionals who've accelerated their careers with our industry-leading courses in Web Development, Data Science, AI/ML, and more.
+              Empowering minds, transforming careers, and shaping the future of technology education for over 15 years with industry-leading courses and expert mentorship.
             </motion.p>
 
             {/* CTA Buttons */}
             <motion.div
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 mb-14 justify-center lg:justify-start"
             >
               <motion.button
@@ -254,7 +262,7 @@ const HeroSection = () => {
                   transition={{ duration: 0.6 }}
                 />
                 <span className="relative z-10 flex items-center justify-center text-lg">
-                  Start Learning Today
+                  Explore Our Story
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
@@ -267,27 +275,23 @@ const HeroSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => setIsVideoPlaying(true)}
                 className="group relative px-10 py-5 bg-white/10 backdrop-blur-xl border-2 border-purple-400/50 text-white font-bold rounded-2xl hover:bg-white/20 transition-all duration-300 shadow-xl"
               >
                 <span className="flex items-center justify-center text-lg">
-                  <motion.div
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <Play className="mr-3 w-6 h-6 fill-current" />
-                  </motion.div>
-                  Watch Demo
+                  <Users className="mr-3 w-6 h-6" />
+                  Meet Our Team
                 </span>
               </motion.button>
             </motion.div>
 
             {/* Animated Stats */}
             <motion.div
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
               className="grid grid-cols-2 md:grid-cols-4 gap-6"
             >
-              {statsData.map((stat, index) => (
+              {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
                   initial={{ opacity: 0, scale: 0.5 }}
@@ -356,118 +360,79 @@ const HeroSection = () => {
                 transition={{ duration: 0.4 }}
                 className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl rounded-[3rem] p-10 shadow-2xl border border-white/20"
               >
-                {/* Animated Code Editor */}
+                {/* Journey Timeline */}
                 <motion.div 
                   className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 mb-8 shadow-2xl border border-gray-700"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1 }}
                 >
-                  <div className="flex items-center space-x-2 mb-6">
-                    <motion.div 
-                      className="w-3 h-3 bg-red-500 rounded-full"
-                      whileHover={{ scale: 1.3 }}
-                    />
-                    <motion.div 
-                      className="w-3 h-3 bg-yellow-500 rounded-full"
-                      whileHover={{ scale: 1.3 }}
-                    />
-                    <motion.div 
-                      className="w-3 h-3 bg-green-500 rounded-full"
-                      whileHover={{ scale: 1.3 }}
-                    />
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-white font-bold text-lg">Our Journey</h3>
+                    <div className="flex items-center space-x-1">
+                      <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                      <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                      <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                      <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                      <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                    </div>
                   </div>
-                  <div className="space-y-3 text-sm font-mono">
-                    <motion.div 
-                      className="text-purple-400"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 1.2 }}
-                    >
-                      const <span className="text-blue-400">student</span> = {'{'}
-                    </motion.div>
-                    <motion.div 
-                      className="text-green-400 ml-6"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 1.4 }}
-                    >
-                      skills: <span className="text-yellow-400">"beginner"</span>,
-                    </motion.div>
-                    <motion.div 
-                      className="text-blue-400 ml-6"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 1.6 }}
-                    >
-                      learn: <span className="text-purple-400">async</span> () =&gt; {'{'}
-                    </motion.div>
-                    <motion.div 
-                      className="text-pink-400 ml-12"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 1.8 }}
-                    >
-                      await <span className="text-cyan-400">EEE</span>.<span className="text-green-400">masterSkills</span>();
-                    </motion.div>
-                    <motion.div 
-                      className="text-blue-400 ml-6"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 2 }}
-                    >
-                      {'}'}
-                    </motion.div>
-                    <motion.div 
-                      className="text-purple-400"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 2.2 }}
-                    >
-                      {'}'};
-                    </motion.div>
-                    <motion.div 
-                      className="text-gray-500 flex items-center mt-4"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 2.4 }}
-                    >
-                      <Rocket className="w-4 h-4 mr-2 text-yellow-400" />
-                      <span>Career Transformed!</span>
-                    </motion.div>
+                  
+                  <div className="space-y-4">
+                    {[
+                      { year: "2010", milestone: "Founded with a vision", color: "from-blue-400 to-cyan-400", delay: 1.2 },
+                      { year: "2015", milestone: "10,000+ students trained", color: "from-purple-400 to-pink-400", delay: 1.4 },
+                      { year: "2020", milestone: "Industry partnerships", color: "from-green-400 to-emerald-400", delay: 1.6 },
+                      { year: "2025", milestone: "Leading tech institute", color: "from-orange-400 to-red-400", delay: 1.8 }
+                    ].map((item) => (
+                      <motion.div
+                        key={item.year}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: item.delay }}
+                        className="flex items-center gap-4"
+                      >
+                        <div className={`w-16 h-16 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center text-white font-bold shadow-lg flex-shrink-0`}>
+                          {item.year}
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-sm text-gray-300">{item.milestone}</div>
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
                 </motion.div>
 
-                {/* Progress Bars with Animation */}
+                {/* Achievement Metrics */}
                 <div className="space-y-6">
                   {[
-                    { name: "React Mastery", value: 95, color: "from-purple-500 to-pink-500", delay: 2.6 },
-                    { name: "Node.js Skills", value: 88, color: "from-blue-500 to-cyan-500", delay: 2.8 },
-                    { name: "AI/ML Expertise", value: 92, color: "from-green-500 to-emerald-500", delay: 3 }
-                  ].map((skill) => (
+                    { name: "Student Satisfaction", value: 98, color: "from-purple-500 to-pink-500", delay: 2.2 },
+                    { name: "Course Completion", value: 92, color: "from-blue-500 to-cyan-500", delay: 2.4 },
+                    { name: "Career Success", value: 95, color: "from-green-500 to-emerald-500", delay: 2.6 }
+                  ].map((metric) => (
                     <motion.div
-                      key={skill.name}
+                      key={metric.name}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: skill.delay }}
+                      transition={{ delay: metric.delay }}
                     >
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-semibold text-white">{skill.name}</span>
+                        <span className="text-sm font-semibold text-white">{metric.name}</span>
                         <motion.span 
                           className="text-sm font-bold text-purple-400"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
-                          transition={{ delay: skill.delay + 0.5 }}
+                          transition={{ delay: metric.delay + 0.3 }}
                         >
-                          {skill.value}%
+                          {metric.value}%
                         </motion.span>
                       </div>
                       <div className="relative w-full bg-gray-700/50 rounded-full h-3 overflow-hidden">
                         <motion.div
-                          className={`absolute inset-y-0 left-0 bg-gradient-to-r ${skill.color} rounded-full`}
+                          className={`absolute inset-y-0 left-0 bg-gradient-to-r ${metric.color} rounded-full`}
                           initial={{ width: 0 }}
-                          animate={{ width: `${skill.value}%` }}
-                          transition={{ duration: 1.5, delay: skill.delay + 0.3, ease: "easeOut" }}
+                          animate={{ width: `${metric.value}%` }}
+                          transition={{ duration: 1.5, delay: metric.delay + 0.3, ease: "easeOut" }}
                         >
                           <motion.div
                             className="absolute inset-0 bg-white/30"
@@ -484,7 +449,7 @@ const HeroSection = () => {
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
                   animate={{ scale: 1, rotate: 0 }}
-                  transition={{ duration: 0.8, delay: 3.5, type: "spring" }}
+                  transition={{ duration: 0.8, delay: 3, type: "spring" }}
                   whileHover={{ scale: 1.2, rotate: 360 }}
                   className="absolute -top-6 -right-6 bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-400 p-4 rounded-2xl shadow-2xl shadow-orange-500/50 border-4 border-white"
                 >
@@ -510,7 +475,7 @@ const HeroSection = () => {
                 whileHover={{ scale: 1.2, rotate: -360 }}
                 className="absolute -bottom-8 -right-8 w-18 h-18 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-500/50 border-4 border-white/20 cursor-pointer p-4"
               >
-                <Zap className="w-9 h-9 text-white" />
+                <Rocket className="w-9 h-9 text-white" />
               </motion.div>
 
               <motion.div
@@ -537,59 +502,19 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Enhanced Video Modal */}
-      {isVideoPlaying && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-4"
-          onClick={() => setIsVideoPlaying(false)}
-        >
-          <motion.div
-            initial={{ scale: 0.5, opacity: 0, rotateX: -30 }}
-            animate={{ scale: 1, opacity: 1, rotateX: 0 }}
-            exit={{ scale: 0.5, opacity: 0, rotateX: 30 }}
-            transition={{ type: "spring", damping: 25 }}
-            className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 max-w-5xl w-full border border-purple-500/30 shadow-2xl shadow-purple-500/20"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <motion.button
-              onClick={() => setIsVideoPlaying(false)}
-              whileHover={{ scale: 1.1, rotate: 90 }}
-              whileTap={{ scale: 0.9 }}
-              className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center hover:shadow-xl shadow-red-500/50 transition-all border-4 border-white z-10"
-            >
-              <X className="w-6 h-6 text-white" />
-            </motion.button>
-            <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl flex items-center justify-center border border-gray-700">
-              <div className="text-center">
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <Play className="w-24 h-24 text-purple-500 mx-auto mb-6 fill-current" />
-                </motion.div>
-                <p className="text-gray-400 text-xl font-semibold">Demo video would play here</p>
-                <p className="text-gray-500 text-sm mt-2">Experience our revolutionary learning platform</p>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-
       {/* Animated Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 4, duration: 1 }}
+        transition={{ delay: 3.5, duration: 1 }}
         className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 15, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="relative"
+          className="relative flex flex-col items-center gap-2"
         >
+          <span className="text-sm text-gray-400 font-medium">Scroll to explore</span>
           <div className="w-8 h-14 border-3 border-purple-400 rounded-full flex justify-center p-2">
             <motion.div
               animate={{ y: [0, 20, 0], opacity: [1, 0, 1] }}
@@ -600,7 +525,7 @@ const HeroSection = () => {
           <motion.div
             animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="absolute inset-0 border-2 border-purple-400 rounded-full"
+            className="absolute bottom-0 w-8 h-14 border-2 border-purple-400 rounded-full"
           />
         </motion.div>
       </motion.div>
@@ -608,4 +533,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default AboutHeroSection;

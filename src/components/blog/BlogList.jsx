@@ -120,7 +120,7 @@ const BlogList = ({ posts = [], loading = false }) => {
       {/* Search and Filter Header */}
       <motion.div
         variants={itemVariants}
-        className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700"
+        className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-xl border border-white/20"
       >
         {/* Search Bar */}
         <div className="relative mb-6">
@@ -130,7 +130,7 @@ const BlogList = ({ posts = [], loading = false }) => {
             placeholder="Search articles, topics, or tags..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200"
+            className="w-full pl-12 pr-4 py-3 border border-gray-200/50 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 backdrop-blur-sm text-gray-900 placeholder-gray-500 transition-all duration-200"
           />
         </div>
 
@@ -150,7 +150,7 @@ const BlogList = ({ posts = [], loading = false }) => {
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   selectedCategory === category.id
                     ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                    : 'bg-white/60 backdrop-blur-sm text-gray-700 hover:bg-white/80 border border-gray-200/50'
                 }`}
               >
                 {category.name}
@@ -166,7 +166,7 @@ const BlogList = ({ posts = [], loading = false }) => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="appearance-none bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                className="appearance-none bg-white/60 backdrop-blur-sm border border-gray-200/50 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-gray-700 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
               >
                 {sortOptions.map((option) => (
                   <option key={option.id} value={option.id}>
@@ -178,15 +178,15 @@ const BlogList = ({ posts = [], loading = false }) => {
             </div>
 
             {/* View Mode Toggle */}
-            <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
+            <div className="flex bg-white/60 backdrop-blur-sm rounded-lg p-1 border border-gray-200/50">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setViewMode('grid')}
                 className={`p-2 rounded-md transition-all duration-200 ${
                   viewMode === 'grid'
-                    ? 'bg-white dark:bg-gray-600 text-purple-600 shadow-sm'
-                    : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+                    ? 'bg-white text-purple-600 shadow-sm'
+                    : 'text-gray-500 hover:text-gray-700'
                 }`}
               >
                 <Grid className="w-4 h-4" />
@@ -197,8 +197,8 @@ const BlogList = ({ posts = [], loading = false }) => {
                 onClick={() => setViewMode('list')}
                 className={`p-2 rounded-md transition-all duration-200 ${
                   viewMode === 'list'
-                    ? 'bg-white dark:bg-gray-600 text-purple-600 shadow-sm'
-                    : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+                    ? 'bg-white text-purple-600 shadow-sm'
+                    : 'text-gray-500 hover:text-gray-700'
                 }`}
               >
                 <List className="w-4 h-4" />
@@ -213,7 +213,7 @@ const BlogList = ({ posts = [], loading = false }) => {
         variants={itemVariants}
         className="flex items-center justify-between"
       >
-        <p className="text-gray-600 dark:text-gray-400">
+        <p className="text-gray-600">
           Showing <span className="font-semibold text-purple-600">{filteredPosts.length}</span> of{' '}
           <span className="font-semibold">{posts.length}</span> articles
         </p>
@@ -255,10 +255,10 @@ const BlogList = ({ posts = [], loading = false }) => {
               <div className="text-gray-400 mb-4">
                 <Search className="w-16 h-16 mx-auto mb-4 opacity-50" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-600 dark:text-gray-400 mb-2">
+              <h3 className="text-xl font-semibold text-gray-600 mb-2">
                 No articles found
               </h3>
-              <p className="text-gray-500 dark:text-gray-500">
+              <p className="text-gray-500">
                 Try adjusting your search terms or filters
               </p>
             </motion.div>

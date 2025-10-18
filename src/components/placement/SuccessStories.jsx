@@ -240,17 +240,17 @@ const SuccessStories = ({ stories = [] }) => {
     >
       {/* Header */}
       <motion.div variants={cardVariants} className="text-center">
-        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <h2 className="text-4xl font-bold text-gray-900 mb-4">
           Success Stories
         </h2>
-        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
           Discover how our students transformed their careers and achieved their dreams with our comprehensive training programs.
         </p>
       </motion.div>
 
       {/* Category Filter */}
       <motion.div variants={cardVariants} className="flex justify-center">
-        <div className="flex flex-wrap gap-2 bg-white dark:bg-gray-800 p-2 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
+        <div className="flex flex-wrap gap-2 bg-white/80 backdrop-blur-sm p-2 rounded-2xl shadow-lg border border-white/20">
           {categories.map((category) => (
             <motion.button
               key={category.id}
@@ -263,7 +263,7 @@ const SuccessStories = ({ stories = [] }) => {
               className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
                 selectedCategory === category.id
                   ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
-                  : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  : 'text-gray-600 hover:bg-white/50'
               }`}
             >
               {category.name}
@@ -274,7 +274,7 @@ const SuccessStories = ({ stories = [] }) => {
 
       {/* Main Story Card */}
       <motion.div variants={cardVariants} className="relative">
-        <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+        <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
           <AnimatePresence mode="wait" custom={1}>
             <motion.div
               key={currentStory}
@@ -292,106 +292,105 @@ const SuccessStories = ({ stories = [] }) => {
               {/* Left Side - Story Content */}
               <div className="space-y-6">
                 {/* Quote Icon */}
-                <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center">
-                  <Quote className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                  <Quote className="w-6 h-6 text-purple-600" />
                 </div>
 
                 {/* Testimonial */}
-                <blockquote className="text-xl font-medium text-gray-900 dark:text-white leading-relaxed">
+                <blockquote className="text-xl font-medium text-gray-900 leading-relaxed">
                   "{currentStoryData.testimonial}"
                 </blockquote>
 
-                {/* Story Details */}
-                <div className="space-y-4">
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {currentStoryData.story}
-                  </p>
+                {/* Story */}
+                <p className="text-gray-600 leading-relaxed">
+                  {currentStoryData.story}
+                </p>
 
-                  {/* Skills */}
-                  <div>
-                    <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                      Key Skills Learned:
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {currentStoryData.skills.map((skill, index) => (
-                        <span
-                          key={skill}
-                          className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-sm rounded-full"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Achievements */}
-                  <div>
-                    <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                      Key Achievements:
-                    </h4>
-                    <ul className="space-y-1">
-                      {currentStoryData.achievements.map((achievement, index) => (
-                        <li key={achievement} className="flex items-center text-sm text-gray-600 dark:text-gray-300">
-                          <Award className="w-4 h-4 mr-2 text-green-500" />
-                          {achievement}
-                        </li>
-                      ))}
-                    </ul>
+                {/* Skills */}
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-900 mb-3">Key Skills Learned</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {currentStoryData.skills.map((skill, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-gradient-to-r from-blue-100 to-purple-100 text-purple-700 text-sm rounded-full"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
+                {/* Achievements */}
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-900 mb-3">Key Achievements</h4>
+                  <ul className="space-y-2">
+                    {currentStoryData.achievements.map((achievement, index) => (
+                      <li key={index} className="flex items-center text-gray-600">
+                        <Award className="w-4 h-4 text-green-500" />
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
                 {/* Action Buttons */}
-                <div className="flex gap-4">
-                  {currentStoryData.videoUrl && (
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200"
-                    >
-                      <Play className="w-4 h-4 mr-2" />
-                      Watch Video
-                    </motion.button>
-                  )}
-                  {currentStoryData.linkedinUrl && (
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      LinkedIn
-                    </motion.button>
-                  )}
+                <div className="flex space-x-4">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:shadow-lg transition-all duration-200"
+                  >
+                    <Play className="w-4 h-4" />
+                    <span>Watch Video</span>
+                  </motion.button>
+                  
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center space-x-2 px-4 py-2 bg-white/50 text-gray-700 rounded-lg border border-white/20 hover:bg-white/70 transition-all duration-200"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    <span>LinkedIn</span>
+                  </motion.button>
                 </div>
               </div>
 
               {/* Right Side - Profile & Stats */}
               <div className="space-y-6">
                 {/* Profile Card */}
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-6">
-                  {/* Profile Image & Basic Info */}
-                  <div className="text-center mb-6">
+                <div className="text-center">
+                  <div className="relative inline-block mb-4">
                     <img
                       src={currentStoryData.image}
                       alt={currentStoryData.name}
-                      className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-white shadow-lg"
+                      className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
                     />
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-                      {currentStoryData.name}
-                    </h3>
-                    <p className="text-purple-600 dark:text-purple-400 font-semibold mb-2">
-                      {currentStoryData.role}
-                    </p>
-                    
-                    {/* Company Info */}
-                    <div className="flex items-center justify-center space-x-2 mb-2">
-                      <Building className="w-4 h-4 text-gray-500" />
-                      <span className="text-gray-600 dark:text-gray-300">{currentStoryData.company}</span>
+                    <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-white rounded-full p-2 shadow-lg">
+                      <img
+                        src={currentStoryData.companyLogo}
+                        alt={currentStoryData.company}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
-                    
-                    <div className="flex items-center justify-center space-x-2">
-                      <MapPin className="w-4 h-4 text-gray-500" />
-                      <span className="text-gray-600 dark:text-gray-300">{currentStoryData.location}</span>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                    {currentStoryData.name}
+                  </h3>
+                  
+                  <p className="text-lg text-purple-600 font-semibold mb-2">
+                    {currentStoryData.role}
+                  </p>
+                  
+                  <div className="flex items-center justify-center space-x-4 text-gray-600 mb-4">
+                    <div className="flex items-center space-x-1">
+                      <Building className="w-4 h-4" />
+                      <span>{currentStoryData.company}</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <MapPin className="w-4 h-4" />
+                      <span>{currentStoryData.location}</span>
                     </div>
                   </div>
 
@@ -413,38 +412,38 @@ const SuccessStories = ({ stories = [] }) => {
 
                   {/* Stats Grid */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-xl">
-                      <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+                    <div className="text-center p-3 bg-white/50 backdrop-blur-sm rounded-xl border border-white/20">
+                      <div className="text-2xl font-bold text-purple-600">
                         {currentStoryData.salaryIncrease}
                       </div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400">
+                      <div className="text-sm text-gray-600">
                         Salary Increase
                       </div>
                     </div>
                     
-                    <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-xl">
-                      <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                    <div className="text-center p-3 bg-white/50 backdrop-blur-sm rounded-xl border border-white/20">
+                      <div className="text-2xl font-bold text-green-600">
                         {currentStoryData.currentSalary}
                       </div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400">
+                      <div className="text-sm text-gray-600">
                         Current Salary
                       </div>
                     </div>
                     
-                    <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-xl">
-                      <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                    <div className="text-center p-3 bg-white/50 backdrop-blur-sm rounded-xl border border-white/20">
+                      <div className="text-2xl font-bold text-blue-600">
                         {currentStoryData.duration}
                       </div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400">
+                      <div className="text-sm text-gray-600">
                         Course Duration
                       </div>
                     </div>
                     
-                    <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-xl">
-                      <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">
+                    <div className="text-center p-3 bg-white/50 backdrop-blur-sm rounded-xl border border-white/20">
+                      <div className="text-2xl font-bold text-orange-600">
                         {currentStoryData.graduationYear}
                       </div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400">
+                      <div className="text-sm text-gray-600">
                         Graduated
                       </div>
                     </div>
@@ -467,7 +466,7 @@ const SuccessStories = ({ stories = [] }) => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={prevStory}
-              className="w-12 h-12 bg-white dark:bg-gray-800 rounded-full shadow-lg flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-200"
+              className="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-purple-600 transition-colors duration-200 border border-white/20"
             >
               <ChevronLeft className="w-6 h-6" />
             </motion.button>
@@ -478,7 +477,7 @@ const SuccessStories = ({ stories = [] }) => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={nextStory}
-              className="w-12 h-12 bg-white dark:bg-gray-800 rounded-full shadow-lg flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-200"
+              className="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-purple-600 transition-colors duration-200 border border-white/20"
             >
               <ChevronRight className="w-6 h-6" />
             </motion.button>
@@ -496,7 +495,7 @@ const SuccessStories = ({ stories = [] }) => {
               className={`w-3 h-3 rounded-full transition-all duration-200 ${
                 index === currentStory
                   ? 'bg-purple-600 scale-125'
-                  : 'bg-gray-300 dark:bg-gray-600 hover:bg-purple-400'
+                  : 'bg-gray-300 hover:bg-purple-400'
               }`}
             />
           ))}
@@ -506,36 +505,36 @@ const SuccessStories = ({ stories = [] }) => {
       {/* Stats Summary */}
       <motion.div variants={cardVariants}>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
-            <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Users className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+          <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20">
+            <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Users className="w-6 h-6 text-purple-600" />
             </div>
-            <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">500+</div>
-            <div className="text-gray-600 dark:text-gray-400">Success Stories</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">500+</div>
+            <div className="text-gray-600">Success Stories</div>
           </div>
           
-          <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
-            <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-              <TrendingUp className="w-6 h-6 text-green-600 dark:text-green-400" />
+          <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20">
+            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <TrendingUp className="w-6 h-6 text-green-600" />
             </div>
-            <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">95%</div>
-            <div className="text-gray-600 dark:text-gray-400">Placement Rate</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">95%</div>
+            <div className="text-gray-600">Placement Rate</div>
           </div>
           
-          <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
-            <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-              <DollarSign className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+          <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20">
+            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <DollarSign className="w-6 h-6 text-blue-600" />
             </div>
-            <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">180%</div>
-            <div className="text-gray-600 dark:text-gray-400">Avg Salary Hike</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">180%</div>
+            <div className="text-gray-600">Avg Salary Hike</div>
           </div>
           
-          <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
-            <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Building className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+          <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20">
+            <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Building className="w-6 h-6 text-orange-600" />
             </div>
-            <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">200+</div>
-            <div className="text-gray-600 dark:text-gray-400">Partner Companies</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">200+</div>
+            <div className="text-gray-600">Partner Companies</div>
           </div>
         </div>
       </motion.div>
