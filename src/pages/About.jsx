@@ -1,7 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { CheckCircle, Award, Users, BookOpen, Target, Zap } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 // Import all about components
 import MissionVision from '../components/about/MissionVision';
@@ -12,13 +12,27 @@ import JoinCTA from '../components/about/JoinCTA';
 import AboutHeroSection from '../components/about/AboutHeroSection';
 
 const About = () => {
+  // Set SEO metadata
+  useSEO({
+    title: "About Us - eee Technologies | Leading Tech Education Institute",
+    description: "Learn about eee Technologies - 15+ years of excellence in technology education, 20,000+ successful students, and industry-leading placement rates.",
+    keywords: "about eee technologies, tech education, programming courses, placement assistance, technology training",
+    canonical: `${window.location.origin}/about`,
+    openGraph: {
+      title: "About Us - eee Technologies | Leading Tech Education Institute",
+      description: "Learn about eee Technologies - 15+ years of excellence in technology education, 20,000+ successful students, and industry-leading placement rates.",
+      type: "website",
+      url: `${window.location.origin}/about`
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "About Us - eee Technologies | Leading Tech Education Institute",
+      description: "Learn about eee Technologies - 15+ years of excellence in technology education, 20,000+ successful students, and industry-leading placement rates."
+    }
+  });
+
   return (
     <>
-      <Helmet>
-        <title>About Us - eee Technologies | Leading Tech Education Institute</title>
-        <meta name="description" content="Learn about eee Technologies - 15+ years of excellence in technology education, 20,000+ successful students, and industry-leading placement rates." />
-        <meta name="keywords" content="about eee technologies, tech education, programming courses, placement assistance, technology training" />
-      </Helmet>
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900/20">
         {/* Hero Section */}
