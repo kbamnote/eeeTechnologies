@@ -17,9 +17,11 @@ import {
   Globe
 } from 'lucide-react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import ContactModal from '../common/ContactModal';
 
 const JoinCTA = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const { ref, controls } = useScrollAnimation();
 
   const containerVariants = {
@@ -92,14 +94,14 @@ const JoinCTA = () => {
       icon: Phone,
       title: "Call Us",
       description: "Speak with our counselors",
-      action: "+1 (555) 123-4567",
+      action: "+91 8855885807",
       color: "from-green-500 to-emerald-600"
     },
     {
       icon: Mail,
       title: "Email Us",
       description: "Get detailed information",
-      action: "info@eeeTechnologies.com",
+      action: "info@eeetechnologies.in",
       color: "from-blue-500 to-cyan-600"
     },
     {
@@ -268,6 +270,14 @@ const JoinCTA = () => {
                   className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 hover:bg-white hover:border-gray-300 transition-all duration-500 group cursor-pointer"
                   whileHover={{ y: -10, scale: 1.02 }}
                   transition={{ duration: 0.3 }}
+                  onClick={() => {
+                    if (method.title === "Call Us" || method.title === "Email Us") {
+                      setIsContactModalOpen(true);
+                    } else if (method.title === "Book Demo") {
+                      // For demo booking, could redirect to contact page or open modal
+                      setIsContactModalOpen(true);
+                    }
+                  }}
                 >
                   <div className={`w-16 h-16 bg-gradient-to-r ${method.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     <method.icon className="w-8 h-8 text-white" />
@@ -323,6 +333,12 @@ const JoinCTA = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </section>
   );
 };

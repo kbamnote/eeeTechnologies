@@ -35,22 +35,22 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Call Us',
-      info: '+1 (555) 123-4567',
+      info: '+91 8855885807',
       subInfo: 'Mon-Fri 9AM-6PM',
       color: 'from-blue-500 to-blue-600'
     },
     {
       icon: Mail,
       title: 'Email Us',
-      info: 'info@eeeTechnologies.com',
+      info: 'info@eeetechnologies.in',
       subInfo: 'We reply within 24 hours',
       color: 'from-purple-500 to-purple-600'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      info: '123 Innovation Drive',
-      subInfo: 'Tech City, TC 12345',
+      info: '1st Floor Mohota Complex, Above State Bank Of India',
+      subInfo: 'Katol Road, Chhaoni Rd, Nagpur, Maharashtra, 440013',
       color: 'from-green-500 to-green-600'
     },
     {

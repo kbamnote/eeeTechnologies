@@ -45,15 +45,15 @@ export default function Footer() {
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-gray-300">
                   <Mail className="w-5 h-5 text-blue-400" />
-                  <span>info@eeeTechnologies.com</span>
+                  <span>info@eeetechnologies.in</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-300">
                   <Phone className="w-5 h-5 text-blue-400" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+91 8855885807</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-300">
                   <MapPin className="w-5 h-5 text-blue-400" />
-                  <span>123 Tech Street, Innovation City, IC 12345</span>
+                  <span>1st Floor Mohota Complex, Above State Bank Of India, Katol Road, Chhaoni Rd, Nagpur, Maharashtra, 440013</span>
                 </div>
               </div>
             </div>

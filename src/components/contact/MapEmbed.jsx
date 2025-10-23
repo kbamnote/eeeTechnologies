@@ -8,29 +8,19 @@ const MapEmbed = () => {
   const locations = [
     {
       id: 1,
-      name: "Main Campus - Tech Hub",
-      address: "123 Innovation Drive, Tech City, TC 12345",
-      phone: "+1 (555) 123-4567",
-      email: "info@eeeTechnologies.com",
+      name: "Main Campus - Nagpur",
+      address: "1st Floor Mohota Complex, Above State Bank Of India, Katol Road, Chhaoni Rd, Nagpur, Maharashtra, 440013",
+      phone: "+91 8855885807",
+      email: "info@eeetechnologies.in",
       hours: "Mon-Fri: 9:00 AM - 6:00 PM",
-      coordinates: { lat: 40.7128, lng: -74.0060 },
+      coordinates: { lat: 21.1458, lng: 79.0882 },
       description: "Our flagship campus with state-of-the-art facilities and labs."
     },
     {
       id: 2,
-      name: "Downtown Branch",
-      address: "456 Business Avenue, Metro City, MC 67890",
-      phone: "+1 (555) 987-6543",
-      email: "downtown@eeeTechnologies.com",
-      hours: "Mon-Sat: 8:00 AM - 8:00 PM",
-      coordinates: { lat: 40.7589, lng: -73.9851 },
-      description: "Convenient downtown location for working professionals."
-    },
-    {
-      id: 3,
       name: "Online Learning Center",
       address: "Virtual Campus - Accessible Worldwide",
-      phone: "+1 (555) 456-7890",
+      phone: "+91 8855885807",
       email: "online@eeeTechnologies.com",
       hours: "24/7 Support Available",
       coordinates: null,
