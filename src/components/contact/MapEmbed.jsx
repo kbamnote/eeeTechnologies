@@ -76,7 +76,7 @@ const MapEmbed = () => {
         </p>
       </motion.div>
 
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid lg:grid-cols-1 gap-8">
         {/* Map Section */}
         <motion.div variants={itemVariants} className="order-2 lg:order-1">
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 h-80 flex items-center justify-center relative overflow-hidden">

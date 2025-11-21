@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X, GraduationCap } from "lucide-react";
+import logo from '../../assets/logo.png'
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -28,12 +29,8 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Brand */}
           <Link to="/" className="flex items-center gap-3 group" onClick={scrollToTop}>
-            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg group-hover:shadow-xl transition-all duration-300">
-              <GraduationCap className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              EEE Technologies
-            </span>
+            <img src={logo} className="flex items-center justify-center w-auto h-14 transition-all duration-300">
+            </img>
           </Link>
 
           {/* Desktop Navigation */}

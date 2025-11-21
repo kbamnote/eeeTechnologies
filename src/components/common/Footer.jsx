@@ -1,6 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { GraduationCap, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import {
+  GraduationCap,
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
+import logo from "../../assets/logo.png";
 
 export default function Footer() {
   const quickLinks = [
@@ -33,14 +43,20 @@ export default function Footer() {
             {/* Company Info */}
             <div className="lg:col-span-2">
               <div className="flex items-center gap-3 mb-6">
-                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg">
-                  <GraduationCap className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-xl font-bold">EEE Technologies</span>
+                <Link
+                  to="/"
+                  className="flex items-center gap-3 group"
+                >
+                  <img
+                    src={logo}
+                    className="flex items-center justify-center w-auto h-14 md:h-22 bg-white p-2 transition-all duration-300"
+                  ></img>
+                </Link>
               </div>
               <p className="text-gray-300 mb-6 max-w-md">
-                Empowering students with cutting-edge technology education and comprehensive placement support. 
-                Join thousands of successful graduates who started their tech careers with us.
+                Empowering students with cutting-edge technology education and
+                comprehensive placement support. Join thousands of successful
+                graduates who started their tech careers with us.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-gray-300">
@@ -53,7 +69,10 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-3 text-gray-300">
                   <MapPin className="w-5 h-5 text-blue-400" />
-                  <span>1st Floor Mohota Complex, Above State Bank Of India, Katol Road, Chhaoni Rd, Nagpur, Maharashtra, 440013</span>
+                  <span>
+                    1st Floor Mohota Complex, Above State Bank Of India, Katol
+                    Road, Chhaoni Rd, Nagpur, Maharashtra, 440013
+                  </span>
                 </div>
               </div>
             </div>
@@ -98,9 +117,10 @@ export default function Footer() {
         <div className="border-t border-gray-800 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} EEE Technologies. All rights reserved.
+              © {new Date().getFullYear()} EEE Technologies. All rights
+              reserved.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex items-center gap-4">
               {socialLinks.map((social) => {
