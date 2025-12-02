@@ -1,115 +1,100 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Code, Database, Brain, Smartphone, Globe, Clock, Users, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, Code, Database, Brain, Shield, Globe, Clock, Users, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useScrollAnimation, fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '../../hooks/useScrollAnimation';
+import EnrollmentModal from '../courses/EnrollmentModal';
 
 const CoursesPreview = () => {
   const { ref, isInView } = useScrollAnimation();
   const [activeCategory, setActiveCategory] = useState('all');
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(null);
 
   const categories = [
     { id: 'all', name: 'All Courses', icon: Globe },
     { id: 'web', name: 'Web Development', icon: Code },
     { id: 'data', name: 'Data Science', icon: Database },
     { id: 'ai', name: 'AI/ML', icon: Brain },
-    { id: 'mobile', name: 'Mobile Dev', icon: Smartphone }
+    { id: 'testing', name: 'Software Testing', icon: Shield }
   ];
 
   const courses = [
     {
       id: 1,
-      title: "Full Stack Web Development",
+      title: "Full Stack Development",
       category: "web",
-      description: "Master modern web development with React, Node.js, and MongoDB. Build real-world applications from scratch.",
+      description: "Master modern web development with React, Node.js, and MongoDB. Build real-world applications from scratch with hands-on projects and industry best practices.",
       duration: "6 months",
       level: "Beginner to Advanced",
-      students: "2,500+",
+      students: "2,847+",
       rating: 4.9,
-      price: "₹49,999",
-      originalPrice: "₹79,999",
-      technologies: ["React", "Node.js", "MongoDB", "Express"],
+      price: "₹75,000",
+      originalPrice: "₹90,000",
+      technologies: ["React", "Node.js", "MongoDB", "Express", "JavaScript", "HTML/CSS"],
       color: "from-blue-500 to-cyan-500",
       icon: Code,
       popular: true
     },
     {
       id: 2,
-      title: "Data Science & Analytics",
+      title: "Data Analysis",
       category: "data",
-      description: "Learn Python, machine learning, and data visualization. Transform data into actionable insights.",
-      duration: "8 months",
-      level: "Intermediate",
-      students: "1,800+",
+      description: "Learn Python, SQL, data visualization, and statistical analysis to become a professional data analyst. Work with real datasets and industry tools.",
+      duration: "6 months",
+      level: "Beginner to Intermediate",
+      students: "1,923+",
       rating: 4.8,
-      price: "₹59,999",
-      originalPrice: "₹89,999",
-      technologies: ["Python", "Pandas", "Scikit-learn", "Tableau"],
+      price: "₹75,000",
+      originalPrice: "₹90,000",
+      technologies: ["Python", "SQL", "Pandas", "NumPy", "Matplotlib", "Tableau", "Excel"],
       color: "from-purple-500 to-pink-500",
-      icon: Database
+      icon: Database,
+      popular: true
     },
     {
       id: 3,
-      title: "AI & Machine Learning",
+      title: "AI/ML",
       category: "ai",
-      description: "Deep dive into artificial intelligence, neural networks, and deep learning frameworks.",
-      duration: "10 months",
-      level: "Advanced",
-      students: "1,200+",
+      description: "Master artificial intelligence and machine learning with Python. Learn algorithms, neural networks, deep learning, and computer vision with hands-on projects.",
+      duration: "6 months",
+      level: "Intermediate to Advanced",
+      students: "1,456+",
       rating: 4.9,
-      price: "₹69,999",
-      originalPrice: "₹99,999",
-      technologies: ["TensorFlow", "PyTorch", "OpenCV", "NLP"],
+      price: "₹75,000",
+      originalPrice: "₹90,000",
+      technologies: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Neural Networks", "NLP", "Computer Vision"],
       color: "from-green-500 to-emerald-500",
       icon: Brain,
       trending: true
     },
     {
       id: 4,
-      title: "Mobile App Development",
-      category: "mobile",
-      description: "Build cross-platform mobile apps with React Native and Flutter. Deploy to App Store and Play Store.",
-      duration: "5 months",
-      level: "Intermediate",
-      students: "1,500+",
-      rating: 4.7,
-      price: "₹44,999",
-      originalPrice: "₹69,999",
-      technologies: ["React Native", "Flutter", "Firebase", "Redux"],
-      color: "from-orange-500 to-red-500",
-      icon: Smartphone
-    },
-    {
-      id: 5,
-      title: "DevOps & Cloud Computing",
-      category: "web",
-      description: "Master cloud platforms, containerization, and CI/CD pipelines for modern software deployment.",
-      duration: "4 months",
-      level: "Intermediate to Advanced",
-      students: "900+",
-      rating: 4.8,
-      price: "₹54,999",
-      originalPrice: "₹79,999",
-      technologies: ["AWS", "Docker", "Kubernetes", "Jenkins"],
-      color: "from-indigo-500 to-purple-500",
-      icon: Globe
-    },
-    {
-      id: 6,
-      title: "Cybersecurity Fundamentals",
-      category: "web",
-      description: "Learn ethical hacking, network security, and cybersecurity best practices to protect digital assets.",
+      title: "Tester",
+      category: "testing",
+      description: "Become a professional software tester with expertise in manual and automated testing. Learn testing frameworks, bug tracking, and quality assurance processes.",
       duration: "6 months",
-      level: "Beginner to Intermediate",
-      students: "750+",
-      rating: 4.6,
-      price: "₹39,999",
-      originalPrice: "₹59,999",
-      technologies: ["Kali Linux", "Wireshark", "Metasploit", "OWASP"],
-      color: "from-red-500 to-pink-500",
-      icon: Code
+      level: "Beginner",
+      students: "987+",
+      rating: 4.7,
+      price: "₹75,000",
+      originalPrice: "₹90,000",
+      technologies: ["Manual Testing", "Automation Testing", "Selenium", "JIRA", "TestNG", "API Testing"],
+      color: "from-orange-500 to-red-500",
+      icon: Shield,
+      popular: true
     }
   ];
+
+  const handleEnrollClick = (course) => {
+    setSelectedCourse(course);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedCourse(null);
+  };
 
   const filteredCourses = activeCategory === 'all' 
     ? courses 
@@ -336,6 +321,7 @@ const CoursesPreview = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
+                      onClick={() => handleEnrollClick(course)}
                       className={`w-full group/btn relative px-6 py-3 bg-gradient-to-r ${course.color} text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden`}
                     >
                       <span className="relative z-10 flex items-center justify-center">
@@ -383,6 +369,13 @@ const CoursesPreview = () => {
             </motion.button>
           </motion.div>
         </motion.div>
+
+        {/* Enrollment Modal */}
+        <EnrollmentModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          courseName={selectedCourse?.title}
+        />
       </div>
     </section>
   );

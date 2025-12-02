@@ -1,28 +1,20 @@
 import React, { useState } from 'react';
 import { 
   Code, 
-  Palette, 
-  Shield, 
-  Smartphone, 
-  Database, 
-  Cloud, 
   BarChart3, 
-  Cpu
+  Cpu, 
+  Shield
 } from 'lucide-react';
 
 const CategorySidebar = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const categories = [
-    { id: 'all', name: 'All Courses', icon: Code, count: 203 },
-    { id: 'development', name: 'Development', icon: Code, count: 45 },
-    { id: 'design', name: 'Design', icon: Palette, count: 28 },
-    { id: 'cybersecurity', name: 'Cybersecurity', icon: Shield, count: 22 },
-    { id: 'mobile', name: 'Mobile', icon: Smartphone, count: 19 },
-    { id: 'data-science', name: 'Data Science', icon: BarChart3, count: 31 },
-    { id: 'database', name: 'Database', icon: Database, count: 16 },
-    { id: 'cloud', name: 'Cloud', icon: Cloud, count: 24 },
-    { id: 'devops', name: 'DevOps', icon: Cpu, count: 18 }
+    { id: 'all', name: 'All Courses', icon: Code, count: 4 },
+    { id: 'web-development', name: 'Web Development', icon: Code, count: 1 },
+    { id: 'data-science', name: 'Data Science', icon: BarChart3, count: 1 },
+    { id: 'artificial-intelligence', name: 'Artificial Intelligence', icon: Cpu, count: 1 },
+    { id: 'software-testing', name: 'Software Testing', icon: Shield, count: 1 }
   ];
 
   return (

@@ -100,7 +100,7 @@ const BlogList = ({ posts = [], loading = false }) => {
         {/* Loading Skeleton */}
         <div className="animate-pulse">
           <div className="h-12 bg-gray-200 rounded-lg mb-6"></div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="bg-gray-200 rounded-2xl h-96"></div>
             ))}
@@ -229,7 +229,7 @@ const BlogList = ({ posts = [], loading = false }) => {
           exit="hidden"
           className={
             viewMode === 'grid'
-              ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+              ? 'grid grid-cols-1 md:grid-cols-2 gap-8'
               : 'space-y-6'
           }
         >

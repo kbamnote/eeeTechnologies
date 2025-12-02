@@ -15,6 +15,7 @@ import {
   Filter,
   Search
 } from 'lucide-react';
+import EnrollmentModal from './EnrollmentModal';
 
 const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,126 +23,92 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
   const [selectedLevel, setSelectedLevel] = useState('all');
   const [sortBy, setSortBy] = useState('popular');
   const [filteredCourses, setFilteredCourses] = useState(courses);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(null);
 
-  // Default courses data
+  // Default courses data - only 4 main courses
   const defaultCourses = [
     {
       id: 1,
-      title: "Full Stack Web Development",
-      description: "Master modern web development with React, Node.js, and MongoDB. Build real-world applications from scratch.",
+      title: "Full Stack Development",
+      description: "Master modern web development with React, Node.js, and MongoDB. Build real-world applications from scratch with hands-on projects and industry best practices.",
       category: "Web Development",
       level: "Beginner to Advanced",
       duration: "6 months",
       students: 2847,
       rating: 4.9,
       reviews: 1234,
-      price: 15999,
-      originalPrice: 24999,
+      price: 75000,
+      originalPrice: 90000,
       instructor: "Sarah Johnson",
       instructorImage: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
       image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      skills: ["React", "Node.js", "MongoDB", "Express", "JavaScript", "HTML/CSS"],
-      features: ["Live Projects", "1-on-1 Mentoring", "Job Assistance", "Certificate"],
+      skills: ["React", "Node.js", "MongoDB", "Express", "JavaScript", "HTML/CSS", "REST APIs", "Git"],
+      features: ["Live Projects", "1-on-1 Mentoring", "Job Assistance", "Certificate", "Internship Opportunity"],
       nextBatch: "Jan 15, 2025",
       isPopular: true,
       isBestseller: true
     },
     {
       id: 2,
-      title: "Data Science & Machine Learning",
-      description: "Learn Python, statistics, machine learning algorithms, and data visualization to become a data scientist.",
+      title: "Data Analysis",
+      description: "Learn Python, SQL, data visualization, and statistical analysis to become a professional data analyst. Work with real datasets and industry tools.",
       category: "Data Science",
-      level: "Intermediate",
-      duration: "8 months",
+      level: "Beginner to Intermediate",
+      duration: "6 months",
       students: 1923,
       rating: 4.8,
       reviews: 876,
-      price: 18999,
-      originalPrice: 29999,
+      price: 75000,
+      originalPrice: 90000,
       instructor: "Dr. Michael Chen",
       instructorImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      skills: ["Python", "Pandas", "Scikit-learn", "TensorFlow", "SQL", "Statistics"],
-      features: ["Real Datasets", "Industry Projects", "Kaggle Competitions", "Certificate"],
+      skills: ["Python", "SQL", "Pandas", "NumPy", "Matplotlib", "Tableau", "Excel", "Statistics"],
+      features: ["Real Datasets", "Industry Projects", "Certificate", "Job Assistance", "Portfolio Building"],
       nextBatch: "Jan 20, 2025",
       isPopular: true
     },
     {
       id: 3,
-      title: "Mobile App Development",
-      description: "Build native iOS and Android apps using React Native and Flutter. Deploy to app stores.",
-      category: "Mobile Development",
-      level: "Beginner",
-      duration: "5 months",
+      title: "AI/ML",
+      description: "Master artificial intelligence and machine learning with Python. Learn algorithms, neural networks, deep learning, and computer vision with hands-on projects.",
+      category: "Artificial Intelligence",
+      level: "Intermediate to Advanced",
+      duration: "6 months",
       students: 1456,
-      rating: 4.7,
+      rating: 4.9,
       reviews: 654,
-      price: 13999,
-      originalPrice: 21999,
+      price: 75000,
+      originalPrice: 90000,
       instructor: "Alex Rodriguez",
       instructorImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      skills: ["React Native", "Flutter", "Dart", "Firebase", "App Store", "Play Store"],
-      features: ["App Store Deployment", "Live Projects", "UI/UX Design", "Certificate"],
-      nextBatch: "Feb 1, 2025"
+      image: "https://images.unsplash.com/photo-1677442135722-5f11e06a4e6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      skills: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Neural Networks", "NLP", "Computer Vision", "Deep Learning"],
+      features: ["AI Projects", "Industry Case Studies", "Research Paper Reading", "Certificate", "Placement Support"],
+      nextBatch: "Feb 1, 2025",
+      isPopular: true,
+      isBestseller: true
     },
     {
       id: 4,
-      title: "DevOps & Cloud Computing",
-      description: "Master AWS, Docker, Kubernetes, and CI/CD pipelines. Become a DevOps engineer.",
-      category: "DevOps",
-      level: "Advanced",
-      duration: "4 months",
+      title: "Tester",
+      description: "Become a professional software tester with expertise in manual and automated testing. Learn testing frameworks, bug tracking, and quality assurance processes.",
+      category: "Software Testing",
+      level: "Beginner",
+      duration: "6 months",
       students: 987,
-      rating: 4.9,
+      rating: 4.7,
       reviews: 432,
-      price: 16999,
-      originalPrice: 25999,
+      price: 75000,
+      originalPrice: 90000,
       instructor: "David Kumar",
       instructorImage: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      skills: ["AWS", "Docker", "Kubernetes", "Jenkins", "Terraform", "Linux"],
-      features: ["AWS Credits", "Hands-on Labs", "Industry Projects", "Certificate"],
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      skills: ["Manual Testing", "Automation Testing", "Selenium", "JIRA", "TestNG", "API Testing", "Performance Testing", "Bug Reporting"],
+      features: ["Testing Tools", "Real Projects", "Internship", "Certificate", "Job Placement"],
       nextBatch: "Jan 25, 2025",
       isPopular: true
-    },
-    {
-      id: 5,
-      title: "UI/UX Design Masterclass",
-      description: "Learn design thinking, prototyping, and user research. Master Figma, Adobe XD, and design systems.",
-      category: "Design",
-      level: "Beginner",
-      duration: "3 months",
-      students: 1234,
-      rating: 4.8,
-      reviews: 567,
-      price: 9999,
-      originalPrice: 15999,
-      instructor: "Emma Wilson",
-      instructorImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      skills: ["Figma", "Adobe XD", "Prototyping", "User Research", "Design Systems", "Wireframing"],
-      features: ["Portfolio Projects", "Design Critique", "Industry Mentors", "Certificate"],
-      nextBatch: "Feb 5, 2025"
-    },
-    {
-      id: 6,
-      title: "Cybersecurity Fundamentals",
-      description: "Learn ethical hacking, network security, and cybersecurity best practices. Get industry certifications.",
-      category: "Cybersecurity",
-      level: "Intermediate",
-      duration: "6 months",
-      students: 756,
-      rating: 4.7,
-      reviews: 298,
-      price: 17999,
-      originalPrice: 27999,
-      instructor: "James Thompson",
-      instructorImage: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      skills: ["Ethical Hacking", "Network Security", "Penetration Testing", "CISSP", "CEH", "Security+"],
-      features: ["Lab Environment", "Certification Prep", "Real Scenarios", "Certificate"],
-      nextBatch: "Feb 10, 2025"
     }
   ];
 
@@ -149,10 +116,8 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
     { id: 'all', name: 'All Courses' },
     { id: 'web-development', name: 'Web Development' },
     { id: 'data-science', name: 'Data Science' },
-    { id: 'mobile-development', name: 'Mobile Development' },
-    { id: 'devops', name: 'DevOps' },
-    { id: 'design', name: 'Design' },
-    { id: 'cybersecurity', name: 'Cybersecurity' }
+    { id: 'artificial-intelligence', name: 'Artificial Intelligence' },
+    { id: 'software-testing', name: 'Software Testing' }
   ];
 
   const levels = [
@@ -238,6 +203,16 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
         ease: "easeOut"
       }
     }
+  };
+
+  const handleEnrollClick = (course) => {
+    setSelectedCourse(course);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedCourse(null);
   };
 
   const CourseCard = ({ course }) => {
@@ -396,7 +371,7 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => onEnroll?.(course)}
+            onClick={() => handleEnrollClick(course)}
             className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-200 flex items-center justify-center group/btn"
           >
             <span>Enroll Now</span>
@@ -413,7 +388,7 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
         <div className="animate-pulse">
           <div className="h-12 bg-gray-200 rounded-lg mb-6"></div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[...Array(6)].map((_, i) => (
+            {[...Array(4)].map((_, i) => (
               <div key={i} className="bg-gray-200 rounded-2xl h-96"></div>
             ))}
           </div>
@@ -519,7 +494,7 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
           initial="hidden"
           animate="visible"
           exit="hidden"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
         >
           {filteredCourses.length > 0 ? (
             filteredCourses.map((course) => (
@@ -543,6 +518,13 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
           )}
         </motion.div>
       </AnimatePresence>
+
+      {/* Enrollment Modal */}
+      <EnrollmentModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        courseName={selectedCourse?.title}
+      />
     </motion.div>
   );
 };

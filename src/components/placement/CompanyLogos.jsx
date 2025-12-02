@@ -324,7 +324,7 @@ const CompanyLogos = () => {
                 <img
                   src={company.logo}
                   alt={company.name}
-                  className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                  className="max-h-12 max-w-full object-contain transition-all duration-300"
                   onError={(e) => {
                     e.target.style.display = 'none';
                     e.target.nextSibling.style.display = 'flex';

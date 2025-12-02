@@ -1,118 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Clock, Users, TrendingUp, ArrowRight } from 'lucide-react';
+import EnrollmentModal from './EnrollmentModal';
 
 const FeaturedCourses = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(null);
+
   const featuredCourses = [
     {
       id: 1,
-      title: "Full Stack Web Development",
-      description: "Master modern web development with React, Node.js, and MongoDB",
+      title: "Full Stack Development",
+      description: "Master modern web development with React, Node.js, and MongoDB. Build real-world applications from scratch with hands-on projects and industry best practices.",
       image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       rating: 4.9,
       students: 2847,
       duration: "6 months",
-      price: 15999,
-      originalPrice: 24999,
+      price: 75000,
+      originalPrice: 90000,
       isTrending: true
     },
     {
       id: 2,
-      title: "Data Science & Machine Learning",
-      description: "Learn Python, statistics, and machine learning algorithms",
+      title: "Data Analysis",
+      description: "Learn Python, SQL, data visualization, and statistical analysis to become a professional data analyst. Work with real datasets and industry tools.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       rating: 4.8,
       students: 1923,
-      duration: "8 months",
-      price: 18999,
-      originalPrice: 29999,
+      duration: "6 months",
+      price: 75000,
+      originalPrice: 90000,
       isTrending: true
     },
     {
       id: 3,
-      title: "Mobile App Development",
-      description: "Build native iOS and Android apps using React Native",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      rating: 4.7,
+      title: "AI/ML",
+      description: "Master artificial intelligence and machine learning with Python. Learn algorithms, neural networks, deep learning, and computer vision with hands-on projects.",
+      image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      rating: 4.9,
       students: 1456,
-      duration: "5 months",
-      price: 13999,
-      originalPrice: 21999,
-      isTrending: false
+      duration: "6 months",
+      price: 75000,
+      originalPrice: 90000,
+      isTrending: true
     },
     {
       id: 4,
-      title: "UI/UX Design Mastery",
-      description: "Create stunning user interfaces with Figma, Adobe XD, and design principles",
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      rating: 4.9,
-      students: 2134,
-      duration: "4 months",
-      price: 12999,
-      originalPrice: 19999,
-      isTrending: true
-    },
-    {
-      id: 5,
-      title: "Cloud Computing & DevOps",
-      description: "Master AWS, Docker, Kubernetes, and CI/CD pipelines",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      rating: 4.8,
-      students: 1789,
-      duration: "7 months",
-      price: 16999,
-      originalPrice: 26999,
-      isTrending: false
-    },
-    {
-      id: 6,
-      title: "Cybersecurity Fundamentals",
-      description: "Learn ethical hacking, network security, and threat analysis",
-      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Tester",
+      description: "Become a professional software tester with expertise in manual and automated testing. Learn testing frameworks, bug tracking, and quality assurance processes.",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       rating: 4.7,
-      students: 1567,
+      students: 987,
       duration: "6 months",
-      price: 17999,
-      originalPrice: 27999,
-      isTrending: false
-    },
-    {
-      id: 7,
-      title: "Blockchain & Cryptocurrency",
-      description: "Understand blockchain technology, smart contracts, and DeFi",
-      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      rating: 4.6,
-      students: 1245,
-      duration: "5 months",
-      price: 14999,
-      originalPrice: 22999,
-      isTrending: true
-    },
-    {
-      id: 8,
-      title: "Digital Marketing & SEO",
-      description: "Master social media, content marketing, and search optimization",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      rating: 4.8,
-      students: 3214,
-      duration: "3 months",
-      price: 9999,
-      originalPrice: 15999,
-      isTrending: false
-    },
-    {
-      id: 9,
-      title: "Artificial Intelligence & Deep Learning",
-      description: "Build neural networks, computer vision, and NLP applications",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      rating: 4.9,
-      students: 2456,
-      duration: "9 months",
-      price: 21999,
-      originalPrice: 34999,
+      price: 75000,
+      originalPrice: 90000,
       isTrending: true
     }
   ];
+
+  const handleEnrollClick = (course) => {
+    setSelectedCourse(course);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedCourse(null);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -174,7 +128,7 @@ const FeaturedCourses = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
         >
           {featuredCourses.map((course) => (
             <motion.div
@@ -239,15 +193,23 @@ const FeaturedCourses = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => handleEnrollClick(course)}
                   className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-200 flex items-center justify-center group/btn"
                 >
-                  <span>View Details</span>
+                  <span>Enroll Now</span>
                   <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
                 </motion.button>
               </div>
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Enrollment Modal */}
+        <EnrollmentModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          courseName={selectedCourse?.title}
+        />
       </div>
     </section>
   );

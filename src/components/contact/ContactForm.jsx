@@ -8,40 +8,28 @@ import {
   MessageSquare, 
   CheckCircle, 
   AlertCircle,
-  Loader,
-  MapPin,
-  Building
+  Loader
 } from 'lucide-react';
+import { addDetail, createEnrollment } from '../utils/Api';
 
-const ContactForm = ({ onSubmit }) => {
-  const [formData, setFormData] = useState({
-    name: '',
+const ContactForm = ({ onSubmit, courseName }) => {
+    const [formData, setFormData] = useState({
+    fullName: '',
     email: '',
-    phone: '',
-    company: '',
-    subject: '',
+    phoneNo: '',
     message: '',
-    inquiryType: 'general'
+    productCompany: "EEE-Technologies"
   });
-  
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const inquiryTypes = [
-    { value: 'general', label: 'General Inquiry' },
-    { value: 'courses', label: 'Course Information' },
-    { value: 'placement', label: 'Placement Assistance' },
-    { value: 'corporate', label: 'Corporate Training' },
-    { value: 'partnership', label: 'Partnership' },
-    { value: 'support', label: 'Technical Support' }
-  ];
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
   const validateForm = () => {
     const newErrors = {};
     
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = 'Name is required';
     }
     
     if (!formData.email.trim()) {
@@ -56,8 +44,8 @@ const ContactForm = ({ onSubmit }) => {
       newErrors.message = 'Message must be at least 10 characters';
     }
     
-    if (formData.phone && !/^\+?[\d\s\-\(\)]+$/.test(formData.phone)) {
-      newErrors.phone = 'Phone number is invalid';
+    if (formData.phoneNo && !/^\+?[\d\s\-\(\)]+$/.test(formData.phoneNo)) {
+      newErrors.phoneNo = 'Phone number is invalid';
     }
     
     setErrors(newErrors);
@@ -88,24 +76,51 @@ const ContactForm = ({ onSubmit }) => {
     }
     
     setIsSubmitting(true);
+    setSubmitStatus(null);
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      if (courseName) {
+        // Use enrollment API for course enrollments
+        const enrollmentData = {
+          studentName: formData.fullName,
+          studentEmail: formData.email,
+          studentPhone: formData.phoneNo,
+          courseName: courseName,
+          message: formData.message,
+          productCompany: formData.productCompany
+        };
+
+        const response = await createEnrollment(enrollmentData);
+        console.log('Enrollment submitted successfully:', response.data);
+      } else {
+        // Use general contact API for general inquiries
+        const detailData = {
+          fullName: formData.fullName,
+          email: formData.email,
+          phoneNo: formData.phoneNo,
+          message: formData.message,
+          productCompany: formData.productCompany
+        };
+
+        const response = await addDetail(detailData);
+        console.log('Form submitted successfully:', response.data);
+      }
       
+      setSubmitStatus('success');
+      setIsSubmitted(true);
+      
+      // Call the onSubmit callback if provided
       if (onSubmit) {
         onSubmit(formData);
       }
       
-      setIsSubmitted(true);
+      // Reset form after successful submission
       setFormData({
-        name: '',
+        fullName: '',
         email: '',
-        phone: '',
-        company: '',
-        subject: '',
+        phoneNo: '',
         message: '',
-        inquiryType: 'general'
+        productCompany: "EEE-Technologies"
       });
       
       // Reset success state after 5 seconds
@@ -115,6 +130,7 @@ const ContactForm = ({ onSubmit }) => {
       
     } catch (error) {
       console.error('Form submission error:', error);
+      setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
@@ -196,33 +212,38 @@ const ContactForm = ({ onSubmit }) => {
     >
       <motion.div variants={itemVariants} className="mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
-          Get in Touch
+          {courseName ? `Enroll in ${courseName}` : 'Get in Touch'}
         </h2>
         <p className="text-gray-600">
-          Ready to start your tech journey? Send us a message and we'll get back to you as soon as possible.
+          {courseName 
+            ? 'Fill out the form below and our team will contact you shortly about your enrollment.' 
+            : 'Ready to start your tech journey? Send us a message and we\'ll get back to you as soon as possible.'}
         </p>
       </motion.div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Inquiry Type */}
-        <motion.div variants={itemVariants}>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Inquiry Type
-          </label>
-          <select
-            name="inquiryType"
-            value={formData.inquiryType}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 text-gray-900 transition-all duration-200"
-          >
-            {inquiryTypes.map(type => (
-              <option key={type.value} value={type.value}>
-                {type.label}
-              </option>
-            ))}
-          </select>
+      {/* Status Messages */}
+      {submitStatus === 'success' && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-6 p-4 bg-green-100 border border-green-300 text-green-700 rounded-lg"
+        >
+          ✅ Thank you! Your {courseName ? 'enrollment request' : 'message'} has been sent successfully. We'll get back to you soon.
         </motion.div>
+      )}
 
+      {submitStatus === 'error' && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-6 p-4 bg-red-100 border border-red-300 text-red-700 rounded-lg"
+        >
+          ❌ Sorry, there was an error sending your {courseName ? 'enrollment request' : 'message'}. Please try again or contact us directly.
+        </motion.div>
+      )}
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+       
         {/* Name and Email Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div variants={itemVariants}>
@@ -235,23 +256,23 @@ const ContactForm = ({ onSubmit }) => {
                 variants={inputVariants}
                 whileFocus="focus"
                 type="text"
-                name="name"
-                value={formData.name}
+                name="fullName"
+                value={formData.fullName}
                 onChange={handleChange}
                 placeholder="Enter your full name"
                 className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 text-gray-900 placeholder-gray-500 transition-all duration-200 ${
-                  errors.name ? 'border-red-500' : 'border-gray-200'
+                  errors.fullName ? 'border-red-500' : 'border-gray-200'
                 }`}
               />
             </div>
-            {errors.name && (
+            {errors.fullName && (
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-2 text-sm text-red-600 flex items-center"
               >
                 <AlertCircle className="w-4 h-4 mr-1" />
-                {errors.name}
+                {errors.fullName}
               </motion.p>
             )}
           </motion.div>
@@ -288,74 +309,36 @@ const ContactForm = ({ onSubmit }) => {
           </motion.div>
         </div>
 
-        {/* Phone and Company Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Phone Number
-            </label>
-            <div className="relative">
-              <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <motion.input
-                variants={inputVariants}
-                whileFocus="focus"
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="Enter your phone number"
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 text-gray-900 placeholder-gray-500 transition-all duration-200 ${
-                  errors.phone ? 'border-red-500' : 'border-gray-200'
-                }`}
-              />
-            </div>
-            {errors.phone && (
-              <motion.p
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-sm text-red-600 flex items-center"
-              >
-                <AlertCircle className="w-4 h-4 mr-1" />
-                {errors.phone}
-              </motion.p>
-            )}
-          </motion.div>
-
-          <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Company/Organization
-            </label>
-            <div className="relative">
-              <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <motion.input
-                variants={inputVariants}
-                whileFocus="focus"
-                type="text"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                placeholder="Enter your company name"
-                className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 text-gray-900 placeholder-gray-500 transition-all duration-200"
-              />
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Subject */}
+        {/* Phone */}
         <motion.div variants={itemVariants}>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Subject
+            Phone Number
           </label>
-          <motion.input
-            variants={inputVariants}
-            whileFocus="focus"
-            type="text"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            placeholder="Enter the subject of your inquiry"
-            className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 text-gray-900 placeholder-gray-500 transition-all duration-200"
-          />
+          <div className="relative">
+            <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <motion.input
+              variants={inputVariants}
+              whileFocus="focus"
+              type="tel"
+              name="phoneNo"
+              value={formData.phoneNo}
+              onChange={handleChange}
+              placeholder="Enter your phone number"
+              className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 text-gray-900 placeholder-gray-500 transition-all duration-200 ${
+                errors.phoneNo ? 'border-red-500' : 'border-gray-200'
+              }`}
+            />
+          </div>
+          {errors.phoneNo && (
+            <motion.p
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-2 text-sm text-red-600 flex items-center"
+            >
+              <AlertCircle className="w-4 h-4 mr-1" />
+              {errors.phoneNo}
+            </motion.p>
+          )}
         </motion.div>
 
         {/* Message */}
@@ -372,7 +355,9 @@ const ContactForm = ({ onSubmit }) => {
               value={formData.message}
               onChange={handleChange}
               rows={6}
-              placeholder="Tell us about your requirements, questions, or how we can help you..."
+              placeholder={courseName 
+                ? "Tell us about your interest in this course..." 
+                : "Tell us about your requirements, questions, or how we can help you..."}
               className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 text-gray-900 placeholder-gray-500 transition-all duration-200 resize-none ${
                 errors.message ? 'border-red-500' : 'border-gray-200'
               }`}
@@ -406,12 +391,12 @@ const ContactForm = ({ onSubmit }) => {
             {isSubmitting ? (
               <>
                 <Loader className="w-5 h-5 mr-2 animate-spin" />
-                Sending Message...
+                Sending {courseName ? 'Enrollment Request' : 'Message'}...
               </>
             ) : (
               <>
                 <Send className="w-5 h-5 mr-2" />
-                Send Message
+                {courseName ? 'Enroll Now' : 'Send Message'}
               </>
             )}
           </motion.button>
