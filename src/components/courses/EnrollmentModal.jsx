@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { X } from 'lucide-react';
-import ContactForm from '../contact/ContactForm';
+import EnrollmentForm from './EnrollmentForm';
 
 const EnrollmentModal = ({ isOpen, onClose, courseName }) => {
   if (!isOpen) return null;
@@ -28,7 +28,7 @@ const EnrollmentModal = ({ isOpen, onClose, courseName }) => {
 
         {/* Modal Content */}
         <div className="p-6">
-          <ContactForm courseName={courseName} onSubmit={onClose} />
+          <EnrollmentForm courseName={courseName} onSubmit={onClose} />
         </div>
       </div>
     </div>
