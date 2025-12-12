@@ -13,6 +13,7 @@ export default function Header() {
     { to: "/placement", label: "Placement" },
     { to: "/blog", label: "Blog" },
     { to: "/contact", label: "Contact" },
+    
   ];
 
   // Function to scroll to top when navigation link is clicked

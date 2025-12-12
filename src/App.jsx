@@ -9,6 +9,7 @@ import Courses from "./pages/Courses.jsx";
 import Placement from "./pages/Placement.jsx";
 import Blog from "./pages/Blog.jsx";
 import Contact from "./pages/Contact.jsx";
+import GoogleLanding from "./pages/GoogleLanding.jsx";
 
 // PageWrapper handles animation and fills available space
 function PageWrapper({ children }) {
@@ -27,12 +28,14 @@ function PageWrapper({ children }) {
 
 function App() {
   const location = useLocation();
+  
+  // Check if current route is google-landing
+  const isGoogleLanding = location.pathname === '/google-landing';
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      {/* Header */}
-      <Header />
-
+      {!isGoogleLanding && <Header />}
+      
       {/* Main Content */}
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
@@ -42,11 +45,11 @@ function App() {
           <Route path="/placement" element={<PageWrapper><Placement /></PageWrapper>} />
           <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
           <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+          <Route path="/google-landing" element={<GoogleLanding />} />
         </Routes>
       </AnimatePresence>
-
-      {/* Footer */}
-      <Footer />
+      
+      {!isGoogleLanding && <Footer />}
     </div>
   );
 }
