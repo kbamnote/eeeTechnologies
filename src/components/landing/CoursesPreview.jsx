@@ -246,7 +246,10 @@ const CoursesPreview = () => {
                             </button>
                             
                             <button
-                              onClick={() => navigate(`/courses/${course.slug}`)}
+                              onClick={() => {
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                navigate(`/courses/${course.slug}`);
+                              }}
                               className="w-full px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-300"
                             >
                               Know More
