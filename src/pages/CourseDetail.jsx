@@ -502,7 +502,21 @@ const CourseDetail = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 ">
       {/* Breadcrumb */}
-      
+      <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-10 mt-6 sm:mt-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <nav className="text-sm">
+            <Link to="/" className="text-gray-500 hover:text-blue-600 transition-colors duration-200 flex items-center gap-1">
+              <span>Home</span>
+            </Link>
+            <span className="mx-2 text-gray-400">/</span>
+            <Link to="/courses" className="text-gray-500 hover:text-blue-600 transition-colors duration-200 flex items-center gap-1">
+              <span>Courses</span>
+            </Link>
+            <span className="mx-2 text-gray-400">/</span>
+            <span className="text-gray-900 font-medium">{course.shortTitle}</span>
+          </nav>
+        </div>
+      </div>
 
       <motion.div
         variants={containerVariants}

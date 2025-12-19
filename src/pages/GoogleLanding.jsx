@@ -55,9 +55,9 @@ export default function GoogleLanding() {
 
   const instructors = [
     {
-      name: "Dr. Rajesh Kumar",
+      name: "Mohammad Nayeem Ahmad",
       position: "Senior AI Engineer | 15+ Years Experience",
-      description: "We're not just another training institute. We're a community of passionate educators, industry professionals, and career counselors dedicated to helping you succeed. Dr. Kumar has worked with leading tech companies and published numerous research papers.",
+      description: "We're not just another training institute. We're a community of passionate educators, industry professionals, and career counselors dedicated to helping you succeed. Mohammad Nayeem Ahmad has worked with leading tech companies and published numerous research papers.",
       expertise: ["Machine Learning", "Deep Learning", "NLP"]
     },
     {
@@ -180,7 +180,7 @@ export default function GoogleLanding() {
           </p>
 
           {/* Video Placeholder */}
-          <div className="bg-gradient-to-br from-gray-300 to-gray-400 rounded-2xl aspect-video max-w-3xl mx-auto mb-4 flex items-center justify-center shadow-2xl relative overflow-hidden group">
+          {/* <div className="bg-gradient-to-br from-gray-300 to-gray-400 rounded-2xl aspect-video max-w-3xl mx-auto mb-4 flex items-center justify-center shadow-2xl relative overflow-hidden group">
             <div className="absolute inset-0 bg-black opacity-30"></div>
             <div className="relative z-10 text-center">
               <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
@@ -188,7 +188,7 @@ export default function GoogleLanding() {
               </div>
               <span className="text-white text-xl font-semibold">Watch Success Stories</span>
             </div>
-          </div>
+          </div> */}
           <p className="text-sm text-gray-500 italic">"This training changed my career trajectory completely!" - Former Student</p>
         </div>
       </section>
@@ -207,7 +207,7 @@ export default function GoogleLanding() {
       </section>
 
       {/* Ad Space 1 */}
-      <div className="max-w-5xl mx-auto px-4 py-8">
+      {/* <div className="max-w-5xl mx-auto px-4 py-8">
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-dashed border-blue-300 rounded-xl p-8 text-center">
           <p className="text-sm text-gray-600 font-semibold mb-2">📢 ADVERTISEMENT</p>
           <div className="bg-white rounded-lg p-6 min-h-[100px] flex items-center justify-center">
@@ -217,7 +217,7 @@ export default function GoogleLanding() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Transforming Lives Section */}
       <section className="bg-white py-16 px-4">
@@ -320,7 +320,7 @@ export default function GoogleLanding() {
       </section>
 
       {/* Ad Space 2 */}
-      <div className="max-w-5xl mx-auto px-4 py-12 bg-white">
+      {/* <div className="max-w-5xl mx-auto px-4 py-12 bg-white">
         <div className="bg-gradient-to-r from-green-50 to-blue-50 border-2 border-dashed border-green-300 rounded-xl p-8 text-center">
           <p className="text-sm text-gray-600 font-semibold mb-2">📢 ADVERTISEMENT</p>
           <div className="bg-white rounded-lg p-8 min-h-[120px] flex items-center justify-center">
@@ -330,7 +330,7 @@ export default function GoogleLanding() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Meet Your Instructor Section */}
       <section id="instructors" className="bg-white py-16 px-4">
@@ -351,11 +351,23 @@ export default function GoogleLanding() {
                 <div className={`md:flex ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
                   <div className="md:w-2/5 bg-gradient-to-br from-gray-300 to-gray-400 min-h-[300px] flex items-center justify-center relative overflow-hidden">
                     <div className="absolute inset-0 bg-black opacity-20"></div>
-                    <div className="relative z-10 text-center">
-                      <div className="w-32 h-32 bg-white rounded-full mx-auto mb-4 flex items-center justify-center text-5xl shadow-lg">
-                        👨‍🏫
-                      </div>
-                      <span className="text-white font-semibold text-lg">{instructor.name}</span>
+                    <div className="relative z-10 text-center w-full h-full flex flex-col items-center justify-center p-4">
+                      {instructor.name === "Mohammad Nayeem Ahmad" ? (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <img 
+                            src="/assets/teamTwo.jpg" 
+                            alt={instructor.name} 
+                            className="w-full h-full object-contain max-h-[250px]"
+                          />
+                        </div>
+                      ) : (
+                        <>
+                          <div className="w-32 h-32 bg-white rounded-full mx-auto mb-4 flex items-center justify-center text-5xl shadow-lg">
+                            👨‍🏫
+                          </div>
+                          <span className="text-white font-semibold text-lg">{instructor.name}</span>
+                        </>
+                      )}
                     </div>
                   </div>
                   <div className="md:w-3/5 p-8">
