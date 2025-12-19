@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ChevronDown, Award, Users, BookOpen, Target, Star, CheckCircle, TrendingUp, Zap } from "lucide-react";
+import two from "../assets/teamtwo.jpg"
 
 export default function GoogleLanding() {
   const [showCookieConsent, setShowCookieConsent] = useState(false);
@@ -355,7 +356,7 @@ export default function GoogleLanding() {
                       {instructor.name === "Mohammad Nayeem Ahmad" ? (
                         <div className="w-full h-full flex items-center justify-center">
                           <img 
-                            src="/assets/teamTwo.jpg" 
+                            src={two} 
                             alt={instructor.name} 
                             className="w-full h-full object-contain max-h-[250px]"
                           />
@@ -450,7 +451,7 @@ export default function GoogleLanding() {
       </section>
 
       {/* Ad Space 3 */}
-      <div className="max-w-5xl mx-auto px-4 py-12 bg-white">
+      {/* <div className="max-w-5xl mx-auto px-4 py-12 bg-white">
         <div className="bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-dashed border-purple-300 rounded-xl p-8 text-center">
           <p className="text-sm text-gray-600 font-semibold mb-2">📢 ADVERTISEMENT</p>
           <div className="bg-white rounded-lg p-6 min-h-[250px] flex items-center justify-center">
@@ -460,7 +461,7 @@ export default function GoogleLanding() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* FAQ Section */}
       <section id="faq" className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4">
