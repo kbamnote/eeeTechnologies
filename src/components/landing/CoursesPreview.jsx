@@ -1,32 +1,21 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Code, Database, Brain, Shield, Globe, Clock, Users, Star, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useScrollAnimation, fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '../../hooks/useScrollAnimation';
+import { useNavigate } from 'react-router-dom';
+import { ArrowRight, Code, Database, Brain, Shield, Clock, Users, Star } from 'lucide-react';
 import EnrollmentModal from '../courses/EnrollmentModal';
 
 const CoursesPreview = () => {
-  const { ref, isInView } = useScrollAnimation();
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
-
-  const categories = [
-    { id: 'all', name: 'All Courses', icon: Globe },
-    { id: 'web', name: 'Web Development', icon: Code },
-    { id: 'data', name: 'Data Science', icon: Database },
-    { id: 'ai', name: 'AI/ML', icon: Brain },
-    { id: 'testing', name: 'Software Testing', icon: Shield }
-  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const courses = [
     {
       id: 1,
+      slug: "full-stack-development",
       title: "Full Stack Development",
-      category: "web",
       description: "Master modern web development with React, Node.js, and MongoDB. Build real-world applications from scratch with hands-on projects and industry best practices.",
       duration: "6 months",
-      level: "Beginner to Advanced",
       students: "2,847+",
       rating: 4.9,
       price: "₹75,000",
@@ -34,15 +23,14 @@ const CoursesPreview = () => {
       technologies: ["React", "Node.js", "MongoDB", "Express", "JavaScript", "HTML/CSS"],
       color: "from-blue-500 to-cyan-500",
       icon: Code,
-      popular: true
+      badge: "POPULAR"
     },
     {
       id: 2,
+      slug: "data-analysis",
       title: "Data Analysis",
-      category: "data",
       description: "Learn Python, SQL, data visualization, and statistical analysis to become a professional data analyst. Work with real datasets and industry tools.",
       duration: "6 months",
-      level: "Beginner to Intermediate",
       students: "1,923+",
       rating: 4.8,
       price: "₹75,000",
@@ -50,39 +38,37 @@ const CoursesPreview = () => {
       technologies: ["Python", "SQL", "Pandas", "NumPy", "Matplotlib", "Tableau", "Excel"],
       color: "from-purple-500 to-pink-500",
       icon: Database,
-      popular: true
+      badge: "POPULAR"
     },
     {
       id: 3,
+      slug: "ai-ml",
       title: "AI/ML",
-      category: "ai",
       description: "Master artificial intelligence and machine learning with Python. Learn algorithms, neural networks, deep learning, and computer vision with hands-on projects.",
       duration: "6 months",
-      level: "Intermediate to Advanced",
       students: "1,456+",
       rating: 4.9,
       price: "₹75,000",
       originalPrice: "₹90,000",
-      technologies: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Neural Networks", "NLP", "Computer Vision"],
+      technologies: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Neural Networks", "NLP"],
       color: "from-green-500 to-emerald-500",
       icon: Brain,
-      trending: true
+      badge: "TRENDING"
     },
     {
       id: 4,
-      title: "Tester",
-      category: "testing",
+      slug: "software-testing",
+      title: "Software Testing",
       description: "Become a professional software tester with expertise in manual and automated testing. Learn testing frameworks, bug tracking, and quality assurance processes.",
       duration: "6 months",
-      level: "Beginner",
       students: "987+",
       rating: 4.7,
       price: "₹75,000",
       originalPrice: "₹90,000",
-      technologies: ["Manual Testing", "Automation Testing", "Selenium", "JIRA", "TestNG", "API Testing"],
+      technologies: ["Manual Testing", "Selenium", "JIRA", "TestNG", "API Testing", "Automation"],
       color: "from-orange-500 to-red-500",
       icon: Shield,
-      popular: true
+      badge: "POPULAR"
     }
   ];
 
@@ -96,287 +82,216 @@ const CoursesPreview = () => {
     setSelectedCourse(null);
   };
 
-  const filteredCourses = activeCategory === 'all' 
-    ? courses 
-    : courses.filter(course => course.category === activeCategory);
-
-  const coursesPerSlide = 3;
-  const totalSlides = Math.ceil(filteredCourses.length / coursesPerSlide);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
-
-  const getCurrentCourses = () => {
-    const startIndex = currentSlide * coursesPerSlide;
-    return filteredCourses.slice(startIndex, startIndex + coursesPerSlide);
-  };
+  // Auto carousel effect
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % courses.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [courses.length]);
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 right-10 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-72 h-72 bg-purple-200/30 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-cyan-100/20 to-blue-100/20 rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-100 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-100 rounded-full blur-3xl" />
       </div>
 
-      <div className="w-full px-6 lg:px-8 relative z-10">
-        <motion.div
-          ref={ref}
-          variants={staggerContainer}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="max-w-7xl mx-auto"
-        >
-          {/* Section Header */}
-          <div className="text-center mb-20">
-            <motion.div
-              variants={fadeInUp}
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-200 rounded-full text-blue-700 text-sm font-semibold mb-8 shadow-sm"
-            >
-              <Code className="w-4 h-4 mr-2 text-blue-500" />
-              Popular Courses
-            </motion.div>
-
-            <motion.h2
-              variants={fadeInUp}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight"
-            >
-              Master In-Demand
-              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Tech Skills
-              </span>
-            </motion.h2>
-
-            <motion.p
-              variants={fadeInUp}
-              className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
-            >
-              Choose from our comprehensive range of industry-relevant courses designed by experts 
-              and updated with the latest technologies and market trends.
-            </motion.p>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-5 py-2.5 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-sm font-semibold mb-6">
+            <Code className="w-4 h-4 mr-2" />
+            Professional Training Programs
           </div>
 
-          {/* Category Filter */}
-          <motion.div
-            variants={fadeInUp}
-            className="flex flex-wrap justify-center gap-4 mb-16"
-          >
-            {categories.map((category) => (
-              <motion.button
-                key={category.id}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  setActiveCategory(category.id);
-                  setCurrentSlide(0);
-                }}
-                className={`group flex items-center px-8 py-4 rounded-xl font-semibold transition-all duration-300 ${
-                  activeCategory === category.id
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/25'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 shadow-sm hover:shadow-md'
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+            Transform Your Career with
+            <span className="block bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mt-2">
+              Industry-Leading Courses
+            </span>
+          </h2>
+
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Comprehensive programs designed by industry experts to help you master in-demand skills 
+            and accelerate your career growth.
+          </p>
+        </div>
+
+        {/* Carousel Container */}
+        <div className="relative mb-12">
+          <div className="overflow-hidden">
+            <div 
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {courses.map((course) => (
+                <div
+                  key={course.id}
+                  className="w-full flex-shrink-0 px-2"
+                >
+                  <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden hover:shadow-3xl transition-shadow duration-500">
+                    <div className="grid md:grid-cols-2">
+                      {/* Left Side - Course Info */}
+                      <div className="p-10 lg:p-12 flex flex-col justify-between">
+                        {/* Header */}
+                        <div>
+                          <div className="flex items-center gap-4 mb-6">
+                            <div className={`w-16 h-16 bg-gradient-to-br ${course.color} rounded-2xl flex items-center justify-center shadow-lg`}>
+                              <course.icon className="w-8 h-8 text-white" />
+                            </div>
+                            <span className={`px-4 py-1.5 text-white text-sm font-bold rounded-full shadow-md ${
+                              course.badge === 'TRENDING' 
+                                ? 'bg-gradient-to-r from-green-500 to-emerald-600' 
+                                : 'bg-gradient-to-r from-amber-500 to-orange-600'
+                            }`}>
+                              {course.badge}
+                            </span>
+                          </div>
+
+                          <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                            {course.title}
+                          </h3>
+                          
+                          <p className="text-gray-600 text-base leading-relaxed mb-6">
+                            {course.description}
+                          </p>
+
+                          {/* Technologies */}
+                          <div className="flex flex-wrap gap-2 mb-6">
+                            {course.technologies.map((tech) => (
+                              <span
+                                key={tech}
+                                className="px-3 py-1.5 bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200 text-gray-700 text-sm rounded-lg font-medium"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Stats & Pricing */}
+                        <div>
+                          <div className="grid grid-cols-3 gap-4 mb-6 p-4 bg-gray-50 rounded-2xl">
+                            <div className="text-center">
+                              <Clock className="w-5 h-5 text-blue-600 mx-auto mb-2" />
+                              <div className="text-sm font-semibold text-gray-900">{course.duration}</div>
+                              <div className="text-xs text-gray-500">Duration</div>
+                            </div>
+                            <div className="text-center">
+                              <Users className="w-5 h-5 text-green-600 mx-auto mb-2" />
+                              <div className="text-sm font-semibold text-gray-900">{course.students}</div>
+                              <div className="text-xs text-gray-500">Students</div>
+                            </div>
+                            <div className="text-center">
+                              <Star className="w-5 h-5 text-amber-500 mx-auto mb-2" />
+                              <div className="text-sm font-semibold text-gray-900">{course.rating}</div>
+                              <div className="text-xs text-gray-500">Rating</div>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl mb-6">
+                            <div>
+                              <div className="text-3xl font-bold text-gray-900">{course.price}</div>
+                              <div className="text-sm text-gray-500">
+                                <span className="line-through mr-2">{course.originalPrice}</span>
+                                <span className="text-green-600 font-semibold">Save 17%</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right Side - CTA Section */}
+                      <div className={`bg-gradient-to-br ${course.color} p-10 lg:p-12 flex flex-col justify-center items-center text-white relative overflow-hidden`}>
+                        {/* Decorative Elements */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+                        <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full blur-2xl" />
+                        
+                        <div className="relative z-10 text-center">
+                          <div className="mb-8">
+                            <div className="text-5xl font-bold mb-2">Start Learning</div>
+                            <div className="text-xl opacity-90">Transform Your Future Today</div>
+                          </div>
+
+                          <div className="space-y-4 mb-8">
+                            <div className="flex items-center justify-center gap-3 text-lg">
+                              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">✓</div>
+                              <span>Lifetime Access</span>
+                            </div>
+                            <div className="flex items-center justify-center gap-3 text-lg">
+                              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">✓</div>
+                              <span>Expert Mentorship</span>
+                            </div>
+                            <div className="flex items-center justify-center gap-3 text-lg">
+                              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">✓</div>
+                              <span>Job Assistance</span>
+                            </div>
+                            <div className="flex items-center justify-center gap-3 text-lg">
+                              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">✓</div>
+                              <span>Certificate of Completion</span>
+                            </div>
+                          </div>
+
+                          <div className="space-y-3">
+                            <button
+                              onClick={() => handleEnrollClick(course)}
+                              className="w-full px-8 py-4 bg-white text-gray-900 font-bold rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                            >
+                              <span className="flex items-center justify-center text-lg">
+                                Enroll Now
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                              </span>
+                            </button>
+                            
+                            <button
+                              onClick={() => navigate(`/courses/${course.slug}`)}
+                              className="w-full px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-300"
+                            >
+                              Know More
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Carousel Indicators */}
+          <div className="flex justify-center gap-2 mt-8">
+            {courses.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? 'w-8 bg-gradient-to-r from-blue-600 to-purple-600' 
+                    : 'w-2 bg-gray-300 hover:bg-gray-400'
                 }`}
-              >
-                <category.icon className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
-                {category.name}
-              </motion.button>
+              />
             ))}
-          </motion.div>
-
-          {/* Courses Carousel */}
-          <div className="relative">
-            {/* Navigation Buttons */}
-            {totalSlides > 1 && (
-              <>
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={prevSlide}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-14 h-14 bg-white rounded-full shadow-xl border border-gray-200 flex items-center justify-center text-gray-600 hover:text-blue-600 hover:border-blue-300 hover:shadow-2xl transition-all duration-300"
-                >
-                  <ChevronLeft className="w-6 h-6" />
-                </motion.button>
-
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={nextSlide}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-14 h-14 bg-white rounded-full shadow-xl border border-gray-200 flex items-center justify-center text-gray-600 hover:text-blue-600 hover:border-blue-300 hover:shadow-2xl transition-all duration-300"
-                >
-                  <ChevronRight className="w-6 h-6" />
-                </motion.button>
-              </>
-            )}
-
-            {/* Courses Grid */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`${activeCategory}-${currentSlide}`}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.5 }}
-                className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-              >
-                {getCurrentCourses().map((course, index) => (
-                  <motion.div
-                    key={course.id}
-                    variants={staggerItem}
-                    whileHover={{ y: -10, scale: 1.02 }}
-                    className="group relative bg-white rounded-3xl p-8 shadow-xl border border-gray-200 hover:border-blue-300 hover:shadow-2xl transition-all duration-500 overflow-hidden"
-                  >
-                    {/* Background Gradient */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-
-                    {/* Badges */}
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="flex items-center space-x-2">
-                        {course.popular && (
-                          <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold rounded-full shadow-sm">
-                            POPULAR
-                          </span>
-                        )}
-                        {course.trending && (
-                          <span className="px-3 py-1 bg-gradient-to-r from-green-400 to-emerald-500 text-white text-xs font-bold rounded-full shadow-sm">
-                            TRENDING
-                          </span>
-                        )}
-                      </div>
-                      <div className={`w-14 h-14 bg-gradient-to-r ${course.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                        <course.icon className="w-7 h-7 text-white" />
-                      </div>
-                    </div>
-
-                    {/* Course Content */}
-                    <div className="space-y-5 mb-8">
-                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                        {course.title}
-                      </h3>
-                      
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {course.description}
-                      </p>
-
-                      {/* Technologies */}
-                      <div className="flex flex-wrap gap-2">
-                        {course.technologies.slice(0, 3).map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full font-medium"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {course.technologies.length > 3 && (
-                          <span className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full font-medium">
-                            +{course.technologies.length - 3}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Course Stats */}
-                    <div className="grid grid-cols-3 gap-4 mb-8 text-center">
-                      <div className="bg-gray-50 rounded-lg p-3">
-                        <div className="flex items-center justify-center mb-2">
-                          <Clock className="w-4 h-4 text-blue-500" />
-                        </div>
-                        <div className="text-xs text-gray-600 font-medium">{course.duration}</div>
-                      </div>
-                      <div className="bg-gray-50 rounded-lg p-3">
-                        <div className="flex items-center justify-center mb-2">
-                          <Users className="w-4 h-4 text-green-500" />
-                        </div>
-                        <div className="text-xs text-gray-600 font-medium">{course.students}</div>
-                      </div>
-                      <div className="bg-gray-50 rounded-lg p-3">
-                        <div className="flex items-center justify-center mb-2">
-                          <Star className="w-4 h-4 text-yellow-500" />
-                        </div>
-                        <div className="text-xs text-gray-600 font-medium">{course.rating}</div>
-                      </div>
-                    </div>
-
-                    {/* Pricing */}
-                    <div className="flex items-center justify-between mb-8">
-                      <div>
-                        <div className="text-2xl font-bold text-gray-900">
-                          {course.price}
-                        </div>
-                        <div className="text-sm text-gray-500 line-through">
-                          {course.originalPrice}
-                        </div>
-                      </div>
-                      <div className="text-sm text-green-600 font-semibold bg-green-50 px-3 py-1 rounded-full">
-                        Save {Math.round((1 - parseInt(course.price.replace(/[^\d]/g, '')) / parseInt(course.originalPrice.replace(/[^\d]/g, ''))) * 100)}%
-                      </div>
-                    </div>
-
-                    {/* CTA Button */}
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => handleEnrollClick(course)}
-                      className={`w-full group/btn relative px-6 py-3 bg-gradient-to-r ${course.color} text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden`}
-                    >
-                      <span className="relative z-10 flex items-center justify-center">
-                        Enroll Now
-                        <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </span>
-                      <div className="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
-                    </motion.button>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Slide Indicators */}
-            {totalSlides > 1 && (
-              <div className="flex justify-center mt-12 space-x-3">
-                {Array.from({ length: totalSlides }).map((_, index) => (
-                  <motion.button
-                    key={index}
-                    whileHover={{ scale: 1.2 }}
-                    onClick={() => setCurrentSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      currentSlide === index
-                        ? 'bg-blue-600 shadow-lg'
-                        : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
-                  />
-                ))}
-              </div>
-            )}
           </div>
+        </div>
 
-          {/* View All Courses CTA */}
-          <motion.div
-            variants={fadeInUp}
-            className="text-center mt-16"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              View All Courses
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
-          </motion.div>
-        </motion.div>
-
-        {/* Enrollment Modal */}
-        <EnrollmentModal
-          isOpen={isModalOpen}
-          onClose={handleCloseModal}
-          courseName={selectedCourse?.title}
-        />
+        {/* View All CTA */}
+        <div className="text-center">
+          <button className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white text-lg font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+            Explore All Courses
+            <ArrowRight className="ml-3 w-6 h-6" />
+          </button>
+        </div>
       </div>
+
+      {/* Enrollment Modal */}
+      <EnrollmentModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        courseName={selectedCourse?.title}
+      />
     </section>
   );
 };

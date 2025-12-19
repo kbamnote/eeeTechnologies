@@ -6,6 +6,7 @@ import Footer from "./components/common/Footer.jsx";
 import Landing from "./pages/Landing.jsx";
 import About from "./pages/About.jsx";
 import Courses from "./pages/Courses.jsx";
+import CourseDetail from "./pages/CourseDetail.jsx";
 import Placement from "./pages/Placement.jsx";
 import Blog from "./pages/Blog.jsx";
 import Contact from "./pages/Contact.jsx";
@@ -42,6 +43,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
           <Route path="/courses" element={<PageWrapper><Courses /></PageWrapper>} />
+          <Route path="/courses/:slug" element={<PageWrapper><CourseDetail /></PageWrapper>} />
           <Route path="/placement" element={<PageWrapper><Placement /></PageWrapper>} />
           <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
           <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
