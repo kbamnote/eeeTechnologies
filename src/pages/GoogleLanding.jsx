@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { ChevronDown, Award, Users, BookOpen, Target, Star, CheckCircle, TrendingUp, Zap } from "lucide-react";
-import two from "../assets/teamtwo.jpg"
+import brochure from "../assets/EEE brochure new.pdf"
+import one from "../assets/teamone.jpeg"
+import two from "../assets/teamtwo.jpeg"
+import three from "../assets/teamthree.jpeg"
+import EnrollmentModal from "../components/courses/EnrollmentModal"
 
 export default function GoogleLanding() {
   const [showCookieConsent, setShowCookieConsent] = useState(false);
   const [consentGiven, setConsentGiven] = useState(false);
   const [activeQuestion, setActiveQuestion] = useState(null);
+  const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState("General Enrollment");
 
   useEffect(() => {
     const consent = sessionStorage.getItem('googleAdsConsent');
@@ -47,10 +53,10 @@ export default function GoogleLanding() {
       color: "from-green-500 to-emerald-500"
     },
     {
-      title: "Cybersecurity & Ethical Hacking",
-      description: "We're not just another training institute. We're a community of passionate educators, industry professionals, and career counselors dedicated to building the next generation of security experts.",
-      icon: <Award className="w-8 h-8" />,
-      color: "from-red-500 to-orange-500"
+      title: "Software Testing & QA Automation",
+      description: "We're not just another training institute. We're a community of passionate educators, industry professionals, and career counselors dedicated to building the next generation of quality assurance experts.",
+      icon: <Target className="w-8 h-8" />,
+      color: "from-indigo-500 to-purple-500"
     },
   ];
 
@@ -62,13 +68,13 @@ export default function GoogleLanding() {
       expertise: ["Machine Learning", "Deep Learning", "NLP"]
     },
     {
-      name: "Sarah Johnson",
+      name: "Tanveer Ahmed",
       position: "Full-Stack Architect | Tech Lead at Fortune 500",
       description: "We're not just another training institute. We're a community of passionate educators, industry professionals, and career counselors dedicated to helping you succeed. Sarah brings real-world enterprise development experience.",
       expertise: ["React", "Node.js", "Cloud Architecture"]
     },
     {
-      name: "Michael Chen",
+      name: "Mohammad Subhan",
       position: "Data Science Lead | ML Engineer",
       description: "We're not just another training institute. We're a community of passionate educators, industry professionals, and career counselors dedicated to helping you succeed. Michael has led data science teams at top startups.",
       expertise: ["Python", "TensorFlow", "Big Data"]
@@ -78,7 +84,7 @@ export default function GoogleLanding() {
   const faqs = [
     {
       question: "What courses do you offer?",
-      answer: "We offer comprehensive courses in AI/ML, Full-Stack Development, Data Science, Cybersecurity, Cloud Computing, DevOps, and more. Each course is designed with industry requirements in mind and includes hands-on projects, real-world scenarios, and interview preparation."
+      answer: "We offer comprehensive courses in AI/ML, Full-Stack Development, Data Science, Software Testing, Cloud Computing, DevOps, and more. Each course is designed with industry requirements in mind and includes hands-on projects, real-world scenarios, and interview preparation."
     },
     {
       question: "Do you provide placement assistance?",
@@ -158,7 +164,13 @@ export default function GoogleLanding() {
             <a href="#instructors" className="text-gray-600 hover:text-red-600 transition-colors">Instructors</a>
             <a href="#faq" className="text-gray-600 hover:text-red-600 transition-colors">FAQ</a>
           </nav>
-          <button className="bg-red-600 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition-colors">
+          <button 
+            onClick={() => {
+              setSelectedCourse("General Enrollment");
+              setIsEnrollmentModalOpen(true);
+            }}
+            className="bg-red-600 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition-colors"
+          >
             Enroll Now
           </button>
         </div>
@@ -361,6 +373,22 @@ export default function GoogleLanding() {
                             className="w-full h-full object-contain max-h-[250px]"
                           />
                         </div>
+                      ) : instructor.name === "Tanveer Ahmed" ? (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <img 
+                            src={three} 
+                            alt={instructor.name} 
+                            className="w-full h-full object-contain max-h-[250px]"
+                          />
+                        </div>
+                      ) : instructor.name === "Mohammad Subhan" ? (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <img 
+                            src={one} 
+                            alt={instructor.name} 
+                            className="w-full h-full object-contain max-h-[250px]"
+                          />
+                        </div>
                       ) : (
                         <>
                           <div className="w-32 h-32 bg-white rounded-full mx-auto mb-4 flex items-center justify-center text-5xl shadow-lg">
@@ -503,10 +531,21 @@ export default function GoogleLanding() {
             <h3 className="text-xl font-bold mb-3 text-gray-900">Still have questions?</h3>
             <p className="text-gray-600 mb-6">Our admissions team is here to help you 24/7</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors">
+              <button 
+                onClick={() => {
+                  setSelectedCourse("General Inquiry");
+                  setIsEnrollmentModalOpen(true);
+                }}
+                className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors"
+              >
                 📞 Call Us Now
               </button>
-              <button className="border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+              <button 
+                onClick={() => {
+                  window.open('https://wa.me/9730893320', '_blank');
+                }}
+                className="border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+              >
                 💬 Live Chat
               </button>
             </div>
@@ -520,10 +559,26 @@ export default function GoogleLanding() {
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to Transform Your Career?</h2>
           <p className="text-xl mb-8 opacity-90">Join 400+ students who have already started their journey</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <button className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl transition-all transform hover:scale-105">
+            <button 
+              onClick={() => {
+                setSelectedCourse("Full Program Enrollment");
+                setIsEnrollmentModalOpen(true);
+              }}
+              className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl transition-all transform hover:scale-105"
+            >
               Start Learning Today
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-red-600 transition-all">
+            <button 
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = brochure;
+                link.download = 'EEE-Brochure.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+              className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-red-600 transition-all"
+            >
               Download Brochure
             </button>
           </div>
@@ -600,8 +655,20 @@ export default function GoogleLanding() {
         </div>
       </footer>
 
+      {/* Enrollment Modal */}
+      <EnrollmentModal 
+        isOpen={isEnrollmentModalOpen}
+        onClose={() => setIsEnrollmentModalOpen(false)}
+        courseName={selectedCourse}
+      />
+
       {/* Floating Action Button */}
-      <button className="fixed bottom-8 right-8 bg-gradient-to-r from-red-600 to-orange-600 text-white w-14 h-14 rounded-full shadow-2xl hover:shadow-3xl transition-all transform hover:scale-110 flex items-center justify-center z-40">
+      <button 
+        onClick={() => {
+          window.open('https://wa.me/9730893320', '_blank');
+        }}
+        className="fixed bottom-8 right-8 bg-gradient-to-r from-red-600 to-orange-600 text-white w-14 h-14 rounded-full shadow-2xl hover:shadow-3xl transition-all transform hover:scale-110 flex items-center justify-center z-40"
+      >
         <span className="text-2xl">💬</span>
       </button>
     </div>
