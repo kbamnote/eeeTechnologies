@@ -31,7 +31,7 @@ function App() {
   const location = useLocation();
   
   // Check if current route is google-landing
-  const isGoogleLanding = location.pathname === '/google-landing';
+  const isGoogleLanding = location.pathname === '/placement-courses';
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">

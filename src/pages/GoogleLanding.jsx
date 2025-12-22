@@ -11,6 +11,7 @@ export default function GoogleLanding() {
   const [consentGiven, setConsentGiven] = useState(false);
   const [activeQuestion, setActiveQuestion] = useState(null);
   const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false);
+  
   const [selectedCourse, setSelectedCourse] = useState("General Enrollment");
 
   useEffect(() => {
@@ -35,26 +36,26 @@ export default function GoogleLanding() {
 
   const courses = [
     {
-      title: "Artificial Intelligence & ML",
-      description: "We're not just another training institute. We're a community of passionate educators, industry professionals, and career counselors dedicated to helping you succeed in the rapidly evolving field of AI.",
+      title: "AI/ML Course With Placement Support",
+      description: "Our AI and Machine Learning course enables learners to gain knowledge in artificial intelligence, machine learning and deep learning concepts for product design whilst also applying industry relevant tools on real-life projects. This program is ideal for those who plan to attend full-time and want to gain a professional certificate in machine learning and artificial intelligence.",
       icon: <Zap className="w-8 h-8" />,
       color: "from-purple-500 to-pink-500"
     },
     {
-      title: "Full-Stack Development",
-      description: "We're not just another training institute. We're a community of passionate educators, industry professionals, and career counselors dedicated to helping you master modern web technologies.",
+      title: "Full Stack Web Development Course With Placement",
+      description: "Our Full Stack Developer Course is for all those beginners and professionals who want to learn full stack web development. You will receive hands-on experience in both frontend and backend technologies used by modern tech companies as well as exposure working on real world projects.",
       icon: <BookOpen className="w-8 h-8" />,
       color: "from-blue-500 to-cyan-500"
     },
     {
-      title: "Data Science with Python",
-      description: "We're not just another training institute. We're a community of passionate educators, industry professionals, and career counselors dedicated to transforming you into a data expert.",
+      title: "Data Science Course with Placement",
+      description: "Take your career to the next level in this Data Science with Python training that will give you an edge in machine learning, data science and AI. You'll learn to work with data, build models, and solve real business problems using Python — all in practical hands-on projects.",
       icon: <TrendingUp className="w-8 h-8" />,
       color: "from-green-500 to-emerald-500"
     },
     {
-      title: "Software Testing & QA Automation",
-      description: "We're not just another training institute. We're a community of passionate educators, industry professionals, and career counselors dedicated to building the next generation of quality assurance experts.",
+      title: "Software Testing Course with Placement",
+      description: "Our Software Testing & QA Automation course is designed for students who want fast entry into IT roles. Learn manual testing, automation testing, and QA processes used in real projects.",
       icon: <Target className="w-8 h-8" />,
       color: "from-indigo-500 to-purple-500"
     },
@@ -186,10 +187,10 @@ export default function GoogleLanding() {
             Transform Your Tech Career
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-2">
-            FutureSkillsSuccess with Expert Training
+            Get Ready for A Tech Career, Study as a Fullstack-Developer, Data Scientist or Software Testing Engineer
           </p>
           <p className="text-lg text-red-600 font-semibold mb-8">
-            Join 400+ Students Who Changed Their Lives
+            FutureSkillsSuccess with Expert Training - Get Placed With 3 - 15 LPA Salary, learn from industry experts, Build real Projects
           </p>
 
           {/* Video Placeholder */}
@@ -202,7 +203,7 @@ export default function GoogleLanding() {
               <span className="text-white text-xl font-semibold">Watch Success Stories</span>
             </div>
           </div> */}
-          <p className="text-sm text-gray-500 italic">"This training changed my career trajectory completely!" - Former Student</p>
+          <p className="text-sm text-gray-500 italic">"This training changed my career trajectory completely!" - Former Student - Apply Now and Receive Job Placement</p>
         </div>
       </section>
 
@@ -242,12 +243,24 @@ export default function GoogleLanding() {
             Technology Education
           </h2>
 
+          <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto text-lg">
+            EEE Technologies is a highly rated training organization for Job Guarantee in  Full Stack Development, Data Science, AI & Machine Learning and Software Testing.
+          </p>
+
           {/* Red Box with Image */}
           <div className="bg-gradient-to-br from-red-600 to-red-700 rounded-3xl p-8 md:p-12 mb-8 max-w-2xl mx-auto shadow-2xl transform hover:scale-105 transition-transform">
             <h3 className="text-white text-2xl md:text-3xl font-bold mb-4">Why Choose Us?</h3>
             <p className="text-white text-base md:text-lg mb-8 leading-relaxed">
-              We're not just another training institute. We're a community of passionate educators, 
-              industry professionals, and career counselors dedicated to your success.
+              Why EEE Technologies Is The Choice Of Thousands Students
+            </p>
+            <p className="text-white text-base md:text-lg mb-8 leading-relaxed">
+              We are not just another training institute —
+            </p>
+            <p className="text-white text-base md:text-lg mb-8 leading-relaxed">
+              we're a career transformation partner.
+            </p>
+            <p className="text-white text-base md:text-lg mb-8 leading-relaxed">
+              At EEE Technologies, we empower promising talent with industry required competencies for career success through expert mentoring, structured learning paths and placement focused programming that matches real hiring needs.
             </p>
             <div className="bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl aspect-video flex items-center justify-center shadow-lg">
               <div className="text-center">
@@ -303,15 +316,23 @@ export default function GoogleLanding() {
                     <ul className="space-y-2 mb-4">
                       <li className="flex items-center text-sm text-gray-700">
                         <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
-                        Industry-relevant curriculum
+                        AI & ML in python programming
                       </li>
                       <li className="flex items-center text-sm text-gray-700">
                         <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
-                        Real-world projects & assignments
+                        Machine learning algorithms and model
                       </li>
                       <li className="flex items-center text-sm text-gray-700">
                         <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
-                        Lifetime access to course materials
+                        Deep learning fundamentals
+                      </li>
+                      <li className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
+                        Applications And Real-World Examples Of Artificial Intelligence
+                      </li>
+                      <li className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
+                        Model evaluation and model deployment fundamentals
                       </li>
                     </ul>
                     <button className="bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors">
@@ -425,31 +446,35 @@ export default function GoogleLanding() {
       <section className="bg-gradient-to-br from-orange-50 via-yellow-50 to-orange-50 py-16 px-4">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center text-gray-900">
-            Get Certified & Stand Out
+            Why Get Certified? -  Placement-Focused Training & Career Support
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Earn an industry-recognized certificate that boosts your career prospects
+            Our programs are built on actual hiring needs, rather than just theory. We're behind you throughout your job search.
           </p>
           
           <div className="md:flex items-center gap-8 bg-white rounded-2xl shadow-2xl p-8 md:p-12">
             <div className="md:w-1/2 mb-8 md:mb-0">
-              <h3 className="text-2xl font-bold mb-6 text-gray-900">Why Get Certified?</h3>
+              <h3 className="text-2xl font-bold mb-6 text-gray-900">Our placement support includes:</h3>
               <ul className="space-y-4 text-gray-700 mb-8">
                 <li className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
-                  <span><strong>Industry Recognition:</strong> Valued by top companies worldwide</span>
+                  <span><strong>Real interviews and practice sessions with mentors</strong></span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
-                  <span><strong>Career Boost:</strong> Increase your resume credibility by 10x</span>
+                  <span><strong>Job placement with hiring partners</strong></span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
-                  <span><strong>Lifetime Access:</strong> All course materials forever</span>
+                  <span><strong>Ongoing placement help until you get placed</strong></span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
-                  <span><strong>Alumni Network:</strong> Join our community of 400+ professionals</span>
+                  <span><strong>We're not just teachers — we build careers.</strong></span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <span><strong>Resume and portfolio building</strong></span>
                 </li>
               </ul>
               <button className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105">
