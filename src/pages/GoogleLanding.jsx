@@ -184,11 +184,11 @@ export default function GoogleLanding() {
             🎓 Join 400+ Successful Students
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-900 leading-tight">
-            Transform Your Tech Career
+           Get Ready for A Tech Career, Study as a Fullstack-Developer, Data Scientist or Software Testing Engineer
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-2">
+          {/* <p className="text-xl md:text-2xl text-gray-600 mb-2">
             Get Ready for A Tech Career, Study as a Fullstack-Developer, Data Scientist or Software Testing Engineer
-          </p>
+          </p> */}
           <p className="text-lg text-red-600 font-semibold mb-8">
        Study with guidance from industry experts, live  projects and recognized certificates.
 
