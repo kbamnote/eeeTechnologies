@@ -47,7 +47,7 @@ function App() {
           <Route path="/placement" element={<PageWrapper><Placement /></PageWrapper>} />
           <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
           <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-          <Route path="/google-landing" element={<GoogleLanding />} />
+          <Route path="/placement-courses" element={<GoogleLanding />} />
         </Routes>
       </AnimatePresence>
       

@@ -190,7 +190,7 @@ export default function GoogleLanding() {
             Get Ready for A Tech Career, Study as a Fullstack-Developer, Data Scientist or Software Testing Engineer
           </p>
           <p className="text-lg text-red-600 font-semibold mb-8">
-            FutureSkillsSuccess with Expert Training - Get Placed With 3 - 15 LPA Salary, learn from industry experts, Build real Projects
+            Future Skills Success with Expert Training - Get Placed With 2 - 15 LPA Salary, learn from industry experts, Build real Projects
           </p>
 
           {/* Video Placeholder */}
