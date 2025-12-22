@@ -119,7 +119,7 @@ export default function GoogleLanding() {
   return (
     <div className="min-h-screen bg-white">
       {/* Cookie Consent Banner */}
-      {showCookieConsent && (
+      {/* {showCookieConsent && (
         <div className="fixed bottom-0 left-0 right-0 bg-white shadow-2xl z-50 border-t-4 border-red-600 animate-slide-up">
           <div className="max-w-6xl mx-auto p-6">
             <div className="flex items-start gap-4">
@@ -149,7 +149,7 @@ export default function GoogleLanding() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-40">
@@ -204,7 +204,8 @@ export default function GoogleLanding() {
               <span className="text-white text-xl font-semibold">Watch Success Stories</span>
             </div>
           </div> */}
-          <p className="text-sm text-gray-500 italic">"This training changed my career trajectory completely!" - Former Student - Apply Now and Receive Job Placement</p>
+          <p className="text-sm text-gray-500 italic">Apply Now and Receive Job Placement
+</p>
         </div>
       </section>
 
