@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { ChevronDown, Award, Users, BookOpen, Target, Star, CheckCircle, TrendingUp, Zap } from "lucide-react";
+import aiMlImage from "../assets/AI_Ml courses information.jpg"
+import fullStackImage from "../assets/generate a image full stack developer course.jpg"
+import dataScienceImage from "../assets/generate a image of data analysis courses.jpg"
+import softwareTestImage from "../assets/software test course image.jpg"
 import brochure from "../assets/EEE brochure new.pdf"
 import one from "../assets/teamone.jpeg"
 import two from "../assets/teamtwo.jpeg"
@@ -39,24 +43,28 @@ export default function GoogleLanding() {
       title: "AI/ML Course With Placement Support",
       description: "Our AI and Machine Learning course enables learners to gain knowledge in artificial intelligence, machine learning and deep learning concepts for product design whilst also applying industry relevant tools on real-life projects. This program is ideal for those who plan to attend full-time and want to gain a professional certificate in machine learning and artificial intelligence.",
       icon: <Zap className="w-8 h-8" />,
+      image: aiMlImage,
       color: "from-purple-500 to-pink-500"
     },
     {
       title: "Full Stack Web Development Course With Placement",
       description: "Our Full Stack Developer Course is for all those beginners and professionals who want to learn full stack web development. You will receive hands-on experience in both frontend and backend technologies used by modern tech companies as well as exposure working on real world projects.",
       icon: <BookOpen className="w-8 h-8" />,
+      image: fullStackImage,
       color: "from-blue-500 to-cyan-500"
     },
     {
       title: "Data Science Course with Placement",
       description: "Take your career to the next level in this Data Science with Python training that will give you an edge in machine learning, data science and AI. You'll learn to work with data, build models, and solve real business problems using Python — all in practical hands-on projects.",
       icon: <TrendingUp className="w-8 h-8" />,
+      image: dataScienceImage,
       color: "from-green-500 to-emerald-500"
     },
     {
       title: "Software Testing Course with Placement",
       description: "Our Software Testing & QA Automation course is designed for students who want fast entry into IT roles. Learn manual testing, automation testing, and QA processes used in real projects.",
       icon: <Target className="w-8 h-8" />,
+      image: softwareTestImage,
       color: "from-indigo-500 to-purple-500"
     },
   ];
@@ -235,6 +243,69 @@ export default function GoogleLanding() {
         </div>
       </div> */}
 
+      {/* What EXACTLY will you Learn Section */}
+      <section id="courses" className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center text-gray-900">
+            What EXACTLY will you Learn
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Our comprehensive curriculum is designed to take you from beginner to job-ready professional
+          </p>
+
+          <div className="space-y-6">
+            {courses.map((course, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all transform hover:-translate-y-1"
+              >
+                <div className="md:flex">
+                  <div className="md:w-3/5 p-8">
+                    <div className={`inline-block bg-gradient-to-r ${course.color} text-white p-3 rounded-lg mb-4`}>
+                      {course.icon}
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4 text-gray-900">{course.title}</h3>
+                    <p className="text-gray-600 mb-4 leading-relaxed">{course.description}</p>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
+                        AI & ML in python programming
+                      </li>
+                      <li className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
+                        Machine learning algorithms and model
+                      </li>
+                      <li className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
+                        Deep learning fundamentals
+                      </li>
+                      <li className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
+                        Applications And Real-World Examples Of Artificial Intelligence
+                      </li>
+                      <li className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
+                        Model evaluation and model deployment fundamentals
+                      </li>
+                    </ul>
+                    <button className="bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors">
+                      Learn More →
+                    </button>
+                  </div>
+                  <div className="md:w-2/5 min-h-[250px] flex items-center justify-center relative overflow-hidden">
+                    <img 
+                      src={course.image} 
+                      alt={course.title} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Transforming Lives Section */}
       <section className="bg-white py-16 px-4">
         <div className="max-w-5xl mx-auto text-center">
@@ -288,69 +359,6 @@ export default function GoogleLanding() {
               <h4 className="font-bold text-lg mb-2 text-gray-900">Hands-on Projects</h4>
               <p className="text-sm text-gray-600">Build real-world applications to showcase in your portfolio</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What EXACTLY will you Learn Section */}
-      <section id="courses" className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center text-gray-900">
-            What EXACTLY will you Learn
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Our comprehensive curriculum is designed to take you from beginner to job-ready professional
-          </p>
-
-          <div className="space-y-6">
-            {courses.map((course, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all transform hover:-translate-y-1"
-              >
-                <div className="md:flex">
-                  <div className="md:w-3/5 p-8">
-                    <div className={`inline-block bg-gradient-to-r ${course.color} text-white p-3 rounded-lg mb-4`}>
-                      {course.icon}
-                    </div>
-                    <h3 className="text-2xl font-bold mb-4 text-gray-900">{course.title}</h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">{course.description}</p>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center text-sm text-gray-700">
-                        <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
-                        AI & ML in python programming
-                      </li>
-                      <li className="flex items-center text-sm text-gray-700">
-                        <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
-                        Machine learning algorithms and model
-                      </li>
-                      <li className="flex items-center text-sm text-gray-700">
-                        <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
-                        Deep learning fundamentals
-                      </li>
-                      <li className="flex items-center text-sm text-gray-700">
-                        <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
-                        Applications And Real-World Examples Of Artificial Intelligence
-                      </li>
-                      <li className="flex items-center text-sm text-gray-700">
-                        <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
-                        Model evaluation and model deployment fundamentals
-                      </li>
-                    </ul>
-                    <button className="bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors">
-                      Learn More →
-                    </button>
-                  </div>
-                  <div className="md:w-2/5 bg-gradient-to-br from-gray-300 to-gray-400 min-h-[250px] flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-black opacity-20"></div>
-                    <div className="relative z-10 text-center">
-                      <div className="text-6xl mb-2">📚</div>
-                      <span className="text-white font-semibold text-lg">Course Content</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
