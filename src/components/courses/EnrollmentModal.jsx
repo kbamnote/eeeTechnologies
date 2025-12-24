@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { X } from 'lucide-react';
 import EnrollmentForm from './EnrollmentForm';
 
-const EnrollmentModal = ({ isOpen, onClose, courseName }) => {
+const EnrollmentModal = ({ isOpen, onClose, courseName, onSubmit }) => {
   // 🔒 Lock background scroll when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -65,7 +65,11 @@ const EnrollmentModal = ({ isOpen, onClose, courseName }) => {
             <div className="p-8">
               <EnrollmentForm
                 courseName={courseName}
-                onSubmit={() => {
+                onSubmit={(formData) => {
+                  console.log('Enrollment form submitted with data:', formData);
+                  if (onSubmit) {
+                    onSubmit(formData);
+                  }
                   // Optional: auto close after submit
                   // setTimeout(onClose, 1500);
                 }}

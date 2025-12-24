@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { ChevronDown, Award, Users, BookOpen, Target, Star, CheckCircle, TrendingUp, Zap } from "lucide-react";
 import aiMlImage from "../assets/AI_Ml courses information.jpg"
 import fullStackImage from "../assets/generate a image full stack developer course.jpg"
@@ -11,6 +12,7 @@ import three from "../assets/teamthree.jpeg"
 import EnrollmentModal from "../components/courses/EnrollmentModal"
 
 export default function GoogleLanding() {
+  const navigate = useNavigate();
   const [showCookieConsent, setShowCookieConsent] = useState(false);
   const [consentGiven, setConsentGiven] = useState(false);
   const [activeQuestion, setActiveQuestion] = useState(null);
@@ -288,7 +290,13 @@ export default function GoogleLanding() {
                         Model evaluation and model deployment fundamentals
                       </li>
                     </ul>
-                    <button className="bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors">
+                    <button 
+                      onClick={() => {
+                        setSelectedCourse(course.title);
+                        setIsEnrollmentModalOpen(true);
+                      }}
+                      className="bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors"
+                    >
                       Learn More →
                     </button>
                   </div>
@@ -695,6 +703,11 @@ export default function GoogleLanding() {
         isOpen={isEnrollmentModalOpen}
         onClose={() => setIsEnrollmentModalOpen(false)}
         courseName={selectedCourse}
+        onSubmit={(formData) => {
+          console.log('Enrollment form submitted with data:', formData);
+          setIsEnrollmentModalOpen(false);
+          navigate('/thank-you');
+        }}
       />
 
       {/* Floating Action Button */}

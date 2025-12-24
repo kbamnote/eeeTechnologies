@@ -11,6 +11,7 @@ import Placement from "./pages/Placement.jsx";
 import Blog from "./pages/Blog.jsx";
 import Contact from "./pages/Contact.jsx";
 import GoogleLanding from "./pages/GoogleLanding.jsx";
+import ThankYou from "./pages/ThankYou.jsx";
 
 // PageWrapper handles animation and fills available space
 function PageWrapper({ children }) {
@@ -48,6 +49,7 @@ function App() {
           <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
           <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
           <Route path="/placement-courses" element={<GoogleLanding />} />
+          <Route path="/thank-you" element={<PageWrapper><ThankYou /></PageWrapper>} />
         </Routes>
       </AnimatePresence>
       
