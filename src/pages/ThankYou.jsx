@@ -2,6 +2,17 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CheckCircle } from "lucide-react";
 
+// Trigger Google Ads conversion event when component mounts
+useEffect(() => {
+  if (window.gtag) {
+    window.gtag('event', 'conversion', {
+      'send_to': 'AW-17779340743/BCV4CO_zydcbEMfr7J1C',
+      'value': 1.0,
+      'currency': 'INR'
+    });
+  }
+}, []);
+
 export default function ThankYou() {
   useEffect(() => {
     window.scrollTo(0, 0);
