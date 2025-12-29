@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Clock, Users, TrendingUp, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import EnrollmentModal from './EnrollmentModal';
 
 const FeaturedCourses = () => {
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
 
   const featuredCourses = [
     {
       id: 1,
+      slug: "full-stack-development",
       title: "Full Stack Development",
       description: "Master modern web development with React, Node.js, and MongoDB. Build real-world applications from scratch with hands-on projects and industry best practices.",
       image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      rating: 4.9,
+      rating: 5.0,
       students: 2847,
       duration: "6 months",
       price: 75000,
@@ -22,6 +25,7 @@ const FeaturedCourses = () => {
     },
     {
       id: 2,
+      slug: "data-analysis",
       title: "Data Analysis",
       description: "Learn Python, SQL, data visualization, and statistical analysis to become a professional data analyst. Work with real datasets and industry tools.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -34,6 +38,7 @@ const FeaturedCourses = () => {
     },
     {
       id: 3,
+      slug: "ai-ml",
       title: "AI/ML",
       description: "Master artificial intelligence and machine learning with Python. Learn algorithms, neural networks, deep learning, and computer vision with hands-on projects.",
       image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -46,6 +51,7 @@ const FeaturedCourses = () => {
     },
     {
       id: 4,
+      slug: "software-testing",
       title: "Tester",
       description: "Become a professional software tester with expertise in manual and automated testing. Learn testing frameworks, bug tracking, and quality assurance processes.",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -189,16 +195,30 @@ const FeaturedCourses = () => {
                   </div>
                 </div>
 
-                {/* Enroll Button */}
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => handleEnrollClick(course)}
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-200 flex items-center justify-center group/btn"
-                >
-                  <span>Enroll Now</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
-                </motion.button>
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => handleEnrollClick(course)}
+                    className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-200 flex items-center justify-center group/btn"
+                  >
+                    <span>Enroll Now</span>
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                  </motion.button>
+                  
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                      navigate(`/courses/${course.slug}`);
+                    }}
+                    className="flex-1 bg-white text-gray-700 font-semibold py-3 rounded-xl border-2 border-gray-200 hover:border-purple-400 transition-all duration-200"
+                  >
+                    Know More
+                  </motion.button>
+                </div>
               </div>
             </motion.div>
           ))}
