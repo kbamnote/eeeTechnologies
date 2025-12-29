@@ -1,4 +1,18 @@
 User-agent: *
 Allow: /
 
-Sitemap: /sitemap.xml
+# Allow crawling of all pages
+Disallow:
+
+# Sitemap location
+Sitemap: https://www.eeetechnologies.com/sitemap.xml
+
+# Crawl-delay: 1 (optional, if you want to slow down crawling)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
