@@ -2,62 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.eeetechnologies.com/</loc>
-    <priority>1.0</priority>
-    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://www.eeetechnologies.com/about</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.eeetechnologies.com/courses</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://www.eeetechnologies.com/placement</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.eeetechnologies.com/blog</loc>
-    <priority>0.7</priority>
-    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://www.eeetechnologies.com/contact</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.eeetechnologies.com/placement-courses</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.eeetechnologies.com/thank-you</loc>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.eeetechnologies.com/courses/full-stack-development</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.eeetechnologies.com/courses/data-analysis</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.eeetechnologies.com/courses/ai-ml</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.eeetechnologies.com/courses/software-testing</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
   </url>
 </urlset>
