@@ -5,7 +5,7 @@ import { useSEO } from '../hooks/useSEO';
 
 // Import all about components
 import MissionVision from '../components/about/MissionVision';
-import TeamSection from '../components/about/TeamSection';
+// import TeamSection from '../components/about/TeamSection';
 import Timeline from '../components/about/Timeline';
 import Infrastructure from '../components/about/Infrastructure';
 import JoinCTA from '../components/about/JoinCTA';
@@ -45,7 +45,7 @@ const About = () => {
         <Timeline />
 
         {/* Team Section */}
-        <TeamSection />
+        {/* <TeamSection /> */}
 
         {/* Infrastructure */}
         <Infrastructure />

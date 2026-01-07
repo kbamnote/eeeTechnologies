@@ -63,153 +63,102 @@ const CallToAction = () => {
   };
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 text-white overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-blue-400/30 to-purple-600/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-purple-400/30 to-pink-600/30 rounded-full blur-3xl animate-pulse"></div>
-        
-        {/* Floating Elements */}
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-white/20 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.2, 0.8, 0.2],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30" />
       </div>
 
-      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial="hidden"
-            animate={controls}
-            variants={containerVariants}
-            className="text-center mb-16"
-          >
-            <motion.div
-              variants={itemVariants}
-              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-400/30 rounded-full text-yellow-300 text-sm font-medium mb-6"
-            >
-              🚀 Transform Your Career Today
-            </motion.div>
-            
-            <motion.h2
-              variants={itemVariants}
-              className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
-            >
-              Ready to Launch Your
-              <span className="block bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-                Tech Career?
-              </span>
-            </motion.h2>
-            
-            <motion.p
-              variants={itemVariants}
-              className="text-xl text-blue-100 max-w-3xl mx-auto mb-12"
-            >
-              Join thousands of successful professionals who've transformed their careers with our industry-leading training programs. Start your journey today!
-            </motion.p>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6">
+            <Zap className="w-4 h-4 mr-2" />
+            Transform Your Career Today
+          </div>
 
-            {/* CTA Buttons */}
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            Ready to Launch Your
+            <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
+              Tech Career?
+            </span>
+          </h2>
+
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+            Join thousands of successful professionals who've transformed their careers with our industry-leading training programs. Start your journey today!
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 justify-center"
             >
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255,255,255,0.2)" }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-black rounded-xl font-bold text-lg shadow-2xl overflow-hidden"
-              >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  Start Learning Now
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </motion.button>
-              
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setIsContactModalOpen(true)}
-                className="group px-8 py-4 border-2 border-white/30 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                <Phone className="w-5 h-5" />
-                Book Free Consultation
-              </motion.button>
-            </motion.div>
-          </motion.div>
+              Start Learning Now
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+            
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setIsContactModalOpen(true)}
+              className="group px-8 py-4 border-2 border-white text-white rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center gap-2 justify-center"
+            >
+              <Phone className="w-5 h-5" />
+              Book Free Consultation
+            </motion.button>
+          </div>
 
           {/* Features Grid */}
-          <motion.div
-            initial="hidden"
-            animate={controls}
-            variants={containerVariants}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 max-w-5xl mx-auto">
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ y: -10, scale: 1.05 }}
-                  onHoverStart={() => setHoveredFeature(index)}
-                  onHoverEnd={() => setHoveredFeature(null)}
-                  className="group relative"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
-                  <div className="relative bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 text-center group-hover:bg-white/20 transition-all duration-300">
-                    <div className="inline-flex p-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-xl text-black mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-6 h-6" />
+                <div key={index} className="group">
+                  <div className="bg-slate-800/50 backdrop-blur-xl rounded-3xl p-8 border border-slate-700/50 overflow-hidden hover:shadow-3xl hover:border-slate-600/50 transition-all duration-500">
+                    {/* Icon and Title */}
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
+                        <IconComponent className="w-7 h-7 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-white mb-1">
+                          {feature.title}
+                        </h3>
+                      </div>
                     </div>
-                    <h3 className="font-bold text-white mb-2">{feature.title}</h3>
-                    <p className="text-blue-100 text-sm">{feature.description}</p>
+                    
+                    {/* Description */}
+                    <p className="text-gray-300 text-base leading-relaxed">
+                      {feature.description}
+                    </p>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
-          </motion.div>
+          </div>
 
           {/* Stats Section */}
-          <motion.div
-            initial="hidden"
-            animate={controls}
-            variants={containerVariants}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 mb-16"
-          >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
             {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="text-center"
-              >
-                <motion.div
-                  className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.5 + index * 0.1, type: "spring", stiffness: 200 }}
-                >
-                  {stat.number}
-                </motion.div>
-                <div className="text-blue-100 text-sm">
-                  {stat.label}
+              <div key={index} className="text-center group">
+                <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 hover:shadow-2xl hover:border-slate-600/50 transition-all duration-500 group-hover:-translate-y-2">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Award className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                    {stat.number}
+                  </div>
+                  <div className="text-gray-400 text-sm font-medium">
+                    {stat.label}
+                  </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
 
           {/* Final CTA */}
           <motion.div
@@ -218,38 +167,44 @@ const CallToAction = () => {
             variants={containerVariants}
             className="text-center"
           >
-            <motion.div
-              variants={itemVariants}
-              className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 max-w-4xl mx-auto"
-            >
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <CheckCircle className="w-6 h-6 text-green-400" />
-                <span className="text-green-400 font-semibold">Limited Time Offer</span>
+            <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-8 md:p-12 relative overflow-hidden max-w-4xl mx-auto">
+              <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <CheckCircle className="w-6 h-6 text-green-300" />
+                  <span className="text-green-300 font-semibold">Limited Time Offer</span>
+                </div>
+                
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                  Get 30% Off on All Courses
+                </h3>
+                
+                <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+                  Enroll now and save big on our premium training programs. Offer valid until the end of this month!
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-4 bg-white text-purple-600 rounded-xl font-bold hover:bg-gray-50 transition-all duration-300 flex items-center gap-2 justify-center shadow-xl"
+                  >
+                    <Zap className="w-5 h-5" />
+                    Claim Discount Now
+                  </motion.button>
+                  
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-purple-600 transition-all duration-300 flex items-center gap-2 justify-center"
+                  >
+                    <Mail className="w-5 h-5" />
+                    Get Course Details
+                  </motion.button>
+                </div>
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                Get 30% Off on All Courses
-              </h3>
-              <p className="text-blue-100 mb-6">
-                Enroll now and save big on our premium training programs. Offer valid until the end of this month!
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-xl font-semibold shadow-lg"
-                >
-                  Claim Discount Now
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 border-2 border-white/30 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  <Mail className="w-4 h-4" />
-                  Get Course Details
-                </motion.button>
-              </div>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>

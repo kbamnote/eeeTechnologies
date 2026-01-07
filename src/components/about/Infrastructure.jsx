@@ -200,13 +200,15 @@ const Infrastructure = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30"></div>
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-100/20 to-purple-100/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-100/20 to-pink-100/20 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30" />
+      </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
           initial="hidden"
@@ -215,32 +217,42 @@ const Infrastructure = () => {
           className="space-y-16"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              World-Class <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Infrastructure</span>
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6">
+              <Server className="w-4 h-4 mr-2" />
+              World-Class Infrastructure
+            </div>
+
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+              World-Class
+              <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
+                Infrastructure
+              </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
               Experience learning with cutting-edge technology, modern facilities, and robust digital infrastructure designed for the future of education.
             </p>
             
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="text-center"
-                >
-                  <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                    {stat.value}
+                <div key={index} className="text-center group">
+                  <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 hover:shadow-2xl hover:border-slate-600/50 transition-all duration-500 group-hover:-translate-y-2">
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                      <stat.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <div className="text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                      {stat.number}
+                    </div>
+                    <div className="text-gray-400 text-sm font-medium">
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className="text-gray-600">
-                    {stat.label}
-                  </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Tab Navigation */}
           <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4">
@@ -250,8 +262,8 @@ const Infrastructure = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-6 py-3 rounded-2xl font-semibold transition-all duration-300 ${
                   activeTab === tab.id
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                    : 'bg-white/80 backdrop-blur-sm text-gray-600 hover:bg-gray-50 border border-gray-200 hover:border-gray-300'
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/25'
+                    : 'bg-slate-800/50 backdrop-blur-xl text-gray-300 hover:bg-slate-700/50 border border-slate-700/50 hover:border-slate-600/50'
                 }`}
               >
                 <tab.icon className="w-5 h-5 inline-block mr-2" />
@@ -266,13 +278,13 @@ const Infrastructure = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-gray-200"
+            className="bg-slate-800/50 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-slate-700/50 overflow-hidden"
           >
             <div className="text-center mb-12">
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 {tabs.find(tab => tab.id === activeTab)?.label}
               </h3>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg text-gray-400 max-w-3xl mx-auto">
                 Explore our comprehensive {activeTab} infrastructure designed for optimal learning experience.
               </p>
             </div>
@@ -281,39 +293,36 @@ const Infrastructure = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-white rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group"
-                whileHover={{ y: -10, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+                className="group"
               >
-                {/* Icon */}
-                <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <item.icon className="w-8 h-8 text-white" />
+                <div className="bg-slate-800/50 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-slate-700/50 overflow-hidden hover:shadow-3xl hover:border-slate-600/50 transition-all duration-500">
+                  {/* Icon */}
+                  <div className={`w-14 h-14 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mb-6`}>
+                    <item.icon className="w-7 h-7 text-white" />
+                  </div>
+                  
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold text-white mb-4">
+                    {item.title}
+                  </h3>
+                  
+                  {/* Description */}
+                  <p className="text-gray-300 leading-relaxed mb-6">
+                    {item.description}
+                  </p>
+                  
+                  {/* Features */}
+                  <div className="space-y-3">
+                    {item.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center">
+                        <div className={`w-2 h-2 bg-gradient-to-r ${item.color} rounded-full mr-3`}></div>
+                        <span className="text-gray-400 text-sm">
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {item.title}
-                </h3>
-                
-                {/* Description */}
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  {item.description}
-                </p>
-                
-                {/* Features */}
-                <div className="space-y-3">
-                  {item.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center">
-                      <div className={`w-2 h-2 bg-gradient-to-r ${item.color} rounded-full mr-3`}></div>
-                      <span className="text-gray-700 dark:text-gray-300 text-sm">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                
-                {/* Hover Effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
               </motion.div>
             ))}
             </div>
@@ -321,51 +330,55 @@ const Infrastructure = () => {
 
           {/* Infrastructure Highlights */}
           <motion.div variants={itemVariants} className="text-center">
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-8 md:p-12">
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why Our Infrastructure Matters
-              </h3>
-              <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
-                Our world-class infrastructure ensures that every student has access to the best learning environment, 
-                whether they're learning in-person or online.
-              </p>
+            <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-8 md:p-12 relative overflow-hidden">
+              <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
               
-              {/* Key Benefits */}
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Zap className="w-8 h-8 text-white" />
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">
-                    Lightning Fast
-                  </h4>
-                  <p className="text-gray-600">
-                    High-speed infrastructure ensures smooth learning without interruptions or delays.
-                  </p>
-                </div>
+              <div className="relative z-10">
+                <h3 className="text-3xl md:text-4xl font-bold mb-6">
+                  Why Our Infrastructure Matters
+                </h3>
+                <p className="text-lg text-blue-100 mb-8 max-w-3xl mx-auto">
+                  Our world-class infrastructure ensures that every student has access to the best learning environment, 
+                  whether they're learning in-person or online.
+                </p>
                 
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Globe className="w-8 h-8 text-white" />
+                {/* Key Benefits */}
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <Zap className="w-10 h-10 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold mb-3">
+                      Lightning Fast
+                    </h4>
+                    <p className="text-blue-100">
+                      High-speed infrastructure ensures smooth learning without interruptions or delays.
+                    </p>
                   </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">
-                    Global Access
-                  </h4>
-                  <p className="text-gray-600">
-                    Learn from anywhere in the world with our globally distributed infrastructure.
-                  </p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Shield className="w-8 h-8 text-white" />
+                  
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <Globe className="w-10 h-10 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold mb-3">
+                      Global Access
+                    </h4>
+                    <p className="text-blue-100">
+                      Learn from anywhere in the world with our globally distributed infrastructure.
+                    </p>
                   </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">
-                    Secure & Reliable
-                  </h4>
-                  <p className="text-gray-600">
-                    Enterprise-grade security and 99.9% uptime guarantee for uninterrupted learning.
-                  </p>
+                  
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <Shield className="w-10 h-10 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold mb-3">
+                      Secure & Reliable
+                    </h4>
+                    <p className="text-blue-100">
+                      Enterprise-grade security and 99.9% uptime guarantee for uninterrupted learning.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

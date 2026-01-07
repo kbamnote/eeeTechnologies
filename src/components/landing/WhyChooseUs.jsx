@@ -119,141 +119,82 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30" />
       </div>
 
-      <div className="w-full px-6 lg:px-8 relative z-10">
-        {/* Header */}
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-          className="text-center mb-20 max-w-7xl mx-auto"
-        >
-          <motion.div
-            variants={cardVariants}
-            className="inline-flex items-center gap-2 bg-blue-100 text-blue-600 px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-sm"
-          >
-            <Star className="w-4 h-4" />
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6">
+            <Star className="w-4 h-4 mr-2" />
             Why Choose eee Technologies
-          </motion.div>
-          
-          <motion.h2 
-            variants={cardVariants}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight"
-          >
+          </div>
+
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
             Your Success is Our
-            <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Priority</span>
-          </motion.h2>
-          
-          <motion.p 
-            variants={cardVariants}
-            className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
-          >
+            <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
+              Priority
+            </span>
+          </h2>
+
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Join thousands of successful professionals who transformed their careers with our 
             industry-leading training programs and comprehensive support system.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Achievement Stats */}
-        <motion.div
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 max-w-7xl mx-auto"
-        >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
           {achievements.map((achievement, index) => (
-            <motion.div
-              key={index}
-              variants={achievementVariants}
-              className="text-center group"
-            >
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group-hover:border-blue-200 group-hover:-translate-y-2">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <achievement.icon className="w-8 h-8 text-white" />
+            <div key={index} className="text-center group">
+              <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 hover:shadow-2xl hover:border-slate-600/50 transition-all duration-500 group-hover:-translate-y-2">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <achievement.icon className="w-7 h-7 text-white" />
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                <div className="text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
                   {achievement.number}
                 </div>
-                <div className="text-gray-600 font-semibold">
+                <div className="text-gray-400 text-sm font-medium">
                   {achievement.label}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Features Grid */}
-        <motion.div
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20"
-        >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
           {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              onHoverStart={() => setHoveredCard(index)}
-              onHoverEnd={() => setHoveredCard(null)}
-              className="group cursor-pointer"
-            >
-              <div className={`relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 overflow-hidden group-hover:-translate-y-2 ${feature.bgColor}`}>
-                {/* Gradient Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-                
-                {/* Floating Icon Background */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full opacity-10 group-hover:scale-110 transition-transform duration-500"></div>
-                
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}>
-                    <feature.icon className="w-8 h-8 text-white" />
+            <div key={index} className="group">
+              <div className={`bg-slate-800/50 backdrop-blur-xl rounded-3xl p-8 border border-slate-700/50 overflow-hidden hover:shadow-3xl hover:border-slate-600/50 transition-all duration-500 ${feature.bgColor}`}>
+                {/* Icon and Title */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className={`w-14 h-14 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center shadow-lg`}>
+                    <feature.icon className="w-7 h-7 text-white" />
                   </div>
-
-                  {/* Content */}
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-                        {feature.title}
-                      </h3>
-                      <span className={`text-sm font-semibold px-3 py-1 rounded-full bg-gradient-to-r ${feature.color} text-white opacity-90 shadow-md`}>
-                        {feature.stats}
-                      </span>
-                    </div>
-                    
-                    <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                      {feature.description}
-                    </p>
-
-                    {/* Hover Action */}
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ 
-                        opacity: hoveredCard === index ? 1 : 0,
-                        x: hoveredCard === index ? 0 : -20
-                      }}
-                      transition={{ duration: 0.3 }}
-                      className="flex items-center gap-2 text-blue-600 font-medium"
-                    >
-                      <span>Learn More</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                    </motion.div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-1">
+                      {feature.title}
+                    </h3>
+                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full bg-gradient-to-r ${feature.color} text-white`}>
+                      {feature.stats}
+                    </span>
                   </div>
                 </div>
-
-                {/* Animated Border */}
-                <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-blue-200 transition-all duration-500"></div>
+                
+                {/* Description */}
+                <p className="text-gray-300 text-base leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Call to Action */}
         <motion.div
@@ -262,11 +203,8 @@ const WhyChooseUs = () => {
           variants={cardVariants}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-            </div>
+          <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-8 md:p-12 relative overflow-hidden">
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
             
             <div className="relative z-10">
               <div className="flex items-center justify-center gap-2 mb-4">
@@ -274,11 +212,11 @@ const WhyChooseUs = () => {
                 <span className="text-lg font-medium">Ready to Transform Your Career?</span>
               </div>
               
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4">
                 Join Our Success Community Today
               </h3>
               
-              <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
                 Take the first step towards your dream career with our proven training methodology
               </p>
               
@@ -286,7 +224,7 @@ const WhyChooseUs = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 flex items-center gap-2 justify-center shadow-lg"
+                  className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all duration-300 flex items-center gap-2 justify-center shadow-xl"
                 >
                   <Zap className="w-5 h-5" />
                   Start Your Journey

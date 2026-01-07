@@ -91,29 +91,30 @@ const CoursesPreview = () => {
   }, [courses.length]);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-100 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-100 rounded-full blur-3xl" />
+      <div className="absolute inset-0">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-5 py-2.5 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-sm font-semibold mb-6">
+          <div className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6">
             <Code className="w-4 h-4 mr-2" />
             Professional Training Programs
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
             Transform Your Career with
-            <span className="block bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mt-2">
+            <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
               Industry-Leading Courses
             </span>
           </h2>
 
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Comprehensive programs designed by industry experts to help you master in-demand skills 
             and accelerate your career growth.
           </p>
@@ -131,7 +132,7 @@ const CoursesPreview = () => {
                   key={course.id}
                   className="w-full flex-shrink-0 px-2"
                 >
-                  <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden hover:shadow-3xl transition-shadow duration-500">
+                  <div className="max-w-5xl mx-auto bg-slate-800/50 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-700/50 overflow-hidden hover:shadow-3xl hover:border-slate-600/50 transition-all duration-500">
                     <div className="grid md:grid-cols-2">
                       {/* Left Side - Course Info */}
                       <div className="p-10 lg:p-12 flex flex-col justify-between">
@@ -150,11 +151,11 @@ const CoursesPreview = () => {
                             </span>
                           </div>
 
-                          <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                          <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
                             {course.title}
                           </h3>
                           
-                          <p className="text-gray-600 text-base leading-relaxed mb-6">
+                          <p className="text-gray-300 text-base leading-relaxed mb-6">
                             {course.description}
                           </p>
 
@@ -163,7 +164,7 @@ const CoursesPreview = () => {
                             {course.technologies.map((tech) => (
                               <span
                                 key={tech}
-                                className="px-3 py-1.5 bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200 text-gray-700 text-sm rounded-lg font-medium"
+                                className="px-3 py-1.5 bg-slate-700/50 border border-slate-600/50 text-gray-300 text-sm rounded-lg font-medium hover:bg-slate-700/70 transition-colors"
                               >
                                 {tech}
                               </span>
@@ -173,30 +174,30 @@ const CoursesPreview = () => {
 
                         {/* Stats & Pricing */}
                         <div>
-                          <div className="grid grid-cols-3 gap-4 mb-6 p-4 bg-gray-50 rounded-2xl">
+                          <div className="grid grid-cols-3 gap-4 mb-6 p-4 bg-slate-700/30 rounded-2xl border border-slate-600/30">
                             <div className="text-center">
-                              <Clock className="w-5 h-5 text-blue-600 mx-auto mb-2" />
-                              <div className="text-sm font-semibold text-gray-900">{course.duration}</div>
-                              <div className="text-xs text-gray-500">Duration</div>
+                              <Clock className="w-5 h-5 text-blue-400 mx-auto mb-2" />
+                              <div className="text-sm font-semibold text-white">{course.duration}</div>
+                              <div className="text-xs text-gray-400">Duration</div>
                             </div>
                             <div className="text-center">
-                              <Users className="w-5 h-5 text-green-600 mx-auto mb-2" />
-                              <div className="text-sm font-semibold text-gray-900">{course.students}</div>
-                              <div className="text-xs text-gray-500">Students</div>
+                              <Users className="w-5 h-5 text-green-400 mx-auto mb-2" />
+                              <div className="text-sm font-semibold text-white">{course.students}</div>
+                              <div className="text-xs text-gray-400">Students</div>
                             </div>
                             <div className="text-center">
-                              <Star className="w-5 h-5 text-amber-500 mx-auto mb-2" />
-                              <div className="text-sm font-semibold text-gray-900">{course.rating}</div>
-                              <div className="text-xs text-gray-500">Rating</div>
+                              <Star className="w-5 h-5 text-amber-400 mx-auto mb-2" />
+                              <div className="text-sm font-semibold text-white">{course.rating}</div>
+                              <div className="text-xs text-gray-400">Rating</div>
                             </div>
                           </div>
 
-                          <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl mb-6">
+                          <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl mb-6 border border-blue-500/20">
                             <div>
-                              <div className="text-3xl font-bold text-gray-900">{course.price}</div>
-                              <div className="text-sm text-gray-500">
+                              <div className="text-3xl font-bold text-white">{course.price}</div>
+                              <div className="text-sm text-gray-400">
                                 <span className="line-through mr-2">{course.originalPrice}</span>
-                                <span className="text-green-600 font-semibold">Save 17%</span>
+                                <span className="text-green-400 font-semibold">Save 17%</span>
                               </div>
                             </div>
                           </div>
@@ -272,8 +273,8 @@ const CoursesPreview = () => {
                 onClick={() => setCurrentIndex(index)}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex 
-                    ? 'w-8 bg-gradient-to-r from-blue-600 to-purple-600' 
-                    : 'w-2 bg-gray-300 hover:bg-gray-400'
+                    ? 'w-8 bg-gradient-to-r from-blue-400 to-purple-400' 
+                    : 'w-2 bg-slate-600 hover:bg-slate-500'
                 }`}
               />
             ))}
@@ -282,7 +283,7 @@ const CoursesPreview = () => {
 
         {/* View All CTA */}
         <div className="text-center">
-          <button className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white text-lg font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+          <button className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
             Explore All Courses
             <ArrowRight className="ml-3 w-6 h-6" />
           </button>

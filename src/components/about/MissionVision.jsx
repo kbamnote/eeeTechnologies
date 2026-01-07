@@ -54,15 +54,15 @@ const MissionVision = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-200/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40" />
+        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
           initial="hidden"
@@ -71,47 +71,49 @@ const MissionVision = () => {
           className="space-y-20"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center">
-            <motion.div
-              variants={itemVariants}
-              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-200 rounded-full text-purple-700 text-sm font-medium mb-8"
-            >
-              <Target className="w-4 h-4 mr-2 text-purple-600" />
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6">
+              <Target className="w-4 h-4 mr-2" />
               Our Foundation
-            </motion.div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Mission & Vision</span>
+            </div>
+
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+              Our
+              <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
+                Mission & Vision
+              </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
               Driving the future of technology education through innovation, excellence, and unwavering commitment to student success.
             </p>
-          </motion.div>
+          </div>
 
           {/* Mission & Vision Cards */}
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Mission */}
             <motion.div variants={itemVariants} className="group">
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200 group-hover:border-purple-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Target className="w-8 h-8 text-white" />
+              <div className="bg-slate-800/50 backdrop-blur-xl rounded-3xl p-8 border border-slate-700/50 overflow-hidden hover:shadow-3xl hover:border-slate-600/50 transition-all duration-500">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
+                    <Target className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-3xl font-bold text-gray-900">Our Mission</h3>
+                  <h3 className="text-2xl font-bold text-white">Our Mission</h3>
                 </div>
-                <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                <p className="text-gray-300 text-base leading-relaxed mb-6">
                   To bridge the gap between academic learning and industry requirements by providing world-class technical education that prepares students for successful careers in technology.
                 </p>
                 <div className="space-y-3">
-                  <div className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                  <div className="flex items-center text-gray-400">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
                     <span>Practical, hands-on learning approach</span>
                   </div>
-                  <div className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-pink-500 rounded-full mr-3"></div>
+                  <div className="flex items-center text-gray-400">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
                     <span>Industry-aligned curriculum</span>
                   </div>
-                  <div className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                  <div className="flex items-center text-gray-400">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
                     <span>Comprehensive career support</span>
                   </div>
                 </div>
@@ -120,27 +122,27 @@ const MissionVision = () => {
 
             {/* Vision */}
             <motion.div variants={itemVariants} className="group">
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200 group-hover:border-purple-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Eye className="w-8 h-8 text-white" />
+              <div className="bg-slate-800/50 backdrop-blur-xl rounded-3xl p-8 border border-slate-700/50 overflow-hidden hover:shadow-3xl hover:border-slate-600/50 transition-all duration-500">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+                    <Eye className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-3xl font-bold text-gray-900">Our Vision</h3>
+                  <h3 className="text-2xl font-bold text-white">Our Vision</h3>
                 </div>
-                <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                <p className="text-gray-300 text-base leading-relaxed mb-6">
                   To become the global leader in technology education, empowering millions of students worldwide to build successful careers and drive innovation in the digital age.
                 </p>
                 <div className="space-y-3">
-                  <div className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                  <div className="flex items-center text-gray-400">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
                     <span>Global accessibility to quality education</span>
                   </div>
-                  <div className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                  <div className="flex items-center text-gray-400">
+                    <div className="w-2 h-2 bg-pink-500 rounded-full mr-3"></div>
                     <span>Continuous innovation in learning</span>
                   </div>
-                  <div className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                  <div className="flex items-center text-gray-400">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
                     <span>Sustainable career transformation</span>
                   </div>
                 </div>
@@ -150,30 +152,28 @@ const MissionVision = () => {
 
           {/* Core Values */}
           <motion.div variants={itemVariants} className="text-center">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Our Core Values
             </h3>
-            <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
               The principles that guide everything we do and shape our commitment to excellence.
             </p>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {values.map((value, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="group cursor-pointer"
-                  whileHover={{ y: -10 }}
-                  transition={{ duration: 0.3 }}
+                  className="group"
                 >
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 group-hover:border-purple-300">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${value.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <value.icon className="w-8 h-8 text-white" />
+                  <div className="bg-slate-800/50 backdrop-blur-xl rounded-3xl p-8 border border-slate-700/50 overflow-hidden hover:shadow-3xl hover:border-slate-600/50 transition-all duration-500">
+                    <div className={`w-14 h-14 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                      <value.icon className="w-7 h-7 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-3">
+                    <h4 className="text-xl font-bold text-white mb-3">
                       {value.title}
                     </h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <p className="text-gray-300 text-sm leading-relaxed">
                       {value.description}
                     </p>
                   </div>

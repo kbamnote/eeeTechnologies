@@ -43,12 +43,12 @@ const EnrollBanner = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-64 h-64 bg-blue-100/40 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-80 h-80 bg-purple-100/40 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/3 w-48 h-48 bg-pink-100/30 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -60,22 +60,22 @@ const EnrollBanner = () => {
           className="max-w-6xl mx-auto"
         >
           {/* Main CTA Section */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-200 mb-12">
+          <div className="bg-slate-800/50 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-slate-700/50 overflow-hidden mb-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}
               <motion.div variants={itemVariants}>
-                <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-600 rounded-full text-sm font-medium mb-6">
+                <div className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6">
                   <Award className="w-4 h-4 mr-2" />
                   Limited Time Offer
                 </div>
                 
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
                   Start Your
-                  <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"> Tech Journey</span>
-                  <br />Today!
+                  <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2"> Tech Journey</span>
+                  Today!
                 </h2>
                 
-                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                <p className="text-lg text-gray-400 mb-8 leading-relaxed">
                   Join thousands of successful students who have transformed their careers with our comprehensive courses. Get industry-ready skills and land your dream job.
                 </p>
 
@@ -83,7 +83,7 @@ const EnrollBanner = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold px-8 py-4 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-200 flex items-center justify-center group"
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold px-8 py-4 rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-200 flex items-center justify-center group"
                   >
                     <span>Enroll Now</span>
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
@@ -92,7 +92,7 @@ const EnrollBanner = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-white/80 backdrop-blur-sm text-gray-700 font-semibold px-8 py-4 rounded-xl border border-gray-200 hover:bg-white hover:border-gray-300 transition-all duration-200"
+                    className="bg-slate-800/50 backdrop-blur-xl text-white font-semibold px-8 py-4 rounded-2xl border border-slate-700/50 hover:bg-slate-700/50 hover:border-slate-600/50 transition-all duration-200"
                   >
                     View Courses
                   </motion.button>
@@ -104,9 +104,9 @@ const EnrollBanner = () => {
                     <motion.div
                       key={benefit}
                       variants={itemVariants}
-                      className="flex items-center text-gray-600"
+                      className="flex items-center text-gray-300"
                     >
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
                       <span className="text-sm">{benefit}</span>
                     </motion.div>
                   ))}
@@ -122,13 +122,13 @@ const EnrollBanner = () => {
                       key={stat.label}
                       variants={itemVariants}
                       whileHover={{ scale: 1.05 }}
-                      className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl text-center shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
+                      className="bg-slate-800/50 backdrop-blur-xl p-6 rounded-2xl text-center border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300"
                     >
-                      <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                         <IconComponent className="w-6 h-6 text-white" />
                       </div>
-                      <div className="text-2xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                      <div className="text-sm text-gray-600">{stat.label}</div>
+                      <div className="text-2xl font-bold text-white mb-2">{stat.value}</div>
+                      <div className="text-sm text-gray-400">{stat.label}</div>
                     </motion.div>
                   );
                 })}
@@ -139,40 +139,44 @@ const EnrollBanner = () => {
           {/* Special Offer Banner */}
           <motion.div
             variants={itemVariants}
-            className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-6 md:p-8 border border-orange-200 text-center"
+            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-8 md:p-12 relative overflow-hidden"
           >
-            <div className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-600 rounded-full text-sm font-medium mb-4">
-              <Clock className="w-4 h-4 mr-2" />
-              Limited Time Offer
-            </div>
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
             
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Get <span className="text-orange-600">50% OFF</span> on All Courses
-            </h3>
-            
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Don't miss this opportunity to upskill at an unbeatable price. Offer valid for the next 7 days only!
-            </p>
-            
-            <div className="flex items-center justify-center gap-4 text-sm text-gray-600 mb-6">
-              <div className="flex items-center">
-                <Clock className="w-4 h-4 mr-1" />
-                <span>Ends in 7 days</span>
+            <div className="relative z-10">
+              <div className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-4">
+                <Clock className="w-4 h-4 mr-2" />
+                Limited Time Offer
               </div>
-              <div className="flex items-center">
-                <Users className="w-4 h-4 mr-1" />
-                <span>500+ already enrolled</span>
+              
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                Get <span className="text-yellow-400">50% OFF</span> on All Courses
+              </h3>
+              
+              <p className="text-lg text-blue-100 mb-6 max-w-2xl mx-auto">
+                Don't miss this opportunity to upskill at an unbeatable price. Offer valid for the next 7 days only!
+              </p>
+              
+              <div className="flex items-center justify-center gap-4 text-sm text-blue-100 mb-6">
+                <div className="flex items-center">
+                  <Clock className="w-4 h-4 mr-1" />
+                  <span>Ends in 7 days</span>
+                </div>
+                <div className="flex items-center">
+                  <Users className="w-4 h-4 mr-1" />
+                  <span>500+ already enrolled</span>
+                </div>
               </div>
+              
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-yellow-500 to-orange-600 text-white font-semibold px-8 py-3 rounded-2xl shadow-2xl hover:shadow-yellow-500/25 transition-all duration-200 inline-flex items-center"
+              >
+                <span>Claim Discount</span>
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </motion.button>
             </div>
-            
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold px-8 py-3 rounded-xl hover:from-orange-600 hover:to-red-600 transition-all duration-200 inline-flex items-center"
-            >
-              <span>Claim Discount</span>
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </motion.button>
           </motion.div>
         </motion.div>
       </div>

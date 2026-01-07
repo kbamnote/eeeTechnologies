@@ -98,12 +98,12 @@ const FeaturedCourses = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-100/30 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pink-100/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -114,17 +114,17 @@ const FeaturedCourses = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.div variants={cardVariants} className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-600 rounded-full text-sm font-medium mb-6">
+          <motion.div variants={cardVariants} className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6">
             <TrendingUp className="w-4 h-4 mr-2" />
             Featured Courses
           </motion.div>
           
-          <motion.h2 variants={cardVariants} className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <motion.h2 variants={cardVariants} className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
             Most Popular
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"> Courses</span>
+            <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2"> Courses</span>
           </motion.h2>
           
-          <motion.p variants={cardVariants} className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <motion.p variants={cardVariants} className="text-lg text-gray-400 max-w-3xl mx-auto">
             Join thousands of students in our top-rated courses designed by industry experts
           </motion.p>
         </motion.div>
@@ -141,83 +141,85 @@ const FeaturedCourses = () => {
               key={course.id}
               variants={cardVariants}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200 group"
+              className="group"
             >
-              {/* Course Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                
-                {course.isTrending && (
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full">
-                      TRENDING
-                    </span>
-                  </div>
-                )}
-
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-2 shadow-lg">
-                  <div className="text-right">
-                    <div className="text-lg font-bold text-purple-600">₹{course.price?.toLocaleString()}</div>
-                    {course.originalPrice && (
-                      <div className="text-sm text-gray-500 line-through">₹{course.originalPrice?.toLocaleString()}</div>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Course Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-purple-600 transition-colors duration-200">
-                  {course.title}
-                </h3>
-
-                <p className="text-gray-600 mb-4 line-clamp-2 text-sm leading-relaxed">
-                  {course.description}
-                </p>
-
-                {/* Stats */}
-                <div className="flex items-center justify-between mb-6 text-sm text-gray-500">
-                  <div className="flex items-center">
-                    <Clock className="w-4 h-4 mr-1" />
-                    <span>{course.duration}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Users className="w-4 h-4 mr-1" />
-                    <span>{course.students?.toLocaleString()}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Star className="w-4 h-4 mr-1 text-yellow-500" />
-                    <span>{course.rating}</span>
-                  </div>
-                </div>
-
-                {/* Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => handleEnrollClick(course)}
-                    className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-200 flex items-center justify-center group/btn"
-                  >
-                    <span>Enroll Now</span>
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
-                  </motion.button>
+              <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-700/50 hover:border-slate-600/50 transition-all duration-500 group">
+                {/* Course Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                   
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                      navigate(`/courses/${course.slug}`);
-                    }}
-                    className="flex-1 bg-white text-gray-700 font-semibold py-3 rounded-xl border-2 border-gray-200 hover:border-purple-400 transition-all duration-200"
-                  >
-                    Know More
-                  </motion.button>
+                  {course.isTrending && (
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full">
+                        TRENDING
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="absolute top-4 right-4 bg-slate-900/50 backdrop-blur-sm rounded-lg p-2 shadow-lg">
+                    <div className="text-right">
+                      <div className="text-lg font-bold text-blue-400">₹{course.price?.toLocaleString()}</div>
+                      {course.originalPrice && (
+                        <div className="text-sm text-gray-400 line-through">₹{course.originalPrice?.toLocaleString()}</div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Course Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-blue-400 transition-colors duration-200">
+                    {course.title}
+                  </h3>
+
+                  <p className="text-gray-300 mb-4 line-clamp-2 text-sm leading-relaxed">
+                    {course.description}
+                  </p>
+
+                  {/* Stats */}
+                  <div className="flex items-center justify-between mb-6 text-sm text-gray-400">
+                    <div className="flex items-center">
+                      <Clock className="w-4 h-4 mr-1" />
+                      <span>{course.duration}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Users className="w-4 h-4 mr-1" />
+                      <span>{course.students?.toLocaleString()}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Star className="w-4 h-4 mr-1 text-yellow-500" />
+                      <span>{course.rating}</span>
+                    </div>
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => handleEnrollClick(course)}
+                      className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-200 flex items-center justify-center group/btn"
+                    >
+                      <span>Enroll Now</span>
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                    </motion.button>
+                    
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        navigate(`/courses/${course.slug}`);
+                      }}
+                      className="flex-1 bg-slate-800/50 backdrop-blur-xl text-white font-semibold py-3 rounded-2xl border border-slate-700/50 hover:bg-slate-700/50 hover:border-slate-600/50 transition-all duration-200"
+                    >
+                      Know More
+                    </motion.button>
+                  </div>
                 </div>
               </div>
             </motion.div>

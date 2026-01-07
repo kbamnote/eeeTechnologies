@@ -82,35 +82,56 @@ const Placement = () => {
         animate="visible"
         className="space-y-20"
       >
-        {/* Hero Section */}
-        <section className="relative pt-20 pb-16 overflow-hidden">
-          {/* Background Elements */}
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10"></div>
-          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
+        {/* Hero Section with Background Image */}
+        <section className="relative min-h-screen flex items-center overflow-hidden">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2187&auto=format&fit=crop')",
+            }}
+          >
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/90 via-blue-900/85 to-indigo-950/90"></div>
+            
+            {/* Animated Grid Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px)`,
+                backgroundSize: '40px 40px'
+              }}></div>
+            </div>
+          </div>
+
+          {/* Background Blur Elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-10 w-72 h-72 bg-purple-400/20 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
+          </div>
           
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
             <div className="text-center">
               <motion.div
                 variants={cardVariants}
-                className="inline-block bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full text-sm font-medium mb-6"
+                className="inline-block bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full text-sm font-medium mb-6 backdrop-blur-sm"
               >
                 🚀 #1 Placement Program in India
               </motion.div>
               
               <motion.h1
                 variants={cardVariants}
-                className="text-5xl md:text-7xl font-bold text-gray-900 mb-6"
+                className="text-5xl md:text-7xl font-bold text-white mb-6"
               >
                 Land Your
-                <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                  {" "}Dream Job
+                <span className="block bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent mt-2">
+                  Dream Job
                 </span>
               </motion.h1>
               
               <motion.p
                 variants={cardVariants}
-                className="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto"
+                className="text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto"
               >
                 Join our proven placement program and transform your career with guaranteed job placement, 
                 industry mentorship, and comprehensive skill development.
@@ -123,7 +144,7 @@ const Placement = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-2xl transition-all duration-200 flex items-center justify-center space-x-2"
+                  className="bg-gradient-to-r from-yellow-500 to-pink-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-pink-500/25 transition-all duration-200 flex items-center justify-center space-x-2"
                 >
                   <span>Start Your Journey</span>
                   <ArrowRight className="w-5 h-5" />
@@ -132,7 +153,7 @@ const Placement = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-purple-50 transition-all duration-200"
+                  className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/20 transition-all duration-200"
                 >
                   Watch Success Stories
                 </motion.button>
@@ -150,21 +171,28 @@ const Placement = () => {
                       key={index}
                       variants={cardVariants}
                       whileHover={{ scale: 1.05, y: -5 }}
-                      className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20 text-center"
+                      className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/20 text-center"
                     >
-                      <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3">
+                      <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-pink-500 text-white rounded-xl flex items-center justify-center mx-auto mb-3">
                         <IconComponent className="w-6 h-6" />
                       </div>
-                      <h3 className="font-bold text-gray-900 mb-1 text-sm md:text-base">
+                      <h3 className="font-bold text-white mb-1 text-sm md:text-base">
                         {feature.title}
                       </h3>
-                      <p className="text-gray-600 text-xs md:text-sm">
+                      <p className="text-gray-300 text-xs md:text-sm">
                         {feature.description}
                       </p>
                     </motion.div>
                   );
                 })}
               </motion.div>
+            </div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+            <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
+              <div className="w-1 h-3 bg-white/50 rounded-full"></div>
             </div>
           </div>
         </section>

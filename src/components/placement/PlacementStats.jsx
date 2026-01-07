@@ -157,11 +157,20 @@ const PlacementStats = () => {
       className="space-y-12"
     >
       {/* Header */}
-      <motion.div variants={cardVariants} className="text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+      <motion.div variants={cardVariants} className="text-center mb-16">
+        <div className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6">
+          <Target className="w-4 h-4 mr-2" />
           Placement Statistics
+        </div>
+        
+        <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+          Placement
+          <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
+            Statistics
+          </span>
         </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        
+        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
           Our track record speaks for itself. See how we've helped thousands of students 
           transform their careers and achieve their professional goals.
         </p>
@@ -177,41 +186,43 @@ const PlacementStats = () => {
                 key={stat.id}
                 variants={cardVariants}
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20 overflow-hidden group"
+                className="group"
               >
-                {/* Background Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${stat.bgGradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                
-                {/* Content */}
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className={`w-12 h-12 ${getColorClasses(stat.color)} rounded-xl flex items-center justify-center mb-4`}>
-                    <IconComponent className="w-6 h-6" />
-                  </div>
-
-                  {/* Value */}
-                  <div className="text-3xl font-bold text-gray-900 mb-2">
-                    {stat.value}
-                  </div>
-
-                  {/* Title */}
-                  <div className="text-lg font-semibold text-gray-800 mb-2">
-                    {stat.title}
-                  </div>
-
-                  {/* Description */}
-                  <div className="text-gray-600 text-sm mb-3">
-                    {stat.description}
-                  </div>
-
-                  {/* Trend */}
-                  <div className="flex items-center space-x-2">
-                    <div className={`text-sm font-medium px-2 py-1 rounded-full ${
-                      stat.trend.startsWith('+') ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'
-                    }`}>
-                      {stat.trend}
+                <div className="relative bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50 overflow-hidden hover:border-slate-600/50 transition-all duration-500">
+                  {/* Background Gradient */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.bgGradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    {/* Icon */}
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mb-4">
+                      <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <span className="text-xs text-gray-500">vs last year</span>
+
+                    {/* Value */}
+                    <div className="text-3xl font-bold text-white mb-2">
+                      {stat.value}
+                    </div>
+
+                    {/* Title */}
+                    <div className="text-lg font-semibold text-white mb-2">
+                      {stat.title}
+                    </div>
+
+                    {/* Description */}
+                    <div className="text-gray-400 text-sm mb-3">
+                      {stat.description}
+                    </div>
+
+                    {/* Trend */}
+                    <div className="flex items-center space-x-2">
+                      <div className={`text-sm font-medium px-2 py-1 rounded-full ${
+                        stat.trend.startsWith('+') ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'
+                      }`}>
+                        {stat.trend}
+                      </div>
+                      <span className="text-xs text-gray-500">vs last year</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -222,17 +233,17 @@ const PlacementStats = () => {
 
       {/* Salary Distribution */}
       <motion.div variants={cardVariants}>
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+        <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 overflow-hidden">
+          <h3 className="text-2xl font-bold text-white mb-6 text-center">
             Salary Distribution
           </h3>
           <div className="space-y-4">
             {salaryRanges.map((range, index) => (
               <div key={index} className="flex items-center space-x-4">
-                <div className="w-24 text-sm font-medium text-gray-700">
+                <div className="w-24 text-sm font-medium text-gray-300">
                   {range.range}
                 </div>
-                <div className="flex-1 bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div className="flex-1 bg-slate-700/50 rounded-full h-3 overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${range.percentage}%` }}
@@ -245,7 +256,7 @@ const PlacementStats = () => {
                     }`}
                   />
                 </div>
-                <div className="w-12 text-sm font-semibold text-gray-700">
+                <div className="w-12 text-sm font-semibold text-gray-300">
                   {range.percentage}%
                 </div>
               </div>
@@ -264,17 +275,19 @@ const PlacementStats = () => {
                 key={index}
                 variants={cardVariants}
                 whileHover={{ scale: 1.05 }}
-                className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20"
+                className="text-center"
               >
-                <div className={`w-16 h-16 ${getColorClasses(achievement.color)} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                  <IconComponent className="w-8 h-8" />
+                <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50 overflow-hidden hover:border-slate-600/50 transition-all duration-500">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <IconComponent className="w-8 h-8 text-white" />
+                  </div>
+                  <h4 className="text-lg font-semibold text-white mb-2">
+                    {achievement.title}
+                  </h4>
+                  <p className="text-gray-400 text-sm">
+                    {achievement.description}
+                  </p>
                 </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                  {achievement.title}
-                </h4>
-                <p className="text-gray-600 text-sm">
-                  {achievement.description}
-                </p>
               </motion.div>
             );
           })}
@@ -283,10 +296,12 @@ const PlacementStats = () => {
 
       {/* Recent Highlights */}
       <motion.div variants={cardVariants}>
-        <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-8 text-white">
-          <div className="text-center mb-8">
+        <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+          
+          <div className="relative z-10 text-center mb-8">
             <h3 className="text-3xl font-bold mb-4">Recent Highlights</h3>
-            <p className="text-purple-100 text-lg">
+            <p className="text-blue-100 text-lg">
               Latest achievements and milestones from our placement program
             </p>
           </div>
@@ -294,15 +309,15 @@ const PlacementStats = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="text-4xl font-bold mb-2">50+</div>
-              <div className="text-purple-100">Placements this month</div>
+              <div className="text-blue-100">Placements this month</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold mb-2">₹32L</div>
-              <div className="text-purple-100">Average package this quarter</div>
+              <div className="text-blue-100">Average package this quarter</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold mb-2">15</div>
-              <div className="text-purple-100">New partner companies</div>
+              <div className="text-blue-100">New partner companies</div>
             </div>
           </div>
         </div>
@@ -310,19 +325,19 @@ const PlacementStats = () => {
 
       {/* Call to Action */}
       <motion.div variants={cardVariants}>
-        <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
-          <GraduationCap className="w-16 h-16 text-purple-600 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+        <div className="text-center bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 overflow-hidden">
+          <GraduationCap className="w-16 h-16 text-blue-400 mx-auto mb-4" />
+          <h3 className="text-2xl font-bold text-white mb-4">
             Ready to Join Our Success Stories?
           </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
             Take the first step towards your dream career. Our placement team is ready to help you 
             achieve your professional goals with personalized guidance and industry connections.
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-200"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-2xl font-semibold shadow-2xl hover:shadow-blue-500/25 transition-all duration-200"
           >
             Start Your Journey
           </motion.button>

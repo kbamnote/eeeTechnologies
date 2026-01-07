@@ -239,11 +239,20 @@ const CompanyLogos = () => {
       className="space-y-12"
     >
       {/* Header */}
-      <motion.div variants={cardVariants} className="text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+      <motion.div variants={cardVariants} className="text-center mb-16">
+        <div className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6">
+          <Building className="w-4 h-4 mr-2" />
           Our Hiring Partners
+        </div>
+        
+        <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+          Our
+          <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
+            Hiring Partners
+          </span>
         </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        
+        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
           We've built strong partnerships with leading companies across industries. 
           Our graduates are working at some of the world's most prestigious organizations.
         </p>
@@ -258,16 +267,18 @@ const CompanyLogos = () => {
               <motion.div
                 key={index}
                 variants={cardVariants}
-                className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20"
+                className="text-center"
               >
-                <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <IconComponent className="w-6 h-6" />
-                </div>
-                <div className="text-2xl font-bold text-gray-900 mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-600 text-sm">
-                  {stat.label}
+                <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50 overflow-hidden hover:border-slate-600/50 transition-all duration-500">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <IconComponent className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="text-2xl font-bold text-white mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-gray-400 text-sm">
+                    {stat.label}
+                  </div>
                 </div>
               </motion.div>
             );
@@ -286,10 +297,10 @@ const CompanyLogos = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveCategory(category.id)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-200 ${
+                className={`flex items-center space-x-2 px-6 py-3 rounded-2xl font-medium transition-all duration-200 ${
                   activeCategory === category.id
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
-                    : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-white border border-white/20'
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/25'
+                    : 'bg-slate-800/50 backdrop-blur-xl text-gray-300 hover:bg-slate-700/50 border border-slate-700/50 hover:border-slate-600/50'
                 }`}
               >
                 <IconComponent className="w-5 h-5" />
@@ -308,57 +319,59 @@ const CompanyLogos = () => {
               key={company.id}
               variants={logoVariants}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300"
+              className="group relative"
             >
-              {/* Tier Badge */}
-              <div className={`absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-medium ${
-                company.tier === 'tier1' 
-                  ? 'bg-gold-100 text-gold-700 border border-gold-200' 
-                  : 'bg-blue-100 text-blue-700 border border-blue-200'
-              }`}>
-                {company.tier === 'tier1' ? 'Tier 1' : 'Tier 2'}
-              </div>
-
-              {/* Logo */}
-              <div className="h-16 flex items-center justify-center mb-4">
-                <img
-                  src={company.logo}
-                  alt={company.name}
-                  className="max-h-12 max-w-full object-contain transition-all duration-300"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.nextSibling.style.display = 'flex';
-                  }}
-                />
-                <div className="hidden w-12 h-12 bg-gray-200 rounded-lg items-center justify-center">
-                  <Building className="w-6 h-6 text-gray-400" />
+              <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50 overflow-hidden hover:border-slate-600/50 transition-all duration-500">
+                {/* Tier Badge */}
+                <div className={`absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-medium ${
+                  company.tier === 'tier1' 
+                    ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30' 
+                    : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                }`}>
+                  {company.tier === 'tier1' ? 'Tier 1' : 'Tier 2'}
                 </div>
-              </div>
 
-              {/* Company Info */}
-              <div className="text-center">
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  {company.name}
-                </h3>
-                <p className="text-gray-600 text-sm mb-3">
-                  {company.description}
-                </p>
-                
-                {/* Stats */}
-                <div className="space-y-2">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-500">Placements:</span>
-                    <span className="font-medium text-gray-900">{company.placements}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-500">Avg Package:</span>
-                    <span className="font-medium text-green-600">{company.avgPackage}</span>
+                {/* Logo */}
+                <div className="h-16 flex items-center justify-center mb-4">
+                  <img
+                    src={company.logo}
+                    alt={company.name}
+                    className="max-h-12 max-w-full object-contain transition-all duration-300"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="hidden w-12 h-12 bg-slate-700 rounded-lg items-center justify-center">
+                    <Building className="w-6 h-6 text-gray-400" />
                   </div>
                 </div>
-              </div>
 
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                {/* Company Info */}
+                <div className="text-center">
+                  <h3 className="font-semibold text-white mb-2">
+                    {company.name}
+                  </h3>
+                  <p className="text-gray-400 text-sm mb-3">
+                    {company.description}
+                  </p>
+                  
+                  {/* Stats */}
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-500">Placements:</span>
+                      <span className="font-medium text-white">{company.placements}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-500">Avg Package:</span>
+                      <span className="font-medium text-green-400">{company.avgPackage}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+              </div>
             </motion.div>
           ))}
         </div>
@@ -366,10 +379,12 @@ const CompanyLogos = () => {
 
       {/* Success Metrics */}
       <motion.div variants={cardVariants}>
-        <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-8 text-white">
-          <div className="text-center mb-8">
+        <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+          
+          <div className="relative z-10 text-center mb-8">
             <h3 className="text-3xl font-bold mb-4">Partnership Success</h3>
-            <p className="text-purple-100 text-lg">
+            <p className="text-blue-100 text-lg">
               Building lasting relationships with industry leaders
             </p>
           </div>
@@ -377,15 +392,15 @@ const CompanyLogos = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold mb-2">98%</div>
-              <div className="text-purple-100">Partner Satisfaction Rate</div>
+              <div className="text-blue-100">Partner Satisfaction Rate</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold mb-2">85%</div>
-              <div className="text-purple-100">Repeat Hiring Partners</div>
+              <div className="text-blue-100">Repeat Hiring Partners</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold mb-2">6 months</div>
-              <div className="text-purple-100">Average Partnership Duration</div>
+              <div className="text-blue-100">Average Partnership Duration</div>
             </div>
           </div>
         </div>
@@ -393,12 +408,12 @@ const CompanyLogos = () => {
 
       {/* Call to Action */}
       <motion.div variants={cardVariants}>
-        <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
-          <Building className="w-16 h-16 text-purple-600 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+        <div className="text-center bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 overflow-hidden">
+          <Building className="w-16 h-16 text-blue-400 mx-auto mb-4" />
+          <h3 className="text-2xl font-bold text-white mb-4">
             Want to Partner With Us?
           </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
             Join our network of hiring partners and get access to top-tier talent. 
             Our graduates are industry-ready and equipped with the latest skills.
           </p>
@@ -406,14 +421,14 @@ const CompanyLogos = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-200"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-2xl font-semibold shadow-2xl hover:shadow-blue-500/25 transition-all duration-200"
             >
               Become a Partner
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="border border-purple-500 text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-all duration-200 flex items-center space-x-2"
+              className="border border-blue-500 text-blue-400 px-8 py-3 rounded-2xl font-semibold hover:bg-blue-500/10 transition-all duration-200 flex items-center space-x-2"
             >
               <span>View All Partners</span>
               <ExternalLink className="w-4 h-4" />
