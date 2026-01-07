@@ -94,7 +94,7 @@ const JoinCTA = () => {
       icon: Phone,
       title: "Call Us",
       description: "Speak with our counselors",
-      action: "+91 8855885807",
+      action: "+91 9503182807 / 9146882409",
       color: "from-green-500 to-emerald-600"
     },
     {

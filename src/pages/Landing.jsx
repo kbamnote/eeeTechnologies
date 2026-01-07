@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useSEO } from "../hooks/useSEO.js";
+
 import HeroSection from "../components/landing/HeroSection.jsx";
 import AboutPreview from "../components/landing/AboutPreview.jsx";
 import CoursesPreview from "../components/landing/CoursesPreview.jsx";
@@ -32,8 +33,6 @@ export default function Landing() {
       <AboutPreview />
       <CoursesPreview />
       <WhyChooseUs />
-      <Testimonials />
-      <PartnersSection />
       <CallToAction />
     </motion.div>
   );

@@ -35,7 +35,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Call Us',
-      info: '+91 8855885807',
+      info: '+91 9503182807 / 9146882409',
       subInfo: 'Mon-Fri 9AM-6PM',
       color: 'from-blue-500 to-blue-600'
     },

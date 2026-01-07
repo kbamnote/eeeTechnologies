@@ -10,10 +10,10 @@ const ContactModal = ({ isOpen, onClose }) => {
     {
       icon: Phone,
       title: 'Call Us',
-      info: '+91 8855885807',
+      info: '+91 9503182807 / 9146882409',
       subInfo: 'Mon-Fri 9AM-6PM',
       color: 'from-blue-500 to-blue-600',
-      action: () => window.open('tel:+918855885807')
+      action: () => window.open('tel:+919503182807')
     },
     {
       icon: Mail,
@@ -132,7 +132,7 @@ const ContactModal = ({ isOpen, onClose }) => {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => window.open('tel:+918855885807')}
+            onClick={() => window.open('tel:+919503182807')}
             className="px-6 py-3 border-2 border-purple-600 text-purple-600 rounded-lg hover:bg-purple-600 hover:text-white transition-all duration-200 font-semibold flex items-center justify-center space-x-2"
           >
             <Phone className="w-4 h-4" />

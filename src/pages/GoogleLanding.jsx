@@ -204,16 +204,7 @@ export default function GoogleLanding() {
 
           </p>
 
-          {/* Video Placeholder */}
-          {/* <div className="bg-gradient-to-br from-gray-300 to-gray-400 rounded-2xl aspect-video max-w-3xl mx-auto mb-4 flex items-center justify-center shadow-2xl relative overflow-hidden group">
-            <div className="absolute inset-0 bg-black opacity-30"></div>
-            <div className="relative z-10 text-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
-                <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-red-600 border-b-8 border-b-transparent ml-1"></div>
-              </div>
-              <span className="text-white text-xl font-semibold">Watch Success Stories</span>
-            </div>
-          </div> */}
+
           <p className="text-sm text-gray-500 italic">Apply Now and Receive Job Placement
 </p>
         </div>
@@ -675,7 +666,7 @@ export default function GoogleLanding() {
               </ul>
               <div className="mt-4">
                 <p className="text-sm text-gray-400 mb-2">📧 info@eeetech.com</p>
-                <p className="text-sm text-gray-400">📞 +91 9876543210</p>
+                <p className="text-sm text-gray-400">📞 +91 9503182807 / 9146882409</p>
               </div>
             </div>
           </div>
@@ -713,7 +704,7 @@ export default function GoogleLanding() {
       {/* Floating Action Button */}
       <button 
         onClick={() => {
-          window.open('https://wa.me/9730893320', '_blank');
+          window.open('https://wa.me/919503182807', '_blank');
         }}
         className="fixed bottom-8 right-8 bg-gradient-to-r from-red-600 to-orange-600 text-white w-14 h-14 rounded-full shadow-2xl hover:shadow-3xl transition-all transform hover:scale-110 flex items-center justify-center z-40"
       >

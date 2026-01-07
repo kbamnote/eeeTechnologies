@@ -64,7 +64,7 @@ export default function ThankYou() {
             </Link>
 
             <a
-              href="https://wa.me/9730893320"
+              href="https://wa.me/919503182807"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center"

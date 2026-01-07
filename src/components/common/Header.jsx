@@ -25,7 +25,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200/50 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md border-b border-gray-700/50 shadow-sm">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand */}
@@ -44,8 +44,8 @@ export default function Header() {
                 className={({ isActive }) =>
                   `relative px-3 py-2 text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? "text-blue-600"
-                      : "text-gray-700 hover:text-blue-600"
+                      ? "text-blue-400"
+                      : "text-gray-200 hover:text-blue-400"
                   }`
                 }
               >
@@ -66,7 +66,7 @@ export default function Header() {
             <Link
               to="/contact"
               onClick={scrollToTop}
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              className="px-4 py-2 text-sm font-medium text-gray-200 hover:text-blue-400 transition-colors duration-200"
             >
               Get Started
             </Link>
@@ -81,7 +81,7 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-all duration-200"
+            className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-gray-200 hover:text-blue-400 hover:bg-gray-800 transition-all duration-200"
             onClick={() => setOpen(!open)}
             aria-label="Toggle navigation menu"
           >
@@ -91,7 +91,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {open && (
-          <div className="lg:hidden border-t border-gray-200/50 bg-white/95 backdrop-blur-md">
+          <div className="lg:hidden border-t border-gray-700/50 bg-gray-900/95 backdrop-blur-md">
             <nav className="px-4 py-6 space-y-3">
               {navItems.map((item) => (
                 <NavLink
@@ -100,8 +100,8 @@ export default function Header() {
                   className={({ isActive }) =>
                     `block px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 ${
                       isActive
-                        ? "text-blue-600 bg-blue-50"
-                        : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                        ? "text-blue-400 bg-gray-800"
+                        : "text-gray-200 hover:text-blue-400 hover:bg-gray-800"
                     }`
                   }
                   onClick={() => {
@@ -115,7 +115,7 @@ export default function Header() {
               <div className="pt-4 space-y-3">
                 <Link
                   to="/contact"
-                  className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-all duration-200"
+                  className="block px-4 py-3 text-base font-medium text-gray-200 hover:text-blue-400 hover:bg-gray-800 rounded-lg transition-all duration-200"
                   onClick={() => {
                     setOpen(false);
                     scrollToTop();
