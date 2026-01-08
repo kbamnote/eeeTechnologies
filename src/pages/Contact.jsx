@@ -67,13 +67,13 @@ const Contact = () => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50"
+      className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900"
     >
       {/* Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-900/30 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-900/30 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-900/30 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="relative z-10">
@@ -86,13 +86,13 @@ const Contact = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="mb-8"
             >
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                 Get in{' '}
-                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                   Touch
                 </span>
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
                 Have questions about our courses? Need support? Want to discuss custom training solutions? 
                 We're here to help you on your learning journey.
               </p>
@@ -109,14 +109,14 @@ const Contact = () => {
                   <motion.div
                     key={item.title}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300"
+                    className="bg-slate-800/50 backdrop-blur-xl rounded-xl p-6 shadow-lg border border-slate-700/50 hover:shadow-xl transition-all duration-300"
                   >
                     <div className={`w-12 h-12 bg-gradient-to-r ${item.color} rounded-lg flex items-center justify-center mx-auto mb-4`}>
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-gray-700 font-medium">{item.info}</p>
-                    <p className="text-sm text-gray-500">{item.subInfo}</p>
+                    <h3 className="font-semibold text-white mb-2">{item.title}</h3>
+                    <p className="text-white font-medium">{item.info}</p>
+                    <p className="text-sm text-gray-400">{item.subInfo}</p>
                   </motion.div>
                 );
               })}
@@ -155,7 +155,7 @@ const Contact = () => {
 
           {/* Final CTA Section */}
           <motion.section variants={itemVariants}>
-            <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+            <div className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden backdrop-blur-xl border border-slate-700/50">
               {/* Background decoration */}
               <div className="absolute inset-0 bg-black/10"></div>
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full"></div>
@@ -173,7 +173,7 @@ const Contact = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-white text-purple-600 rounded-lg hover:bg-gray-50 transition-all duration-200 font-semibold shadow-lg flex items-center justify-center space-x-2"
+                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-200 font-semibold shadow-lg flex items-center justify-center space-x-2"
                   >
                     <span>Browse Courses</span>
                     <ArrowRight className="w-5 h-5" />
@@ -181,7 +181,7 @@ const Contact = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 border-2 border-white text-white rounded-lg hover:bg-white hover:text-purple-600 transition-all duration-200 font-semibold"
+                    className="px-8 py-4 border-2 border-blue-500 text-white rounded-lg hover:bg-blue-500/10 transition-all duration-200 font-semibold"
                   >
                     Schedule Consultation
                   </motion.button>

@@ -75,7 +75,7 @@ const Placement = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -114,7 +114,7 @@ const Placement = () => {
             <div className="text-center">
               <motion.div
                 variants={cardVariants}
-                className="inline-block bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full text-sm font-medium mb-6 backdrop-blur-sm"
+                className="inline-block bg-gradient-to-r from-purple-500 to-blue-500 text-white mt-8 px-6 py-2 rounded-full text-sm font-medium mb-6 backdrop-blur-sm"
               >
                 🚀 #1 Placement Program in India
               </motion.div>
@@ -124,14 +124,14 @@ const Placement = () => {
                 className="text-5xl md:text-7xl font-bold text-white mb-6"
               >
                 Land Your
-                <span className="block bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent mt-2">
+                <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
                   Dream Job
                 </span>
               </motion.h1>
               
               <motion.p
                 variants={cardVariants}
-                className="text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto"
+                className="text-xl md:text-2xl text-gray-400 mb-8 max-w-4xl mx-auto"
               >
                 Join our proven placement program and transform your career with guaranteed job placement, 
                 industry mentorship, and comprehensive skill development.
@@ -144,7 +144,7 @@ const Placement = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-yellow-500 to-pink-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-pink-500/25 transition-all duration-200 flex items-center justify-center space-x-2"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-200 flex items-center justify-center space-x-2"
                 >
                   <span>Start Your Journey</span>
                   <ArrowRight className="w-5 h-5" />
@@ -153,7 +153,7 @@ const Placement = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/20 transition-all duration-200"
+                  className="bg-slate-800/50 backdrop-blur-xl border-2 border-slate-700/50 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-slate-700/50 transition-all duration-200"
                 >
                   Watch Success Stories
                 </motion.button>
@@ -171,15 +171,15 @@ const Placement = () => {
                       key={index}
                       variants={cardVariants}
                       whileHover={{ scale: 1.05, y: -5 }}
-                      className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/20 text-center"
+                      className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-slate-700/50 text-center"
                     >
-                      <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-pink-500 text-white rounded-xl flex items-center justify-center mx-auto mb-3">
-                        <IconComponent className="w-6 h-6" />
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <IconComponent className="w-6 h-6 text-white" />
                       </div>
                       <h3 className="font-bold text-white mb-1 text-sm md:text-base">
                         {feature.title}
                       </h3>
-                      <p className="text-gray-300 text-xs md:text-sm">
+                      <p className="text-gray-400 text-xs md:text-sm">
                         {feature.description}
                       </p>
                     </motion.div>
@@ -189,12 +189,7 @@ const Placement = () => {
             </div>
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
-            <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
-              <div className="w-1 h-3 bg-white/50 rounded-full"></div>
-            </div>
-          </div>
+          
         </section>
 
         {/* Quick Stats */}
@@ -202,13 +197,13 @@ const Placement = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={cardVariants}
-              className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-8 md:p-12 text-white"
+              className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 rounded-3xl p-8 md:p-12 text-white backdrop-blur-xl border border-slate-700/50"
             >
               <div className="text-center mb-8">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   Proven Track Record of Success
                 </h2>
-                <p className="text-purple-100 text-lg">
+                <p className="text-gray-400 text-lg">
                   Numbers that speak for our excellence in career transformation
                 </p>
               </div>
@@ -223,11 +218,11 @@ const Placement = () => {
                       whileHover={{ scale: 1.05 }}
                       className="text-center"
                     >
-                      <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 bg-slate-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4">
                         <IconComponent className="w-8 h-8 text-white" />
                       </div>
                       <div className="text-3xl md:text-4xl font-bold mb-2">{stat.value}</div>
-                      <div className="text-purple-100">{stat.label}</div>
+                      <div className="text-gray-400">{stat.label}</div>
                     </motion.div>
                   );
                 })}
@@ -246,7 +241,7 @@ const Placement = () => {
         </section>
 
         {/* Company Logos Component */}
-        <section className="py-16 bg-gradient-to-r from-gray-50 to-blue-50">
+        <section className="py-16 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div variants={cardVariants}>
               <CompanyLogos />
@@ -264,7 +259,7 @@ const Placement = () => {
         </section>
 
         {/* Success Stories Component */}
-        <section className="py-16 bg-gradient-to-r from-purple-50 to-pink-50">
+        <section className="py-16 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div variants={cardVariants}>
               <SuccessStories />
@@ -273,7 +268,7 @@ const Placement = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-16">
+        {/* <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div variants={cardVariants} className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -345,7 +340,7 @@ const Placement = () => {
               })}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Register CTA Component */}
         <section className="py-16">
@@ -357,14 +352,14 @@ const Placement = () => {
         </section>
 
         {/* Final CTA */}
-        <section className="py-16 bg-gradient-to-r from-gray-900 to-gray-800">
+        <section className="py-16 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div variants={cardVariants}>
-              <Star className="w-20 h-20 text-yellow-400 mx-auto mb-6" />
+              <Star className="w-20 h-20 text-blue-400 mx-auto mb-6" />
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 Ready to Transform Your Career?
               </h2>
-              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-400 mb-8 max-w-3xl mx-auto">
                 Join thousands of successful graduates who trusted us with their career transformation. 
                 Your dream job is just one decision away.
               </p>
@@ -373,7 +368,7 @@ const Placement = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-12 py-4 rounded-lg font-bold text-lg hover:shadow-2xl transition-all duration-200 flex items-center justify-center space-x-2"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-4 rounded-lg font-bold text-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-200 flex items-center justify-center space-x-2"
                 >
                   <span>Enroll Now</span>
                   <ArrowRight className="w-5 h-5" />
@@ -382,13 +377,13 @@ const Placement = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="border-2 border-white text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-gray-900 transition-all duration-200"
+                  className="border-2 border-blue-500 text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-blue-500/10 transition-all duration-200"
                 >
                   Schedule Free Consultation
                 </motion.button>
               </div>
 
-              <div className="mt-8 text-sm text-gray-400">
+              <div className="mt-8 text-sm text-gray-500">
                 <p>✅ No hidden fees • ✅ 100% job guarantee • ✅ EMI options available</p>
               </div>
             </motion.div>

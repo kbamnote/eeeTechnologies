@@ -179,16 +179,16 @@ const Blog = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
       {loading && (
-        <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-purple-600"></div>
+        <div className="fixed inset-0 bg-slate-900 z-50 flex items-center justify-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-500"></div>
         </div>
       )}
 
       {/* Hero Section */}
       <motion.section
-        className="relative bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-600 py-24 overflow-hidden"
+        className="relative bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 py-24 overflow-hidden"
         variants={sectionVariants}
         initial="hidden"
         animate="visible"
@@ -226,7 +226,7 @@ const Blog = () => {
             {/* Badge */}
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white text-sm font-semibold mb-8"
+              className="inline-flex items-center px-6 py-3 bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-full text-white text-sm font-semibold mb-8"
             >
               <Sparkles className="w-4 h-4 mr-2 text-yellow-400" />
               Latest Tech Insights & Tutorials
@@ -238,7 +238,7 @@ const Blog = () => {
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
             >
               Tech Blog &{' '}
-              <span className="bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Learning Hub
               </span>
             </motion.h1>
@@ -246,7 +246,7 @@ const Blog = () => {
             {/* Subtitle */}
             <motion.p
               variants={itemVariants}
-              className="text-xl text-purple-100 mb-12 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed"
             >
               Stay ahead of the curve with expert insights, practical tutorials, and industry trends. 
               Learn from experienced developers and advance your tech career.
@@ -260,7 +260,7 @@ const Blog = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-white text-purple-600 font-bold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
               >
                 <span className="flex items-center justify-center">
                   <BookOpen className="w-5 h-5 mr-2" />
@@ -270,10 +270,10 @@ const Blog = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-white/20 backdrop-blur-xl border border-white/30 text-white font-bold rounded-2xl hover:bg-white/30 transition-all duration-300"
+                className="px-8 py-4 bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 text-white font-bold rounded-2xl hover:bg-slate-700/50 transition-all duration-300"
               >
                 <span className="flex items-center justify-center">
-                  <Search className="w-5 h-5 mr-2" />
+                  <Search className="w-5 h-5 mr-2 text-white" />
                   Explore Topics
                 </span>
               </motion.button>
@@ -293,14 +293,14 @@ const Blog = () => {
                   whileHover={{ scale: 1.05, y: -5 }}
                   className="relative group"
                 >
-                  <div className="text-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
+                  <div className="text-center bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 hover:bg-slate-700/50 transition-all duration-300">
                     <div className={`flex items-center justify-center w-12 h-12 bg-gradient-to-r ${stat.color} rounded-xl mb-3 mx-auto`}>
                       <stat.icon className="w-6 h-6 text-white" />
                     </div>
                     <div className="text-2xl font-bold text-white mb-1">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-purple-100 font-medium">
+                    <div className="text-sm text-gray-400 font-medium">
                       {stat.label}
                     </div>
                   </div>
@@ -343,7 +343,7 @@ const Blog = () => {
 
       {/* Newsletter CTA */}
       <motion.section
-        className="py-20 bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600"
+        className="py-20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900"
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
@@ -352,29 +352,29 @@ const Blog = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             variants={itemVariants}
-            className="bg-white/10 backdrop-blur-xl rounded-3xl p-12 border border-white/20"
+            className="bg-slate-800/50 backdrop-blur-xl rounded-3xl p-12 border border-slate-700/50"
           >
             <div className="flex items-center justify-center mb-6">
-              <div className="p-4 bg-white/20 rounded-2xl">
+              <div className="p-4 bg-slate-700/50 rounded-2xl">
                 <Brain className="w-8 h-8 text-white" />
               </div>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Never Miss an Update
             </h2>
-            <p className="text-xl text-purple-100 mb-8">
+            <p className="text-xl text-gray-400 mb-8">
               Join our community of learners and get the latest tutorials, tips, and insights delivered to your inbox.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-6 py-4 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-transparent"
+                className="flex-1 px-6 py-4 rounded-xl bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500"
               />
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-white text-purple-600 font-bold rounded-xl hover:bg-gray-100 transition-colors duration-200"
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-200"
               >
                 Subscribe
               </motion.button>

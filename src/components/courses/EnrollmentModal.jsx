@@ -27,7 +27,7 @@ const EnrollmentModal = ({ isOpen, onClose, courseName, onSubmit }) => {
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+        className="fixed inset-0 bg-slate-900/80 backdrop-blur-xl"
         onClick={onClose}
       />
 
@@ -38,31 +38,31 @@ const EnrollmentModal = ({ isOpen, onClose, courseName, onSubmit }) => {
           onClick={(e) => e.stopPropagation()}
         >
           {/* Modal Content */}
-          <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[75vh] overflow-y-auto">
+          <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden max-h-[75vh] overflow-y-auto border border-slate-700/50">
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white hover:bg-gray-100 shadow-md transition-all duration-200 hover:scale-110"
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-slate-700 hover:bg-slate-600 shadow-md transition-all duration-200 hover:scale-110"
               aria-label="Close modal"
             >
-              <X className="w-6 h-6 text-gray-600" />
+              <X className="w-6 h-6 text-white" />
             </button>
 
             {/* Header */}
-            <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-6">
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-6">
               <h2
                 id="modal-title"
                 className="text-2xl md:text-3xl font-bold text-white"
               >
                 Course Enrollment
               </h2>
-              <p className="text-purple-100 mt-2">
-                Start your journey with <span className="font-semibold">{courseName}</span>
+              <p className="text-blue-100 mt-2">
+                Start your journey with <span className="font-semibold text-white">{courseName}</span>
               </p>
             </div>
 
             {/* Form Content */}
-            <div className="p-8">
+            <div className="p-8 bg-slate-800/50">
               <EnrollmentForm
                 courseName={courseName}
                 onSubmit={(formData) => {

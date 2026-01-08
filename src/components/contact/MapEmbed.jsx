@@ -16,16 +16,7 @@ const MapEmbed = () => {
       coordinates: { lat: 21.1458, lng: 79.0882 },
       description: "Our flagship campus with state-of-the-art facilities and labs."
     },
-    {
-      id: 2,
-      name: "Online Learning Center",
-      address: "Virtual Campus - Accessible Worldwide",
-      phone: "+91 9503182807 / 9146882409",
-      email: "online@eeeTechnologies.com",
-      hours: "24/7 Support Available",
-      coordinates: null,
-      description: "Join our global community of learners from anywhere."
-    }
+    
   ];
 
   const containerVariants = {
@@ -78,36 +69,7 @@ const MapEmbed = () => {
 
       <div className="grid lg:grid-cols-1 gap-8">
         {/* Map Section */}
-        <motion.div variants={itemVariants} className="order-2 lg:order-1">
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 h-80 flex items-center justify-center relative overflow-hidden">
-            {/* Decorative background elements */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-4 left-4 w-20 h-20 bg-blue-400 rounded-full"></div>
-              <div className="absolute bottom-4 right-4 w-16 h-16 bg-purple-400 rounded-full"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-pink-400 rounded-full"></div>
-            </div>
-            
-            {/* Map placeholder with interactive elements */}
-            <div className="relative z-10 text-center">
-              <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Navigation className="w-12 h-12 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                Interactive Map
-              </h3>
-              <p className="text-gray-600 mb-4">
-                {locations[activeLocation].name}
-              </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
-              >
-                Get Directions
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
+        
 
         {/* Locations List */}
         <motion.div variants={itemVariants} className="order-1 lg:order-2 space-y-4">

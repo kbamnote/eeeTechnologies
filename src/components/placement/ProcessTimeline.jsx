@@ -205,146 +205,37 @@ const ProcessTimeline = () => {
       className="space-y-12"
     >
       {/* Header */}
-      <motion.div variants={cardVariants} className="text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+      <motion.div variants={cardVariants} className="text-center mb-16">
+        <div className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6">
+          <Calendar className="w-4 h-4 mr-2" />
           Placement Process Timeline
+        </div>
+        
+        <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+          Placement Process
+          <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
+            Timeline
+          </span>
         </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        
+        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
           Our structured 19-week placement process is designed to transform you from a student 
           to a professional. Follow our proven methodology for guaranteed success.
         </p>
       </motion.div>
 
-      {/* Stats */}
-      <motion.div variants={cardVariants}>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {stats.map((stat, index) => {
-            const IconComponent = stat.icon;
-            return (
-              <motion.div
-                key={index}
-                variants={cardVariants}
-                className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20"
-              >
-                <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <IconComponent className="w-6 h-6" />
-                </div>
-                <div className="text-2xl font-bold text-gray-900 mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-600 text-sm">
-                  {stat.label}
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </motion.div>
+    
 
-      {/* Timeline */}
-      <motion.div variants={cardVariants}>
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-pink-500" />
-          
-          {/* Timeline Steps */}
-          <div className="space-y-8">
-            {timelineSteps.map((step, index) => {
-              const IconComponent = step.icon;
-              const isActive = index === activeStep;
-              
-              return (
-                <motion.div
-                  key={step.id}
-                  variants={stepVariants}
-                  className={`relative flex items-start space-x-6 cursor-pointer group ${
-                    isActive ? 'scale-105' : ''
-                  }`}
-                  onClick={() => setActiveStep(index)}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  {/* Step Icon */}
-                  <div className={`relative z-10 w-16 h-16 ${getColorClasses(step.color)} rounded-2xl flex items-center justify-center shadow-lg ${
-                    isActive ? 'ring-4 ring-purple-200' : ''
-                  }`}>
-                    <IconComponent className="w-8 h-8" />
-                  </div>
-
-                  {/* Step Content */}
-                  <div className={`flex-1 bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20 ${
-                    isActive ? 'ring-2 ring-purple-300' : ''
-                  }`}>
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-1">
-                          {step.title}
-                        </h3>
-                        <p className="text-purple-600 font-medium">
-                          {step.subtitle}
-                        </p>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-sm font-medium text-gray-500 mb-1">
-                          Duration
-                        </div>
-                        <div className="text-lg font-bold text-gray-900">
-                          {step.duration}
-                        </div>
-                      </div>
-                    </div>
-
-                    <p className="text-gray-600 mb-4">
-                      {step.description}
-                    </p>
-
-                    {/* Step Details */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {step.details.map((detail, detailIndex) => (
-                        <div key={detailIndex} className="flex items-center space-x-2">
-                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{detail}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Progress Indicator */}
-                    <div className="mt-4 flex items-center justify-between">
-                      <div className="text-sm text-gray-500">
-                        Step {step.id} of {timelineSteps.length}
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <div className="w-24 bg-gray-200 rounded-full h-2">
-                          <div 
-                            className={`h-2 bg-gradient-to-r ${step.bgGradient} rounded-full transition-all duration-300`}
-                            style={{ width: `${((step.id) / timelineSteps.length) * 100}%` }}
-                          />
-                        </div>
-                        <span className="text-sm font-medium text-gray-700">
-                          {Math.round(((step.id) / timelineSteps.length) * 100)}%
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Arrow for non-last steps */}
-                  {index < timelineSteps.length - 1 && (
-                    <div className="absolute left-8 -bottom-4 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md z-10">
-                      <ArrowRight className="w-4 h-4 text-purple-600" />
-                    </div>
-                  )}
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </motion.div>
+     
 
       {/* Success Metrics */}
       <motion.div variants={cardVariants}>
-        <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-8 text-white">
-          <div className="text-center mb-8">
+        <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+          
+          <div className="relative z-10 text-center mb-8">
             <h3 className="text-3xl font-bold mb-4">Process Success Metrics</h3>
-            <p className="text-purple-100 text-lg">
+            <p className="text-blue-100 text-lg">
               Our proven methodology delivers consistent results
             </p>
           </div>
@@ -353,7 +244,7 @@ const ProcessTimeline = () => {
             {successMetrics.map((metric, index) => (
               <div key={index} className="text-center">
                 <div className="text-3xl font-bold mb-2">{metric.value}</div>
-                <div className="text-purple-100 mb-2">{metric.metric}</div>
+                <div className="text-blue-100 mb-2">{metric.metric}</div>
                 <div className="text-sm bg-white/20 rounded-full px-3 py-1 inline-block">
                   {metric.change} vs last year
                 </div>
@@ -363,40 +254,16 @@ const ProcessTimeline = () => {
         </div>
       </motion.div>
 
-      {/* Interactive Timeline Navigation */}
-      <motion.div variants={cardVariants}>
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20">
-          <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
-            Navigate Timeline
-          </h3>
-          <div className="flex flex-wrap justify-center gap-2">
-            {timelineSteps.map((step, index) => (
-              <motion.button
-                key={step.id}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setActiveStep(index)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  index === activeStep
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {step.title}
-              </motion.button>
-            ))}
-          </div>
-        </div>
-      </motion.div>
+    
 
       {/* Call to Action */}
       <motion.div variants={cardVariants}>
-        <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
-          <Briefcase className="w-16 h-16 text-purple-600 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+        <div className="text-center bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 overflow-hidden">
+          <Briefcase className="w-16 h-16 text-blue-400 mx-auto mb-4" />
+          <h3 className="text-2xl font-bold text-white mb-4">
             Ready to Start Your Placement Journey?
           </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
             Join thousands of successful graduates who have transformed their careers through our 
             structured placement process. Your dream job is just 19 weeks away.
           </p>
@@ -404,14 +271,14 @@ const ProcessTimeline = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-200"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-2xl font-semibold shadow-2xl hover:shadow-blue-500/25 transition-all duration-200"
             >
               Start Your Journey
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="border border-purple-500 text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-all duration-200"
+              className="border border-blue-500 text-blue-400 px-8 py-3 rounded-2xl font-semibold hover:bg-blue-500/10 transition-all duration-200"
             >
               Download Timeline PDF
             </motion.button>

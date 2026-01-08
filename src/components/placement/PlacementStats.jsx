@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   TrendingUp, 
@@ -80,30 +80,9 @@ const PlacementStats = () => {
   ];
 
   const achievements = [
-    {
-      title: "Industry Recognition",
-      description: "Best Training Institute 2023",
-      icon: Award,
-      color: "yellow"
-    },
-    {
-      title: "Student Satisfaction",
-      description: "4.9/5 Average Rating",
-      icon: Star,
-      color: "yellow"
-    },
-    {
-      title: "Career Growth",
-      description: "85% promoted within 2 years",
-      icon: Briefcase,
-      color: "purple"
-    },
-    {
-      title: "Global Reach",
-      description: "Students in 15+ countries",
-      icon: MapPin,
-      color: "blue"
-    }
+    
+   
+   
   ];
 
   const salaryRanges = [
@@ -157,7 +136,7 @@ const PlacementStats = () => {
       className="space-y-12"
     >
       {/* Header */}
-      <motion.div variants={cardVariants} className="text-center mb-16">
+      <motion.div variants={cardVariants} className="text-center ">
         <div className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6">
           <Target className="w-4 h-4 mr-2" />
           Placement Statistics
@@ -231,39 +210,7 @@ const PlacementStats = () => {
         </div>
       </motion.div>
 
-      {/* Salary Distribution */}
-      <motion.div variants={cardVariants}>
-        <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 overflow-hidden">
-          <h3 className="text-2xl font-bold text-white mb-6 text-center">
-            Salary Distribution
-          </h3>
-          <div className="space-y-4">
-            {salaryRanges.map((range, index) => (
-              <div key={index} className="flex items-center space-x-4">
-                <div className="w-24 text-sm font-medium text-gray-300">
-                  {range.range}
-                </div>
-                <div className="flex-1 bg-slate-700/50 rounded-full h-3 overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${range.percentage}%` }}
-                    transition={{ duration: 1, delay: index * 0.2 }}
-                    className={`h-full bg-gradient-to-r ${
-                      range.color === 'blue' ? 'from-blue-500 to-cyan-500' :
-                      range.color === 'purple' ? 'from-purple-500 to-pink-500' :
-                      range.color === 'green' ? 'from-green-500 to-emerald-500' :
-                      'from-orange-500 to-red-500'
-                    }`}
-                  />
-                </div>
-                <div className="w-12 text-sm font-semibold text-gray-300">
-                  {range.percentage}%
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
+     
 
       {/* Achievements */}
       <motion.div variants={cardVariants}>
@@ -323,26 +270,7 @@ const PlacementStats = () => {
         </div>
       </motion.div>
 
-      {/* Call to Action */}
-      <motion.div variants={cardVariants}>
-        <div className="text-center bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 overflow-hidden">
-          <GraduationCap className="w-16 h-16 text-blue-400 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-white mb-4">
-            Ready to Join Our Success Stories?
-          </h3>
-          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-            Take the first step towards your dream career. Our placement team is ready to help you 
-            achieve your professional goals with personalized guidance and industry connections.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-2xl font-semibold shadow-2xl hover:shadow-blue-500/25 transition-all duration-200"
-          >
-            Start Your Journey
-          </motion.button>
-        </div>
-      </motion.div>
+   
     </motion.div>
   );
 };

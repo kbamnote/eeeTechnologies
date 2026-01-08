@@ -32,6 +32,7 @@ export default function Header() {
           <Link to="/" className="flex items-center gap-3 group" onClick={scrollToTop}>
             <img src={logo} className="flex items-center justify-center w-auto h-14 transition-all duration-300">
             </img>
+            <span className="text-xl font-bold text-white hidden md:block">EEE Technologies</span>
           </Link>
 
           {/* Desktop Navigation */}

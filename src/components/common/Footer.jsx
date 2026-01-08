@@ -31,7 +31,7 @@ export default function Footer() {
     { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Instagram, href: "https://www.instagram.com/eeetechnologies?igsh=MW44aXU2a3R6djZ6YQ==", label: "Instagram" },
   ];
 
   return (
@@ -49,8 +49,9 @@ export default function Footer() {
                 >
                   <img
                     src={logo}
-                    className="flex items-center justify-center w-auto h-14 md:h-22 bg-white p-2 transition-all duration-300"
+                    className="flex items-center justify-center w-auto h-14 md:h-22 p-2 transition-all duration-300"
                   ></img>
+                  <span className="text-xl font-bold text-white hidden md:block">EEE Technologies</span>
                 </Link>
               </div>
               <p className="text-gray-300 mb-6 max-w-md">

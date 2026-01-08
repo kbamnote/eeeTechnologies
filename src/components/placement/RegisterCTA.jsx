@@ -256,65 +256,7 @@ const RegisterCTA = () => {
         </div>
       </motion.div>
 
-      {/* Pricing Plans */}
-      <motion.div variants={cardVariants}>
-        <div className="text-center mb-8">
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">
-            Choose Your Success Plan
-          </h3>
-          <p className="text-gray-600 text-lg">
-            Select the plan that best fits your career goals and budget
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {plans.map((plan) => (
-            <motion.div
-              key={plan.id}
-              variants={cardVariants}
-              whileHover={{ scale: 1.02, y: -5 }}
-              onClick={() => setSelectedPlan(plan.id)}
-              className={`relative cursor-pointer rounded-2xl p-6 shadow-lg border-2 transition-all duration-300 ${getPlanColorClasses(plan.color, selectedPlan === plan.id)} backdrop-blur-sm`}
-            >
-              {plan.popular && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-medium">
-                    Most Popular
-                  </div>
-                </div>
-              )}
-
-              <div className="text-center mb-6">
-                <h4 className="text-2xl font-bold text-gray-900 mb-2">
-                  {plan.name}
-                </h4>
-                <div className="mb-2">
-                  <span className="text-3xl font-bold text-gray-900">{plan.price}</span>
-                  <span className="text-lg text-gray-500 line-through ml-2">{plan.originalPrice}</span>
-                </div>
-                <div className="text-gray-600">{plan.duration} program</div>
-              </div>
-
-              <div className="space-y-3 mb-6">
-                {plan.features.map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`w-full ${getPlanButtonClasses(plan.color)} text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-200`}
-              >
-                Choose {plan.name}
-              </motion.button>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+     
 
       {/* Stats */}
       <motion.div variants={cardVariants}>
