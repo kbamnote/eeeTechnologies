@@ -43,12 +43,12 @@ const EnrollBanner = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30" />
+        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-200/30 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -60,22 +60,22 @@ const EnrollBanner = () => {
           className="max-w-6xl mx-auto"
         >
           {/* Main CTA Section */}
-          <div className="bg-slate-800/50 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-slate-700/50 overflow-hidden mb-12">
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-gray-200 overflow-hidden mb-12 shadow-xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}
               <motion.div variants={itemVariants}>
-                <div className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6">
+                <div className="inline-flex items-center px-5 py-2.5 bg-blue-100 border border-blue-200 rounded-full text-blue-700 text-sm font-semibold mb-6">
                   <Award className="w-4 h-4 mr-2" />
                   Limited Time Offer
                 </div>
                 
-                <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+                <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
                   Start Your
-                  <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2"> Tech Journey</span>
+                  <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mt-2"> Tech Journey</span>
                   Today!
                 </h2>
                 
-                <p className="text-lg text-gray-400 mb-8 leading-relaxed">
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                   Join thousands of successful students who have transformed their careers with our comprehensive courses. Get industry-ready skills and land your dream job.
                 </p>
 
@@ -92,7 +92,7 @@ const EnrollBanner = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-slate-800/50 backdrop-blur-xl text-white font-semibold px-8 py-4 rounded-2xl border border-slate-700/50 hover:bg-slate-700/50 hover:border-slate-600/50 transition-all duration-200"
+                    className="bg-white text-gray-800 font-semibold px-8 py-4 rounded-2xl border border-gray-300 hover:bg-gray-50 transition-all duration-200"
                   >
                     View Courses
                   </motion.button>
@@ -104,9 +104,9 @@ const EnrollBanner = () => {
                     <motion.div
                       key={benefit}
                       variants={itemVariants}
-                      className="flex items-center text-gray-300"
+                      className="flex items-center text-gray-600"
                     >
-                      <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
                       <span className="text-sm">{benefit}</span>
                     </motion.div>
                   ))}
@@ -122,13 +122,13 @@ const EnrollBanner = () => {
                       key={stat.label}
                       variants={itemVariants}
                       whileHover={{ scale: 1.05 }}
-                      className="bg-slate-800/50 backdrop-blur-xl p-6 rounded-2xl text-center border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300"
+                      className="bg-blue-950 backdrop-blur-sm p-6 rounded-2xl text-center border border-blue-800 hover:border-blue-700 transition-all duration-300 shadow-lg"
                     >
                       <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                         <IconComponent className="w-6 h-6 text-white" />
                       </div>
                       <div className="text-2xl font-bold text-white mb-2">{stat.value}</div>
-                      <div className="text-sm text-gray-400">{stat.label}</div>
+                      <div className="text-sm text-blue-200">{stat.label}</div>
                     </motion.div>
                   );
                 })}

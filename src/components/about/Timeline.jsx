@@ -131,7 +131,7 @@ const Timeline = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 relative overflow-hidden">
+    <section className="py-20 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
@@ -149,19 +149,19 @@ const Timeline = () => {
         >
           {/* Section Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-5 py-2.5 bg-blue-100 border border-blue-300 rounded-full text-blue-700 text-sm font-semibold mb-6">
               <Calendar className="w-4 h-4 mr-2" />
               Our Journey
             </div>
 
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
               Our
-              <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
+              <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mt-2">
                 Journey
               </span>
             </h2>
 
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
               From a small training center to a global leader in technology education - discover the milestones that shaped our success.
             </p>
             
@@ -169,14 +169,14 @@ const Timeline = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
               {achievements.map((achievement, index) => (
                 <div key={index} className="text-center group">
-                  <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 hover:shadow-2xl hover:border-slate-600/50 transition-all duration-500 group-hover:-translate-y-2">
+                  <div className="bg-white/50 backdrop-blur-xl border border-gray-200 rounded-2xl p-6 hover:shadow-2xl hover:border-gray-300 transition-all duration-500 group-hover:-translate-y-2">
                     <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                       <achievement.icon className="w-7 h-7 text-white" />
                     </div>
-                    <div className="text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                    <div className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                       {achievement.number}
                     </div>
-                    <div className="text-gray-400 text-sm font-medium">
+                    <div className="text-gray-600 text-sm font-medium">
                       {achievement.label}
                     </div>
                   </div>
@@ -203,7 +203,7 @@ const Timeline = () => {
                   {/* Content */}
                   <div className={`w-full lg:w-5/12 ${event.side === 'right' ? 'lg:pl-8' : 'lg:pr-8'}`}>
                     <div className="group">
-                      <div className="bg-slate-800/50 backdrop-blur-xl rounded-3xl p-8 border border-slate-700/50 overflow-hidden hover:shadow-3xl hover:border-slate-600/50 transition-all duration-500">
+                      <div className="bg-white/50 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 overflow-hidden hover:shadow-3xl hover:border-gray-300 transition-all duration-500">
                         {/* Year Badge */}
                         <div className={`inline-flex items-center px-4 py-2 bg-gradient-to-r ${event.color} text-white rounded-2xl text-sm font-bold mb-4`}>
                           <Calendar className="w-4 h-4 mr-2" />
@@ -211,30 +211,30 @@ const Timeline = () => {
                         </div>
                         
                         {/* Title */}
-                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                           {event.title}
                         </h3>
                         
                         {/* Description */}
-                        <p className="text-gray-300 leading-relaxed mb-6">
+                        <p className="text-gray-700 leading-relaxed mb-6">
                           {event.description}
                         </p>
                         
                         {/* Stats */}
                         <div className="grid grid-cols-2 gap-4 mb-4">
                           <div className="text-center">
-                            <div className="text-lg font-bold text-white">
+                            <div className="text-lg font-bold text-gray-900">
                               {event.stats}
                             </div>
-                            <div className="text-sm text-gray-400">
+                            <div className="text-sm text-gray-600">
                               Milestone
                             </div>
                           </div>
                           <div className="text-center">
-                            <div className="text-lg font-bold text-white">
+                            <div className="text-lg font-bold text-gray-900">
                               {event.achievement}
                             </div>
-                            <div className="text-sm text-gray-400">
+                            <div className="text-sm text-gray-600">
                               Achievement
                             </div>
                           </div>
@@ -264,17 +264,16 @@ const Timeline = () => {
 
           {/* Future Vision */}
           <motion.div variants={itemVariants} className="text-center">
-            <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-8 md:p-12 relative overflow-hidden">
-              <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+            <div className="bg-white rounded-2xl p-8 md:p-12 relative overflow-hidden border border-gray-200 shadow-lg">
               
               <div className="relative z-10">
-                <div className="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-3xl flex items-center justify-center mx-auto mb-6">
                   <Target className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                   Looking Ahead
                 </h3>
-                <p className="text-lg text-blue-100 mb-8 max-w-3xl mx-auto">
+                <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
                   Our journey continues as we work towards empowering 1 million students globally by 2030, 
                   pioneering new technologies in education, and creating the next generation of tech leaders.
                 </p>
@@ -282,25 +281,25 @@ const Timeline = () => {
                 {/* Future Goals */}
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3">
                       <Users className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold mb-2">1M Students</h4>
-                    <p className="text-sm text-blue-100">Global reach by 2030</p>
+                    <h4 className="font-bold text-gray-900 mb-2">1M Students</h4>
+                    <p className="text-sm text-gray-600">Global reach by 2030</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3">
                       <Rocket className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold mb-2">AI Integration</h4>
-                    <p className="text-sm text-blue-100">Next-gen learning platform</p>
+                    <h4 className="font-bold text-gray-900 mb-2">AI Integration</h4>
+                    <p className="text-sm text-gray-600">Next-gen learning platform</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3">
                       <Heart className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold mb-2">Social Impact</h4>
-                    <p className="text-sm text-blue-100">Education for underserved communities</p>
+                    <h4 className="font-bold text-gray-900 mb-2">Social Impact</h4>
+                    <p className="text-sm text-gray-600">Education for underserved communities</p>
                   </div>
                 </div>
               </div>

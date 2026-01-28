@@ -142,14 +142,14 @@ const PlacementStats = () => {
           Placement Statistics
         </div>
         
-        <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+        <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
           Placement
           <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
             Statistics
           </span>
         </h2>
         
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Our track record speaks for itself. See how we've helped thousands of students 
           transform their careers and achieve their professional goals.
         </p>
@@ -167,24 +167,26 @@ const PlacementStats = () => {
                 whileHover={{ scale: 1.02, y: -5 }}
                 className="group"
               >
-                <div className="relative bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50 overflow-hidden hover:border-slate-600/50 transition-all duration-500">
-                  {/* Background Gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.bgGradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                <div className="relative bg-blue-950 rounded-3xl p-8 shadow-2xl border border-blue-800 overflow-hidden hover:border-blue-700 transition-all duration-500 group-hover:-translate-y-3 transform-gpu">
+                  {/* Premium Background Effects */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.bgGradient} opacity-5 rounded-3xl`} />
+                  <div className={`absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br ${stat.bgGradient} rounded-full opacity-15 blur-3xl`} />
+                  <div className={`absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr ${stat.bgGradient} rounded-full opacity-10 blur-2xl`} />
                   
                   {/* Content */}
                   <div className="relative z-10">
                     {/* Icon */}
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mb-4">
+                    <div className={`w-16 h-16 bg-gradient-to-br ${stat.bgGradient} rounded-xl flex items-center justify-center mb-6 shadow-lg`}>
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
 
                     {/* Value */}
-                    <div className="text-3xl font-bold text-white mb-2">
+                    <div className="text-4xl font-bold text-white mb-2">
                       {stat.value}
                     </div>
 
                     {/* Title */}
-                    <div className="text-lg font-semibold text-white mb-2">
+                    <div className="text-xl font-semibold text-white mb-2">
                       {stat.title}
                     </div>
 
@@ -224,14 +226,14 @@ const PlacementStats = () => {
                 whileHover={{ scale: 1.05 }}
                 className="text-center"
               >
-                <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50 overflow-hidden hover:border-slate-600/50 transition-all duration-500">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-blue-950 rounded-2xl p-6 border border-blue-800 overflow-hidden hover:border-blue-700 transition-all duration-500 hover:-translate-y-2 transform-gpu">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>
-                  <h4 className="text-lg font-semibold text-white mb-2">
+                  <h4 className="text-lg font-semibold text-blue-100 mb-2">
                     {achievement.title}
                   </h4>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-blue-200 text-sm">
                     {achievement.description}
                   </p>
                 </div>
@@ -243,7 +245,7 @@ const PlacementStats = () => {
 
       {/* Recent Highlights */}
       <motion.div variants={cardVariants}>
-        <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-8 md:p-12 relative overflow-hidden">
+        <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-2xl">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
           
           <div className="relative z-10 text-center mb-8">

@@ -491,7 +491,7 @@ const CourseDetail = () => {
     if (imageError) {
       return (
         <div className={`${className} bg-gray-200 flex items-center justify-center`}>
-          <div className="text-gray-500 text-center">
+          <div className="text-blue-400 text-center">
             <Video className="w-12 h-12 mx-auto mb-2" />
             <span className="text-sm">Image not available</span>
           </div>
@@ -510,20 +510,20 @@ const CourseDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+    <div className="min-h-screen bg-white">
       {/* Breadcrumb */}
-      <div className="bg-slate-800/50 backdrop-blur-xl border-b border-slate-700/50 sticky top-0 z-10 mt-6 sm:mt-8">
+      <div className="bg-blue-950 backdrop-blur-xl border-b border-blue-800 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav className="text-sm">
-            <Link to="/" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center gap-1">
+            <Link to="/" className="text-blue-300 hover:text-blue-400 transition-colors duration-200 flex items-center gap-1">
               <span>Home</span>
             </Link>
-            <span className="mx-2 text-gray-500">/</span>
-            <Link to="/courses" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center gap-1">
+            <span className="mx-2 text-blue-400">/</span>
+            <Link to="/courses" className="text-blue-300 hover:text-blue-400 transition-colors duration-200 flex items-center gap-1">
               <span>Courses</span>
             </Link>
-            <span className="mx-2 text-gray-500">/</span>
-            <span className="text-white font-medium">{course.shortTitle}</span>
+            <span className="mx-2 text-blue-400">/</span>
+            <span className="text-blue-100 font-medium">{course.shortTitle}</span>
           </nav>
         </div>
       </div>
@@ -537,7 +537,7 @@ const CourseDetail = () => {
         {/* Course Header */}
         <motion.div 
           variants={itemVariants} 
-          className="bg-slate-800/50 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden mb-8 sm:mb-12 border border-slate-700/50"
+          className="bg-blue-950 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden mb-8 sm:mb-12 border border-blue-800"
         >
           <div className="md:flex">
             {/* Course Image */}
@@ -551,12 +551,12 @@ const CourseDetail = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 <div className="absolute top-4 left-4 flex flex-col gap-2">
                   {course.isPopular && (
-                    <span className="px-3 py-1 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-xs font-bold rounded-full shadow-lg">
+                    <span className="px-3 py-1 bg-gradient-to-r from-orange-500 to-amber-500 text-blue-100 text-xs font-bold rounded-full shadow-lg">
                       POPULAR
                     </span>
                   )}
                   {course.isBestseller && (
-                    <span className="px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold rounded-full shadow-lg">
+                    <span className="px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-blue-100 text-xs font-bold rounded-full shadow-lg">
                       BESTSELLER
                     </span>
                   )}
@@ -570,66 +570,66 @@ const CourseDetail = () => {
                 <span className="px-4 py-2 bg-blue-500/10 text-blue-400 text-sm font-semibold rounded-full border border-blue-500/30">
                   {course.category}
                 </span>
-                <div className="flex items-center bg-slate-700/50 backdrop-blur-xl px-4 py-2 rounded-full border border-slate-600/50">
+                <div className="flex items-center bg-blue-800 backdrop-blur-xl px-4 py-2 rounded-full border border-blue-700">
                   <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                  <span className="ml-2 text-white font-bold text-lg">{course.rating}</span>
-                  <span className="mx-2 text-gray-400">•</span>
-                  <span className="text-gray-400 text-sm">{course.reviews.toLocaleString()} reviews</span>
+                  <span className="ml-2 text-blue-100 font-bold text-lg">{course.rating}</span>
+                  <span className="mx-2 text-blue-300">•</span>
+                  <span className="text-blue-300 text-sm">{course.reviews.toLocaleString()} reviews</span>
                 </div>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+              <h1 className="text-3xl sm:text-4xl font-bold text-blue-100 mb-4 leading-tight">
                 {course.title}
               </h1>
               
-              <p className="text-gray-400 mb-6 text-base leading-relaxed max-w-3xl">
+              <p className="text-blue-200 mb-6 text-base leading-relaxed max-w-3xl">
                 {course.description}
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-                <div className="flex flex-col items-center bg-slate-700/50 backdrop-blur-xl p-4 rounded-xl border border-slate-600/50 hover:border-slate-500/50 transition-all duration-300">
+                <div className="flex flex-col items-center bg-blue-800 backdrop-blur-xl p-4 rounded-xl border border-blue-700 hover:border-blue-600 transition-all duration-300">
                   <Clock className="w-6 h-6 text-blue-400 mb-2" />
                   <div className="text-center">
-                    <div className="text-xs text-gray-400 uppercase tracking-wide font-medium">Duration</div>
-                    <div className="font-bold text-white mt-1">{course.duration}</div>
+                    <div className="text-xs text-blue-300 uppercase tracking-wide font-medium">Duration</div>
+                    <div className="font-bold text-blue-100 mt-1">{course.duration}</div>
                   </div>
                 </div>
                 
-                <div className="flex flex-col items-center bg-slate-700/50 backdrop-blur-xl p-4 rounded-xl border border-slate-600/50 hover:border-slate-500/50 transition-all duration-300">
+                <div className="flex flex-col items-center bg-blue-800 backdrop-blur-xl p-4 rounded-xl border border-blue-700 hover:border-blue-600 transition-all duration-300">
                   <Users className="w-6 h-6 text-green-400 mb-2" />
                   <div className="text-center">
-                    <div className="text-xs text-gray-400 uppercase tracking-wide font-medium">Students</div>
-                    <div className="font-bold text-white mt-1">{course.students.toLocaleString()}+</div>
+                    <div className="text-xs text-blue-300 uppercase tracking-wide font-medium">Students</div>
+                    <div className="font-bold text-blue-100 mt-1">{course.students.toLocaleString()}+</div>
                   </div>
                 </div>
                 
-                <div className="flex flex-col items-center bg-slate-700/50 backdrop-blur-xl p-4 rounded-xl border border-slate-600/50 hover:border-slate-500/50 transition-all duration-300">
+                <div className="flex flex-col items-center bg-blue-800 backdrop-blur-xl p-4 rounded-xl border border-blue-700 hover:border-blue-600 transition-all duration-300">
                   <Award className="w-6 h-6 text-purple-400 mb-2" />
                   <div className="text-center">
-                    <div className="text-xs text-gray-400 uppercase tracking-wide font-medium">Level</div>
-                    <div className="font-bold text-white mt-1">{course.level}</div>
+                    <div className="text-xs text-blue-300 uppercase tracking-wide font-medium">Level</div>
+                    <div className="font-bold text-blue-100 mt-1">{course.level}</div>
                   </div>
                 </div>
                 
-                <div className="flex flex-col items-center bg-slate-700/50 backdrop-blur-xl p-4 rounded-xl border border-slate-600/50 hover:border-slate-500/50 transition-all duration-300">
+                <div className="flex flex-col items-center bg-blue-800 backdrop-blur-xl p-4 rounded-xl border border-blue-700 hover:border-blue-600 transition-all duration-300">
                   <Calendar className="w-6 h-6 text-blue-400 mb-2" />
                   <div className="text-center">
-                    <div className="text-xs text-gray-400 uppercase tracking-wide font-medium">Next Batch</div>
-                    <div className="font-bold text-white mt-1">{course.nextBatch}</div>
+                    <div className="text-xs text-blue-300 uppercase tracking-wide font-medium">Next Batch</div>
+                    <div className="font-bold text-blue-100 mt-1">{course.nextBatch}</div>
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-slate-700/50">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-blue-800">
                 <div className="text-center sm:text-left">
-                  <div className="text-3xl sm:text-4xl font-bold text-white">
+                  <div className="text-3xl sm:text-4xl font-bold text-blue-100">
                     ₹{course.price.toLocaleString()}
                   </div>
                   <div className="flex flex-wrap items-center gap-3 mt-2">
-                    <span className="text-gray-500 line-through text-lg">
+                    <span className="text-blue-400 line-through text-lg">
                       ₹{course.originalPrice.toLocaleString()}
                     </span>
-                    <span className="px-3 py-1 bg-green-500/10 text-green-400 font-bold text-sm rounded-full border border-green-500/30">
+                    <span className="px-3 py-1 bg-green-500/20 text-green-300 font-bold text-sm rounded-full border border-green-500/40">
                       Save ₹{(course.originalPrice - course.price).toLocaleString()}
                     </span>
                   </div>
@@ -640,7 +640,7 @@ const CourseDetail = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={handleEnrollClick}
-                    className="flex-1 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1"
+                    className="flex-1 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-blue-100 font-bold rounded-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1"
                   >
                     <span className="flex items-center justify-center gap-2">
                       Enroll Now
@@ -651,10 +651,10 @@ const CourseDetail = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex-1 px-8 py-4 bg-slate-700/50 backdrop-blur-xl border-2 border-slate-600 text-white font-bold rounded-xl hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-1"
+                    className="flex-1 px-8 py-4 bg-blue-800 backdrop-blur-xl border-2 border-blue-700 text-blue-100 font-bold rounded-xl hover:border-blue-600 transition-all duration-300 transform hover:-translate-y-1"
                   >
                     <span className="flex items-center justify-center gap-2">
-                      <FileText className="w-5 h-5 text-white" />
+                      <FileText className="w-5 h-5 text-blue-100" />
                       Download Syllabus
                     </span>
                   </motion.button>
@@ -667,16 +667,16 @@ const CourseDetail = () => {
         {/* Course Tabs */}
         <motion.div 
           variants={itemVariants} 
-          className="bg-slate-800/50 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden mb-8 sm:mb-12 border border-slate-700/50"
+          className="bg-blue-950 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden mb-8 sm:mb-12 border border-blue-800"
         >
-          <div className="border-b border-slate-700/50 bg-slate-700/30 backdrop-blur-xl">
+          <div className="border-b border-blue-800 bg-blue-900 backdrop-blur-xl">
             <nav className="flex flex-wrap -mb-px px-2 sm:px-4">
               <button
                 onClick={() => setActiveTab('overview')}
                 className={`py-5 px-4 sm:px-6 text-center font-semibold text-sm rounded-t-lg transition-all duration-300 ${
                   activeTab === 'overview'
                     ? 'text-blue-400 border-b-2 border-blue-500 bg-slate-800/80 shadow-sm'
-                    : 'text-gray-400 hover:text-blue-400'
+                    : 'text-blue-300 hover:text-blue-400'
                 }`}
               >
                 Overview
@@ -686,7 +686,7 @@ const CourseDetail = () => {
                 className={`py-5 px-4 sm:px-6 text-center font-semibold text-sm rounded-t-lg transition-all duration-300 ${
                   activeTab === 'curriculum'
                     ? 'text-blue-400 border-b-2 border-blue-500 bg-slate-800/80 shadow-sm'
-                    : 'text-gray-400 hover:text-blue-400'
+                    : 'text-blue-300 hover:text-blue-400'
                 }`}
               >
                 Curriculum
@@ -696,7 +696,7 @@ const CourseDetail = () => {
                 className={`py-5 px-4 sm:px-6 text-center font-semibold text-sm rounded-t-lg transition-all duration-300 ${
                   activeTab === 'instructor'
                     ? 'text-blue-400 border-b-2 border-blue-500 bg-slate-800/80 shadow-sm'
-                    : 'text-gray-400 hover:text-blue-400'
+                    : 'text-blue-300 hover:text-blue-400'
                 }`}
               >
                 Instructor
@@ -706,7 +706,7 @@ const CourseDetail = () => {
                 className={`py-5 px-4 sm:px-6 text-center font-semibold text-sm rounded-t-lg transition-all duration-300 ${
                   activeTab === 'reviews'
                     ? 'text-blue-400 border-b-2 border-blue-500 bg-slate-800/80 shadow-sm'
-                    : 'text-gray-400 hover:text-blue-400'
+                    : 'text-blue-300 hover:text-blue-400'
                 }`}
               >
                 Reviews
@@ -716,7 +716,7 @@ const CourseDetail = () => {
                 className={`py-5 px-4 sm:px-6 text-center font-semibold text-sm rounded-t-lg transition-all duration-300 ${
                   activeTab === 'faq'
                     ? 'text-blue-400 border-b-2 border-blue-500 bg-slate-800/80 shadow-sm'
-                    : 'text-gray-400 hover:text-blue-400'
+                    : 'text-blue-300 hover:text-blue-400'
                 }`}
               >
                 FAQ
@@ -724,24 +724,24 @@ const CourseDetail = () => {
             </nav>
           </div>
 
-          <div className="p-6 sm:p-8 bg-slate-800/30 backdrop-blur-xl">
+          <div className="p-6 sm:p-8 bg-blue-900 backdrop-blur-xl">
             {activeTab === 'overview' && (
               <div className="p-2 sm:p-4">
                 <div className="mb-8 sm:mb-10">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6 flex items-center gap-3">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-blue-100 mb-4 sm:mb-6 flex items-center gap-3">
                     <BookOpen className="w-8 h-8 text-blue-400" />
                     Course Description
                   </h2>
-                  <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-slate-700/50">
-                    <p className="text-gray-300 mb-0 leading-relaxed text-base sm:text-lg">
+                  <div className="bg-blue-950 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-blue-800">
+                    <p className="text-blue-200 mb-0 leading-relaxed text-base sm:text-lg">
                       {course.longDescription}
                     </p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
-                  <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-slate-700/50">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                  <div className="bg-blue-950 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-blue-800">
+                    <h3 className="text-xl sm:text-2xl font-bold text-blue-100 mb-6 flex items-center gap-3">
                       <Target className="w-7 h-7 text-green-400" />
                       What You'll Learn
                     </h3>
@@ -753,14 +753,14 @@ const CourseDetail = () => {
                               <CheckCircle className="w-4 h-4 text-green-400" />
                             </div>
                           </div>
-                          <span className="text-gray-300 text-base sm:text-lg font-medium">{skill}</span>
+                          <span className="text-blue-200 text-base sm:text-lg font-medium">{skill}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                   
-                  <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-slate-700/50">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                  <div className="bg-blue-950 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-blue-800">
+                    <h3 className="text-xl sm:text-2xl font-bold text-blue-100 mb-6 flex items-center gap-3">
                       <Zap className="w-7 h-7 text-blue-400" />
                       Course Features
                     </h3>
@@ -772,15 +772,15 @@ const CourseDetail = () => {
                               <TrendingUp className="w-4 h-4 text-blue-400" />
                             </div>
                           </div>
-                          <span className="text-gray-300 text-base sm:text-lg font-medium">{feature}</span>
+                          <span className="text-blue-200 text-base sm:text-lg font-medium">{feature}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8 border border-slate-700/50">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                <div className="bg-blue-950 backdrop-blur-xl rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8 border border-blue-800">
+                  <h3 className="text-xl sm:text-2xl font-bold text-blue-100 mb-6 flex items-center gap-3">
                     <User className="w-7 h-7 text-purple-400" />
                     Career Paths
                   </h3>
@@ -788,7 +788,7 @@ const CourseDetail = () => {
                     {course.careerPaths.map((path, index) => (
                       <span 
                         key={index} 
-                        className="px-4 py-2 sm:px-5 sm:py-3 bg-slate-700/50 backdrop-blur-xl border border-slate-600 text-blue-400 rounded-xl font-semibold text-sm sm:text-base hover:bg-slate-600/50 transition-colors duration-200"
+                        className="px-4 py-2 sm:px-5 sm:py-3 bg-blue-800 backdrop-blur-xl border border-blue-700 text-blue-200 rounded-xl font-semibold text-sm sm:text-base hover:bg-blue-700 transition-colors duration-200"
                       >
                         {path}
                       </span>
@@ -801,12 +801,12 @@ const CourseDetail = () => {
             {activeTab === 'curriculum' && (
               <div className="p-2 sm:p-4">
                 <div className="mb-6 sm:mb-8">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6 flex items-center gap-3">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-blue-100 mb-4 sm:mb-6 flex items-center gap-3">
                     <FileText className="w-8 h-8 text-purple-400" />
                     Course Curriculum
                   </h2>
-                  <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-slate-700/50">
-                    <p className="text-gray-300 mb-0 text-base sm:text-lg leading-relaxed">
+                  <div className="bg-blue-950 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-blue-800">
+                    <p className="text-blue-200 mb-0 text-base sm:text-lg leading-relaxed">
                       Our comprehensive curriculum is designed by industry experts to ensure you gain practical skills that employers demand.
                     </p>
                   </div>
@@ -816,12 +816,12 @@ const CourseDetail = () => {
                   {course.curriculum.map((module, index) => (
                     <motion.div 
                       key={index} 
-                      className="bg-slate-800/50 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300"
+                      className="bg-blue-950 backdrop-blur-xl rounded-2xl overflow-hidden border border-blue-800 hover:border-blue-700 transition-all duration-300"
                       whileHover={{ y: -5 }}
                     >
-                      <div className="bg-slate-700/30 backdrop-blur-xl px-6 sm:px-8 py-5 sm:py-6 border-b border-slate-600/50">
-                        <h3 className="text-xl font-bold text-white flex items-center gap-3">
-                          <div className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center text-white font-bold">
+                      <div className="bg-blue-900 backdrop-blur-xl px-6 sm:px-8 py-5 sm:py-6 border-b border-blue-700">
+                        <h3 className="text-xl font-bold text-blue-100 flex items-center gap-3">
+                          <div className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center text-blue-100 font-bold">
                             {index + 1}
                           </div>
                           {module.module}
@@ -836,7 +836,7 @@ const CourseDetail = () => {
                                   <Play className="w-3 h-3 text-blue-400" />
                                 </div>
                               </div>
-                              <span className="text-gray-300 text-base sm:text-lg font-medium">{topic}</span>
+                              <span className="text-blue-200 text-base sm:text-lg font-medium">{topic}</span>
                             </li>
                           ))}
                         </ul>
@@ -849,8 +849,8 @@ const CourseDetail = () => {
 
             {activeTab === 'instructor' && (
               <div className="p-2 sm:p-4">
-                <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-slate-700/50 mb-8">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <div className="bg-blue-950 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-blue-800 mb-8">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-blue-100 mb-6 flex items-center gap-3">
                     <User className="w-8 h-8 text-indigo-400" />
                     Meet Your Instructor
                   </h2>
@@ -860,37 +860,37 @@ const CourseDetail = () => {
                       <PlaceholderImage 
                         src={course.instructorImage} 
                         alt={course.instructor} 
-                        className="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl object-cover border-4 border-slate-600 shadow-xl"
+                        className="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl object-cover border-4 border-blue-700 shadow-xl"
                       />
                       <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
-                        <Award className="w-6 h-6 text-white" />
+                        <Award className="w-6 h-6 text-blue-100" />
                       </div>
                     </div>
                     
                     <div className="flex-1 text-center lg:text-left">
-                      <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">{course.instructor}</h3>
-                      <p className="text-gray-400 mb-6 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto lg:mx-0">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-blue-100 mb-3">{course.instructor}</h3>
+                      <p className="text-blue-200 mb-6 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto lg:mx-0">
                         {course.instructorBio}
                       </p>
                       
                       <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-6">
-                        <div className="flex items-center bg-slate-700/50 backdrop-blur-xl px-5 py-3 rounded-xl border border-slate-600/50">
+                        <div className="flex items-center bg-blue-800 backdrop-blur-xl px-5 py-3 rounded-xl border border-blue-700">
                           <BookOpen className="w-6 h-6 text-blue-400 mr-3" />
                           <div>
-                            <div className="font-bold text-white">{course.reviews.toLocaleString()}</div>
-                            <div className="text-sm text-gray-400">Student Reviews</div>
+                            <div className="font-bold text-blue-100">{course.reviews.toLocaleString()}</div>
+                            <div className="text-sm text-blue-300">Student Reviews</div>
                           </div>
                         </div>
-                        <div className="flex items-center bg-slate-700/50 backdrop-blur-xl px-5 py-3 rounded-xl border border-slate-600/50">
+                        <div className="flex items-center bg-blue-800 backdrop-blur-xl px-5 py-3 rounded-xl border border-blue-700">
                           <Users className="w-6 h-6 text-green-400 mr-3" />
                           <div>
-                            <div className="font-bold text-white">{course.students.toLocaleString()}</div>
-                            <div className="text-sm text-gray-400">Students Taught</div>
+                            <div className="font-bold text-blue-100">{course.students.toLocaleString()}</div>
+                            <div className="text-sm text-blue-300">Students Taught</div>
                           </div>
                         </div>
                       </div>
                       
-                      <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-indigo-500/25 transition-all duration-300">
+                      <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-blue-100 font-semibold rounded-xl hover:shadow-xl hover:shadow-indigo-500/25 transition-all duration-300">
                         <Mail className="w-5 h-5 mr-2" />
                         Contact Instructor
                       </div>
@@ -898,9 +898,9 @@ const CourseDetail = () => {
                   </div>
                 </div>
                 
-                <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-slate-700/50">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Instructor's Teaching Philosophy</h3>
-                  <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-4xl">
+                <div className="bg-blue-950 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-blue-800">
+                  <h3 className="text-xl sm:text-2xl font-bold text-blue-100 mb-4">Instructor's Teaching Philosophy</h3>
+                  <p className="text-blue-200 text-base sm:text-lg leading-relaxed max-w-4xl">
                     Our instructors believe in hands-on learning and real-world application. They bring industry experience directly to the classroom, ensuring you learn skills that matter in today's competitive job market.
                   </p>
                 </div>
@@ -910,12 +910,12 @@ const CourseDetail = () => {
             {activeTab === 'reviews' && (
               <div className="p-2 sm:p-4">
                 <div className="mb-6 sm:mb-8">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6 flex items-center gap-3">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-blue-100 mb-4 sm:mb-6 flex items-center gap-3">
                     <Star className="w-8 h-8 text-amber-400 fill-current" />
                     Student Reviews
                   </h2>
-                  <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-slate-700/50">
-                    <p className="text-gray-300 mb-0 text-base sm:text-lg leading-relaxed">
+                  <div className="bg-blue-950 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-blue-800">
+                    <p className="text-blue-200 mb-0 text-base sm:text-lg leading-relaxed">
                       Hear what our students have to say about their learning experience and career transformation.
                     </p>
                   </div>
@@ -925,7 +925,7 @@ const CourseDetail = () => {
                   {[1, 2, 3, 4].map((review) => (
                     <motion.div 
                       key={review} 
-                      className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300"
+                      className="bg-blue-950 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-blue-800 hover:border-blue-700 transition-all duration-300"
                       whileHover={{ y: -5 }}
                     >
                       <div className="flex flex-wrap items-center gap-3 mb-5">
@@ -934,19 +934,19 @@ const CourseDetail = () => {
                             <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
                           ))}
                         </div>
-                        <div className="font-bold text-white">Student {review}</div>
-                        <div className="text-gray-500 text-sm">2 weeks ago</div>
+                        <div className="font-bold text-blue-100">Student {review}</div>
+                        <div className="text-blue-400 text-sm">2 weeks ago</div>
                       </div>
-                      <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-5">
+                      <p className="text-blue-200 text-base sm:text-lg leading-relaxed mb-5">
                         This course completely transformed my career prospects. The instructors are knowledgeable and the curriculum is well-structured. I landed a job within 3 months of completing the course!
                       </p>
                       <div className="flex items-center">
-                        <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                        <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center text-blue-100 font-bold mr-3">
                           S{review}
                         </div>
                         <div>
-                          <div className="font-semibold text-white">Student {review}</div>
-                          <div className="text-sm text-gray-400">Software Developer</div>
+                          <div className="font-semibold text-blue-100">Student {review}</div>
+                          <div className="text-sm text-blue-300">Software Developer</div>
                         </div>
                       </div>
                     </motion.div>
@@ -954,7 +954,7 @@ const CourseDetail = () => {
                 </div>
                 
                 <div className="mt-8 sm:mt-12 text-center">
-                  <button className="inline-flex items-center px-6 py-3 bg-slate-700/50 backdrop-blur-xl border-2 border-slate-600 text-white font-semibold rounded-xl hover:border-blue-400 transition-all duration-300">
+                  <button className="inline-flex items-center px-6 py-3 bg-blue-800 backdrop-blur-xl border-2 border-blue-700 text-blue-100 font-semibold rounded-xl hover:border-blue-600 transition-all duration-300">
                     <span>Load More Reviews</span>
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </button>
@@ -965,12 +965,12 @@ const CourseDetail = () => {
             {activeTab === 'faq' && (
               <div className="p-2 sm:p-4">
                 <div className="mb-6 sm:mb-8">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6 flex items-center gap-3">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-blue-100 mb-4 sm:mb-6 flex items-center gap-3">
                     <HelpCircle className="w-8 h-8 text-teal-400" />
                     Frequently Asked Questions
                   </h2>
-                  <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-slate-700/50">
-                    <p className="text-gray-300 mb-0 text-base sm:text-lg leading-relaxed">
+                  <div className="bg-blue-950 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-blue-800">
+                    <p className="text-blue-200 mb-0 text-base sm:text-lg leading-relaxed">
                       Find answers to common questions about our courses, enrollment process, and learning experience.
                     </p>
                   </div>
@@ -980,34 +980,34 @@ const CourseDetail = () => {
                   {course.faqs.map((faq, index) => (
                     <motion.div 
                       key={index} 
-                      className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-5 sm:p-6 border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300"
+                      className="bg-blue-950 backdrop-blur-xl rounded-2xl p-5 sm:p-6 border border-blue-800 hover:border-blue-700 transition-all duration-300"
                       whileHover={{ y: -3 }}
                     >
-                      <h3 className="text-lg sm:text-xl font-bold text-white mb-3 flex items-start gap-3">
+                      <h3 className="text-lg sm:text-xl font-bold text-blue-100 mb-3 flex items-start gap-3">
                         <div className="w-6 h-6 bg-teal-500/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1 border border-teal-500/30">
                           <span className="text-teal-400 font-bold text-sm">{index + 1}</span>
                         </div>
                         {faq.question}
                       </h3>
-                      <p className="text-gray-300 text-base leading-relaxed pl-9">
+                      <p className="text-blue-200 text-base leading-relaxed pl-9">
                         {faq.answer}
                       </p>
                     </motion.div>
                   ))}
                 </div>
                 
-                <div className="mt-8 sm:mt-12 bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-slate-700/50">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Still Have Questions?</h3>
-                  <p className="text-gray-300 text-base sm:text-lg mb-5">
+                <div className="mt-8 sm:mt-12 bg-blue-950 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-blue-800">
+                  <h3 className="text-xl sm:text-2xl font-bold text-blue-100 mb-4">Still Have Questions?</h3>
+                  <p className="text-blue-200 text-base sm:text-lg mb-5">
                     Our support team is here to help you with any additional questions about our courses.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <button className="flex-1 px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-teal-500/25 transition-all duration-300 flex items-center justify-center gap-2">
+                    <button className="flex-1 px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-blue-100 font-semibold rounded-xl hover:shadow-xl hover:shadow-teal-500/25 transition-all duration-300 flex items-center justify-center gap-2">
                       <Mail className="w-5 h-5" />
                       Email Support
                     </button>
-                    <button className="flex-1 px-6 py-3 bg-slate-700/50 backdrop-blur-xl border-2 border-slate-600 text-white font-semibold rounded-xl hover:border-teal-400 transition-all duration-300 flex items-center justify-center gap-2">
-                      <Phone className="w-5 h-5 text-white" />
+                    <button className="flex-1 px-6 py-3 bg-blue-800 backdrop-blur-xl border-2 border-blue-700 text-blue-100 font-semibold rounded-xl hover:border-teal-400 transition-all duration-300 flex items-center justify-center gap-2">
+                      <Phone className="w-5 h-5 text-blue-100" />
                       Call Us
                     </button>
                   </div>
@@ -1020,7 +1020,7 @@ const CourseDetail = () => {
         {/* CTA Section */}
         <motion.div 
           variants={itemVariants} 
-          className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-8 sm:p-12 text-center text-white shadow-2xl relative overflow-hidden"
+          className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-8 sm:p-12 text-center text-blue-100 shadow-2xl relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-32 translate-x-32"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl translate-y-32 -translate-x-32"></div>
@@ -1046,7 +1046,7 @@ const CourseDetail = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white/10 transition-all duration-300 text-lg sm:text-xl flex items-center gap-3"
+                className="px-8 py-4 bg-transparent border-2 border-white text-blue-100 font-bold rounded-xl hover:bg-white/10 transition-all duration-300 text-lg sm:text-xl flex items-center gap-3"
               >
                 <Phone className="w-6 h-6" />
                 <span>Schedule a Call</span>

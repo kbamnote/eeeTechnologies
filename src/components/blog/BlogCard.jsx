@@ -124,7 +124,7 @@ const BlogCard = ({
           className="w-full h-full"
         >
           <img
-            src={image || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"}
+            src={image || ""}
             alt={title}
             className="w-full h-full object-cover"
             onLoad={() => setImageLoaded(true)}

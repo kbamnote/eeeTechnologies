@@ -197,7 +197,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-slate-700/50 text-center"
+        className="bg-blue-950 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-blue-800 text-center"
       >
         <motion.div
           initial={{ scale: 0 }}
@@ -210,7 +210,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
         <h3 className="text-2xl font-bold text-white mb-4">
           Enrollment Request Sent Successfully!
         </h3>
-        <p className="text-gray-400 mb-6">
+        <p className="text-blue-200 mb-6">
           Thank you for your enrollment request. Our team will contact you within 24 hours to confirm your enrollment.
         </p>
         <motion.button
@@ -230,13 +230,13 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-slate-700/50"
+      className="bg-blue-950 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-blue-800"
     >
       <motion.div variants={itemVariants} className="mb-8">
         <h2 className="text-3xl font-bold text-white mb-4">
           Enroll in {courseName}
         </h2>
-        <p className="text-gray-400">
+        <p className="text-blue-200">
           Fill out the form below and our team will contact you shortly about your enrollment.
         </p>
       </motion.div>
@@ -267,7 +267,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
         {/* Name and Email Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-blue-200 mb-2">
               Full Name *
             </label>
             <div className="relative">
@@ -280,7 +280,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
                 value={formData.fullName}
                 onChange={handleChange}
                 placeholder="Enter your full name"
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-200 ${
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 ${
                   errors.fullName ? 'border-red-500' : 'border-slate-600/50'
                 }`}
               />
@@ -298,7 +298,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-blue-200 mb-2">
               Email Address *
             </label>
             <div className="relative">
@@ -311,7 +311,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-200 ${
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 ${
                   errors.email ? 'border-red-500' : 'border-slate-600/50'
                 }`}
               />
@@ -331,7 +331,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
 
         {/* Phone */}
         <motion.div variants={itemVariants}>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-blue-200 mb-2">
             Phone Number
           </label>
           <div className="relative">
@@ -344,7 +344,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
               value={formData.phoneNo}
               onChange={handleChange}
               placeholder="Enter your phone number"
-              className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-200 ${
+              className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 ${
                 errors.phoneNo ? 'border-red-500' : 'border-slate-600/50'
               }`}
             />
@@ -364,7 +364,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
         {/* Age and Gender Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-blue-200 mb-2">
               Age
             </label>
             <div className="relative">
@@ -377,7 +377,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
                 value={formData.age}
                 onChange={handleChange}
                 placeholder="Enter your age"
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-200 ${
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 ${
                   errors.age ? 'border-red-500' : 'border-slate-600/50'
                 }`}
               />
@@ -395,7 +395,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-blue-200 mb-2">
               Gender
             </label>
             <div className="relative">
@@ -406,7 +406,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
                 name="gender"
                 value={formData.gender}
                 onChange={handleChange}
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-200 appearance-none ${
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 appearance-none ${
                   errors.gender ? 'border-red-500' : 'border-slate-600/50'
                 }`}
               >
@@ -432,7 +432,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
         {/* Location and Qualification Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-blue-200 mb-2">
               Location
             </label>
             <div className="relative">
@@ -445,7 +445,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
                 value={formData.location}
                 onChange={handleChange}
                 placeholder="Enter your location"
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-200 ${
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 ${
                   errors.location ? 'border-red-500' : 'border-slate-600/50'
                 }`}
               />
@@ -463,7 +463,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-blue-200 mb-2">
               Qualification
             </label>
             <div className="relative">
@@ -476,7 +476,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
                 value={formData.qualification}
                 onChange={handleChange}
                 placeholder="Enter your qualification"
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-200 ${
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 ${
                   errors.qualification ? 'border-red-500' : 'border-slate-600/50'
                 }`}
               />
@@ -496,7 +496,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
 
         {/* Message */}
         <motion.div variants={itemVariants}>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-blue-200 mb-2">
             Message *
           </label>
           <div className="relative">
@@ -509,7 +509,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
               onChange={handleChange}
               rows={6}
               placeholder="Tell us about your interest in this course..."
-              className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-200 resize-none ${
+              className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 resize-none ${
                 errors.message ? 'border-red-500' : 'border-slate-600/50'
               }`}
             />

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
-import bannerImg from '../../assets/bannerimg.png';
+import bannerImg from '../../assets/img.png';
+import phoneImg from '../../assets/phone.png';
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [currentBgImage, setCurrentBgImage] = useState(bannerImg);
 
   // Track mouse for parallax effect
   useEffect(() => {
@@ -16,6 +18,21 @@ const HeroSection = () => {
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // Handle responsive image based on screen size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) { // Mobile and tablet
+        setCurrentBgImage(phoneImg);
+      } else {
+        setCurrentBgImage(bannerImg);
+      }
+    };
+
+    handleResize(); // Set initial image
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const containerVariants = {
@@ -46,18 +63,40 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background Image with Overlay */}
+    <section
+      className="
+        relative
+        min-h-[100vh]
+        sm:min-h-screen
+        flex
+        items-center
+        justify-center
+        overflow-hidden
+        pt-20
+        pb-12
+      "
+    >
+      {/* Background Layer */}
       <div className="absolute inset-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
+        {/* Responsive Background Image */}
+        <div
+          className="
+            absolute inset-0
+            bg-no-repeat
+            bg-cover
+            bg-[position:50%_30%]
+            sm:bg-center
+            md:bg-right
+            lg:bg-center
+          "
           style={{
-            backgroundImage: `url(${bannerImg})`,
+            backgroundImage: `url(${currentBgImage})`,
           }}
         />
+
         {/* Dark Overlay */}
-        <div className="absolute inset-0" />
-        
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30" />
+
         {/* Animated Gradient Overlays */}
         <motion.div
           animate={{
@@ -71,6 +110,7 @@ const HeroSection = () => {
           }}
           className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-amber-500/20 to-transparent blur-3xl"
         />
+
         <motion.div
           animate={{
             scale: [1.2, 1, 1.2],
@@ -85,81 +125,122 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* Content Container */}
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-20">
+      {/* Content */}
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-7xl mx-auto text-center"
+          className="max-w-7xl mx-auto"
         >
-          {/* Badge */}
-          <motion.div
-            variants={itemVariants}
-            className="inline-flex items-center px-4 py-2 bg-slate-800/50 backdrop-blur-sm border border-amber-500/30 rounded-full text-amber-400 text-sm font-semibold mb-8"
-          >
-            <Sparkles className="w-4 h-4 mr-2" />
-            AI ON THE JOB
-          </motion.div>
+          <div className="text-left max-w-3xl">
+            
+            {/* Badge */}
+            <motion.div
+              variants={itemVariants}
+              className="
+                inline-flex
+                items-center
+                px-4
+                py-2
+                bg-slate-800/60
+                backdrop-blur-sm
+                border
+                border-amber-500/30
+                rounded-full
+                text-amber-400
+                text-sm
+                font-semibold
+                mb-8
+              "
+            >
+              <Sparkles className="w-4 h-4 mr-2" />
+              AI ON THE JOB
+            </motion.div>
 
-          {/* Main Heading */}
-          <motion.h1
-            variants={itemVariants}
-            className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-12 leading-tight"
-          >
-            Boost Your Skills and Get Ahead
-          </motion.h1>
+            {/* Heading */}
+            <motion.h1
+              variants={itemVariants}
+              className="
+                text-3xl
+                sm:text-5xl
+                md:text-6xl
+                lg:text-7xl
+                font-bold
+                text-white
+                mb-10
+                leading-tight
+              "
+            >
+              Boost Your Skills and Get Ahead
+            </motion.h1>
 
-          {/* Feature Cards */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-4xl mx-auto"
-          >
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: feature.delay }}
-                whileHover={{ 
-                  y: -8,
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
-                }}
-                style={{
-                  x: mousePosition.x * (index - 1) * 0.5,
-                  y: mousePosition.y * 0.3,
-                }}
-                className="group relative"
-              >
-                {/* Glow Effect */}
+            {/* Feature Cards */}
+            <motion.div
+              variants={itemVariants}
+              className="
+                flex
+                flex-col
+                sm:flex-row
+                gap-4
+                md:gap-6
+                items-start
+              "
+            >
+              {features.map((feature, index) => (
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-2xl blur-xl"
-                  animate={{
-                    opacity: [0.3, 0.6, 0.3],
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: feature.delay }}
+                  whileHover={{
+                    y: -8,
+                    scale: 1.05,
                   }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: index * 0.5
+                  style={{
+                    x: mousePosition.x * (index - 1) * 0.5,
+                    y: mousePosition.y * 0.3,
                   }}
-                />
-                
-                {/* Card */}
-                <div className="relative px-8 py-6 bg-slate-800/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl hover:bg-slate-800/80 hover:border-amber-500/50 transition-all duration-300">
-                  <h3 className="text-lg font-semibold text-white group-hover:text-amber-400 transition-colors duration-300">
-                    {feature.title}
-                  </h3>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                  className="relative group"
+                >
+                  {/* Glow */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-2xl blur-xl"
+                    animate={{
+                      opacity: [0.3, 0.6, 0.3],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: index * 0.4
+                    }}
+                  />
 
-         
+                  {/* Card */}
+                  <div className="
+                    relative
+                    px-6
+                    py-4
+                    bg-slate-800/70
+                    backdrop-blur-xl
+                    border
+                    border-slate-700/50
+                    rounded-2xl
+                    hover:border-amber-500/50
+                    transition-all
+                  ">
+                    <h3 className="text-lg font-semibold text-white group-hover:text-amber-400 transition-colors">
+                      {feature.title}
+                    </h3>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+          </div>
         </motion.div>
       </div>
 
-     
     </section>
   );
 };

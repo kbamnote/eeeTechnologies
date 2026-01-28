@@ -1,79 +1,186 @@
+import { motion } from 'framer-motion';
+import aboutBanner from '../../assets/c.jpg';
+
 const AboutHeroSection = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop')",
-        }}
-      >
-        {/* Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 via-purple-900/80 to-black/90"></div>
-        
-        {/* Animated Grid Pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.5) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(59, 130, 246, 0.5) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px'
-          }}></div>
-        </div>
+    <section
+      className="
+        relative
+        min-h-[100vh]
+        sm:min-h-screen
+        flex
+        items-center
+        justify-center
+        overflow-hidden
+        pt-20
+        pb-12
+      "
+    >
+      {/* Background Layer */}
+      <div className="absolute inset-0">
+        {/* Responsive Background Image */}
+        <div
+          className="
+            absolute inset-0
+            bg-no-repeat
+            bg-cover
+            bg-[position:50%_30%]
+            sm:bg-center
+            md:bg-right
+            lg:bg-center
+          "
+          style={{
+            backgroundImage: `url(${aboutBanner})`,
+          }}
+        />
+
+        {/* Backdrop Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+
+        {/* Animated Gradient Overlays */}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-amber-500/20 to-transparent blur-3xl"
+        />
+
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-blue-500/20 to-transparent blur-3xl"
+        />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex items-center justify-center h-full px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Animated Badge */}
-          <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-400/30">
-            <span className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
-            <span className="text-blue-300 text-sm font-medium">Innovating the Future</span>
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-7xl mx-auto"
+        >
+          <div className="text-left max-w-3xl">
+            
+            {/* Badge */}
+            <motion.div
+              variants={itemVariants}
+              className="
+                inline-flex
+                items-center
+                px-4
+                py-2
+                bg-slate-800/60
+                backdrop-blur-sm
+                border
+                border-amber-500/30
+                rounded-full
+                text-amber-400
+                text-sm
+                font-semibold
+                mb-8
+              "
+            >
+              <span className="w-2 h-2 bg-amber-400 rounded-full mr-2 animate-pulse"></span>
+              Industry Leader
+            </motion.div>
+
+            {/* Heading */}
+            <motion.h1
+              variants={itemVariants}
+              className="
+                text-3xl
+                sm:text-5xl
+                md:text-6xl
+                lg:text-7xl
+                font-bold
+                text-white
+                mb-10
+                leading-tight
+              "
+            >
+              About <span className="text-white bg-clip-text text-transparent">EEE Technologies</span>
+            </motion.h1>
+
+            {/* Subheading */}
+            <motion.p
+              variants={itemVariants}
+              className="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl leading-relaxed"
+            >
+              Pioneering cutting-edge solutions in electronics, electrical engineering, 
+              and emerging technologies to power tomorrow's innovations.
+            </motion.p>
+
+            {/* Feature Cards */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4 md:gap-6 items-start"
+            >
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-2xl blur-xl opacity-30" />
+                <div className="relative px-6 py-4 bg-slate-800/70 backdrop-blur-xl border border-slate-700/50 rounded-2xl hover:border-amber-500/50 transition-all">
+                  <h3 className="text-lg font-semibold text-white group-hover:text-amber-400 transition-colors">
+                    15+ Years Experience
+                  </h3>
+                </div>
+              </div>
+              
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-2xl blur-xl opacity-30" />
+                <div className="relative px-6 py-4 bg-slate-800/70 backdrop-blur-xl border border-slate-700/50 rounded-2xl hover:border-amber-500/50 transition-all">
+                  <h3 className="text-lg font-semibold text-white group-hover:text-amber-400 transition-colors">
+                    20K+ Students
+                  </h3>
+                </div>
+              </div>
+              
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-2xl blur-xl opacity-30" />
+                <div className="relative px-6 py-4 bg-slate-800/70 backdrop-blur-xl border border-slate-700/50 rounded-2xl hover:border-amber-500/50 transition-all">
+                  <h3 className="text-lg font-semibold text-white group-hover:text-amber-400 transition-colors">
+                    95% Placement
+                  </h3>
+                </div>
+              </div>
+            </motion.div>
           </div>
-
-          {/* Main Heading */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Welcome to
-            <span className="block mt-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              EEE Technologies
-            </span>
-          </h1>
-
-          {/* Subheading */}
-          <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Pioneering cutting-edge solutions in electronics, electrical engineering, 
-            and emerging technologies to power tomorrow's innovations.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              Explore Our Solutions
-            </button>
-            <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
-              Learn More
-            </button>
-          </div>
-
-          {/* Floating Stats */}
-          <div className="grid grid-cols-3 gap-6 mt-16 max-w-3xl mx-auto">
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-              <div className="text-3xl font-bold text-blue-400 mb-1">500+</div>
-              <div className="text-sm text-gray-400">Projects Delivered</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-              <div className="text-3xl font-bold text-purple-400 mb-1">50+</div>
-              <div className="text-sm text-gray-400">Expert Team</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-              <div className="text-3xl font-bold text-pink-400 mb-1">15+</div>
-              <div className="text-sm text-gray-400">Years Experience</div>
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </div>
-
-     
-    </div>
+    </section>
   );
 };
 

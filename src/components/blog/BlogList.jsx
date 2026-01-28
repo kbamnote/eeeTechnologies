@@ -243,6 +243,7 @@ const BlogList = ({ posts = [], loading = false }) => {
               >
                 <BlogCard
                   {...post}
+                  href={post.href || '#'}
                   className={viewMode === 'list' ? 'flex flex-row' : ''}
                 />
               </motion.div>

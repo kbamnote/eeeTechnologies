@@ -101,7 +101,7 @@ const SearchFilter = ({
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200 mb-8"
+      className="bg-blue-950 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-blue-800 mb-8"
     >
       {/* Main Search Bar */}
       <div className="flex flex-col lg:flex-row gap-4 mb-6">
@@ -113,7 +113,7 @@ const SearchFilter = ({
             placeholder="Search courses, skills, or instructors..."
             value={searchTerm}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 transition-all duration-200"
+            className="w-full pl-12 pr-4 py-3 border border-blue-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200"
           />
         </motion.div>
 
@@ -124,8 +124,8 @@ const SearchFilter = ({
           className={`
             flex items-center px-6 py-3 rounded-xl border transition-all duration-200
             ${isAdvancedOpen 
-              ? 'bg-purple-100 border-purple-200 text-purple-700' 
-              : 'bg-white border-gray-200 text-gray-700 hover:bg-gray-50'
+              ? 'bg-blue-800 border-blue-700 text-blue-200' 
+              : 'bg-blue-900 border-blue-700 text-white hover:bg-blue-800'
             }
           `}
         >
@@ -144,7 +144,7 @@ const SearchFilter = ({
           <motion.button
             variants={itemVariants}
             onClick={onClearFilters}
-            className="flex items-center px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl transition-colors duration-200"
+            className="flex items-center px-4 py-3 bg-blue-800 hover:bg-blue-700 text-white rounded-xl transition-colors duration-200"
           >
             <X className="w-4 h-4 mr-2" />
             <span>Clear</span>
@@ -164,8 +164,8 @@ const SearchFilter = ({
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Difficulty Level */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-semibold text-gray-900 mb-3 flex items-center">
-                <Star className="w-4 h-4 mr-2 text-purple-600" />
+              <h4 className="text-sm font-semibold text-white mb-3 flex items-center">
+                <Star className="w-4 h-4 mr-2 text-blue-400" />
                 Difficulty Level
               </h4>
               <div className="space-y-2">
@@ -188,7 +188,7 @@ const SearchFilter = ({
                         <div className="w-2 h-2 bg-white rounded-full"></div>
                       )}
                     </div>
-                    <span className="text-sm text-gray-700">{level.label}</span>
+                    <span className="text-sm text-blue-200">{level.label}</span>
                   </label>
                 ))}
               </div>
@@ -196,8 +196,8 @@ const SearchFilter = ({
 
             {/* Duration */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-semibold text-gray-900 mb-3 flex items-center">
-                <Clock className="w-4 h-4 mr-2 text-purple-600" />
+              <h4 className="text-sm font-semibold text-white mb-3 flex items-center">
+                <Clock className="w-4 h-4 mr-2 text-blue-400" />
                 Duration
               </h4>
               <div className="space-y-2">
@@ -220,7 +220,7 @@ const SearchFilter = ({
                         <div className="w-2 h-2 bg-white rounded-full"></div>
                       )}
                     </div>
-                    <span className="text-sm text-gray-700">{duration.label}</span>
+                    <span className="text-sm text-blue-200">{duration.label}</span>
                   </label>
                 ))}
               </div>
@@ -228,8 +228,8 @@ const SearchFilter = ({
 
             {/* Rating */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-semibold text-gray-900 mb-3 flex items-center">
-                <Star className="w-4 h-4 mr-2 text-purple-600" />
+              <h4 className="text-sm font-semibold text-white mb-3 flex items-center">
+                <Star className="w-4 h-4 mr-2 text-blue-400" />
                 Rating
               </h4>
               <div className="space-y-2">
@@ -252,7 +252,7 @@ const SearchFilter = ({
                         <div className="w-2 h-2 bg-white rounded-full"></div>
                       )}
                     </div>
-                    <span className="text-sm text-gray-700 flex items-center">
+                    <span className="text-sm text-blue-200 flex items-center">
                       {rating.label}
                       <div className="flex ml-1">
                         {[...Array(rating.value)].map((_, i) => (
@@ -267,8 +267,8 @@ const SearchFilter = ({
 
             {/* Price Range */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-semibold text-gray-900 mb-3 flex items-center">
-                <DollarSign className="w-4 h-4 mr-2 text-purple-600" />
+              <h4 className="text-sm font-semibold text-white mb-3 flex items-center">
+                <DollarSign className="w-4 h-4 mr-2 text-blue-400" />
                 Price Range
               </h4>
               <div className="space-y-3">
@@ -286,10 +286,10 @@ const SearchFilter = ({
                     placeholder="Max"
                     value={priceRange[1]}
                     onChange={(e) => handlePriceRangeChange(1, e.target.value)}
-                    className="w-20 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-20 px-3 py-2 border border-blue-700 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white"
                   />
                 </div>
-                <div className="text-xs text-gray-500">
+                <div className="text-xs text-blue-300">
                   ${priceRange[0]} - ${priceRange[1]}
                 </div>
               </div>
@@ -297,8 +297,8 @@ const SearchFilter = ({
 
             {/* Instructor Type */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-semibold text-gray-900 mb-3 flex items-center">
-                <Users className="w-4 h-4 mr-2 text-purple-600" />
+              <h4 className="text-sm font-semibold text-white mb-3 flex items-center">
+                <Users className="w-4 h-4 mr-2 text-blue-400" />
                 Instructor Type
               </h4>
               <div className="space-y-2">
@@ -321,7 +321,7 @@ const SearchFilter = ({
                         <div className="w-2 h-2 bg-white rounded-full"></div>
                       )}
                     </div>
-                    <span className="text-sm text-gray-700">{type.label}</span>
+                    <span className="text-sm text-blue-200">{type.label}</span>
                   </label>
                 ))}
               </div>
@@ -329,8 +329,8 @@ const SearchFilter = ({
 
             {/* Course Features */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-semibold text-gray-900 mb-3 flex items-center">
-                <Calendar className="w-4 h-4 mr-2 text-purple-600" />
+              <h4 className="text-sm font-semibold text-white mb-3 flex items-center">
+                <Calendar className="w-4 h-4 mr-2 text-blue-400" />
                 Features
               </h4>
               <div className="space-y-2">
@@ -353,7 +353,7 @@ const SearchFilter = ({
                         <div className="w-2 h-2 bg-white rounded-full"></div>
                       )}
                     </div>
-                    <span className="text-sm text-gray-700">{feature}</span>
+                    <span className="text-sm text-blue-200">{feature}</span>
                   </label>
                 ))}
               </div>

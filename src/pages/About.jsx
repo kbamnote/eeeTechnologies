@@ -34,7 +34,7 @@ const About = () => {
   return (
     <>
 
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900/20">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
         {/* Hero Section */}
        <AboutHeroSection/>
 
@@ -51,7 +51,7 @@ const About = () => {
         <Infrastructure />
 
         {/* Why Choose Us - Enhanced */}
-        <section className="py-20 bg-white dark:bg-gray-800">
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -59,10 +59,10 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Why Choose <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">eee Technologies?</span>
               </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Discover what makes us the preferred choice for technology education and career transformation.
               </p>
             </motion.div>
@@ -111,16 +111,16 @@ const About = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
-                  className="bg-gray-50 dark:bg-gray-700 rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group cursor-pointer border border-gray-100 dark:border-gray-600"
+                  className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group cursor-pointer border border-gray-200 hover:border-gray-300"
                   whileHover={{ y: -10, scale: 1.02 }}
                 >
                   <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     <feature.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed">
                     {feature.description}
                   </p>
                   

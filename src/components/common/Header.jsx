@@ -1,10 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X, GraduationCap } from "lucide-react";
 import logo from '../../assets/logo.png'
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      // Consider scrolled when past ~80vh (leaving some buffer)
+      const isScrolled = window.scrollY > window.innerHeight * 0.8;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
     { to: "/", label: "Home" },
@@ -25,14 +38,20 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md border-b border-gray-700/50 shadow-sm">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled 
+        ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-lg' 
+        : 'bg-transparent backdrop-blur-none border-b-0 shadow-lg'
+    }`}>
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand */}
           <Link to="/" className="flex items-center gap-3 group" onClick={scrollToTop}>
-            <img src={logo} className="flex items-center justify-center w-auto h-14 transition-all duration-300">
+            <img src={logo} className="flex items-center justify-center w-auto h-10 transition-all duration-300">
             </img>
-            <span className="text-xl font-bold text-white hidden md:block">EEE Technologies</span>
+            <span className={`text-lg font-bold hidden md:block transition-colors duration-300 ${
+              scrolled ? 'text-blue-600' : 'text-white'
+            }`}>EEE Technologies</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -43,10 +62,10 @@ export default function Header() {
                 to={item.to}
                 onClick={scrollToTop}
                 className={({ isActive }) =>
-                  `relative px-3 py-2 text-sm font-medium transition-all duration-200 ${
+                  `relative px-3 py-2 text-sm font-medium transition-all duration-300 ${
                     isActive
-                      ? "text-blue-400"
-                      : "text-gray-200 hover:text-blue-400"
+                      ? (scrolled ? "text-blue-600" : "text-blue-400")
+                      : (scrolled ? "text-gray-700 hover:text-blue-600" : "text-white hover:text-blue-400")
                   }`
                 }
               >
@@ -67,7 +86,11 @@ export default function Header() {
             <Link
               to="/contact"
               onClick={scrollToTop}
-              className="px-4 py-2 text-sm font-medium text-gray-200 hover:text-blue-400 transition-colors duration-200"
+              className={`px-4 py-2 text-sm font-medium transition-colors duration-300 ${
+                scrolled 
+                  ? 'text-gray-900 hover:text-blue-600' 
+                  : 'text-white hover:text-blue-200'
+              }`}
             >
               Get Started
             </Link>
@@ -82,7 +105,11 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-gray-200 hover:text-blue-400 hover:bg-gray-800 transition-all duration-200"
+            className={`lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-300 ${
+              scrolled 
+                ? 'text-gray-700 hover:text-blue-600 hover:bg-gray-100' 
+                : 'text-white hover:text-blue-400 hover:bg-white/30'
+            }`}
             onClick={() => setOpen(!open)}
             aria-label="Toggle navigation menu"
           >
@@ -92,17 +119,23 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {open && (
-          <div className="lg:hidden border-t border-gray-700/50 bg-gray-900/95 backdrop-blur-md">
+          <div className="lg:hidden border-t border-white/20 bg-white/95 backdrop-blur-xl">
             <nav className="px-4 py-6 space-y-3">
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <Link to="/" className="flex items-center gap-3" onClick={() => {setOpen(false); scrollToTop();}}>
+                  <img src={logo} className="w-auto h-8" />
+                  <span className="text-xl font-bold text-gray-900">EEE Technologies</span>
+                </Link>
+              </div>
               {navItems.map((item) => (
                 <NavLink
                   key={item.to}
                   to={item.to}
                   className={({ isActive }) =>
-                    `block px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 ${
+                    `block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 ${
                       isActive
-                        ? "text-blue-400 bg-gray-800"
-                        : "text-gray-200 hover:text-blue-400 hover:bg-gray-800"
+                        ? "text-blue-600 bg-blue-50 border-l-4 border-blue-500"
+                        : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                     }`
                   }
                   onClick={() => {
@@ -116,7 +149,9 @@ export default function Header() {
               <div className="pt-4 space-y-3">
                 <Link
                   to="/contact"
-                  className="block px-4 py-3 text-base font-medium text-gray-200 hover:text-blue-400 hover:bg-gray-800 rounded-lg transition-all duration-200"
+                  className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 ${
+                    'text-gray-900 hover:text-blue-600 hover:bg-gray-50'
+                  }`}
                   onClick={() => {
                     setOpen(false);
                     scrollToTop();
@@ -126,7 +161,7 @@ export default function Header() {
                 </Link>
                 <Link
                   to="/courses"
-                  className="block px-4 py-3 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-center"
+                  className="block px-4 py-3 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-center shadow-md"
                   onClick={() => {
                     setOpen(false);
                     scrollToTop();

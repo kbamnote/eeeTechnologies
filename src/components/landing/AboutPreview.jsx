@@ -38,7 +38,7 @@ const AboutPreview = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
@@ -59,10 +59,10 @@ const AboutPreview = () => {
             variants={fadeInUp}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
               Our Courses
             </h2>
-            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Choose from our industry-leading programs designed to transform your career
             </p>
           </motion.div>
@@ -83,8 +83,8 @@ const AboutPreview = () => {
                 <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-0 group-hover:opacity-20 rounded-3xl blur-xl transition duration-300`} />
 
                 {/* Course Card */}
-                <div className="relative bg-slate-800/40 backdrop-blur-md border border-slate-700/40 rounded-3xl p-8 transition-all duration-300 group-hover:bg-slate-800/60 group-hover:border-slate-600/50">
-                  <div className="grid lg:grid-cols-12 gap-8">
+                <div className="relative bg-white backdrop-blur-md border border-gray-200 rounded-3xl p-8 transition-all duration-300 group-hover:bg-gray-50 group-hover:border-gray-300 shadow-lg hover:shadow-xl">
+                  <div className="grid md:grid-cols-1 lg:grid-cols-12 gap-8">
                     {/* Left - Number, Icon and Title */}
                     <div className="lg:col-span-5">
                       <div className="flex items-start gap-4">
@@ -92,7 +92,7 @@ const AboutPreview = () => {
                           initial={{ scale: 0 }}
                           animate={isInView ? { scale: 1 } : {}}
                           transition={{ delay: index * 0.2, type: "spring" }}
-                          className="text-4xl md:text-5xl font-bold text-amber-500"
+                          className="text-4xl md:text-5xl font-bold text-blue-600"
                         >
                           {course.number}
                         </motion.div>
@@ -102,7 +102,7 @@ const AboutPreview = () => {
                               <course.icon className="w-6 h-6 text-white" />
                             </div>
                           </div>
-                          <h3 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight">
+                          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 leading-tight">
                             {course.title}
                           </h3>
                         </div>
@@ -111,7 +111,7 @@ const AboutPreview = () => {
 
                     {/* Right - Description */}
                     <div className="lg:col-span-7">
-                      <p className="text-gray-300 leading-relaxed text-base">
+                      <p className="text-gray-700 leading-relaxed text-base">
                         {course.description}
                       </p>
                     </div>

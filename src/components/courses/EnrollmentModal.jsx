@@ -62,7 +62,7 @@ const EnrollmentModal = ({ isOpen, onClose, courseName, onSubmit }) => {
             </div>
 
             {/* Form Content */}
-            <div className="p-8 bg-slate-800/50">
+            <div className="p-8 bg-blue-950">
               <EnrollmentForm
                 courseName={courseName}
                 onSubmit={(formData) => {

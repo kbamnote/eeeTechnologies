@@ -211,14 +211,14 @@ const ProcessTimeline = () => {
           Placement Process Timeline
         </div>
         
-        <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+        <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
           Placement Process
           <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
             Timeline
           </span>
         </h2>
         
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Our structured 19-week placement process is designed to transform you from a student 
           to a professional. Follow our proven methodology for guaranteed success.
         </p>
@@ -258,12 +258,12 @@ const ProcessTimeline = () => {
 
       {/* Call to Action */}
       <motion.div variants={cardVariants}>
-        <div className="text-center bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 overflow-hidden">
-          <Briefcase className="w-16 h-16 text-blue-400 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-white mb-4">
+        <div className="text-center bg-blue-950 rounded-2xl p-8 border border-blue-800 overflow-hidden">
+          <Briefcase className="w-16 h-16 text-blue-300 mx-auto mb-4" />
+          <h3 className="text-2xl font-bold text-blue-100 mb-4">
             Ready to Start Your Placement Journey?
           </h3>
-          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+          <p className="text-blue-200 mb-6 max-w-2xl mx-auto">
             Join thousands of successful graduates who have transformed their careers through our 
             structured placement process. Your dream job is just 19 weeks away.
           </p>
@@ -278,7 +278,7 @@ const ProcessTimeline = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="border border-blue-500 text-blue-400 px-8 py-3 rounded-2xl font-semibold hover:bg-blue-500/10 transition-all duration-200"
+              className="border border-blue-400 text-blue-300 px-8 py-3 rounded-2xl font-semibold hover:bg-blue-500/10 transition-all duration-200"
             >
               Download Timeline PDF
             </motion.button>

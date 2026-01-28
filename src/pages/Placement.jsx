@@ -20,6 +20,7 @@ import ProcessTimeline from '../components/placement/ProcessTimeline';
 import SuccessStories from '../components/placement/SuccessStories';
 import RegisterCTA from '../components/placement/RegisterCTA';
 
+
 const Placement = () => {
   const heroFeatures = [
     {
@@ -75,7 +76,7 @@ const Placement = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -83,110 +84,184 @@ const Placement = () => {
         className="space-y-20"
       >
         {/* Hero Section with Background Image */}
-        <section className="relative min-h-screen flex items-center overflow-hidden">
-          {/* Background Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2187&auto=format&fit=crop')",
-            }}
-          >
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/90 via-blue-900/85 to-indigo-950/90"></div>
-            
-            {/* Animated Grid Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0" style={{
-                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px)`,
-                backgroundSize: '40px 40px'
-              }}></div>
-            </div>
-          </div>
-
-          {/* Background Blur Elements */}
+        <section
+          className="
+            relative
+            min-h-[100vh]
+            sm:min-h-screen
+            flex
+            items-center
+            justify-center
+            overflow-hidden
+            pt-20
+            pb-12
+          "
+        >
+          {/* Background Layer */}
           <div className="absolute inset-0">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-purple-400/20 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
+            {/* Responsive Background Image */}
+            <div
+              className="
+                absolute inset-0
+                bg-no-repeat
+                bg-cover
+                bg-[position:50%_30%]
+                sm:bg-center
+                md:bg-right
+                lg:bg-center
+              "
+              style={{
+                backgroundImage: "url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1920&q=80')",
+              }}
+            />
+
+            {/* Backdrop Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+
+            {/* Animated Gradient Overlays */}
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-amber-500/20 to-transparent blur-3xl"
+            />
+
+            <motion.div
+              animate={{
+                scale: [1.2, 1, 1.2],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-blue-500/20 to-transparent blur-3xl"
+            />
           </div>
-          
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
-            <div className="text-center">
-              <motion.div
-                variants={cardVariants}
-                className="inline-block bg-gradient-to-r from-purple-500 to-blue-500 text-white mt-8 px-6 py-2 rounded-full text-sm font-medium mb-6 backdrop-blur-sm"
-              >
-                🚀 #1 Placement Program in India
-              </motion.div>
-              
-              <motion.h1
-                variants={cardVariants}
-                className="text-5xl md:text-7xl font-bold text-white mb-6"
-              >
-                Land Your
-                <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
-                  Dream Job
-                </span>
-              </motion.h1>
-              
-              <motion.p
-                variants={cardVariants}
-                className="text-xl md:text-2xl text-gray-400 mb-8 max-w-4xl mx-auto"
-              >
-                Join our proven placement program and transform your career with guaranteed job placement, 
-                industry mentorship, and comprehensive skill development.
-              </motion.p>
 
-              <motion.div
-                variants={cardVariants}
-                className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-              >
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-200 flex items-center justify-center space-x-2"
-                >
-                  <span>Start Your Journey</span>
-                  <ArrowRight className="w-5 h-5" />
-                </motion.button>
+          {/* Content */}
+          <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="max-w-7xl mx-auto"
+            >
+              <div className="text-center max-w-4xl mx-auto">
                 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-slate-800/50 backdrop-blur-xl border-2 border-slate-700/50 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-slate-700/50 transition-all duration-200"
+                {/* Badge */}
+                <motion.div
+                  variants={cardVariants}
+                  className="
+                    inline-flex
+                    items-center
+                    px-4
+                    py-2
+                    bg-white/90
+                    backdrop-blur-md
+                    border
+                    border-white/40
+                    rounded-full
+                    text-amber-700
+                    text-sm
+                    font-semibold
+                    mb-8
+                    shadow-lg
+                  "
                 >
-                  Watch Success Stories
-                </motion.button>
-              </motion.div>
+                  <span className="w-2 h-2 bg-amber-400 rounded-full mr-2 animate-pulse"></span>
+                  #1 Placement Program in India
+                </motion.div>
 
-              {/* Hero Features */}
-              <motion.div
-                variants={cardVariants}
-                className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
-              >
-                {heroFeatures.map((feature, index) => {
-                  const IconComponent = feature.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      variants={cardVariants}
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-slate-700/50 text-center"
-                    >
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-                        <IconComponent className="w-6 h-6 text-white" />
-                      </div>
-                      <h3 className="font-bold text-white mb-1 text-sm md:text-base">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-400 text-xs md:text-sm">
-                        {feature.description}
-                      </p>
-                    </motion.div>
-                  );
-                })}
-              </motion.div>
-            </div>
+                {/* Heading */}
+                <motion.h1
+                  variants={cardVariants}
+                  className="
+                    text-3xl
+                    sm:text-5xl
+                    md:text-6xl
+                    lg:text-7xl
+                    font-bold
+                    text-white
+                    mb-10
+                    leading-tight
+                    drop-shadow-xl
+                  "
+                >
+                  Land Your <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Dream Job</span>
+                </motion.h1>
+
+                {/* Subheading */}
+                <motion.p
+                  variants={cardVariants}
+                  className="text-lg sm:text-xl text-gray-100 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg"
+                >
+                  Join our proven placement program and transform your career with guaranteed job placement, 
+                  industry mentorship, and comprehensive skill development.
+                </motion.p>
+
+                {/* CTA Buttons */}
+                <motion.div
+                  variants={cardVariants}
+                  className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center mb-12"
+                >
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-200 flex items-center justify-center space-x-2"
+                  >
+                    <span>Start Your Journey</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </motion.button>
+                  
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-white/80 backdrop-blur-xl text-gray-900 px-8 py-4 rounded-2xl font-semibold text-lg border border-gray-300 hover:bg-white/90 transition-all duration-200 shadow-lg"
+                  >
+                    Watch Success Stories
+                  </motion.button>
+                </motion.div>
+
+                {/* Hero Features */}
+                <motion.div
+                  variants={cardVariants}
+                  className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
+                >
+                  {heroFeatures.map((feature, index) => {
+                    const IconComponent = feature.icon;
+                    return (
+                      <motion.div
+                        key={index}
+                        variants={cardVariants}
+                        whileHover={{ scale: 1.05, y: -5 }}
+                        className="relative group"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-2xl blur-xl opacity-30" />
+                        <div className="relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-gray-200 text-center hover:border-amber-500/50 transition-all duration-300">
+                          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                            <IconComponent className="w-6 h-6 text-white" />
+                          </div>
+                          <h3 className="font-bold text-gray-900 mb-1 text-sm md:text-base group-hover:text-amber-600 transition-colors">
+                            {feature.title}
+                          </h3>
+                          <p className="text-gray-600 text-xs md:text-sm">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
 
           
@@ -197,13 +272,13 @@ const Placement = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={cardVariants}
-              className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 rounded-3xl p-8 md:p-12 text-white backdrop-blur-xl border border-slate-700/50"
+              className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 text-gray-900 border border-gray-200 shadow-xl"
             >
               <div className="text-center mb-8">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   Proven Track Record of Success
                 </h2>
-                <p className="text-gray-400 text-lg">
+                <p className="text-gray-600 text-lg">
                   Numbers that speak for our excellence in career transformation
                 </p>
               </div>
@@ -218,11 +293,11 @@ const Placement = () => {
                       whileHover={{ scale: 1.05 }}
                       className="text-center"
                     >
-                      <div className="w-16 h-16 bg-slate-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <IconComponent className="w-8 h-8 text-white" />
+                      <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <IconComponent className="w-8 h-8 text-blue-600" />
                       </div>
-                      <div className="text-3xl md:text-4xl font-bold mb-2">{stat.value}</div>
-                      <div className="text-gray-400">{stat.label}</div>
+                      <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
+                      <div className="text-gray-600">{stat.label}</div>
                     </motion.div>
                   );
                 })}
@@ -241,13 +316,13 @@ const Placement = () => {
         </section>
 
         {/* Company Logos Component */}
-        <section className="py-16 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+        {/* <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div variants={cardVariants}>
               <CompanyLogos />
             </motion.div>
           </div>
-        </section>
+        </section> */}
 
         {/* Process Timeline Component */}
         <section className="py-16">
@@ -259,7 +334,7 @@ const Placement = () => {
         </section>
 
         {/* Success Stories Component */}
-        <section className="py-16 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div variants={cardVariants}>
               <SuccessStories />
@@ -352,14 +427,14 @@ const Placement = () => {
         </section>
 
         {/* Final CTA */}
-        <section className="py-16 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div variants={cardVariants}>
-              <Star className="w-20 h-20 text-blue-400 mx-auto mb-6" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <Star className="w-20 h-20 text-blue-500 mx-auto mb-6" />
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 Ready to Transform Your Career?
               </h2>
-              <p className="text-xl text-gray-400 mb-8 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
                 Join thousands of successful graduates who trusted us with their career transformation. 
                 Your dream job is just one decision away.
               </p>
@@ -377,13 +452,13 @@ const Placement = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="border-2 border-blue-500 text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-blue-500/10 transition-all duration-200"
+                  className="border-2 border-blue-500 text-gray-800 bg-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-gray-50 transition-all duration-200 shadow-lg"
                 >
                   Schedule Free Consultation
                 </motion.button>
               </div>
 
-              <div className="mt-8 text-sm text-gray-500">
+              <div className="mt-8 text-sm text-gray-600">
                 <p>✅ No hidden fees • ✅ 100% job guarantee • ✅ EMI options available</p>
               </div>
             </motion.div>
