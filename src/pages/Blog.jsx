@@ -335,7 +335,7 @@ const Blog = () => {
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center mb-16"
               >
-                <motion.button
+                {/* <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
@@ -348,13 +348,13 @@ const Blog = () => {
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-8 py-4 bg-white/80 backdrop-blur-xl text-gray-900 font-bold rounded-2xl border border-gray-300 hover:bg-white/90 transition-all duration-300 shadow-lg"
+                  className="px-8 py-4 bg-white/80 backdrop-blur-xl text-gray-900 font-bold rounded-2xl border border-gray-300 hover:bg-white/90 transition-all duration-300 shadow-lg "
                 >
                   <span className="flex items-center justify-center">
                     <Search className="w-5 h-5 mr-2 text-gray-300" />
                     Explore Topics
                   </span>
-                </motion.button>
+                </motion.button> */}
               </motion.div>
 
               {/* Stats */}

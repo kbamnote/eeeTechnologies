@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Code, Database, Brain, Shield, Clock, Users, Star } from 'lucide-react';
 import EnrollmentModal from '../courses/EnrollmentModal';
 
@@ -299,10 +300,12 @@ const CoursesPreview = () => {
 
         {/* View All CTA */}
         <div className="text-center">
-          <button className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
-            Explore All Courses
-            <ArrowRight className="ml-3 w-6 h-6" />
-          </button>
+          <Link to="/courses">
+            <button className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+              Explore All Courses
+              <ArrowRight className="ml-3 w-6 h-6" />
+            </button>
+          </Link>
         </div>
       </div>
 

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Star, Users, Award, Clock, CheckCircle } from 'lucide-react';
+import EnrollmentModal from './EnrollmentModal';
 
 const EnrollBanner = () => {
+  const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false);
   const stats = [
     { icon: Users, value: "10,000+", label: "Students Enrolled" },
     { icon: Star, value: "4.9", label: "Average Rating" },
@@ -83,19 +85,20 @@ const EnrollBanner = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => setIsEnrollmentModalOpen(true)}
                     className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold px-8 py-4 rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-200 flex items-center justify-center group"
                   >
                     <span>Enroll Now</span>
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                   </motion.button>
                   
-                  <motion.button
+                  {/* <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="bg-white text-gray-800 font-semibold px-8 py-4 rounded-2xl border border-gray-300 hover:bg-gray-50 transition-all duration-200"
                   >
                     View Courses
-                  </motion.button>
+                  </motion.button> */}
                 </div>
 
                 {/* Benefits */}
@@ -150,7 +153,7 @@ const EnrollBanner = () => {
               </div>
               
               <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                Get <span className="text-yellow-400">50% OFF</span> on All Courses
+                Get <span className="text-yellow-400">25% OFF</span> on All Courses
               </h3>
               
               <p className="text-lg text-blue-100 mb-6 max-w-2xl mx-auto">
@@ -180,6 +183,17 @@ const EnrollBanner = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Enrollment Modal */}
+      <EnrollmentModal 
+        isOpen={isEnrollmentModalOpen} 
+        onClose={() => setIsEnrollmentModalOpen(false)} 
+        courseName="Featured Course"
+        onSubmit={(formData) => {
+          console.log('Enrollment form submitted with data:', formData);
+          // Handle form submission here
+        }}
+      />
     </section>
   );
 };

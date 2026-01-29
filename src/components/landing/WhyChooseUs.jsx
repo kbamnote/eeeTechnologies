@@ -166,10 +166,10 @@ const WhyChooseUs = () => {
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
           {features.map((feature, index) => (
-            <div key={index} className="group">
-              <div className={`bg-white backdrop-blur-xl rounded-3xl p-8 border border-gray-200 overflow-hidden hover:shadow-3xl hover:border-gray-300 transition-all duration-500 shadow-lg`}>
+            <div key={index} className="group flex flex-col h-full">
+              <div className={`bg-white backdrop-blur-xl rounded-3xl p-8 border border-gray-200 overflow-hidden hover:shadow-3xl hover:border-gray-300 transition-all duration-500 shadow-lg flex flex-col h-full`}>
                 {/* Icon and Title */}
-                <div className="flex items-center gap-4 mb-6">
+                <div className="flex items-center gap-4 mb-6 flex-shrink-0">
                   <div className={`w-14 h-14 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center shadow-lg`}>
                     <feature.icon className="w-7 h-7 text-white" />
                   </div>
@@ -182,9 +182,9 @@ const WhyChooseUs = () => {
                     </span>
                   </div>
                 </div>
-                
+                        
                 {/* Description */}
-                <p className="text-gray-700 text-base leading-relaxed">
+                <p className="text-gray-700 text-base leading-relaxed flex-grow">
                   {feature.description}
                 </p>
               </div>

@@ -27,7 +27,7 @@ const EnrollmentModal = ({ isOpen, onClose, courseName, onSubmit }) => {
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-slate-900/80 backdrop-blur-xl"
+        className="fixed inset-0 bg-white/90 backdrop-blur-sm"
         onClick={onClose}
       />
 
@@ -38,14 +38,14 @@ const EnrollmentModal = ({ isOpen, onClose, courseName, onSubmit }) => {
           onClick={(e) => e.stopPropagation()}
         >
           {/* Modal Content */}
-          <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden max-h-[75vh] overflow-y-auto border border-slate-700/50">
+          <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[75vh] overflow-y-auto border border-gray-200">
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-slate-700 hover:bg-slate-600 shadow-md transition-all duration-200 hover:scale-110"
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 hover:bg-white shadow-md transition-all duration-200 hover:scale-110 border border-gray-200"
               aria-label="Close modal"
             >
-              <X className="w-6 h-6 text-white" />
+              <X className="w-6 h-6 text-gray-700" />
             </button>
 
             {/* Header */}
@@ -62,7 +62,7 @@ const EnrollmentModal = ({ isOpen, onClose, courseName, onSubmit }) => {
             </div>
 
             {/* Form Content */}
-            <div className="p-8 bg-blue-950">
+            <div className="p-8">
               <EnrollmentForm
                 courseName={courseName}
                 onSubmit={(formData) => {

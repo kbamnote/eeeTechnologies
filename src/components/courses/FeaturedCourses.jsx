@@ -136,7 +136,9 @@ const FeaturedCourses = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
         >
-          {featuredCourses.map((course) => (
+          {featuredCourses
+            .sort((a, b) => b.students - a.students) // Sort by popularity (students count)
+            .map((course) => (
             <motion.div
               key={course.id}
               variants={cardVariants}

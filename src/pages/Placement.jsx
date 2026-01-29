@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   ArrowRight, 
@@ -12,6 +12,7 @@ import {
   Clock,
   MapPin
 } from 'lucide-react';
+import EnrollmentModal from '../components/courses/EnrollmentModal';
 
 // Import placement components
 import PlacementStats from '../components/placement/PlacementStats';
@@ -22,6 +23,7 @@ import RegisterCTA from '../components/placement/RegisterCTA';
 
 
 const Placement = () => {
+  const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false);
   const heroFeatures = [
     {
       icon: Target,
@@ -215,6 +217,7 @@ const Placement = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => setIsEnrollmentModalOpen(true)}
                     className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-200 flex items-center justify-center space-x-2"
                   >
                     <span>Start Your Journey</span>
@@ -421,7 +424,7 @@ const Placement = () => {
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div variants={cardVariants}>
-              <RegisterCTA />
+              <RegisterCTA onEnrollClick={() => setIsEnrollmentModalOpen(true)} />
             </motion.div>
           </div>
         </section>
@@ -443,6 +446,7 @@ const Placement = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => setIsEnrollmentModalOpen(true)}
                   className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-4 rounded-lg font-bold text-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-200 flex items-center justify-center space-x-2"
                 >
                   <span>Enroll Now</span>
@@ -465,6 +469,17 @@ const Placement = () => {
           </div>
         </section>
       </motion.div>
+
+      {/* Enrollment Modal */}
+      <EnrollmentModal 
+        isOpen={isEnrollmentModalOpen} 
+        onClose={() => setIsEnrollmentModalOpen(false)} 
+        courseName="Placement Program"
+        onSubmit={(formData) => {
+          console.log('Enrollment form submitted with data:', formData);
+          // Handle form submission here
+        }}
+      />
     </div>
   );
 };

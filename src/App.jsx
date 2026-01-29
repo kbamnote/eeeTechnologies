@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { EnrollmentProvider } from "./context/EnrollmentContext";
 import Header from "./components/common/Header.jsx";
 import Footer from "./components/common/Footer.jsx";
 import ChatBot from "./components/common/ChatBot.jsx";
@@ -37,33 +38,35 @@ function App() {
   const isGoogleLanding = location.pathname === '/placement-courses';
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
-      {!isGoogleLanding && <Header />}
-      
-      {/* ChatBot - Available on all pages except Google Landing */}
-      {!isGoogleLanding && <ChatBot />}
-      
-      {/* Main Content */}
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Landing />} />
-          <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
-          <Route path="/courses" element={<PageWrapper><Courses /></PageWrapper>} />
-          <Route path="/courses/:slug" element={<PageWrapper><CourseDetail /></PageWrapper>} />
-          <Route path="/placement" element={<PageWrapper><Placement /></PageWrapper>} />
-          <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
-          <Route path="/blog/:slug" element={<PageWrapper><BlogPost /></PageWrapper>} />
-          <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-          <Route path="/placement-courses" element={<GoogleLanding />} />
-          <Route path="/thank-you" element={<PageWrapper><ThankYou /></PageWrapper>} />
-        </Routes>
-      </AnimatePresence>
-      
-      {!isGoogleLanding && <Footer />}
-      
-      {/* ChatBot for Google Landing page */}
-      {isGoogleLanding && <ChatBot />}
-    </div>
+    <EnrollmentProvider>
+      <div className="flex flex-col min-h-screen bg-white">
+        {!isGoogleLanding && <Header />}
+        
+        {/* ChatBot - Available on all pages except Google Landing */}
+        {!isGoogleLanding && <ChatBot />}
+        
+        {/* Main Content */}
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Landing />} />
+            <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+            <Route path="/courses" element={<PageWrapper><Courses /></PageWrapper>} />
+            <Route path="/courses/:slug" element={<PageWrapper><CourseDetail /></PageWrapper>} />
+            <Route path="/placement" element={<PageWrapper><Placement /></PageWrapper>} />
+            <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
+            <Route path="/blog/:slug" element={<PageWrapper><BlogPost /></PageWrapper>} />
+            <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+            <Route path="/placement-courses" element={<GoogleLanding />} />
+            <Route path="/thank-you" element={<PageWrapper><ThankYou /></PageWrapper>} />
+          </Routes>
+        </AnimatePresence>
+        
+        {!isGoogleLanding && <Footer />}
+        
+        {/* ChatBot for Google Landing page */}
+        {isGoogleLanding && <ChatBot />}
+      </div>
+    </EnrollmentProvider>
   );
 }
 

@@ -17,9 +17,13 @@ import {
   Shield,
   TrendingUp
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import EnrollmentModal from '../../components/courses/EnrollmentModal';
 
-const RegisterCTA = () => {
+const RegisterCTA = ({ onEnrollClick }) => {
+  const navigate = useNavigate();
   const [selectedPlan, setSelectedPlan] = useState('premium');
+  const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false);
 
   const benefits = [
     {
@@ -295,6 +299,7 @@ const RegisterCTA = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = 'tel:+919503182807'}
               className="flex items-center justify-center space-x-3 bg-green-500 text-white p-4 rounded-xl hover:bg-green-600 transition-colors"
             >
               <Phone className="w-5 h-5" />
@@ -304,6 +309,7 @@ const RegisterCTA = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => window.open('https://wa.me/919503182807', '_blank')}
               className="flex items-center justify-center space-x-3 bg-blue-500 text-white p-4 rounded-xl hover:bg-blue-600 transition-colors"
             >
               <MessageCircle className="w-5 h-5" />
@@ -313,6 +319,7 @@ const RegisterCTA = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = 'mailto:info@eeetechnologies.in'}
               className="flex items-center justify-center space-x-3 bg-purple-500 text-white p-4 rounded-xl hover:bg-purple-600 transition-colors"
             >
               <Mail className="w-5 h-5" />
@@ -338,6 +345,7 @@ const RegisterCTA = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={onEnrollClick}
               className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-12 py-4 rounded-lg font-bold text-lg hover:shadow-2xl transition-all duration-200 flex items-center justify-center space-x-2"
             >
               <span>Register Now</span>

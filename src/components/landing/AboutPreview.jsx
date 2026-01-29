@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Database, Brain, Bug } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useScrollAnimation, fadeInUp, staggerContainer, staggerItem } from '../../hooks/useScrollAnimation';
 
 const AboutPreview = () => {
@@ -126,13 +127,15 @@ const AboutPreview = () => {
             variants={fadeInUp}
             className="text-center mt-16"
           >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Explore All Courses
-            </motion.button>
+            <Link to="/courses">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+              >
+                Explore All Courses
+              </motion.button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

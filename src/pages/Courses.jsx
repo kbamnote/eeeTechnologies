@@ -152,10 +152,10 @@ const Courses = () => {
                 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-8 leading-tight tracking-wide drop-shadow-2xl"
               >
                 MASTER
-                <span className="block bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mt-2 mb-3 drop-shadow-xl">
+                <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mt-2 mb-3 drop-shadow-xl">
                   TECHNOLOGY
                 </span>
-                <span className="block bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mt-2 mb-3 drop-shadow-xl">
+                <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mt-2 mb-3 drop-shadow-xl">
                   SKILLS THAT MATTER
                 </span>
               </motion.h1>
@@ -178,7 +178,7 @@ const Courses = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-6 justify-center"
               >
-                <motion.button
+                {/* <motion.button
                   whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(59, 130, 246, 0.3)" }}
                   whileTap={{ scale: 0.95 }}
                   className="
@@ -203,7 +203,7 @@ const Courses = () => {
                   "
                 >
                   Free Resources
-                </motion.button>
+                </motion.button> */}
               </motion.div>
             </div>
           </div>

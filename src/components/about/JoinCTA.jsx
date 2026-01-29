@@ -18,10 +18,12 @@ import {
 } from 'lucide-react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import ContactModal from '../common/ContactModal';
+import EnrollmentModal from '../courses/EnrollmentModal';
 
 const JoinCTA = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false);
   const { ref, controls } = useScrollAnimation();
 
   const containerVariants = {
@@ -155,6 +157,7 @@ const JoinCTA = () => {
                 className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setIsEnrollmentModalOpen(true)}
               >
                 Start Your Journey
                 <ArrowRight className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -164,6 +167,7 @@ const JoinCTA = () => {
                 className="group bg-white/50 backdrop-blur-xl text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setIsContactModalOpen(true)}
               >
                 <Calendar className="w-6 h-6 mr-2" />
                 Book Free Demo
@@ -319,6 +323,7 @@ const JoinCTA = () => {
                   className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center mx-auto"
                   whileHover={{ scale: 1.05, y: -3 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => setIsEnrollmentModalOpen(true)}
                 >
                   Enroll Now - Limited Seats!
                   <Rocket className="w-6 h-6 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
@@ -333,6 +338,17 @@ const JoinCTA = () => {
       <ContactModal 
         isOpen={isContactModalOpen} 
         onClose={() => setIsContactModalOpen(false)} 
+      />
+
+      {/* Enrollment Modal */}
+      <EnrollmentModal 
+        isOpen={isEnrollmentModalOpen} 
+        onClose={() => setIsEnrollmentModalOpen(false)} 
+        courseName="Featured Course"
+        onSubmit={(formData) => {
+          console.log('Enrollment form submitted with data:', formData);
+          // Handle form submission here
+        }}
       />
     </section>
   );

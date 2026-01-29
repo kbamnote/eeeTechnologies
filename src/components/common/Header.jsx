@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Menu, X, GraduationCap } from "lucide-react";
 import logo from '../../assets/logo.png'
+import { useEnrollment } from '../../context/EnrollmentContext';
 
 export default function Header() {
+  const navigate = useNavigate();
+  const { openEnrollmentModal } = useEnrollment();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -83,9 +86,8 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
-            <Link
-              to="/contact"
-              onClick={scrollToTop}
+            <button
+              onClick={() => openEnrollmentModal('General Inquiry')}
               className={`px-4 py-2 text-sm font-medium transition-colors duration-300 ${
                 scrolled 
                   ? 'text-gray-900 hover:text-blue-600' 
@@ -93,7 +95,7 @@ export default function Header() {
               }`}
             >
               Get Started
-            </Link>
+            </button>
             <Link
               to="/courses"
               onClick={scrollToTop}
@@ -147,18 +149,17 @@ export default function Header() {
                 </NavLink>
               ))}
               <div className="pt-4 space-y-3">
-                <Link
-                  to="/contact"
+                <button
+                  onClick={() => {
+                    setOpen(false);
+                    openEnrollmentModal('General Inquiry');
+                  }}
                   className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 ${
                     'text-gray-900 hover:text-blue-600 hover:bg-gray-50'
                   }`}
-                  onClick={() => {
-                    setOpen(false);
-                    scrollToTop();
-                  }}
                 >
                   Get Started
-                </Link>
+                </button>
                 <Link
                   to="/courses"
                   className="block px-4 py-3 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-center shadow-md"

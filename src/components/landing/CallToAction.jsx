@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Star, Users, Award, Zap, CheckCircle, Phone, Mail } from 'lucide-react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import { useNavigate } from 'react-router-dom';
 import ContactModal from '../common/ContactModal';
+import EnrollmentModal from '../courses/EnrollmentModal';
 
 const CallToAction = () => {
   const { ref, controls } = useScrollAnimation();
+  const navigate = useNavigate();
   const [hoveredFeature, setHoveredFeature] = useState(null);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false);
 
   const features = [
     {
@@ -95,6 +99,7 @@ const CallToAction = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => setIsEnrollmentModalOpen(true)}
               className="group px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 justify-center"
             >
               Start Learning Now
@@ -208,6 +213,17 @@ const CallToAction = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Enrollment Modal */}
+      <EnrollmentModal 
+        isOpen={isEnrollmentModalOpen} 
+        onClose={() => setIsEnrollmentModalOpen(false)} 
+        courseName="Featured Course"
+        onSubmit={(formData) => {
+          console.log('Enrollment form submitted with data:', formData);
+          // Handle form submission here
+        }}
+      />
 
       {/* Contact Modal */}
       <ContactModal 

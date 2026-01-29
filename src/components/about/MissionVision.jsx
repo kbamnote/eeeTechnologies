@@ -159,21 +159,21 @@ const MissionVision = () => {
               The principles that guide everything we do and shape our commitment to excellence.
             </p>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto h-full">
               {values.map((value, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="group"
+                  className="group h-full"
                 >
-                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 overflow-hidden hover:shadow-3xl hover:border-gray-300 transition-all duration-500 shadow-lg">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 overflow-hidden hover:shadow-3xl hover:border-gray-300 transition-all duration-500 shadow-lg h-full flex flex-col">
                     <div className={`w-14 h-14 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                       <value.icon className="w-7 h-7 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-3">
+                    <h4 className="text-xl font-bold text-gray-900 mb-3 text-center">
                       {value.title}
                     </h4>
-                    <p className="text-gray-700 text-sm leading-relaxed">
+                    <p className="text-gray-700 text-sm leading-relaxed text-center flex-grow">
                       {value.description}
                     </p>
                   </div>
