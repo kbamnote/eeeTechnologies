@@ -197,27 +197,27 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-blue-950 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-blue-800 text-center"
+        className="bg-[#ffffff] backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-[#0A2540] text-center"
       >
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-          className="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-green-500/30"
+          className="w-20 h-20 bg-[#3B82F6]/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-[#3B82F6]/30"
         >
-          <CheckCircle className="w-10 h-10 text-green-600" />
+          <CheckCircle className="w-10 h-10 text-[#3B82F6]" />
         </motion.div>
-        <h3 className="text-2xl font-bold text-white mb-4">
+        <h3 className="text-2xl font-boldtext-black mb-4">
           Enrollment Request Sent Successfully!
         </h3>
-        <p className="text-blue-200 mb-6">
+        <p className="text-[#3B82F6] mb-6">
           Thank you for your enrollment request. Our team will contact you within 24 hours to confirm your enrollment.
         </p>
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsSubmitted(false)}
-          className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-medium shadow-lg shadow-blue-500/25"
+          className="px-6 py-3 bg-gradient-to-r from-[#0A2540] to-[#3B82F6]text-black rounded-lg hover:from-[#0A2540]/90 hover:to-[#3B82F6]/90 transition-all duration-200 font-medium shadow-lg shadow-[#3B82F6]/25"
         >
           Send Another Request
         </motion.button>
@@ -230,13 +230,13 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="bg-blue-950 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-blue-800"
+      className="bg-[#ffffff] backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-[#0A2540]"
     >
       <motion.div variants={itemVariants} className="mb-8">
-        <h2 className="text-3xl font-bold text-white mb-4">
+        <h2 className="text-3xl font-bold text-black mb-4">
           Enroll in {courseName}
         </h2>
-        <p className="text-blue-200">
+        <p className="text-[#3B82F6]">
           Fill out the form below and our team will contact you shortly about your enrollment.
         </p>
       </motion.div>
@@ -246,7 +246,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-6 p-4 bg-green-500/10 border border-green-500/30 text-green-400 rounded-lg"
+          className="mb-6 p-4 bg-[#3B82F6]/10 border border-[#3B82F6]/30 text-[#3B82F6] rounded-lg"
         >
           ✅ Thank you! Your enrollment request has been sent successfully. We'll get back to you soon.
         </motion.div>
@@ -256,7 +256,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-6 p-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg"
+          className="mb-6 p-4 bg-[#06B6D4]/10 border border-[#06B6D4]/30 text-[#06B6D4] rounded-lg"
         >
           ❌ Sorry, there was an error sending your enrollment request. Please try again or contact us directly.
         </motion.div>
@@ -267,11 +267,11 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
         {/* Name and Email Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-blue-200 mb-2">
+            <label className="block text-sm font-medium text-[#3B82F6] mb-2">
               Full Name *
             </label>
             <div className="relative">
-              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#1F2937]/60 w-5 h-5" />
               <motion.input
                 variants={inputVariants}
                 whileFocus="focus"
@@ -280,8 +280,8 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
                 value={formData.fullName}
                 onChange={handleChange}
                 placeholder="Enter your full name"
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 ${
-                  errors.fullName ? 'border-red-500' : 'border-slate-600/50'
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#ffffff]text-black placeholder-[#3B82F6]/50 transition-all duration-200 ${
+                  errors.fullName ? 'border-[#06B6D4]' : 'border-[#0A2540]/50'
                 }`}
               />
             </div>
@@ -289,7 +289,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-sm text-red-400 flex items-center"
+                className="mt-2 text-sm text-[#06B6D4] flex items-center"
               >
                 <AlertCircle className="w-4 h-4 mr-1" />
                 {errors.fullName}
@@ -298,11 +298,11 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-blue-200 mb-2">
+            <label className="block text-sm font-medium text-[#3B82F6] mb-2">
               Email Address *
             </label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#1F2937]/60 w-5 h-5" />
               <motion.input
                 variants={inputVariants}
                 whileFocus="focus"
@@ -311,8 +311,8 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 ${
-                  errors.email ? 'border-red-500' : 'border-slate-600/50'
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#ffffff]text-black placeholder-[#3B82F6]/50 transition-all duration-200 ${
+                  errors.email ? 'border-[#06B6D4]' : 'border-[#0A2540]/50'
                 }`}
               />
             </div>
@@ -320,7 +320,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-sm text-red-400 flex items-center"
+                className="mt-2 text-sm text-[#06B6D4] flex items-center"
               >
                 <AlertCircle className="w-4 h-4 mr-1" />
                 {errors.email}
@@ -331,11 +331,11 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
 
         {/* Phone */}
         <motion.div variants={itemVariants}>
-          <label className="block text-sm font-medium text-blue-200 mb-2">
+          <label className="block text-sm font-medium text-[#3B82F6] mb-2">
             Phone Number
           </label>
           <div className="relative">
-            <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#1F2937]/60 w-5 h-5" />
             <motion.input
               variants={inputVariants}
               whileFocus="focus"
@@ -344,8 +344,8 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
               value={formData.phoneNo}
               onChange={handleChange}
               placeholder="Enter your phone number"
-              className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 ${
-                errors.phoneNo ? 'border-red-500' : 'border-slate-600/50'
+              className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#ffffff]text-black placeholder-[#3B82F6]/50 transition-all duration-200 ${
+                errors.phoneNo ? 'border-[#06B6D4]' : 'border-[#0A2540]/50'
               }`}
             />
           </div>
@@ -353,7 +353,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
             <motion.p
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-2 text-sm text-red-400 flex items-center"
+              className="mt-2 text-sm text-[#06B6D4] flex items-center"
             >
               <AlertCircle className="w-4 h-4 mr-1" />
               {errors.phoneNo}
@@ -364,11 +364,11 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
         {/* Age and Gender Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-blue-200 mb-2">
+            <label className="block text-sm font-medium text-[#3B82F6] mb-2">
               Age
             </label>
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#1F2937]/60 w-5 h-5" />
               <motion.input
                 variants={inputVariants}
                 whileFocus="focus"
@@ -377,8 +377,8 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
                 value={formData.age}
                 onChange={handleChange}
                 placeholder="Enter your age"
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 ${
-                  errors.age ? 'border-red-500' : 'border-slate-600/50'
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#ffffff]text-black placeholder-[#3B82F6]/50 transition-all duration-200 ${
+                  errors.age ? 'border-[#06B6D4]' : 'border-[#0A2540]/50'
                 }`}
               />
             </div>
@@ -386,7 +386,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
                 <motion.p
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mt-2 text-sm text-red-400 flex items-center"
+                  className="mt-2 text-sm text-[#06B6D4] flex items-center"
                 >
                   <AlertCircle className="w-4 h-4 mr-1" />
                   {errors.age}
@@ -395,19 +395,19 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-blue-200 mb-2">
+            <label className="block text-sm font-medium text-[#3B82F6] mb-2">
               Gender
             </label>
             <div className="relative">
-              <UserCircle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <UserCircle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#1F2937]/60 w-5 h-5" />
               <motion.select
                 variants={inputVariants}
                 whileFocus="focus"
                 name="gender"
                 value={formData.gender}
                 onChange={handleChange}
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 appearance-none ${
-                  errors.gender ? 'border-red-500' : 'border-slate-600/50'
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#ffffff]text-black placeholder-[#3B82F6]/50 transition-all duration-200 appearance-none ${
+                  errors.gender ? 'border-[#06B6D4]' : 'border-[#0A2540]/50'
                 }`}
               >
                 <option value="">Select Gender</option>
@@ -420,7 +420,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-sm text-red-400 flex items-center"
+                className="mt-2 text-sm text-[#06B6D4] flex items-center"
               >
                 <AlertCircle className="w-4 h-4 mr-1" />
                 {errors.gender}
@@ -432,11 +432,11 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
         {/* Location and Qualification Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-blue-200 mb-2">
+            <label className="block text-sm font-medium text-[#3B82F6] mb-2">
               Location
             </label>
             <div className="relative">
-              <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#1F2937]/60 w-5 h-5" />
               <motion.input
                 variants={inputVariants}
                 whileFocus="focus"
@@ -445,8 +445,8 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
                 value={formData.location}
                 onChange={handleChange}
                 placeholder="Enter your location"
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 ${
-                  errors.location ? 'border-red-500' : 'border-slate-600/50'
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#ffffff]text-black placeholder-[#3B82F6]/50 transition-all duration-200 ${
+                  errors.location ? 'border-[#06B6D4]' : 'border-[#0A2540]/50'
                 }`}
               />
             </div>
@@ -454,7 +454,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-sm text-red-400 flex items-center"
+                className="mt-2 text-sm text-[#06B6D4] flex items-center"
               >
                 <AlertCircle className="w-4 h-4 mr-1" />
                 {errors.location}
@@ -463,11 +463,11 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-medium text-blue-200 mb-2">
+            <label className="block text-sm font-medium text-[#3B82F6] mb-2">
               Qualification
             </label>
             <div className="relative">
-              <GraduationCap className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <GraduationCap className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#1F2937]/60 w-5 h-5" />
               <motion.input
                 variants={inputVariants}
                 whileFocus="focus"
@@ -476,8 +476,8 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
                 value={formData.qualification}
                 onChange={handleChange}
                 placeholder="Enter your qualification"
-                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 ${
-                  errors.qualification ? 'border-red-500' : 'border-slate-600/50'
+                className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#f8f8f8]text-black placeholder-[#3B82F6]/50 transition-all duration-200 ${
+                  errors.qualification ? 'border-[#06B6D4]' : 'border-[#0A2540]/50'
                 }`}
               />
             </div>
@@ -485,7 +485,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-sm text-red-400 flex items-center"
+                className="mt-2 text-sm text-[#06B6D4] flex items-center"
               >
                 <AlertCircle className="w-4 h-4 mr-1" />
                 {errors.qualification}
@@ -496,11 +496,11 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
 
         {/* Message */}
         <motion.div variants={itemVariants}>
-          <label className="block text-sm font-medium text-blue-200 mb-2">
+          <label className="block text-sm font-medium text-[#3B82F6] mb-2">
             Message *
           </label>
           <div className="relative">
-            <MessageSquare className="absolute left-3 top-4 text-gray-400 w-5 h-5" />
+            <MessageSquare className="absolute left-3 top-4 text-[#1F2937]/60 w-5 h-5" />
             <motion.textarea
               variants={inputVariants}
               whileFocus="focus"
@@ -509,8 +509,8 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
               onChange={handleChange}
               rows={6}
               placeholder="Tell us about your interest in this course..."
-              className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200 resize-none ${
-                errors.message ? 'border-red-500' : 'border-slate-600/50'
+              className={`w-full pl-12 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#ffffff]text-black placeholder-[#3B82F6]/50 transition-all duration-200 resize-none ${
+                errors.message ? 'border-[#06B6D4]' : 'border-[#0A2540]/50'
               }`}
             />
           </div>
@@ -518,7 +518,7 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
             <motion.p
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-2 text-sm text-red-400 flex items-center"
+              className="mt-2 text-sm text-[#06B6D4] flex items-center"
             >
               <AlertCircle className="w-4 h-4 mr-1" />
               {errors.message}
@@ -533,10 +533,10 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
             disabled={isSubmitting}
             whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
             whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-            className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-200 flex items-center justify-center ${
+            className={`w-full py-4 px-6 rounded-xl font-semiboldtext-black transition-all duration-200 flex items-center justify-center ${
               isSubmitting
-                ? 'bg-slate-600 cursor-not-allowed'
-                : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-blue-500/25'
+                ? 'bg-[#ffffff] cursor-not-allowed'
+                : 'bg-gradient-to-r from-[#0A2540] to-[#3B82F6] hover:from-[#0A2540]/90 hover:to-[#3B82F6]/90 shadow-lg hover:shadow-[#3B82F6]/25'
             }`}
           >
             {isSubmitting ? (
@@ -557,9 +557,9 @@ const EnrollmentForm = ({ courseName, onSubmit }) => {
       {/* Additional Info */}
       <motion.div
         variants={itemVariants}
-        className="mt-8 pt-6 border-t border-slate-700/50"
+        className="mt-8 pt-6 border-t border-[#1F2937]/20"
       >
-        <p className="text-sm text-gray-400 text-center">
+        <p className="text-sm text-[#1F2937]/60 text-center">
           We typically respond within 24 hours. For urgent inquiries, please call us directly.
         </p>
       </motion.div>

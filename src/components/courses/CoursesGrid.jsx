@@ -224,7 +224,7 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
         whileHover={{ y: -8, scale: 1.02 }}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
-        className="bg-blue-950 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-blue-800 group"
+        className="bg-[#3B82F6]/5 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-[#3B82F6]/30 group"
       >
         {/* Course Image */}
         <div className="relative h-48 overflow-hidden">
@@ -237,12 +237,12 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
           {/* Badges */}
           <div className="absolute top-4 left-4 flex flex-col gap-2">
             {course.isBestseller && (
-              <span className="px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full">
+              <span className="px-3 py-1 bg-[#3B82F6] text-white text-xs font-bold rounded-full">
                 BESTSELLER
               </span>
             )}
             {course.isPopular && (
-              <span className="px-3 py-1 bg-purple-500 text-white text-xs font-bold rounded-full">
+              <span className="px-3 py-1 bg-[#06B6D4] text-white text-xs font-bold rounded-full">
                 POPULAR
               </span>
             )}
@@ -259,16 +259,16 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
               whileTap={{ scale: 0.9 }}
               className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg"
             >
-              <Play className="w-6 h-6 text-purple-600 ml-1" />
+              <Play className="w-6 h-6 text-[#0A2540] ml-1" />
             </motion.button>
           </motion.div>
 
           {/* Price Badge */}
           <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-2 shadow-lg">
             <div className="text-right">
-              <div className="text-lg font-bold text-purple-600">₹{course.price?.toLocaleString()}</div>
+              <div className="text-lg font-bold text-[#3B82F6]">₹{course.price?.toLocaleString()}</div>
               {course.originalPrice && (
-                <div className="text-sm text-gray-500 line-through">₹{course.originalPrice?.toLocaleString()}</div>
+                <div className="text-sm text-[#1F2937]/50 line-through">₹{course.originalPrice?.toLocaleString()}</div>
               )}
             </div>
           </div>
@@ -278,21 +278,21 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
         <div className="p-6">
           {/* Category & Level */}
           <div className="flex items-center justify-between mb-3">
-            <span className="px-3 py-1 bg-blue-800 text-blue-200 text-sm font-medium rounded-full">
+            <span className="px-3 py-1 bg-[#3B82F6]/30 text-[#3B82F6] text-sm font-medium rounded-full">
               {course.category}
             </span>
-            <span className="text-sm text-blue-300">
+            <span className="text-sm text-[#3B82F6]/80">
               {course.level}
             </span>
           </div>
 
           {/* Title */}
-          <h3 className="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-blue-300 transition-colors duration-200">
+          <h3 className="text-xl font-bold text-[#1F2937] mb-3 line-clamp-2 group-hover:text-[#3B82F6] transition-colors duration-200">
             {course.title}
           </h3>
 
           {/* Description */}
-          <p className="text-blue-200 mb-4 line-clamp-2 text-sm leading-relaxed">
+          <p className="text-[#1F2937]/70 mb-4 line-clamp-2 text-sm leading-relaxed">
             {course.description}
           </p>
 
@@ -303,13 +303,13 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
               alt={course.instructor}
               className="w-8 h-8 rounded-full mr-3 object-cover"
             />
-            <span className="text-sm text-blue-200">
+            <span className="text-sm text-[#1F2937]/70">
               {course.instructor}
             </span>
           </div>
 
           {/* Stats */}
-          <div className="flex items-center justify-between mb-4 text-sm text-blue-300">
+          <div className="flex items-center justify-between mb-4 text-sm text-[#1F2937]/70">
             <div className="flex items-center">
               <Clock className="w-4 h-4 mr-1" />
               <span>{course.duration}</span>
@@ -319,7 +319,7 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
               <span>{course.students?.toLocaleString()}</span>
             </div>
             <div className="flex items-center">
-              <Star className="w-4 h-4 mr-1 text-yellow-500" />
+              <Star className="w-4 h-4 mr-1 text-[#06B6D4]" />
               <span>{course.rating}</span>
               <span className="ml-1">({course.reviews})</span>
             </div>
@@ -331,13 +331,13 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
               {course.skills?.slice(0, 4).map((skill, index) => (
                 <span
                   key={skill}
-                  className="px-2 py-1 bg-blue-800 text-blue-200 text-xs rounded-md"
+                  className="px-2 py-1 bg-[#3B82F6]/20 text-[#3B82F6] text-xs rounded-md"
                 >
                   {skill}
                 </span>
               ))}
               {course.skills?.length > 4 && (
-                <span className="px-2 py-1 bg-blue-800 text-blue-200 text-xs rounded-md">
+                <span className="px-2 py-1 bg-[#3B82F6]/20 text-[#3B82F6] text-xs rounded-md">
                   +{course.skills.length - 4} more
                 </span>
               )}
@@ -348,8 +348,8 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
           <div className="mb-6">
             <div className="grid grid-cols-2 gap-2">
               {course.features?.slice(0, 4).map((feature, index) => (
-                <div key={feature} className="flex items-center text-xs text-blue-200">
-                  <CheckCircle className="w-3 h-3 mr-1 text-green-500" />
+                <div key={feature} className="flex items-center text-xs text-[#1F2937]/70">
+                  <CheckCircle className="w-3 h-3 mr-1 text-[#3B82F6]" />
                   <span>{feature}</span>
                 </div>
               ))}
@@ -357,12 +357,12 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
           </div>
 
           {/* Next Batch */}
-          <div className="flex items-center justify-between mb-6 p-3 bg-blue-800 rounded-lg">
+          <div className="flex items-center justify-between mb-6 p-3 bg-[#3B82F6]/20 rounded-lg">
             <div className="flex items-center text-sm">
-              <Calendar className="w-4 h-4 mr-2 text-blue-400" />
-              <span className="text-blue-200">Next Batch:</span>
+              <Calendar className="w-4 h-4 mr-2 text-[#3B82F6]/70" />
+              <span className="text-[#1F2937]/70">Next Batch:</span>
             </div>
-            <span className="text-sm font-semibold text-blue-300">
+            <span className="text-sm font-semibold text-[#3B82F6]">
               {course.nextBatch}
             </span>
           </div>
@@ -372,7 +372,7 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => handleEnrollClick(course)}
-            className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-200 flex items-center justify-center group/btn"
+            className="w-full bg-gradient-to-r from-[#0A2540] to-[#3B82F6] text-white font-semibold py-3 rounded-xl hover:from-[#0A2540]/90 hover:to-[#3B82F6]/90 transition-all duration-200 flex items-center justify-center group/btn"
           >
             <span>Enroll Now</span>
             <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
@@ -386,10 +386,10 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
     return (
       <div className="space-y-8">
         <div className="animate-pulse">
-          <div className="h-12 bg-gray-200 rounded-lg mb-6"></div>
+          <div className="h-12 bg-[#F8FAFC] rounded-lg mb-6"></div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="bg-gray-200 rounded-2xl h-96"></div>
+              <div key={i} className="bg-[#F8FAFC] rounded-2xl h-96"></div>
             ))}
           </div>
         </div>
@@ -407,17 +407,17 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
       {/* Filters */}
       <motion.div
         variants={cardVariants}
-        className="bg-blue-950 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-blue-800"
+        className="bg-[#3B82F6]/5 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-[#3B82F6]/30"
       >
         {/* Search */}
         <div className="relative mb-6">
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#1F2937]/60 w-5 h-5" />
           <input
             type="text"
             placeholder="Search courses, skills, or instructors..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 border border-blue-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200"
+            className="w-full pl-12 pr-4 py-3 border border-[#3B82F6]/50 rounded-xl focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#3B82F6]/10 text-[#1F2937] placeholder-[#1F2937]/60 transition-all duration-200"
           />
         </div>
 
@@ -425,13 +425,13 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {/* Category Filter */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-[#1F2937] mb-2">
               Category
             </label>
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full px-3 py-2 border border-blue-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white text-sm"
+              className="w-full px-3 py-2 border border-[#3B82F6]/50 rounded-lg focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#3B82F6]/10 text-[#1F2937] text-sm"
             >
               {categories.map(category => (
                 <option key={category.id} value={category.id}>
@@ -443,13 +443,13 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
 
           {/* Level Filter */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-[#1F2937] mb-2">
               Level
             </label>
             <select
               value={selectedLevel}
               onChange={(e) => setSelectedLevel(e.target.value)}
-              className="w-full px-3 py-2 border border-blue-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white text-sm"
+              className="w-full px-3 py-2 border border-[#3B82F6]/50 rounded-lg focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#3B82F6]/10 text-[#1F2937] text-sm"
             >
               {levels.map(level => (
                 <option key={level.id} value={level.id}>
@@ -461,13 +461,13 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
 
           {/* Sort Filter */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-[#1F2937] mb-2">
               Sort By
             </label>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="w-full px-3 py-2 border border-blue-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white text-sm"
+              className="w-full px-3 py-2 border border-[#3B82F6]/50 rounded-lg focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#3B82F6]/10 text-[#1F2937] text-sm"
             >
               {sortOptions.map(option => (
                 <option key={option.id} value={option.id}>
@@ -479,8 +479,8 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
 
           {/* Results Count */}
           <div className="flex items-end">
-            <div className="text-sm text-gray-600">
-              <span className="font-semibold text-purple-600">{filteredCourses.length}</span> courses found
+            <div className="text-sm text-[#1F2937]/70">
+              <span className="font-semibold text-[#3B82F6]">{filteredCourses.length}</span> courses found
             </div>
           </div>
         </div>
@@ -505,13 +505,13 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
               variants={cardVariants}
               className="col-span-full text-center py-12"
             >
-              <div className="text-gray-400 mb-4">
+              <div className="text-[#1F2937]/60 mb-4">
                 <BookOpen className="w-16 h-16 mx-auto mb-4 opacity-50" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-600 mb-2">
+              <h3 className="text-xl font-semibold text-[#1F2937] mb-2">
                 No courses found
               </h3>
-              <p className="text-gray-500">
+              <p className="text-[#1F2937]/70">
                 Try adjusting your search terms or filters
               </p>
             </motion.div>

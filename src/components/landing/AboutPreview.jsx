@@ -39,7 +39,7 @@ const AboutPreview = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
+    <section className="py-20 bg-[#F8FAFC] relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
@@ -60,10 +60,10 @@ const AboutPreview = () => {
             variants={fadeInUp}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F2937] leading-tight mb-4">
               Our Courses
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-[#1F2937] max-w-3xl mx-auto">
               Choose from our industry-leading programs designed to transform your career
             </p>
           </motion.div>
@@ -93,17 +93,17 @@ const AboutPreview = () => {
                           initial={{ scale: 0 }}
                           animate={isInView ? { scale: 1 } : {}}
                           transition={{ delay: index * 0.2, type: "spring" }}
-                          className="text-4xl md:text-5xl font-bold text-blue-600"
+                          className="text-4xl md:text-5xl font-bold text-[#3B82F6]"
                         >
                           {course.number}
                         </motion.div>
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-4">
-                            <div className={`w-12 h-12 bg-gradient-to-br ${course.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                            <div className={`w-12 h-12 bg-[#3B82F6] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                               <course.icon className="w-6 h-6 text-white" />
                             </div>
                           </div>
-                          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 leading-tight">
+                          <h3 className="text-xl md:text-2xl font-bold text-[#1F2937] mb-2 leading-tight">
                             {course.title}
                           </h3>
                         </div>
@@ -112,7 +112,7 @@ const AboutPreview = () => {
 
                     {/* Right - Description */}
                     <div className="lg:col-span-7">
-                      <p className="text-gray-700 leading-relaxed text-base">
+                      <p className="text-[#1F2937] leading-relaxed text-base">
                         {course.description}
                       </p>
                     </div>
@@ -131,7 +131,7 @@ const AboutPreview = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center px-10 py-4 bg-[#3B82F6] hover:bg-[#2563EB] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
               >
                 Explore All Courses
               </motion.button>

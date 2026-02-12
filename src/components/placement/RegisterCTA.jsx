@@ -93,7 +93,7 @@ const RegisterCTA = ({ onEnrollClick }) => {
         '6 months post-placement support',
         'Industry networking events'
       ],
-      color: 'purple'
+      color: 'navy'
     },
     {
       id: 'enterprise',
@@ -154,21 +154,12 @@ const RegisterCTA = ({ onEnrollClick }) => {
   };
 
   const getPlanColorClasses = (color, isSelected) => {
-    const colorMap = {
-      blue: isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white/80',
-      purple: isSelected ? 'border-purple-500 bg-purple-50' : 'border-gray-200 bg-white/80',
-      gold: isSelected ? 'border-yellow-500 bg-yellow-50' : 'border-gray-200 bg-white/80'
-    };
-    return colorMap[color] || 'border-gray-200 bg-white/80';
+    // Styling simplified to theme colors
+    return isSelected ? 'border-[#3B82F6] bg-[#3B82F6]/5' : 'border-gray-200 bg-white/80';
   };
 
   const getPlanButtonClasses = (color) => {
-    const colorMap = {
-      blue: 'bg-gradient-to-r from-blue-500 to-cyan-500',
-      purple: 'bg-gradient-to-r from-purple-500 to-pink-500',
-      gold: 'bg-gradient-to-r from-yellow-500 to-orange-500'
-    };
-    return colorMap[color] || 'bg-gradient-to-r from-gray-500 to-gray-600';
+    return 'bg-gradient-to-r from-[#0A2540] to-[#3B82F6]';
   };
 
   return (
@@ -184,14 +175,14 @@ const RegisterCTA = ({ onEnrollClick }) => {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-medium mb-4"
+          className="inline-block bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white px-6 py-2 rounded-full text-sm font-medium mb-4"
         >
           🚀 Limited Time Offer - 30% Off
         </motion.div>
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#1F2937] mb-4">
           Transform Your Career Today
         </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-xl text-[#1F2937]/70 max-w-3xl mx-auto">
           Join our proven placement program and land your dream job in just 19 weeks. 
           Don't let this opportunity slip away!
         </p>
@@ -199,20 +190,20 @@ const RegisterCTA = ({ onEnrollClick }) => {
 
       {/* Urgency Banner */}
       <motion.div variants={cardVariants}>
-        <div className="bg-gradient-to-r from-red-500 to-pink-500 rounded-2xl p-6 text-white">
+        <div className="bg-gradient-to-r from-[#0A2540] to-[#3B82F6] rounded-2xl p-6 text-white">
           <div className="text-center mb-4">
             <h3 className="text-2xl font-bold mb-2">⏰ Hurry! Limited Time Offer</h3>
-            <p className="text-red-100">This exclusive discount expires in:</p>
+            <p className="text-[#F8FAFC]/90">This exclusive discount expires in:</p>
           </div>
           
           {/* Countdown Timer */}
           <div className="flex justify-center space-x-4 mb-6">
             {['02', '15', '30', '45'].map((time, index) => (
               <div key={index} className="text-center">
-                <div className="bg-white/20 rounded-lg p-3 min-w-[60px]">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 min-w-[60px] border border-white/20">
                   <div className="text-2xl font-bold">{time}</div>
                 </div>
-                <div className="text-xs mt-1 text-red-100">
+                <div className="text-xs mt-1 text-[#F8FAFC]/80">
                   {['Days', 'Hours', 'Mins', 'Secs'][index]}
                 </div>
               </div>
@@ -223,9 +214,9 @@ const RegisterCTA = ({ onEnrollClick }) => {
             {urgencyFeatures.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <div key={index} className="flex items-center space-x-2 text-sm">
-                  <IconComponent className="w-4 h-4 text-red-200" />
-                  <span className="text-red-100">{feature.text}</span>
+                <div key={index} className="flex items-center space-x-2 text-sm justify-center md:justify-start">
+                  <IconComponent className="w-4 h-4 text-[#06B6D4]" />
+                  <span className="text-[#F8FAFC]">{feature.text}</span>
                 </div>
               );
             })}
@@ -243,15 +234,15 @@ const RegisterCTA = ({ onEnrollClick }) => {
                 key={index}
                 variants={cardVariants}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20 text-center"
+                className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-[#3B82F6]/20 text-center hover:border-[#3B82F6] transition-colors duration-300"
               >
-                <div className="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#0A2540]/5 text-[#0A2540] rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <IconComponent className="w-8 h-8" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <h3 className="text-lg font-bold text-[#1F2937] mb-2">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-[#1F2937]/70 text-sm">
                   {benefit.description}
                 </p>
               </motion.div>
@@ -260,14 +251,12 @@ const RegisterCTA = ({ onEnrollClick }) => {
         </div>
       </motion.div>
 
-     
-
       {/* Stats */}
       <motion.div variants={cardVariants}>
-        <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-8 text-white">
+        <div className="bg-gradient-to-r from-[#0A2540] to-[#3B82F6] rounded-2xl p-8 text-white">
           <div className="text-center mb-8">
             <h3 className="text-3xl font-bold mb-4">Join Our Success Community</h3>
-            <p className="text-purple-100 text-lg">
+            <p className="text-[#F8FAFC]/80 text-lg">
               Thousands of students have already transformed their careers
             </p>
           </div>
@@ -276,7 +265,7 @@ const RegisterCTA = ({ onEnrollClick }) => {
             {testimonialStats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-3xl font-bold mb-2">{stat.value}</div>
-                <div className="text-purple-100">{stat.label}</div>
+                <div className="text-[#F8FAFC]/70">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -285,12 +274,12 @@ const RegisterCTA = ({ onEnrollClick }) => {
 
       {/* Contact Options */}
       <motion.div variants={cardVariants}>
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-[#3B82F6]/20">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Need Help Choosing? Talk to Our Experts
             </h3>
-            <p className="text-gray-600">
+            <p className="text-[#1F2937]/70">
               Get personalized guidance from our career counselors
             </p>
           </div>
@@ -300,7 +289,7 @@ const RegisterCTA = ({ onEnrollClick }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => window.location.href = 'tel:+919503182807'}
-              className="flex items-center justify-center space-x-3 bg-green-500 text-white p-4 rounded-xl hover:bg-green-600 transition-colors"
+              className="flex items-center justify-center space-x-3 bg-[#0A2540] text-white p-4 rounded-xl hover:bg-[#0A2540]/90 transition-colors"
             >
               <Phone className="w-5 h-5" />
               <span className="font-medium">Call Now</span>
@@ -310,7 +299,7 @@ const RegisterCTA = ({ onEnrollClick }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => window.open('https://wa.me/919503182807', '_blank')}
-              className="flex items-center justify-center space-x-3 bg-blue-500 text-white p-4 rounded-xl hover:bg-blue-600 transition-colors"
+              className="flex items-center justify-center space-x-3 bg-[#3B82F6] text-white p-4 rounded-xl hover:bg-[#2563EB] transition-colors"
             >
               <MessageCircle className="w-5 h-5" />
               <span className="font-medium">Live Chat</span>
@@ -320,7 +309,7 @@ const RegisterCTA = ({ onEnrollClick }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => window.location.href = 'mailto:info@eeetechnologies.in'}
-              className="flex items-center justify-center space-x-3 bg-purple-500 text-white p-4 rounded-xl hover:bg-purple-600 transition-colors"
+              className="flex items-center justify-center space-x-3 bg-[#06B6D4] text-white p-4 rounded-xl hover:bg-[#0891B2] transition-colors"
             >
               <Mail className="w-5 h-5" />
               <span className="font-medium">Email Us</span>
@@ -331,12 +320,12 @@ const RegisterCTA = ({ onEnrollClick }) => {
 
       {/* Final CTA */}
       <motion.div variants={cardVariants}>
-        <div className="text-center bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-12 text-white">
-          <Zap className="w-20 h-20 text-yellow-400 mx-auto mb-6" />
+        <div className="text-center bg-[#0A2540] rounded-2xl p-12 text-white border border-[#3B82F6]/30">
+          <Zap className="w-20 h-20 text-[#06B6D4] mx-auto mb-6" />
           <h3 className="text-4xl font-bold mb-4">
             Your Dream Career Awaits
           </h3>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-[#F8FAFC]/70 mb-8 max-w-2xl mx-auto">
             Don't wait another day to start your transformation. Join thousands of successful 
             graduates who took the leap and changed their lives forever.
           </p>
@@ -346,7 +335,7 @@ const RegisterCTA = ({ onEnrollClick }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={onEnrollClick}
-              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-12 py-4 rounded-lg font-bold text-lg hover:shadow-2xl transition-all duration-200 flex items-center justify-center space-x-2"
+              className="bg-[#3B82F6] hover:bg-[#2563EB] text-white px-12 py-4 rounded-lg font-bold text-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-200 flex items-center justify-center space-x-2"
             >
               <span>Register Now</span>
               <ArrowRight className="w-5 h-5" />
@@ -355,13 +344,13 @@ const RegisterCTA = ({ onEnrollClick }) => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="border-2 border-white text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-gray-900 transition-all duration-200"
+              className="border-2 border-white text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-[#0A2540] transition-all duration-200"
             >
               Book Free Demo
             </motion.button>
           </div>
 
-          <div className="mt-8 text-sm text-gray-400">
+          <div className="mt-8 text-sm text-[#F8FAFC]/50">
             <p>✅ No hidden fees • ✅ 100% job guarantee • ✅ EMI options available</p>
           </div>
         </div>

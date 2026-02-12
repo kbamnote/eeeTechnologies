@@ -6,12 +6,14 @@ import FeaturedCourses from '../components/courses/FeaturedCourses';
 // import CategorySidebar from '../components/courses/CategorySidebar';
 // import SearchFilter from '../components/courses/SearchFilter';
 import EnrollBanner from '../components/courses/EnrollBanner';
+import EnrollmentModal from '../components/courses/EnrollmentModal';
 import coursesBanner from '../assets/courses.jpg';
 
 const Courses = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false);
   const [filters, setFilters] = useState({
     difficulty: [],
     duration: [],
@@ -104,22 +106,34 @@ const Courses = () => {
           />
 
           {/* Backdrop Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A2540]/90 via-[#0A2540]/80 to-[#0A2540]/90"></div>
           
-          {/* Animated Grid Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)`,
-              backgroundSize: '40px 40px'
-            }}></div>
-          </div>
-        </div>
+          {/* Animated Gradient Overlays */}
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-[#3B82F6]/20 to-transparent blur-3xl"
+          />
 
-        {/* Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 right-20 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-200/30 rounded-full blur-3xl" />
+          <motion.div
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-[#06B6D4]/20 to-transparent blur-3xl"
+          />
         </div>
 
         {/* Content */}
@@ -135,13 +149,10 @@ const Courses = () => {
                 className="
                   inline-flex
                   items-center
-                  px-6 py-3 bg-white/95 backdrop-blur-lg border border-white/50 rounded-full 
-                  text-blue-800 text-sm font-bold mb-8 shadow-2xl
-                  hover:bg-white transition-all duration-300
+                  px-6 py-3 bg-white/10 backdrop-blur-lg border border-white/20 rounded-full 
+                  text-white text-sm font-bold mb-8 shadow-2xl
                 ">
-                <div className="w-3 h-3 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mr-3 flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-                </div>
+                <span className="w-2 h-2 bg-[#3B82F6] rounded-full mr-2 animate-pulse"></span>
                 TRANSFORM YOUR FUTURE
               </motion.div>
               
@@ -149,13 +160,13 @@ const Courses = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-8 leading-tight tracking-wide drop-shadow-2xl"
+                className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-8 leading-tight tracking-wide drop-shadow-xl"
               >
                 MASTER
-                <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mt-2 mb-3 drop-shadow-xl">
+                <span className="block bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#3B82F6] bg-clip-text text-transparent mt-2 mb-3 drop-shadow-sm">
                   TECHNOLOGY
                 </span>
-                <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mt-2 mb-3 drop-shadow-xl">
+                <span className="block bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#3B82F6] bg-clip-text text-transparent mt-2 mb-3 drop-shadow-sm">
                   SKILLS THAT MATTER
                 </span>
               </motion.h1>
@@ -164,7 +175,7 @@ const Courses = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-lg sm:text-xl text-white mb-12 leading-relaxed max-w-4xl mx-auto drop-shadow-xl font-medium"
+                className="text-lg sm:text-xl text-white/90 mb-12 leading-relaxed max-w-4xl mx-auto drop-shadow-lg font-medium"
               >
                 Discover our comprehensive range of cutting-edge technology courses 
                 <span className="text-white font-semibold"> designed by industry experts</span>. 
@@ -178,14 +189,15 @@ const Courses = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-6 justify-center"
               >
-                {/* <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(59, 130, 246, 0.3)" }}
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => setIsEnrollmentModalOpen(true)}
                   className="
-                    bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 
+                    bg-[#3B82F6] hover:bg-[#2563EB] 
                     text-white font-bold px-10 py-5 rounded-2xl 
                     shadow-2xl hover:shadow-blue-500/30 transition-all duration-300
-                    text-lg tracking-wide uppercase
+                    text-lg tracking-wide flex items-center justify-center
                   "
                 >
                   Explore Courses
@@ -196,14 +208,14 @@ const Courses = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="
-                    bg-white/90 backdrop-blur-md text-gray-800 font-bold px-10 py-5 
-                    rounded-2xl border-2 border-white/50 
-                    hover:bg-white hover:border-white transition-all duration-300 
+                    bg-white/10 backdrop-blur-md text-white font-bold px-10 py-5 
+                    rounded-2xl border border-white/20 
+                    hover:bg-white/20 transition-all duration-300 
                     shadow-xl text-lg tracking-wide
                   "
                 >
                   Free Resources
-                </motion.button> */}
+                </motion.button>
               </motion.div>
             </div>
           </div>
@@ -242,10 +254,20 @@ const Courses = () => {
         </div>
       </section>
 
-      {/* Enrollment Banner */}
       <motion.section variants={itemVariants} className="py-2">
         <EnrollBanner />
       </motion.section>
+
+      {/* Enrollment Modal */}
+      <EnrollmentModal 
+        isOpen={isEnrollmentModalOpen} 
+        onClose={() => setIsEnrollmentModalOpen(false)} 
+        courseName="General Course Inquiry"
+        onSubmit={(formData) => {
+          console.log('Enrollment form submitted with data:', formData);
+          // Handle form submission here
+        }}
+      />
     </div>
   );
 };

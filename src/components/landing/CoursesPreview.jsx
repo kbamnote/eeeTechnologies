@@ -92,7 +92,7 @@ const CoursesPreview = () => {
   }, [courses.length]);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
+    <section className="py-20 bg-[#F8FAFC] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
@@ -103,19 +103,19 @@ const CoursesPreview = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-5 py-2.5 bg-blue-100 border border-blue-300 rounded-full text-blue-700 text-sm font-semibold mb-6">
+          <div className="inline-flex items-center px-5 py-2.5 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-full text-[#3B82F6] text-sm font-semibold mb-6">
             <Code className="w-4 h-4 mr-2" />
             Professional Training Programs
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-bold text-[#1F2937] mb-6 tracking-tight">
             Transform Your Career with
-            <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mt-2">
+            <span className="block text-[#3B82F6] mt-2">
               Industry-Leading Courses
             </span>
           </h2>
 
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-[#1F2937] max-w-2xl mx-auto">
             Comprehensive programs designed by industry experts to help you master in-demand skills 
             and accelerate your career growth.
           </p>
@@ -133,7 +133,7 @@ const CoursesPreview = () => {
                   key={course.id}
                   className="w-full flex-shrink-0 px-2"
                 >
-                  <div className="max-w-5xl mx-auto bg-blue-950 backdrop-blur-xl rounded-3xl shadow-2xl border border-blue-800 overflow-hidden hover:shadow-3xl hover:border-blue-700 transition-all duration-500">
+                  <div className="max-w-5xl mx-auto bg-[#0A2540] backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-800 overflow-hidden hover:shadow-3xl hover:border-gray-700 transition-all duration-500">
                     <div className="grid md:grid-cols-2">
                       {/* Left Side - Course Info */}
                       <div className="p-6 md:p-8 lg:p-12 flex flex-col justify-between">
@@ -143,7 +143,7 @@ const CoursesPreview = () => {
                           {/* Header */}
                           <div>
                             <div className="flex items-center gap-4 mb-6">
-                              <div className={`w-16 h-16 bg-gradient-to-br ${course.color} rounded-2xl flex items-center justify-center shadow-lg`}>
+                              <div className={`w-16 h-16 bg-[#3B82F6] rounded-2xl flex items-center justify-center shadow-lg`}>
                                 <course.icon className="w-8 h-8 text-white" />
                               </div>
                               <span className={`px-4 py-1.5 text-white text-sm font-bold rounded-full shadow-md ${

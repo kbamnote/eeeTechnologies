@@ -119,7 +119,7 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
+    <section className="py-20 bg-[#F8FAFC] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
@@ -130,16 +130,16 @@ const WhyChooseUs = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center px-5 py-2.5 bg-blue-100 border border-blue-300 rounded-full text-blue-700 text-sm font-semibold mb-4">
+          <div className="inline-flex items-center px-5 py-2.5 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-full text-[#3B82F6] text-sm font-semibold mb-4">
             <Star className="w-4 h-4 mr-2" />
             Why Choose eee Technologies
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
-            Your Success is Our <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Priority</span>
+          <h2 className="text-5xl md:text-6xl font-bold text-[#1F2937] mb-4 tracking-tight">
+            Your Success is Our <span className="text-[#3B82F6]">Priority</span>
           </h2>
 
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-[#1F2937] max-w-2xl mx-auto">
             Join thousands of successful professionals who transformed their careers with our industry-leading training programs and comprehensive support system.
           </p>
         </div>
@@ -149,13 +149,13 @@ const WhyChooseUs = () => {
           {achievements.map((achievement, index) => (
             <div key={index} className="text-center group">
               <div className="bg-white backdrop-blur-xl border border-gray-200 rounded-2xl p-6 hover:shadow-2xl hover:border-gray-300 transition-all duration-500 group-hover:-translate-y-2 shadow-lg">
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <div className="w-14 h-14 bg-[#3B82F6] rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <achievement.icon className="w-7 h-7 text-white" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                <div className="text-2xl font-bold text-[#1F2937] mb-2 group-hover:text-[#3B82F6] transition-colors">
                   {achievement.number}
                 </div>
-                <div className="text-gray-600 text-sm font-medium">
+                <div className="text-[#1F2937] text-sm font-medium">
                   {achievement.label}
                 </div>
               </div>

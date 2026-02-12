@@ -56,7 +56,7 @@ const AboutHeroSection = () => {
         />
 
         {/* Backdrop Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A2540]/50 via-[#0A2540]/40 to-[#0A2540]/60" />
 
         {/* Animated Gradient Overlays */}
         <motion.div
@@ -69,7 +69,7 @@ const AboutHeroSection = () => {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-amber-500/20 to-transparent blur-3xl"
+          className="absolute top-0 left-0 w-1/2 h-1/2 bg-[#3B82F6]/20 blur-3xl"
         />
 
         <motion.div
@@ -82,7 +82,7 @@ const AboutHeroSection = () => {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-blue-500/20 to-transparent blur-3xl"
+          className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-[#3B82F6]/20 blur-3xl"
         />
       </div>
 
@@ -104,18 +104,18 @@ const AboutHeroSection = () => {
                 items-center
                 px-4
                 py-2
-                bg-slate-800/60
+                bg-[#0A2540]/60
                 backdrop-blur-sm
                 border
-                border-amber-500/30
+                border-[#3B82F6]/30
                 rounded-full
-                text-amber-400
+                text-[#3B82F6]
                 text-sm
                 font-semibold
                 mb-8
               "
             >
-              <span className="w-2 h-2 bg-amber-400 rounded-full mr-2 animate-pulse"></span>
+              <span className="w-2 h-2 bg-[#3B82F6] rounded-full mr-2 animate-pulse"></span>
               Industry Leader
             </motion.div>
 
@@ -133,13 +133,13 @@ const AboutHeroSection = () => {
                 leading-tight
               "
             >
-              About <span className="text-white bg-clip-text text-transparent">EEE Technologies</span>
+              About <span className="text-white bg-clip-text">EEE Technologies</span>
             </motion.h1>
 
             {/* Subheading */}
             <motion.p
               variants={itemVariants}
-              className="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl leading-relaxed"
+              className="text-lg sm:text-xl text-[#F8FAFC] mb-8 max-w-2xl leading-relaxed"
             >
               Pioneering cutting-edge solutions in electronics, electrical engineering, 
               and emerging technologies to power tomorrow's innovations.
@@ -151,27 +151,27 @@ const AboutHeroSection = () => {
               className="flex flex-col sm:flex-row gap-4 md:gap-6 items-start"
             >
               <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-2xl blur-xl opacity-30" />
-                <div className="relative px-6 py-4 bg-slate-800/70 backdrop-blur-xl border border-slate-700/50 rounded-2xl hover:border-amber-500/50 transition-all">
-                  <h3 className="text-lg font-semibold text-white group-hover:text-amber-400 transition-colors">
+                <div className="absolute inset-0 bg-[#3B82F6]/30 rounded-2xl blur-xl opacity-30" />
+                <div className="relative px-6 py-4 bg-[#0A2540]/70 backdrop-blur-xl border border-[#0A2540]/50 rounded-2xl hover:border-[#3B82F6]/50 transition-all">
+                  <h3 className="text-lg font-semibold text-[#F8FAFC] group-hover:text-[#3B82F6] transition-colors">
                     15+ Years Experience
                   </h3>
                 </div>
               </div>
               
               <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-2xl blur-xl opacity-30" />
-                <div className="relative px-6 py-4 bg-slate-800/70 backdrop-blur-xl border border-slate-700/50 rounded-2xl hover:border-amber-500/50 transition-all">
-                  <h3 className="text-lg font-semibold text-white group-hover:text-amber-400 transition-colors">
+                <div className="absolute inset-0 bg-[#3B82F6]/30 rounded-2xl blur-xl opacity-30" />
+                <div className="relative px-6 py-4 bg-[#0A2540]/70 backdrop-blur-xl border border-[#0A2540]/50 rounded-2xl hover:border-[#3B82F6]/50 transition-all">
+                  <h3 className="text-lg font-semibold text-[#F8FAFC] group-hover:text-[#3B82F6] transition-colors">
                     20K+ Students
                   </h3>
                 </div>
               </div>
               
               <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-2xl blur-xl opacity-30" />
-                <div className="relative px-6 py-4 bg-slate-800/70 backdrop-blur-xl border border-slate-700/50 rounded-2xl hover:border-amber-500/50 transition-all">
-                  <h3 className="text-lg font-semibold text-white group-hover:text-amber-400 transition-colors">
+                <div className="absolute inset-0 bg-[#3B82F6]/30 rounded-2xl blur-xl opacity-30" />
+                <div className="relative px-6 py-4 bg-[#0A2540]/70 backdrop-blur-xl border border-[#0A2540]/50 rounded-2xl hover:border-[#3B82F6]/50 transition-all">
+                  <h3 className="text-lg font-semibold text-[#F8FAFC] group-hover:text-[#3B82F6] transition-colors">
                     95% Placement
                   </h3>
                 </div>

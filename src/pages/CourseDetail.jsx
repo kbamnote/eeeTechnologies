@@ -512,18 +512,18 @@ const CourseDetail = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Breadcrumb */}
-      <div className="bg-blue-950 backdrop-blur-xl border-b border-blue-800 sticky top-0 z-10">
+      <div className="bg-[#0A2540] backdrop-blur-xl border-b border-[#0A2540]/50 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav className="text-sm">
-            <Link to="/" className="text-blue-300 hover:text-blue-400 transition-colors duration-200 flex items-center gap-1">
-              <span>Home</span>
+            <Link to="/" className="text-[#3B82F6]/70 hover:text-[#3B82F6] transition-colors duration-200 flex items-center gap-1">
+              {/* <span>Home</span> */}
             </Link>
-            <span className="mx-2 text-blue-400">/</span>
-            <Link to="/courses" className="text-blue-300 hover:text-blue-400 transition-colors duration-200 flex items-center gap-1">
-              <span>Courses</span>
+            <span className="mx-2 text-[#3B82F6]"></span>
+            <Link to="/courses" className="text-[#3B82F6]/70 hover:text-[#3B82F6] transition-colors duration-200 flex items-center gap-1">
+              {/* <span>Courses</span> */}
             </Link>
-            <span className="mx-2 text-blue-400">/</span>
-            <span className="text-blue-100 font-medium">{course.shortTitle}</span>
+            <span className="mx-2 text-[#3B82F6]"></span>
+            {/* <span className="text-[#F8FAFC] font-medium">{course.shortTitle}</span> */}
           </nav>
         </div>
       </div>
@@ -535,9 +535,9 @@ const CourseDetail = () => {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20"
       >
         {/* Course Header */}
-        <motion.div 
-          variants={itemVariants} 
-          className="bg-blue-950 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden mb-8 sm:mb-12 border border-blue-800"
+        <motion.div
+          variants={itemVariants}
+          className="bg-[#0A2540] backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden mb-8 sm:mb-12 border border-[#0A2540]/50"
         >
           <div className="md:flex">
             {/* Course Image */}

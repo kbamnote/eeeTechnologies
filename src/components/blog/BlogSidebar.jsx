@@ -84,12 +84,12 @@ const BlogSidebar = ({
   ];
 
   const defaultCategories = [
-    { name: "Web Development", count: 45, color: "bg-blue-500" },
+    { name: "Web Development", count: 45, color: "bg-[#3B82F6]" },
     { name: "Data Science", count: 32, color: "bg-green-500" },
-    { name: "AI/ML", count: 28, color: "bg-purple-500" },
-    { name: "Mobile Development", count: 24, color: "bg-orange-500" },
-    { name: "Career Tips", count: 18, color: "bg-pink-500" },
-    { name: "Tech News", count: 15, color: "bg-indigo-500" }
+    { name: "AI/ML", count: 28, color: "bg-[#3B82F6]" },
+    { name: "Mobile Development", count: 24, color: "bg-[#3B82F6]" },
+    { name: "Career Tips", count: 18, color: "bg-[#3B82F6]" },
+    { name: "Tech News", count: 15, color: "bg-[#3B82F6]" }
   ];
 
   const defaultTags = [
@@ -113,7 +113,7 @@ const BlogSidebar = ({
     >
       {/* Newsletter Subscription */}
       <motion.div
-        className="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl p-6 text-white relative overflow-hidden"
+        className="bg-gradient-to-br from-[#3B82F6] to-[#0A2540] rounded-2xl p-6 text-white relative overflow-hidden"
         variants={itemVariants}
       >
         <div className="absolute inset-0 bg-black/10 rounded-2xl"></div>
@@ -122,7 +122,7 @@ const BlogSidebar = ({
             <Bell className="w-6 h-6 mr-2" />
             <h3 className="text-xl font-bold">Stay Updated</h3>
           </div>
-          <p className="text-purple-100 mb-4">
+          <p className="text-[#fffff]/30 mb-4">
             Get the latest tech insights and tutorials delivered to your inbox.
           </p>
           <form onSubmit={handleSubscribe} className="space-y-3">
@@ -139,7 +139,7 @@ const BlogSidebar = ({
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               disabled={subscribed}
-              className="w-full bg-white text-purple-600 font-semibold py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center"
+              className="w-full bg-white text-[#3B82F6] font-semibold py-3 rounded-lg hover:bg-[#F8FAFC] transition-colors duration-200 flex items-center justify-center"
             >
               {subscribed ? (
                 <>
@@ -162,7 +162,7 @@ const BlogSidebar = ({
         variants={itemVariants}
         className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/20"
       >
-        <h3 className="text-lg font-bold text-gray-900 mb-4">
+        <h3 className="text-lg font-bold text-[#1F2937] mb-4">
           Blog Statistics
         </h3>
         <div className="space-y-4">
@@ -175,12 +175,12 @@ const BlogSidebar = ({
               className="flex items-center justify-between"
             >
               <div className="flex items-center">
-                <div className="p-2 bg-purple-100 rounded-lg mr-3">
-                  <stat.icon className="w-4 h-4 text-purple-600" />
+                <div className="p-2 bg-[#3B82F6]/10 rounded-lg mr-3">
+                  <stat.icon className="w-4 h-4 text-[#3B82F6]" />
                 </div>
-                <span className="text-gray-600">{stat.label}</span>
+                <span className="text-[#1F2937]">{stat.label}</span>
               </div>
-              <span className="font-bold text-gray-900">{stat.value}</span>
+              <span className="font-bold text-[#1F2937]">{stat.value}</span>
             </motion.div>
           ))}
         </div>
@@ -192,8 +192,8 @@ const BlogSidebar = ({
         variants={itemVariants}
       >
         <div className="flex items-center mb-4">
-          <TrendingUp className="w-5 h-5 text-purple-600 mr-2" />
-          <h3 className="text-lg font-bold text-gray-900">
+          <TrendingUp className="w-5 h-5 text-[#3B82F6] mr-2" />
+          <h3 className="text-lg font-bold text-[#1F2937]">
             Popular Posts
           </h3>
         </div>
@@ -216,10 +216,10 @@ const BlogSidebar = ({
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h4 className="font-semibold text-gray-900 text-sm line-clamp-2 group-hover:text-purple-600 transition-colors duration-200">
+                  <h4 className="font-semibold text-[#1F2937] text-sm line-clamp-2 group-hover:text-[#3B82F6] transition-colors duration-200">
                     {post.title}
                   </h4>
-                  <div className="flex items-center justify-between text-xs text-gray-500 mt-1">
+                  <div className="flex items-center justify-between text-xs text-[#1F2937]/70 mt-1">
                     <span>{post.date}</span>
                     <div className="flex items-center space-x-1">
                       <Eye className="w-3 h-3" />
@@ -238,8 +238,8 @@ const BlogSidebar = ({
         className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/20"
         variants={itemVariants}
       >   <div className="flex items-center mb-4">
-          <Tag className="w-5 h-5 text-purple-600 mr-2" />
-          <h3 className="text-lg font-bold text-gray-900">
+          <Tag className="w-5 h-5 text-[#3B82F6] mr-2" />
+          <h3 className="text-lg font-bold text-[#1F2937]">
             Categories
           </h3>
         </div>
@@ -253,18 +253,18 @@ const BlogSidebar = ({
               whileHover={{ x: 5 }}
               className="group cursor-pointer"
             >
-              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-[#F8FAFC] transition-colors duration-200">
                 <div className="flex items-center">
                   <div className={`w-3 h-3 rounded-full ${category.color} mr-3`}></div>
-                  <span className="text-gray-700 group-hover:text-purple-600 transition-colors duration-200">
+                  <span className="text-[#1F2937] group-hover:text-[#3B82F6] transition-colors duration-200">
                     {category.name}
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-sm text-gray-500 mr-2">
+                  <span className="text-sm text-[#1F2937]/70 mr-2">
                     {category.count}
                   </span>
-                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 group-hover:translate-x-1 transition-all duration-200" />
+                  <ArrowRight className="w-4 h-4 text-[#1F2937]/40 group-hover:text-[#3B82F6] dark:group-hover:text-[#3B82F6]/70 group-hover:translate-x-1 transition-all duration-200" />
                 </div>
               </div>
             </motion.div>
@@ -278,8 +278,8 @@ const BlogSidebar = ({
         className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/20"
       >
         <div className="flex items-center mb-4">
-          <Tag className="w-5 h-5 text-purple-600 mr-2" />
-          <h3 className="text-lg font-bold text-gray-900">
+          <Tag className="w-5 h-5 text-[#3B82F6] mr-2" />
+          <h3 className="text-lg font-bold text-[#1F2937]">
             Popular Tags
           </h3>
         </div>
@@ -291,7 +291,7 @@ const BlogSidebar = ({
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.05 }}
               whileHover={{ scale: 1.05 }}
-              className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full hover:bg-purple-100 hover:text-purple-600 cursor-pointer transition-all duration-200"
+              className="px-3 py-1 text-sm bg-[#F8FAFC] text-[#1F2937] rounded-full hover:bg-[#3B82F6]/10 hover:text-[#3B82F6] cursor-pointer transition-all duration-200"
             >
               #{tag}
             </motion.span>
@@ -304,8 +304,8 @@ const BlogSidebar = ({
         className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/20"
         variants={itemVariants}
       >   <div className="flex items-center mb-4">
-          <User className="w-5 h-5 text-purple-600 mr-2" />
-          <h3 className="text-lg font-bold text-gray-900">
+          <User className="w-5 h-5 text-[#3B82F6] mr-2" />
+          <h3 className="text-lg font-bold text-[#1F2937]">
             Author Spotlight
           </h3>
         </div>
@@ -316,16 +316,16 @@ const BlogSidebar = ({
             alt="Featured Author"
             className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
           />
-          <h4 className="font-semibold text-gray-900 mb-2">
+          <h4 className="font-semibold text-[#1F2937] mb-2">
             Alex Johnson
           </h4>
-          <p className="text-sm text-gray-600 mb-4">
+          <p className="text-sm text-[#1F2937] mb-4">
             Senior Full-Stack Developer with 8+ years of experience in modern web technologies.
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 text-sm font-medium"
+            className="px-4 py-2 bg-[#3B82F6] text-white rounded-lg hover:bg-[#0A2540] transition-colors duration-200 text-sm font-medium"
           >
             View Profile
           </motion.button>

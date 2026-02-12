@@ -95,7 +95,7 @@ const HeroSection = () => {
         />
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A2540]/60 to-[#0A2540]/30" />
 
         {/* Animated Gradient Overlays */}
         <motion.div
@@ -108,7 +108,7 @@ const HeroSection = () => {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-amber-500/20 to-transparent blur-3xl"
+          className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-[#3B82F6]/20 to-transparent blur-3xl"
         />
 
         <motion.div
@@ -121,7 +121,7 @@ const HeroSection = () => {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-blue-500/20 to-transparent blur-3xl"
+          className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-[#3B82F6]/20 blur-3xl"
         />
       </div>
 
@@ -143,12 +143,12 @@ const HeroSection = () => {
                 items-center
                 px-4
                 py-2
-                bg-slate-800/60
+                bg-[#0A2540]/60
                 backdrop-blur-sm
                 border
-                border-amber-500/30
+                border-[#3B82F6]/30
                 rounded-full
-                text-amber-400
+                text-[#3B82F6]
                 text-sm
                 font-semibold
                 mb-8
@@ -205,7 +205,7 @@ const HeroSection = () => {
                 >
                   {/* Glow */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-2xl blur-xl"
+                    className="absolute inset-0 bg-gradient-to-r from-[#3B82F6]/30 to-[#06B6D4]/30 rounded-2xl blur-xl"
                     animate={{
                       opacity: [0.3, 0.6, 0.3],
                     }}
@@ -221,15 +221,15 @@ const HeroSection = () => {
                     relative
                     px-6
                     py-4
-                    bg-slate-800/70
+                    bg-[#0A2540]/70
                     backdrop-blur-xl
                     border
-                    border-slate-700/50
+                    border-[#0A2540]/50
                     rounded-2xl
-                    hover:border-amber-500/50
+                    hover:border-[#3B82F6]/50
                     transition-all
                   ">
-                    <h3 className="text-lg font-semibold text-white group-hover:text-amber-400 transition-colors">
+                    <h3 className="text-lg font-semibold text-[#F8FAFC] group-hover:text-[#3B82F6] transition-colors">
                       {feature.title}
                     </h3>
                   </div>

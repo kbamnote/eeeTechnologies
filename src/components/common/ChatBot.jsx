@@ -205,18 +205,18 @@ const ChatBot = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 flex items-center justify-center group"
+          className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-[#3B82F6] rounded-full shadow-2xl hover:shadow-[#3B82F6]/30 transition-all duration-300 flex items-center justify-center group"
         >
           <MessageCircle className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
-          <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
+          <div className="absolute -top-1 -right-1 w-4 h-4 bg-[#06B6D4] rounded-full animate-pulse"></div>
         </button>
       )}
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-full max-w-md h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col">
+        <div className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 w-full sm:max-w-md h-[100dvh] sm:h-[500px] bg-white sm:rounded-2xl shadow-2xl border-t sm:border border-[#3B82F6]/20 flex flex-col transition-all duration-300">
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-4 rounded-t-2xl text-white flex items-center justify-between">
+          <div className="bg-[#0A2540] p-4 sm:rounded-t-2xl text-white flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                 <Bot className="w-6 h-6" />
@@ -237,7 +237,7 @@ const ChatBot = () => {
           </div>
 
           {/* Messages Container */}
-          <div className="flex-1 p-4 overflow-y-auto bg-gray-50">
+          <div className="flex-1 p-4 overflow-y-auto bg-[#F8FAFC]">
             <div className="space-y-4">
               {messages.map((message) => (
                 <div
@@ -247,8 +247,8 @@ const ChatBot = () => {
                   <div className={`flex gap-2 max-w-[80%] ${message.sender === 'user' ? 'flex-row-reverse' : ''}`}>
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
                       message.sender === 'user' 
-                        ? 'bg-blue-500' 
-                        : 'bg-gradient-to-r from-blue-500 to-purple-500'
+                        ? 'bg-[#3B82F6]' 
+                        : 'bg-[#3B82F6]'
                     }`}>
                       {message.sender === 'user' ? (
                         <User className="w-4 h-4 text-white" />
@@ -258,12 +258,12 @@ const ChatBot = () => {
                     </div>
                     <div className={`rounded-2xl px-4 py-2 ${
                       message.sender === 'user'
-                        ? 'bg-blue-500 text-white rounded-br-md'
-                        : 'bg-white text-gray-800 rounded-bl-md shadow-sm border border-gray-200'
+                        ? 'bg-[#3B82F6] text-white rounded-br-md'
+                        : 'bg-white text-[#1F2937] rounded-bl-md shadow-sm border border-[#3B82F6]/20'
                     }`}>
                       <p className="text-sm">{message.text}</p>
                       <p className={`text-xs mt-1 ${
-                        message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'
+                        message.sender === 'user' ? 'text-[#3B82F6]/30' : 'text-[#1F2937]/60'
                       }`}>
                         {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                       </p>
@@ -275,13 +275,13 @@ const ChatBot = () => {
               {isLoading && (
                 <div className="flex justify-start">
                   <div className="flex gap-2 max-w-[80%]">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-[#3B82F6] flex items-center justify-center">
                       <Bot className="w-4 h-4 text-white" />
                     </div>
-                    <div className="bg-white rounded-2xl rounded-bl-md px-4 py-2 shadow-sm border border-gray-200">
+                    <div className="bg-white rounded-2xl rounded-bl-md px-4 py-2 shadow-sm border border-[#3B82F6]/20">
                       <div className="flex items-center gap-2">
-                        <Loader className="w-4 h-4 text-blue-500 animate-spin" />
-                        <span className="text-sm text-gray-600">Thinking...</span>
+                        <Loader className="w-4 h-4 text-[#3B82F6] animate-spin" />
+                        <span className="text-sm text-[#1F2937]/60">Thinking...</span>
                       </div>
                     </div>
                   </div>
@@ -293,7 +293,7 @@ const ChatBot = () => {
           </div>
 
           {/* Input Area */}
-          <div className="p-4 border-t border-gray-200">
+          <div className="p-4 border-t border-[#3B82F6]/20">
             {isEmailCapture ? (
               <div className="space-y-3">
                 <div>
@@ -306,19 +306,19 @@ const ChatBot = () => {
                     }}
                     onKeyPress={handleKeyPress}
                     placeholder="Enter your email address"
-                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${emailError ? 'border-red-500' : 'border-gray-300'}`}
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3B82F6] text-sm ${emailError ? 'border-[#06B6D4]' : 'border-[#3B82F6]/30'}`}
                   />
                   {emailError && (
-                    <p className="text-red-500 text-xs mt-1">{emailError}</p>
+                    <p className="text-[#06B6D4] text-xs mt-1">{emailError}</p>
                   )}
                 </div>
                 <button
                   onClick={handleEmailSubmit}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 rounded-xl hover:shadow-lg transition-all duration-200"
+                  className="w-full bg-[#3B82F6] hover:bg-[#2563EB] text-white font-semibold py-3 rounded-xl hover:shadow-lg transition-all duration-200"
                 >
                   Continue to Chat
                 </button>
-                <p className="text-xs text-gray-500 text-center">
+                <p className="text-xs text-[#1F2937]/60 text-center">
                   We'll use this to personalize your experience and follow up if needed
                 </p>
               </div>
@@ -330,12 +330,12 @@ const ChatBot = () => {
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Type your message..."
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                  className="flex-1 px-4 py-2 border border-[#3B82F6]/30 rounded-full focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent text-sm"
                 />
                 <button
                   onClick={sendMessage}
                   disabled={!inputValue.trim() || isLoading}
-                  className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                  className="w-12 h-12 bg-[#3B82F6] hover:bg-[#2563EB] rounded-full flex items-center justify-center text-white hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
                 >
                   <Send className="w-5 h-5" />
                 </button>
@@ -352,7 +352,7 @@ const ChatBot = () => {
                       setInputValue(action);
                       setTimeout(sendMessage, 100);
                     }}
-                    className="px-3 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded-full text-gray-700 transition-colors"
+                    className="px-3 py-1 text-xs bg-[#F8FAFC] hover:bg-[#3B82F6]/10 rounded-full text-[#1F2937] transition-colors"
                   >
                     {action}
                   </button>

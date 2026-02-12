@@ -38,25 +38,25 @@ const EnrollmentModal = ({ isOpen, onClose, courseName, onSubmit }) => {
           onClick={(e) => e.stopPropagation()}
         >
           {/* Modal Content */}
-          <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[75vh] overflow-y-auto border border-gray-200">
+          <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[75vh] overflow-y-auto border border-[#3B82F6]/20">
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 hover:bg-white shadow-md transition-all duration-200 hover:scale-110 border border-gray-200"
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 hover:bg-white shadow-md transition-all duration-200 hover:scale-110 border border-[#3B82F6]/20"
               aria-label="Close modal"
             >
-              <X className="w-6 h-6 text-gray-700" />
+              <X className="w-6 h-6 text-[#1F2937]" />
             </button>
 
             {/* Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-6">
+            <div className="bg-gradient-to-r from-[#0A2540] to-[#3B82F6] px-8 py-6">
               <h2
                 id="modal-title"
                 className="text-2xl md:text-3xl font-bold text-white"
               >
                 Course Enrollment
               </h2>
-              <p className="text-blue-100 mt-2">
+              <p className="text-[#ffffff]/30 mt-2">
                 Start your journey with <span className="font-semibold text-white">{courseName}</span>
               </p>
             </div>

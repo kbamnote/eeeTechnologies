@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-    baseURL:'https://elite-backend-production.up.railway.app/'
+    baseURL:'https://api.elitebmi.in/5'
 });
 
 export const addDetail = (detail) => {

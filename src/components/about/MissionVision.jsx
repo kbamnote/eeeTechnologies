@@ -31,34 +31,34 @@ const MissionVision = () => {
       icon: Heart,
       title: "Excellence",
       description: "We strive for excellence in everything we do, from curriculum design to student support.",
-      color: "from-red-400 to-rose-500"
+      color: "from-[#3B82F6] to-[#06B6D4]"
     },
     {
       icon: Users,
       title: "Community",
       description: "Building a supportive community where students and professionals grow together.",
-      color: "from-blue-400 to-purple-500"
+      color: "from-[#3B82F6] to-[#06B6D4]"
     },
     {
       icon: Lightbulb,
       title: "Innovation",
       description: "Embracing cutting-edge technologies and innovative teaching methodologies.",
-      color: "from-yellow-400 to-orange-500"
+      color: "from-[#3B82F6] to-[#06B6D4]"
     },
     {
       icon: Globe,
       title: "Impact",
       description: "Creating positive impact in the tech industry through skilled professionals.",
-      color: "from-green-400 to-teal-500"
+      color: "from-[#3B82F6] to-[#06B6D4]"
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section className="py-20 bg-[#F8FAFC] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-200/30 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-20 w-96 h-96 bg-[#3B82F6]/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#06B6D4]/20 rounded-full blur-3xl" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20" />
       </div>
 
@@ -72,19 +72,19 @@ const MissionVision = () => {
         >
           {/* Section Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-5 py-2.5 bg-blue-100 border border-blue-300 rounded-full text-blue-700 text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-5 py-2.5 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-full text-[#3B82F6] text-sm font-semibold mb-6">
               <Target className="w-4 h-4 mr-2" />
               Our Foundation
             </div>
 
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+            <h2 className="text-5xl md:text-6xl font-bold text-[#1F2937] mb-6 tracking-tight">
               Our
-              <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mt-2">
+              <span className="block text-[#3B82F6] mt-2">
                 Mission & Vision
               </span>
             </h2>
 
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-[#1F2937] max-w-2xl mx-auto">
               Driving the future of technology education through innovation, excellence, and unwavering commitment to student success.
             </p>
           </div>
@@ -93,27 +93,27 @@ const MissionVision = () => {
           <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Mission */}
             <motion.div variants={itemVariants} className="group">
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 overflow-hidden hover:shadow-3xl hover:border-gray-300 transition-all duration-500 shadow-lg">
+              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-[#3B82F6]/20 overflow-hidden hover:shadow-3xl hover:border-[#3B82F6]/30 transition-all duration-500 shadow-lg">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
+                  <div className="w-14 h-14 bg-[#3B82F6] rounded-2xl flex items-center justify-center shadow-lg">
                     <Target className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
+                  <h3 className="text-2xl font-bold text-[#1F2937]">Our Mission</h3>
                 </div>
-                <p className="text-gray-700 text-base leading-relaxed mb-6">
+                <p className="text-[#1F2937] text-base leading-relaxed mb-6">
                   To bridge the gap between academic learning and industry requirements by providing world-class technical education that prepares students for successful careers in technology.
                 </p>
                 <div className="space-y-3">
-                  <div className="flex items-center text-gray-600">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                  <div className="flex items-center text-[#1F2937]">
+                    <div className="w-2 h-2 bg-[#3B82F6] rounded-full mr-3"></div>
                     <span>Practical, hands-on learning approach</span>
                   </div>
-                  <div className="flex items-center text-gray-600">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                  <div className="flex items-center text-[#1F2937]">
+                    <div className="w-2 h-2 bg-[#3B82F6] rounded-full mr-3"></div>
                     <span>Industry-aligned curriculum</span>
                   </div>
-                  <div className="flex items-center text-gray-600">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                  <div className="flex items-center text-[#1F2937]">
+                    <div className="w-2 h-2 bg-[#3B82F6] rounded-full mr-3"></div>
                     <span>Comprehensive career support</span>
                   </div>
                 </div>
@@ -122,27 +122,27 @@ const MissionVision = () => {
 
             {/* Vision */}
             <motion.div variants={itemVariants} className="group">
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 overflow-hidden hover:shadow-3xl hover:border-gray-300 transition-all duration-500 shadow-lg">
+              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-[#3B82F6]/20 overflow-hidden hover:shadow-3xl hover:border-[#3B82F6]/30 transition-all duration-500 shadow-lg">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+                  <div className="w-14 h-14 bg-[#3B82F6] rounded-2xl flex items-center justify-center shadow-lg">
                     <Eye className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Our Vision</h3>
+                  <h3 className="text-2xl font-bold text-[#1F2937]">Our Vision</h3>
                 </div>
-                <p className="text-gray-700 text-base leading-relaxed mb-6">
+                <p className="text-[#1F2937] text-base leading-relaxed mb-6">
                   To become the global leader in technology education, empowering millions of students worldwide to build successful careers and drive innovation in the digital age.
                 </p>
                 <div className="space-y-3">
-                  <div className="flex items-center text-gray-600">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                  <div className="flex items-center text-[#1F2937]">
+                    <div className="w-2 h-2 bg-[#3B82F6] rounded-full mr-3"></div>
                     <span>Global accessibility to quality education</span>
                   </div>
-                  <div className="flex items-center text-gray-600">
-                    <div className="w-2 h-2 bg-pink-500 rounded-full mr-3"></div>
+                  <div className="flex items-center text-[#1F2937]">
+                    <div className="w-2 h-2 bg-[#3B82F6] rounded-full mr-3"></div>
                     <span>Continuous innovation in learning</span>
                   </div>
-                  <div className="flex items-center text-gray-600">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                  <div className="flex items-center text-[#1F2937]">
+                    <div className="w-2 h-2 bg-[#3B82F6] rounded-full mr-3"></div>
                     <span>Sustainable career transformation</span>
                   </div>
                 </div>
@@ -152,10 +152,10 @@ const MissionVision = () => {
 
           {/* Core Values */}
           <motion.div variants={itemVariants} className="text-center">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h3 className="text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">
               Our Core Values
             </h3>
-            <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p className="text-lg text-[#1F2937] mb-12 max-w-2xl mx-auto">
               The principles that guide everything we do and shape our commitment to excellence.
             </p>
             
@@ -166,14 +166,14 @@ const MissionVision = () => {
                   variants={itemVariants}
                   className="group h-full"
                 >
-                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 overflow-hidden hover:shadow-3xl hover:border-gray-300 transition-all duration-500 shadow-lg h-full flex flex-col">
-                    <div className={`w-14 h-14 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-[#3B82F6]/20 overflow-hidden hover:shadow-3xl hover:border-[#3B82F6]/30 transition-all duration-500 shadow-lg h-full flex flex-col">
+                    <div className="w-14 h-14 bg-[#3B82F6] rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                       <value.icon className="w-7 h-7 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                    <h4 className="text-xl font-bold text-[#1F2937] mb-3 text-center">
                       {value.title}
                     </h4>
-                    <p className="text-gray-700 text-sm leading-relaxed text-center flex-grow">
+                    <p className="text-[#1F2937] text-sm leading-relaxed text-center flex-grow">
                       {value.description}
                     </p>
                   </div>

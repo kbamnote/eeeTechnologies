@@ -27,7 +27,7 @@ export default function Landing() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="space-y-0 bg-white"
+      className="space-y-0 bg-[#F8FAFC]"
     >
       <HeroSection />
       <AboutPreview />

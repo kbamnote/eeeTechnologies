@@ -37,7 +37,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#001F3F] text-[#F4F4F4]">
+    <footer className="bg-[#0A2540] text-[#F8FAFC]">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-16">
@@ -53,25 +53,25 @@ export default function Footer() {
                     src={logo}
                     className="flex items-center justify-center w-auto h-14 md:h-22 p-2 transition-all duration-300"
                   ></img>
-                  <span className="text-xl font-bold text-[#F4F4F4] hidden md:block">EEE Technologies</span>
+                  <span className="text-xl font-bold text-[#F8FAFC] hidden md:block">EEE Technologies</span>
                 </Link>
               </div>
-              <p className="text-[#F4F4F4]/80 mb-6 max-w-md">
+              <p className="text-[#F8FAFC]/80 mb-6 max-w-md">
                 Empowering students with cutting-edge technology education and
                 comprehensive placement support. Join thousands of successful
                 graduates who started their tech careers with us.
               </p>
               <div className="space-y-3">
-                <div className="flex items-center gap-3 text-gray-300">
-                  <Mail className="w-5 h-5 text-[#FF4136]" />
+                <div className="flex items-center gap-3 text-[#F8FAFC]/60">
+                  <Mail className="w-5 h-5 text-[#06B6D4]" />
                   <span>info@eeetechnologies.in</span>
                 </div>
-                <div className="flex items-center gap-3 text-gray-300">
-                  <Phone className="w-5 h-5 text-[#FF4136]" />
+                <div className="flex items-center gap-3 text-[#F8FAFC]/60">
+                  <Phone className="w-5 h-5 text-[#06B6D4]" />
                   <span>+91 9503182807 / 9146882409</span>
                 </div>
-                <div className="flex items-center gap-3 text-gray-300">
-                  <MapPin className="w-5 h-5 text-[#FF4136]" />
+                <div className="flex items-center gap-3 text-[#F8FAFC]/60">
+                  <MapPin className="w-5 h-5 text-[#06B6D4]" />
                   <span>
                     1st Floor Mohota Complex, Above State Bank Of India, Katol
                     Road, Chhaoni Rd, Nagpur, Maharashtra, 440013
@@ -82,13 +82,13 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div>
-              <h3 className="text-lg font-semibold text-[#F4F4F4] mb-6">Quick Links</h3>
+              <h3 className="text-lg font-semibold text-[#F8FAFC] mb-6">Quick Links</h3>
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
                   <li key={link.to}>
                     <Link
                       to={link.to}
-                      className="text-gray-300 hover:text-white transition-colors duration-200"
+                      className="text-[#F8FAFC]/60 hover:text-[#3B82F6] transition-colors duration-200"
                     >
                       {link.label}
                     </Link>
@@ -99,13 +99,13 @@ export default function Footer() {
 
             {/* Support */}
             <div>
-              <h3 className="text-lg font-semibold text-[#F4F4F4] mb-6">Support</h3>
+              <h3 className="text-lg font-semibold text-[#F8FAFC] mb-6">Support</h3>
               <ul className="space-y-3">
                 {supportLinks.map((link) => (
                   <li key={link.to}>
                     <Link
                       to={link.to}
-                      className="text-gray-300 hover:text-white transition-colors duration-200"
+                      className="text-[#F8FAFC]/60 hover:text-[#3B82F6] transition-colors duration-200"
                     >
                       {link.label}
                     </Link>
@@ -117,7 +117,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-[#F4F4F4]/20 py-8">
+        <div className="border-t border-[#3B82F6]/20 py-8">
           <div className="flex flex-col items-center gap-6">
             {/* Social Links - Centered */}
             <div className="flex items-center gap-4">
@@ -127,7 +127,7 @@ export default function Footer() {
                   <a
                     key={social.label}
                     href={social.href}
-                    className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#001F3F]/50 text-[#F4F4F4]/60 hover:bg-[#FF4136] hover:text-[#F4F4F4] transition-all duration-300"
+                    className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#0A2540]/50 text-[#F8FAFC]/60 hover:bg-[#3B82F6] hover:text-[#F8FAFC] transition-all duration-300"
                     aria-label={social.label}
                   >
                     <Icon className="w-5 h-5" />
@@ -136,7 +136,7 @@ export default function Footer() {
               })}
             </div>
             
-            <p className="text-[#F4F4F4]/60 text-sm">
+            <p className="text-[#F8FAFC]/60 text-sm">
               © {new Date().getFullYear()} EEE Technologies. All rights
               reserved.
             </p>

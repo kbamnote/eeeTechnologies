@@ -67,7 +67,7 @@ const CallToAction = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
+    <section className="py-20 bg-[#F8FAFC] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
@@ -78,19 +78,19 @@ const CallToAction = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-5 py-2.5 bg-blue-100 border border-blue-300 rounded-full text-blue-700 text-sm font-semibold mb-6">
+          <div className="inline-flex items-center px-5 py-2.5 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-full text-[#3B82F6] text-sm font-semibold mb-6">
             <Zap className="w-4 h-4 mr-2" />
             Transform Your Career Today
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-bold text-[#1F2937] mb-6 tracking-tight">
             Ready to Launch Your
-            <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mt-2">
+            <span className="block text-[#3B82F6] mt-2">
               Tech Career?
             </span>
           </h2>
 
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-[#1F2937] max-w-2xl mx-auto mb-8">
             Join thousands of successful professionals who've transformed their careers with our industry-leading training programs. Start your journey today!
           </p>
 
@@ -100,7 +100,7 @@ const CallToAction = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsEnrollmentModalOpen(true)}
-              className="group px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 justify-center"
+              className="group px-6 py-3 md:px-8 md:py-4 bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 justify-center"
             >
               Start Learning Now
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -110,7 +110,7 @@ const CallToAction = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsContactModalOpen(true)}
-              className="group px-6 py-3 md:px-8 md:py-4 border-2 border-blue text-black rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center gap-2 justify-center"
+              className="group px-6 py-3 md:px-8 md:py-4 border-2 border-[#3B82F6] text-[#1F2937] rounded-xl font-semibold hover:bg-[#3B82F6] hover:text-white transition-all duration-300 flex items-center gap-2 justify-center"
             >
               <Phone className="w-5 h-5" />
               Book Free Consultation
@@ -126,18 +126,18 @@ const CallToAction = () => {
                   <div className="bg-white backdrop-blur-xl rounded-3xl p-8 border border-gray-200 overflow-hidden hover:shadow-3xl hover:border-gray-300 transition-all duration-500 shadow-lg">
                     {/* Icon and Title */}
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg mx-auto">
+                      <div className="w-16 h-16 bg-[#3B82F6] rounded-lg flex items-center justify-center shadow-lg mx-auto">
                         <IconComponent className="w-8 h-8 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-1">
+                        <h3 className="text-xl font-bold text-[#1F2937] mb-1">
                           {feature.title}
                         </h3>
                       </div>
                     </div>
                     
                     {/* Description */}
-                    <p className="text-gray-700 text-base leading-relaxed">
+                    <p className="text-[#1F2937] text-base leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
@@ -151,13 +151,13 @@ const CallToAction = () => {
             {stats.map((stat, index) => (
               <div key={index} className="text-center group">
                 <div className="bg-white backdrop-blur-xl border border-gray-200 rounded-2xl p-6 hover:shadow-2xl hover:border-gray-300 transition-all duration-500 group-hover:-translate-y-2 shadow-lg">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="w-16 h-16 bg-[#3B82F6] rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <Award className="w-8 h-8 text-white" />
                   </div>
-                  <div className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  <div className="text-2xl font-bold text-[#1F2937] mb-2 group-hover:text-[#3B82F6] transition-colors">
                     {stat.number}
                   </div>
-                  <div className="text-gray-600 text-sm font-medium">
+                  <div className="text-[#1F2937] text-sm font-medium">
                     {stat.label}
                   </div>
                 </div>

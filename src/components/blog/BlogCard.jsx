@@ -112,7 +112,7 @@ const BlogCard = ({
       viewport={{ once: true, margin: "-50px" }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="group relative bg-white/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 hover:border-purple-200"
+      className="group relative bg-white/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 hover:border-[#3B82F6]/30"
     >
       {/* Image Section */}
       <div className="relative h-48 sm:h-56 overflow-hidden">
@@ -142,7 +142,7 @@ const BlogCard = ({
           transition={{ delay: 0.3 }}
           className="absolute top-4 left-4"
         >
-          <span className="px-3 py-1 text-xs font-semibold text-white bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-lg backdrop-blur-sm">
+          <span className="px-3 py-1 text-xs font-semibold text-white bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] rounded-full shadow-lg backdrop-blur-sm">
             {category || "Technology"}
           </span>
         </motion.div>
@@ -158,7 +158,7 @@ const BlogCard = ({
             }}
             className={`p-2 rounded-full backdrop-blur-sm transition-colors duration-200 ${
               isBookmarked 
-                ? 'bg-yellow-500 text-white' 
+                ? 'bg-[#06B6D4] text-white' 
                 : 'bg-white/20 text-white hover:bg-white/30'
             }`}
           >
@@ -185,7 +185,7 @@ const BlogCard = ({
         className="p-6"
       >
         {/* Meta Information */}
-        <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
+        <div className="flex items-center justify-between text-sm text-[#1F2937]/60 mb-3">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-1">
               <User size={14} />
@@ -204,7 +204,7 @@ const BlogCard = ({
 
         {/* Title */}
         <motion.h3
-          className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-purple-600 transition-colors duration-300"
+          className="text-xl font-bold text-[#1F2937] mb-3 line-clamp-2 group-hover:text-[#3B82F6] transition-colors duration-300"
           whileHover={{ x: 5 }}
           transition={{ duration: 0.2 }}
         >
@@ -212,7 +212,7 @@ const BlogCard = ({
         </motion.h3>
 
         {/* Excerpt */}
-        <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
+        <p className="text-[#1F2937] mb-4 line-clamp-3 leading-relaxed">
           {excerpt || "Discover the latest techniques and best practices for creating scalable, performant web applications using modern React patterns and Next.js features."}
         </p>
 
@@ -225,7 +225,7 @@ const BlogCard = ({
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4 + index * 0.1 }}
-                className="px-2 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded-md"
+                className="px-2 py-1 text-xs font-medium text-[#3B82F6] bg-[#F8FAFC] rounded-md"
               >
                 #{tag}
               </motion.span>
@@ -234,7 +234,7 @@ const BlogCard = ({
         )}
 
         {/* Footer */}
-        <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+        <div className="flex items-center justify-between pt-4 border-t border-[#3B82F6]/10 dark:border-[#3B82F6]/20">
           {/* Like Button */}
           <motion.button
             variants={iconVariants}
@@ -246,8 +246,8 @@ const BlogCard = ({
             }}
             className={`flex items-center space-x-2 px-3 py-1 rounded-full transition-colors duration-200 ${
               isLiked 
-                ? 'text-red-500 bg-red-50' 
-                : 'text-gray-500 hover:text-red-500 hover:bg-red-50'
+                ? 'text-[#06B6D4] bg-[#06B6D4]/10' 
+                : 'text-[#1F2937]/60 hover:text-[#06B6D4] hover:bg-[#06B6D4]/10'
             }`}
           >
             <Heart size={16} fill={isLiked ? 'currentColor' : 'none'} />
@@ -260,7 +260,7 @@ const BlogCard = ({
             variants={buttonVariants}
             whileHover="hover"
             whileTap={{ scale: 0.95 }}
-            className="flex items-center space-x-2 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-semibold text-sm group/btn"
+            className="flex items-center space-x-2 text-[#3B82F6] dark:text-[#3B82F6] hover:text-[#0A2540] dark:hover:text-[#0A2540] font-semibold text-sm group/btn"
           >
             <span>Read More</span>
             <motion.div
@@ -274,7 +274,7 @@ const BlogCard = ({
       </motion.div>
 
       {/* Hover Glow Effect */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#3B82F6]/10 to-[#06B6D4]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
     </motion.article>
   );
 };

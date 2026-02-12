@@ -8,19 +8,6 @@ export default function Header() {
   const navigate = useNavigate();
   const { openEnrollmentModal } = useEnrollment();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  // Handle scroll detection
-  useEffect(() => {
-    const handleScroll = () => {
-      // Consider scrolled when past ~80vh (leaving some buffer)
-      const isScrolled = window.scrollY > window.innerHeight * 0.8;
-      setScrolled(isScrolled);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navItems = [
     { to: "/", label: "Home" },
@@ -29,7 +16,6 @@ export default function Header() {
     { to: "/placement", label: "Placement" },
     { to: "/blog", label: "Blog" },
     { to: "/contact", label: "Contact" },
-    
   ];
 
   // Function to scroll to top when navigation link is clicked
@@ -41,20 +27,13 @@ export default function Header() {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-lg' 
-        : 'bg-transparent backdrop-blur-none border-b-0 shadow-lg'
-    }`}>
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0A2540]/95 backdrop-blur-xl border-b border-[#3B82F6]/30 shadow-lg">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand */}
           <Link to="/" className="flex items-center gap-3 group" onClick={scrollToTop}>
-            <img src={logo} className="flex items-center justify-center w-auto h-10 transition-all duration-300">
-            </img>
-            <span className={`text-lg font-bold hidden md:block transition-colors duration-300 ${
-              scrolled ? 'text-blue-600' : 'text-white'
-            }`}>EEE Technologies</span>
+            <img src={logo} className="flex items-center justify-center w-auto h-10 transition-all duration-300" alt="EEE Technologies Logo" />
+            <span className="text-lg font-bold hidden md:block transition-colors duration-300 text-[#3B82F6]">EEE Technologies</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -67,8 +46,8 @@ export default function Header() {
                 className={({ isActive }) =>
                   `relative px-3 py-2 text-sm font-medium transition-all duration-300 ${
                     isActive
-                      ? (scrolled ? "text-blue-600" : "text-blue-400")
-                      : (scrolled ? "text-gray-700 hover:text-blue-600" : "text-white hover:text-blue-400")
+                      ? "text-[#3B82F6]"
+                      : "text-[#ffffff] hover:text-[#3B82F6]"
                   }`
                 }
               >
@@ -76,7 +55,7 @@ export default function Header() {
                   <>
                     {item.label}
                     {isActive && (
-                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full" />
+                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#3B82F6] rounded-full" />
                     )}
                   </>
                 )}
@@ -88,18 +67,14 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <button
               onClick={() => openEnrollmentModal('General Inquiry')}
-              className={`px-4 py-2 text-sm font-medium transition-colors duration-300 ${
-                scrolled 
-                  ? 'text-gray-900 hover:text-blue-600' 
-                  : 'text-white hover:text-blue-200'
-              }`}
+              className="px-4 py-2 text-sm font-medium transition-colors duration-300 text-[#ffffff]/70 hover:text-[#3B82F6]"
             >
               Get Started
             </button>
             <Link
               to="/courses"
               onClick={scrollToTop}
-              className="px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+              className="px-6 py-2.5 text-sm font-semibold text-white bg-[#3B82F6] rounded-lg hover:bg-[#2563EB] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
             >
               Start Learning
             </Link>
@@ -107,11 +82,7 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className={`lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-300 ${
-              scrolled 
-                ? 'text-gray-700 hover:text-blue-600 hover:bg-gray-100' 
-                : 'text-white hover:text-blue-400 hover:bg-white/30'
-            }`}
+            className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-300 text-white hover:text-[#3B82F6]/80 hover:bg-white/10"
             onClick={() => setOpen(!open)}
             aria-label="Toggle navigation menu"
           >
@@ -121,12 +92,12 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {open && (
-          <div className="lg:hidden border-t border-white/20 bg-white/95 backdrop-blur-xl">
+          <div className="lg:hidden border-t border-white/20 bg-[#0A2540]/95 backdrop-blur-xl">
             <nav className="px-4 py-6 space-y-3">
-              <div className="mb-4 pb-4 border-b border-gray-200">
+              <div className="mb-4 pb-4 border-b border-[#3B82F6]/20">
                 <Link to="/" className="flex items-center gap-3" onClick={() => {setOpen(false); scrollToTop();}}>
-                  <img src={logo} className="w-auto h-8" />
-                  <span className="text-xl font-bold text-gray-900">EEE Technologies</span>
+                  <img src={logo} className="w-auto h-8" alt="EEE Technologies Logo" />
+                  <span className="text-xl font-bold text-white">EEE Technologies</span>
                 </Link>
               </div>
               {navItems.map((item) => (
@@ -136,8 +107,8 @@ export default function Header() {
                   className={({ isActive }) =>
                     `block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 ${
                       isActive
-                        ? "text-blue-600 bg-blue-50 border-l-4 border-blue-500"
-                        : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                        ? "text-[#3B82F6] bg-[#3B82F6]/10 border-l-4 border-[#3B82F6]"
+                        : "text-[#1F2937] hover:text-[#3B82F6] hover:bg-[#F8FAFC]"
                     }`
                   }
                   onClick={() => {
@@ -154,15 +125,13 @@ export default function Header() {
                     setOpen(false);
                     openEnrollmentModal('General Inquiry');
                   }}
-                  className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 ${
-                    'text-gray-900 hover:text-blue-600 hover:bg-gray-50'
-                  }`}
+                  className="block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 text-white hover:text-[#3B82F6] hover:bg-gray-800"
                 >
                   Get Started
                 </button>
                 <Link
                   to="/courses"
-                  className="block px-4 py-3 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-center shadow-md"
+                  className="block px-4 py-3 text-base font-semibold text-white bg-[#3B82F6] rounded-lg hover:bg-[#2563EB] transition-all duration-300 text-center shadow-md"
                   onClick={() => {
                     setOpen(false);
                     scrollToTop();

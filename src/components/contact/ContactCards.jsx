@@ -9,28 +9,28 @@ const ContactCards = () => {
       title: 'Call Us',
       info: '+91 9503182807 / 9146882409',
       subInfo: 'Mon-Fri 9AM-6PM',
-      color: 'from-blue-500 to-blue-600'
+      color: 'from-[#3B82F6] to-[#0A2540]'
     },
     {
       icon: Mail,
       title: 'Email Us',
       info: 'info@eeetechnologies.in',
       subInfo: 'We reply within 24 hours',
-      color: 'from-purple-500 to-purple-600'
+      color: 'from-[#06B6D4] to-[#3B82F6]'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
       info: '1st Floor Mohota Complex, Above State Bank Of India',
       subInfo: 'Katol Road, Chhaoni Rd, Nagpur, Maharashtra, 440013',
-      color: 'from-green-500 to-green-600'
+      color: 'from-[#06B6D4] to-[#3B82F6]'
     },
     {
       icon: Clock,
       title: 'Office Hours',
       info: 'Mon-Fri: 9AM-6PM',
       subInfo: 'Sat: 10AM-4PM',
-      color: 'from-orange-500 to-orange-600'
+      color: 'from-[#0A2540] to-[#3B82F6]'
     }
   ];
 
@@ -58,12 +58,12 @@ const ContactCards = () => {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section className="py-16 bg-[#F8FAFC] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/20 rounded-full filter blur-xl opacity-20 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/20 rounded-full filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500/20 rounded-full filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#06B6D4]/20 rounded-full filter blur-xl opacity-20 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#3B82F6]/20 rounded-full filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#0A2540]/20 rounded-full filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -76,16 +76,16 @@ const ContactCards = () => {
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+            className="text-4xl md:text-5xl font-bold text-[#1F2937] mb-4"
           >
             Get in{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#0A2540] to-[#3B82F6] bg-clip-text text-transparent">
               Touch
             </span>
           </motion.h2>
           <motion.p 
             variants={itemVariants}
-            className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-[#1F2937]/70 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
             Have questions about our courses? Need support? Want to discuss custom training solutions? 
             We're here to help you on your learning journey.
@@ -104,14 +104,14 @@ const ContactCards = () => {
                   whileHover={{ scale: 1.05, y: -5 }}
                   className="relative group"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-2xl blur-xl opacity-30 group-hover:opacity-40 transition-opacity duration-300" />
-                  <div className="relative bg-white/90 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-white/50 hover:border-amber-400/50 transition-all duration-300 h-full flex flex-col items-center text-center group-hover:shadow-2xl">
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6]/30 to-[#06B6D4]/30 rounded-2xl blur-xl opacity-30 group-hover:opacity-40 transition-opacity duration-300" />
+                  <div className="relative bg-white/90 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-white/50 hover:border-[#3B82F6]/50 transition-all duration-300 h-full flex flex-col items-center text-center group-hover:shadow-2xl">
                     <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg`}>
                       <IconComponent className="w-7 h-7 text-white" />
                     </div>
-                    <h3 className="font-bold text-gray-900 text-lg mb-3 group-hover:text-amber-600 transition-colors duration-300">{item.title}</h3>
-                    <p className="text-gray-800 font-semibold mb-2 text-base flex-grow">{item.info}</p>
-                    <p className="text-sm text-gray-500 font-medium">{item.subInfo}</p>
+                    <h3 className="font-bold text-[#1F2937] text-lg mb-3 group-hover:text-[#3B82F6] transition-colors duration-300">{item.title}</h3>
+                    <p className="text-[#1F2937] font-semibold mb-2 text-base flex-grow">{item.info}</p>
+                    <p className="text-sm text-[#1F2937]/60 font-medium">{item.subInfo}</p>
                   </div>
                 </motion.div>
               );

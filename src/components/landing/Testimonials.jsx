@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
-const Testimonials = () => {
+const Testimonials = ({ bgClass = 'bg-white' }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const { ref, controls } = useScrollAnimation();
@@ -159,7 +159,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
+    <section className="py-24 bg-[#F8FAFC] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-10 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-blob"></div>

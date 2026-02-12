@@ -101,19 +101,19 @@ const SearchFilter = ({
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="bg-blue-950 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-blue-800 mb-8"
+      className="bg-[#F8FAFC] backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-[#3B82F6]/30 mb-8"
     >
       {/* Main Search Bar */}
       <div className="flex flex-col lg:flex-row gap-4 mb-6">
         {/* Search Input */}
         <motion.div variants={itemVariants} className="flex-1 relative">
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#1F2937]/40 w-5 h-5" />
           <input
             type="text"
             placeholder="Search courses, skills, or instructors..."
             value={searchTerm}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 border border-blue-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white placeholder-blue-300 transition-all duration-200"
+            className="w-full pl-12 pr-4 py-3 border border-[#3B82F6]/50 rounded-xl focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#F8FAFC] text-[#1F2937] placeholder-[#1F2937]/50 transition-all duration-200"
           />
         </motion.div>
 
@@ -124,15 +124,15 @@ const SearchFilter = ({
           className={`
             flex items-center px-6 py-3 rounded-xl border transition-all duration-200
             ${isAdvancedOpen 
-              ? 'bg-blue-800 border-blue-700 text-blue-200' 
-              : 'bg-blue-900 border-blue-700 text-white hover:bg-blue-800'
+              ? 'bg-[#3B82F6]/20 border-[#3B82F6]/50 text-[#3B82F6]' 
+              : 'bg-[#F8FAFC] border-[#3B82F6]/30 text-[#1F2937] hover:bg-[#3B82F6]/10'
             }
           `}
         >
           <SlidersHorizontal className="w-5 h-5 mr-2" />
           <span className="font-medium">Advanced Filters</span>
           {getActiveFiltersCount() > 0 && (
-            <span className="ml-2 bg-purple-600 text-white text-xs px-2 py-1 rounded-full">
+            <span className="ml-2 bg-[#06B6D4] text-white text-xs px-2 py-1 rounded-full">
               {getActiveFiltersCount()}
             </span>
           )}
@@ -144,7 +144,7 @@ const SearchFilter = ({
           <motion.button
             variants={itemVariants}
             onClick={onClearFilters}
-            className="flex items-center px-4 py-3 bg-blue-800 hover:bg-blue-700 text-white rounded-xl transition-colors duration-200"
+            className="flex items-center px-4 py-3 bg-[#3B82F6]/20 hover:bg-[#3B82F6]/30 text-[#0A2540] rounded-xl transition-colors duration-200"
           >
             <X className="w-4 h-4 mr-2" />
             <span>Clear</span>
@@ -159,13 +159,13 @@ const SearchFilter = ({
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="border-t border-gray-200 pt-6"
+          className="border-t border-[#3B82F6]/20 pt-6"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Difficulty Level */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-semibold text-white mb-3 flex items-center">
-                <Star className="w-4 h-4 mr-2 text-blue-400" />
+              <h4 className="text-sm font-semibold text-[#1F2937] mb-3 flex items-center">
+                <Star className="w-4 h-4 mr-2 text-[#3B82F6]" />
                 Difficulty Level
               </h4>
               <div className="space-y-2">
@@ -180,15 +180,15 @@ const SearchFilter = ({
                     <div className={`
                       w-4 h-4 rounded border-2 mr-3 flex items-center justify-center transition-all duration-200
                       ${filters.difficulty?.includes(level.id)
-                        ? 'bg-purple-600 border-purple-600'
-                        : 'border-gray-300 hover:border-purple-400'
+                        ? 'bg-[#06B6D4] border-[#06B6D4]'
+                        : 'border-[#3B82F6]/30 hover:border-[#3B82F6]'
                       }
                     `}>
                       {filters.difficulty?.includes(level.id) && (
                         <div className="w-2 h-2 bg-white rounded-full"></div>
                       )}
                     </div>
-                    <span className="text-sm text-blue-200">{level.label}</span>
+                    <span className="text-sm text-[#1F2937]/70">{level.label}</span>
                   </label>
                 ))}
               </div>
@@ -196,8 +196,8 @@ const SearchFilter = ({
 
             {/* Duration */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-semibold text-white mb-3 flex items-center">
-                <Clock className="w-4 h-4 mr-2 text-blue-400" />
+              <h4 className="text-sm font-semibold text-[#1F2937] mb-3 flex items-center">
+                <Clock className="w-4 h-4 mr-2 text-[#3B82F6]" />
                 Duration
               </h4>
               <div className="space-y-2">
@@ -212,15 +212,15 @@ const SearchFilter = ({
                     <div className={`
                       w-4 h-4 rounded border-2 mr-3 flex items-center justify-center transition-all duration-200
                       ${filters.duration?.includes(duration.id)
-                        ? 'bg-purple-600 border-purple-600'
-                        : 'border-gray-300 hover:border-purple-400'
+                        ? 'bg-[#06B6D4] border-[#06B6D4]'
+                        : 'border-[#3B82F6]/30 hover:border-[#3B82F6]'
                       }
                     `}>
                       {filters.duration?.includes(duration.id) && (
                         <div className="w-2 h-2 bg-white rounded-full"></div>
                       )}
                     </div>
-                    <span className="text-sm text-blue-200">{duration.label}</span>
+                    <span className="text-sm text-[#1F2937]/70">{duration.label}</span>
                   </label>
                 ))}
               </div>
@@ -228,8 +228,8 @@ const SearchFilter = ({
 
             {/* Rating */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-semibold text-white mb-3 flex items-center">
-                <Star className="w-4 h-4 mr-2 text-blue-400" />
+              <h4 className="text-sm font-semibold text-[#1F2937] mb-3 flex items-center">
+                <Star className="w-4 h-4 mr-2 text-[#3B82F6]" />
                 Rating
               </h4>
               <div className="space-y-2">
@@ -244,19 +244,19 @@ const SearchFilter = ({
                     <div className={`
                       w-4 h-4 rounded border-2 mr-3 flex items-center justify-center transition-all duration-200
                       ${filters.rating?.includes(rating.id)
-                        ? 'bg-purple-600 border-purple-600'
-                        : 'border-gray-300 hover:border-purple-400'
+                        ? 'bg-[#06B6D4] border-[#06B6D4]'
+                        : 'border-[#3B82F6]/30 hover:border-[#3B82F6]'
                       }
                     `}>
                       {filters.rating?.includes(rating.id) && (
                         <div className="w-2 h-2 bg-white rounded-full"></div>
                       )}
                     </div>
-                    <span className="text-sm text-blue-200 flex items-center">
+                    <span className="text-sm text-[#1F2937]/70 flex items-center">
                       {rating.label}
                       <div className="flex ml-1">
                         {[...Array(rating.value)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                          <Star key={i} className="w-3 h-3 fill-[#06B6D4] text-[#06B6D4]" />
                         ))}
                       </div>
                     </span>
@@ -267,8 +267,8 @@ const SearchFilter = ({
 
             {/* Price Range */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-semibold text-white mb-3 flex items-center">
-                <DollarSign className="w-4 h-4 mr-2 text-blue-400" />
+              <h4 className="text-sm font-semibold text-[#1F2937] mb-3 flex items-center">
+                <DollarSign className="w-4 h-4 mr-2 text-[#3B82F6]" />
                 Price Range
               </h4>
               <div className="space-y-3">
@@ -278,18 +278,18 @@ const SearchFilter = ({
                     placeholder="Min"
                     value={priceRange[0]}
                     onChange={(e) => handlePriceRangeChange(0, e.target.value)}
-                    className="w-20 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-20 px-3 py-2 border border-[#3B82F6]/30 rounded-lg text-sm focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#F8FAFC] text-[#1F2937]"
                   />
-                  <span className="text-gray-500">-</span>
+                  <span className="text-[#1F2937]/50">-</span>
                   <input
                     type="number"
                     placeholder="Max"
                     value={priceRange[1]}
                     onChange={(e) => handlePriceRangeChange(1, e.target.value)}
-                    className="w-20 px-3 py-2 border border-blue-700 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-blue-900 text-white"
+                    className="w-20 px-3 py-2 border border-[#3B82F6]/50 rounded-lg text-sm focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#F8FAFC] text-[#1F2937]"
                   />
                 </div>
-                <div className="text-xs text-blue-300">
+                <div className="text-xs text-[#1F2937]/60">
                   ${priceRange[0]} - ${priceRange[1]}
                 </div>
               </div>
@@ -297,8 +297,8 @@ const SearchFilter = ({
 
             {/* Instructor Type */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-semibold text-white mb-3 flex items-center">
-                <Users className="w-4 h-4 mr-2 text-blue-400" />
+              <h4 className="text-sm font-semibold text-[#1F2937] mb-3 flex items-center">
+                <Users className="w-4 h-4 mr-2 text-[#3B82F6]" />
                 Instructor Type
               </h4>
               <div className="space-y-2">
@@ -313,15 +313,15 @@ const SearchFilter = ({
                     <div className={`
                       w-4 h-4 rounded border-2 mr-3 flex items-center justify-center transition-all duration-200
                       ${filters.instructor?.includes(type.id)
-                        ? 'bg-purple-600 border-purple-600'
-                        : 'border-gray-300 hover:border-purple-400'
+                        ? 'bg-[#06B6D4] border-[#06B6D4]'
+                        : 'border-[#3B82F6]/30 hover:border-[#3B82F6]'
                       }
                     `}>
                       {filters.instructor?.includes(type.id) && (
                         <div className="w-2 h-2 bg-white rounded-full"></div>
                       )}
                     </div>
-                    <span className="text-sm text-blue-200">{type.label}</span>
+                    <span className="text-sm text-[#1F2937]/70">{type.label}</span>
                   </label>
                 ))}
               </div>
@@ -329,8 +329,8 @@ const SearchFilter = ({
 
             {/* Course Features */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-semibold text-white mb-3 flex items-center">
-                <Calendar className="w-4 h-4 mr-2 text-blue-400" />
+              <h4 className="text-sm font-semibold text-[#1F2937] mb-3 flex items-center">
+                <Calendar className="w-4 h-4 mr-2 text-[#3B82F6]" />
                 Features
               </h4>
               <div className="space-y-2">
@@ -345,15 +345,15 @@ const SearchFilter = ({
                     <div className={`
                       w-4 h-4 rounded border-2 mr-3 flex items-center justify-center transition-all duration-200
                       ${filters.features?.includes(feature.toLowerCase())
-                        ? 'bg-purple-600 border-purple-600'
-                        : 'border-gray-300 hover:border-purple-400'
+                        ? 'bg-[#06B6D4] border-[#06B6D4]'
+                        : 'border-[#3B82F6]/30 hover:border-[#3B82F6]'
                       }
                     `}>
                       {filters.features?.includes(feature.toLowerCase()) && (
                         <div className="w-2 h-2 bg-white rounded-full"></div>
                       )}
                     </div>
-                    <span className="text-sm text-blue-200">{feature}</span>
+                    <span className="text-sm text-[#1F2937]/70">{feature}</span>
                   </label>
                 ))}
               </div>

@@ -219,19 +219,19 @@ const SuccessStories = ({ stories = [] }) => {
     >
       {/* Header */}
       <motion.div variants={cardVariants} className="text-center mb-16">
-        <div className="inline-flex items-center px-5 py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6">
+        <div className="inline-flex items-center px-5 py-2.5 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-full text-[#3B82F6] text-sm font-semibold mb-6">
           <Award className="w-4 h-4 mr-2" />
           Success Stories
         </div>
         
-        <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+        <h2 className="text-5xl md:text-6xl font-bold text-[#1F2937] mb-6 tracking-tight">
           Student
-          <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
+          <span className="block bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#3B82F6] bg-clip-text text-transparent mt-2">
             Success Stories
           </span>
         </h2>
         
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-[#1F2937]/70 max-w-2xl mx-auto">
           Discover how our students transformed their careers and achieved their dreams with our comprehensive training programs.
         </p>
       </motion.div>
@@ -250,7 +250,7 @@ const SuccessStories = ({ stories = [] }) => {
               }}
               className={`px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 ${
                 selectedCategory === category.id
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30 hover:-translate-y-0.5'
+                  ? 'bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white shadow-lg shadow-blue-500/30 hover:-translate-y-0.5'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300'
               }`}
             >
@@ -262,7 +262,7 @@ const SuccessStories = ({ stories = [] }) => {
 
       {/* Main Story Card */}
       <motion.div variants={cardVariants} className="relative">
-        <div className="bg-blue-950 rounded-3xl shadow-2xl border border-blue-800 overflow-hidden">
+        <div className="bg-[#0A2540] rounded-3xl shadow-2xl border border-[#3B82F6]/30 overflow-hidden">
           <AnimatePresence mode="wait" custom={1}>
             <motion.div
               key={currentStory}
@@ -280,28 +280,28 @@ const SuccessStories = ({ stories = [] }) => {
               {/* Left Side - Story Content */}
               <div className="space-y-6">
                 {/* Quote Icon */}
-                <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center border border-blue-400/40">
-                  <Quote className="w-6 h-6 text-blue-400" />
+                <div className="w-12 h-12 bg-[#3B82F6]/20 rounded-full flex items-center justify-center border border-[#3B82F6]/40">
+                  <Quote className="w-6 h-6 text-[#3B82F6]" />
                 </div>
 
                 {/* Testimonial */}
-                <blockquote className="text-xl font-medium text-blue-100 leading-relaxed">
+                <blockquote className="text-xl font-medium text-[#F8FAFC] leading-relaxed">
                   "{currentStoryData.testimonial}"
                 </blockquote>
 
                 {/* Story */}
-                <p className="text-blue-200 leading-relaxed">
+                <p className="text-[#F8FAFC]/80 leading-relaxed">
                   {currentStoryData.story}
                 </p>
 
                 {/* Skills */}
                 <div>
-                  <h4 className="text-sm font-semibold text-blue-100 mb-3">Key Skills Learned</h4>
+                  <h4 className="text-sm font-semibold text-[#3B82F6] mb-3">Key Skills Learned</h4>
                   <div className="flex flex-wrap gap-2">
                     {currentStoryData.skills.map((skill, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full border border-blue-400/40"
+                        className="px-3 py-1 bg-[#3B82F6]/20 text-[#3B82F6] text-sm rounded-full border border-[#3B82F6]/40"
                       >
                         {skill}
                       </span>
@@ -311,11 +311,11 @@ const SuccessStories = ({ stories = [] }) => {
 
                 {/* Achievements */}
                 <div>
-                  <h4 className="text-sm font-semibold text-blue-100 mb-3">Key Achievements</h4>
+                  <h4 className="text-sm font-semibold text-[#06B6D4] mb-3">Key Achievements</h4>
                   <ul className="space-y-2">
                     {currentStoryData.achievements.map((achievement, index) => (
-                      <li key={index} className="flex items-center text-blue-200">
-                        <Award className="w-4 h-4 text-green-500" />
+                      <li key={index} className="flex items-center text-[#F8FAFC]/80">
+                        <Award className="w-4 h-4 text-[#06B6D4] mr-2" />
                         {achievement}
                       </li>
                     ))}
@@ -333,9 +333,9 @@ const SuccessStories = ({ stories = [] }) => {
                     <img
                       src={currentStoryData.image}
                       alt={currentStoryData.name}
-                      className="w-32 h-32 rounded-full object-cover border-4 border-blue-800 shadow-lg"
+                      className="w-32 h-32 rounded-full object-cover border-4 border-[#3B82F6] shadow-lg"
                     />
-                    <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-blue-800 rounded-full p-2 shadow-lg">
+                    <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-[#0A2540] rounded-full p-2 shadow-lg border border-[#3B82F6]">
                       <img
                         src={currentStoryData.companyLogo}
                         alt={currentStoryData.company}
@@ -344,22 +344,22 @@ const SuccessStories = ({ stories = [] }) => {
                     </div>
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-blue-100 mb-1">
+                  <h3 className="text-2xl font-bold text-[#F8FAFC] mb-1">
                     {currentStoryData.name}
                   </h3>
                   
-                  <p className="text-lg text-blue-300 font-semibold mb-2">
+                  <p className="text-lg text-[#3B82F6] font-semibold mb-2">
                     {currentStoryData.role}
                   </p>
                   
-                  <div className="flex items-center justify-center space-x-4 text-blue-200 mb-4">
-                    <div className="flex items-center space-x-1 bg-blue-800/30 px-3 py-1 rounded-full">
-                      <Building className="w-4 h-4 text-blue-300" />
-                      <span className="text-blue-200">{currentStoryData.company}</span>
+                  <div className="flex items-center justify-center space-x-4 text-[#F8FAFC]/70 mb-4">
+                    <div className="flex items-center space-x-1 bg-[#3B82F6]/20 px-3 py-1 rounded-full">
+                      <Building className="w-4 h-4 text-[#3B82F6]" />
+                      <span className="text-[#F8FAFC]">{currentStoryData.company}</span>
                     </div>
-                    <div className="flex items-center space-x-1 bg-blue-800/30 px-3 py-1 rounded-full">
-                      <MapPin className="w-4 h-4 text-blue-300" />
-                      <span className="text-blue-200">{currentStoryData.location}</span>
+                    <div className="flex items-center space-x-1 bg-[#3B82F6]/20 px-3 py-1 rounded-full">
+                      <MapPin className="w-4 h-4 text-[#3B82F6]" />
+                      <span className="text-[#F8FAFC]">{currentStoryData.location}</span>
                     </div>
                   </div>
 
@@ -371,8 +371,8 @@ const SuccessStories = ({ stories = [] }) => {
                           key={i}
                           className={`w-5 h-5 ${
                             i < currentStoryData.rating
-                              ? 'text-yellow-400 fill-current'
-                              : 'text-blue-400'
+                              ? 'text-[#06B6D4] fill-current'
+                              : 'text-[#3B82F6]/30'
                           }`}
                         />
                       ))}
@@ -381,38 +381,38 @@ const SuccessStories = ({ stories = [] }) => {
 
                   {/* Stats Grid */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-3 bg-slate-800/50 backdrop-blur-xl rounded-xl border border-slate-700/50 overflow-hidden hover:border-slate-600/50 transition-all duration-500">
-                      <div className="text-3xl font-extrabold text-blue-600 tracking-tight">
+                    <div className="text-center p-3 bg-[#0A2540]/50 backdrop-blur-xl rounded-xl border border-[#3B82F6]/20 overflow-hidden hover:border-[#3B82F6]/50 transition-all duration-500">
+                      <div className="text-3xl font-extrabold text-[#3B82F6] tracking-tight">
                         {currentStoryData.duration}
                       </div>
-                      <div className="text-base text-gray-700 font-bold tracking-wide">
+                      <div className="text-base text-[#F8FAFC]/70 font-bold tracking-wide">
                         Course Duration
                       </div>
                     </div>
                     
-                    <div className="text-center p-3 bg-slate-800/50 backdrop-blur-xl rounded-xl border border-slate-700/50 overflow-hidden hover:border-slate-600/50 transition-all duration-500">
-                      <div className="text-2xl font-bold text-green-400">
+                    <div className="text-center p-3 bg-[#0A2540]/50 backdrop-blur-xl rounded-xl border border-[#3B82F6]/20 overflow-hidden hover:border-[#3B82F6]/50 transition-all duration-500">
+                      <div className="text-2xl font-bold text-[#06B6D4]">
                         {currentStoryData.graduationYear}
                       </div>
-                      <div className="text-base text-gray-700 font-bold tracking-wide">
+                      <div className="text-base text-[#F8FAFC]/70 font-bold tracking-wide">
                         Graduated
                       </div>
                     </div>
                     
-                    <div className="text-center p-3 bg-slate-800/50 backdrop-blur-xl rounded-xl border border-slate-700/50 overflow-hidden hover:border-slate-600/50 transition-all duration-500">
-                      <div className="text-3xl font-extrabold text-blue-600 tracking-tight">
+                    <div className="text-center p-3 bg-[#0A2540]/50 backdrop-blur-xl rounded-xl border border-[#3B82F6]/20 overflow-hidden hover:border-[#3B82F6]/50 transition-all duration-500">
+                      <div className="text-3xl font-extrabold text-[#3B82F6] tracking-tight">
                         {currentStoryData.previousRole}
                       </div>
-                      <div className="text-base text-gray-700 font-bold tracking-wide">
+                      <div className="text-base text-[#F8FAFC]/70 font-bold tracking-wide">
                         Previous Role
                       </div>
                     </div>
                     
-                    <div className="text-center p-3 bg-slate-800/50 backdrop-blur-xl rounded-xl border border-slate-700/50 overflow-hidden hover:border-slate-600/50 transition-all duration-500">
-                      <div className="text-3xl font-extrabold text-purple-600 tracking-tight">
+                    <div className="text-center p-3 bg-[#0A2540]/50 backdrop-blur-xl rounded-xl border border-[#3B82F6]/20 overflow-hidden hover:border-[#3B82F6]/50 transition-all duration-500">
+                      <div className="text-3xl font-extrabold text-[#06B6D4] tracking-tight">
                         {currentStoryData.company}
                       </div>
-                      <div className="text-base text-gray-700 font-bold tracking-wide">
+                      <div className="text-base text-[#F8FAFC]/70 font-bold tracking-wide">
                         Current Company
                       </div>
                     </div>
@@ -420,7 +420,7 @@ const SuccessStories = ({ stories = [] }) => {
 
                   {/* Course Badge */}
                   <div className="mt-6 text-center">
-                    <span className="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 text-sm font-semibold rounded-full border border-blue-400/40">
+                    <span className="inline-block px-4 py-2 bg-[#3B82F6]/20 text-[#3B82F6] text-sm font-semibold rounded-full border border-[#3B82F6]/40">
                       {currentStoryData.course}
                     </span>
                   </div>
@@ -453,8 +453,8 @@ const SuccessStories = ({ stories = [] }) => {
               }}
               className={`w-3 h-3 rounded-full transition-all duration-200 ${
                 index === currentStory
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 scale-125 shadow-md'
-                  : 'bg-gray-300 hover:bg-blue-500'
+                  ? 'bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] scale-125 shadow-md'
+                  : 'bg-gray-300 hover:bg-[#3B82F6]'
               }`}
             />
           ))}
@@ -464,36 +464,36 @@ const SuccessStories = ({ stories = [] }) => {
       {/* Stats Summary */}
       <motion.div variants={cardVariants}>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center p-6 bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-blue-300 hover:-translate-y-2 transition-all duration-300 shadow-lg">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <div className="text-center p-6 bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-[#3B82F6] hover:-translate-y-2 transition-all duration-300 shadow-lg">
+            <div className="w-12 h-12 bg-gradient-to-br from-[#3B82F6] to-[#06B6D4] rounded-xl flex items-center justify-center mx-auto mb-4">
               <Users className="w-6 h-6 text-white" />
             </div>
-            <div className="text-3xl font-extrabold text-gray-900 mb-3 tracking-tight drop-shadow-sm">500+</div>
-            <div className="text-gray-700 text-base font-bold tracking-wide">Success Stories</div>
+            <div className="text-3xl font-extrabold text-[#0A2540] mb-3 tracking-tight drop-shadow-sm">500+</div>
+            <div className="text-[#1F2937]/70 text-base font-bold tracking-wide">Success Stories</div>
           </div>
           
-          <div className="text-center p-6 bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-blue-300 hover:-translate-y-2 transition-all duration-300 shadow-lg">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <div className="text-center p-6 bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-[#3B82F6] hover:-translate-y-2 transition-all duration-300 shadow-lg">
+            <div className="w-12 h-12 bg-gradient-to-br from-[#3B82F6] to-[#06B6D4] rounded-xl flex items-center justify-center mx-auto mb-4">
               <TrendingUp className="w-6 h-6 text-white" />
             </div>
-            <div className="text-3xl font-extrabold text-gray-900 mb-3 tracking-tight drop-shadow-sm">95%</div>
-            <div className="text-gray-700 text-base font-bold tracking-wide">Placement Rate</div>
+            <div className="text-3xl font-extrabold text-[#0A2540] mb-3 tracking-tight drop-shadow-sm">95%</div>
+            <div className="text-[#1F2937]/70 text-base font-bold tracking-wide">Placement Rate</div>
           </div>
           
-          <div className="text-center p-6 bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-blue-300 hover:-translate-y-2 transition-all duration-300 shadow-lg">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <div className="text-center p-6 bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-[#3B82F6] hover:-translate-y-2 transition-all duration-300 shadow-lg">
+            <div className="w-12 h-12 bg-gradient-to-br from-[#3B82F6] to-[#06B6D4] rounded-xl flex items-center justify-center mx-auto mb-4">
               <Calendar className="w-6 h-6 text-white" />
             </div>
-            <div className="text-3xl font-extrabold text-gray-900 mb-3 tracking-tight drop-shadow-sm">2024</div>
-            <div className="text-gray-700 text-base font-bold tracking-wide">Recent Graduates</div>
+            <div className="text-3xl font-extrabold text-[#0A2540] mb-3 tracking-tight drop-shadow-sm">2024</div>
+            <div className="text-[#1F2937]/70 text-base font-bold tracking-wide">Recent Graduates</div>
           </div>
           
-          <div className="text-center p-6 bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-blue-300 hover:-translate-y-2 transition-all duration-300 shadow-lg">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <div className="text-center p-6 bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-[#3B82F6] hover:-translate-y-2 transition-all duration-300 shadow-lg">
+            <div className="w-12 h-12 bg-gradient-to-br from-[#3B82F6] to-[#06B6D4] rounded-xl flex items-center justify-center mx-auto mb-4">
               <Building className="w-6 h-6 text-white" />
             </div>
-            <div className="text-3xl font-extrabold text-gray-900 mb-3 tracking-tight drop-shadow-sm">200+</div>
-            <div className="text-gray-700 text-base font-bold tracking-wide">Partner Companies</div>
+            <div className="text-3xl font-extrabold text-[#0A2540] mb-3 tracking-tight drop-shadow-sm">200+</div>
+            <div className="text-[#1F2937]/70 text-base font-bold tracking-wide">Partner Companies</div>
           </div>
         </div>
       </motion.div>

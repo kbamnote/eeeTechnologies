@@ -39,7 +39,7 @@ function App() {
 
   return (
     <EnrollmentProvider>
-      <div className="flex flex-col min-h-screen bg-white">
+      <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
         {!isGoogleLanding && <Header />}
         
         {/* ChatBot - Available on all pages except Google Landing */}
@@ -54,7 +54,7 @@ function App() {
             <Route path="/courses/:slug" element={<PageWrapper><CourseDetail /></PageWrapper>} />
             <Route path="/placement" element={<PageWrapper><Placement /></PageWrapper>} />
             <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
-            <Route path="/blog/:slug" element={<PageWrapper><BlogPost /></PageWrapper>} />
+            <Route path="/blog/:id" element={<PageWrapper><BlogPost /></PageWrapper>} />
             <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
             <Route path="/placement-courses" element={<GoogleLanding />} />
             <Route path="/thank-you" element={<PageWrapper><ThankYou /></PageWrapper>} />

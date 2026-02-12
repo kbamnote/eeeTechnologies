@@ -30,11 +30,14 @@ const BlogList = ({ posts = [], loading = false }) => {
 
     // Filter by search term
     if (searchTerm) {
-      filtered = filtered.filter(post =>
-        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.tags?.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
-      );
+      filtered = filtered.filter(post => {
+        const title = post.title || post.heading || '';
+        return (
+          title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          (post.excerpt && post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())) ||
+          post.tags?.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+        );
+      });
     }
 
     // Filter by category
@@ -99,10 +102,10 @@ const BlogList = ({ posts = [], loading = false }) => {
       <div className="space-y-8">
         {/* Loading Skeleton */}
         <div className="animate-pulse">
-          <div className="h-12 bg-gray-200 rounded-lg mb-6"></div>
+          <div className="h-12 bg-[#F8FAFC] rounded-lg mb-6"></div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[...Array(6)].map((_, i) => (
-              <div key={i} className="bg-gray-200 rounded-2xl h-96"></div>
+              <div key={i} className="bg-[#F8FAFC] rounded-2xl h-96"></div>
             ))}
           </div>
         </div>
@@ -124,13 +127,13 @@ const BlogList = ({ posts = [], loading = false }) => {
       >
         {/* Search Bar */}
         <div className="relative mb-6">
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#1F2937]/40 w-5 h-5" />
           <input
             type="text"
             placeholder="Search articles, topics, or tags..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 border border-gray-200/50 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/50 backdrop-blur-sm text-gray-900 placeholder-gray-500 transition-all duration-200"
+            className="w-full pl-12 pr-4 py-3 border border-[#3B82F6]/20 rounded-xl focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent bg-[#F8FAFC]/50 backdrop-blur-sm text-[#1F2937] placeholder-[#1F2937]/50 transition-all duration-200"
           />
         </div>
 
@@ -149,8 +152,8 @@ const BlogList = ({ posts = [], loading = false }) => {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   selectedCategory === category.id
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
-                    : 'bg-white/60 backdrop-blur-sm text-gray-700 hover:bg-white/80 border border-gray-200/50'
+                    ? 'bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white shadow-lg'
+                    : 'bg-[#F8FAFC]/60 backdrop-blur-sm text-[#1F2937]/80 hover:bg-[#F8FAFC]/80 border border-[#3B82F6]/20'
                 }`}
               >
                 {category.name}
@@ -166,7 +169,7 @@ const BlogList = ({ posts = [], loading = false }) => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="appearance-none bg-white/60 backdrop-blur-sm border border-gray-200/50 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-gray-700 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                className="appearance-none bg-[#F8FAFC]/60 backdrop-blur-sm border border-[#3B82F6]/20 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-[#1F2937] focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent transition-all duration-200"
               >
                 {sortOptions.map((option) => (
                   <option key={option.id} value={option.id}>
@@ -174,19 +177,19 @@ const BlogList = ({ posts = [], loading = false }) => {
                   </option>
                 ))}
               </select>
-              <Filter className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+              <Filter className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-[#1F2937]/40 pointer-events-none" />
             </div>
 
             {/* View Mode Toggle */}
-            <div className="flex bg-white/60 backdrop-blur-sm rounded-lg p-1 border border-gray-200/50">
+            <div className="flex bg-[#F8FAFC]/60 backdrop-blur-sm rounded-lg p-1 border border-[#3B82F6]/20">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setViewMode('grid')}
                 className={`p-2 rounded-md transition-all duration-200 ${
                   viewMode === 'grid'
-                    ? 'bg-white text-purple-600 shadow-sm'
-                    : 'text-gray-500 hover:text-gray-700'
+                    ? 'bg-white text-[#3B82F6] shadow-sm'
+                    : 'text-[#1F2937]/60 hover:text-[#1F2937]/80'
                 }`}
               >
                 <Grid className="w-4 h-4" />
@@ -197,8 +200,8 @@ const BlogList = ({ posts = [], loading = false }) => {
                 onClick={() => setViewMode('list')}
                 className={`p-2 rounded-md transition-all duration-200 ${
                   viewMode === 'list'
-                    ? 'bg-white text-purple-600 shadow-sm'
-                    : 'text-gray-500 hover:text-gray-700'
+                    ? 'bg-white text-[#3B82F6] shadow-sm'
+                    : 'text-[#1F2937]/60 hover:text-[#1F2937]/80'
                 }`}
               >
                 <List className="w-4 h-4" />
@@ -213,8 +216,8 @@ const BlogList = ({ posts = [], loading = false }) => {
         variants={itemVariants}
         className="flex items-center justify-between"
       >
-        <p className="text-gray-600">
-          Showing <span className="font-semibold text-purple-600">{filteredPosts.length}</span> of{' '}
+        <p className="text-[#1F2937]">
+          Showing <span className="font-semibold text-[#3B82F6]">{filteredPosts.length}</span> of{' '}
           <span className="font-semibold">{posts.length}</span> articles
         </p>
       </motion.div>
@@ -243,6 +246,7 @@ const BlogList = ({ posts = [], loading = false }) => {
               >
                 <BlogCard
                   {...post}
+                  title={post.title || post.heading}
                   href={post.href || '#'}
                   className={viewMode === 'list' ? 'flex flex-row' : ''}
                 />
@@ -253,13 +257,13 @@ const BlogList = ({ posts = [], loading = false }) => {
               variants={itemVariants}
               className="col-span-full text-center py-12"
             >
-              <div className="text-gray-400 mb-4">
+              <div className="text-[#1F2937]/40 mb-4">
                 <Search className="w-16 h-16 mx-auto mb-4 opacity-50" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-600 mb-2">
+              <h3 className="text-xl font-semibold text-[#1F2937] mb-2">
                 No articles found
               </h3>
-              <p className="text-gray-500">
+              <p className="text-[#1F2937]/70">
                 Try adjusting your search terms or filters
               </p>
             </motion.div>

@@ -71,7 +71,7 @@ const Contact = () => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="min-h-screen bg-gradient-to-br from-gray-50 to-white"
+      className="min-h-screen bg-[#F8FAFC]"
     >
       {/* Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -159,7 +159,7 @@ const Contact = () => {
                 >
                   <h1 className="text-4xl md:text-8xl font-bold text-white mb-6">
                     Get in{' '}
-                    <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    <span className="text-[#3B82F6]">
                       Touch
                     </span>
                   </h1>
@@ -174,7 +174,7 @@ const Contact = () => {
         </section>
 
         {/* Contact Cards Section */}
-        <section className="py-16 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+        <section className="py-16 bg-[#F8FAFC] relative overflow-hidden">
           {/* Background Elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/20 rounded-full filter blur-xl opacity-20 animate-blob"></div>
@@ -193,11 +193,11 @@ const Contact = () => {
               <motion.div variants={itemVariants} className="mb-12">
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                   Get in{' '}
-                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  <span className="text-[#3B82F6]">
                     Touch
                   </span>
                 </h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-xl text-[#1F2937] max-w-3xl mx-auto leading-relaxed">
                   Have questions about our courses? Need support? Want to discuss custom training solutions? 
                   We're here to help you on your learning journey.
                 </p>
@@ -218,7 +218,7 @@ const Contact = () => {
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-2xl blur-xl opacity-30 group-hover:opacity-40 transition-opacity duration-300" />
                       <div className="relative bg-white/90 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-white/50 hover:border-amber-400/50 transition-all duration-300 h-full flex flex-col items-center text-center group-hover:shadow-2xl">
-                        <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg`}>
+                        <div className={`w-16 h-16 bg-[#3B82F6] rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg`}>
                           <IconComponent className="w-7 h-7 text-white" />
                         </div>
                         <h3 className="font-bold text-gray-900 text-lg mb-3 group-hover:text-amber-600 transition-colors duration-300">{item.title}</h3>
@@ -264,7 +264,7 @@ const Contact = () => {
 
           {/* Final CTA Section */}
           <motion.section variants={itemVariants}>
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 md:p-12 text-center text-gray-900 relative overflow-hidden border border-gray-200 shadow-xl">
+            <div className="bg-[#F8FAFC] rounded-2xl p-8 md:p-12 text-center text-[#1F2937] relative overflow-hidden border border-gray-200 shadow-xl">
               {/* Background decoration */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50"></div>
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-200/30 rounded-full blur-xl"></div>
@@ -274,7 +274,7 @@ const Contact = () => {
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   Ready to Start Your Journey?
                 </h2>
-                <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                <p className="text-xl text-[#1F2937] mb-8 max-w-2xl mx-auto">
                   Join thousands of students who have transformed their careers with our expert-led courses. 
                   Your success story starts here.
                 </p>
@@ -283,7 +283,7 @@ const Contact = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => navigate('/courses')}
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-200 font-semibold shadow-lg flex items-center justify-center space-x-2"
+                    className="px-8 py-4 bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-lg hover:shadow-2xl hover:shadow-[#3B82F6]/25 transition-all duration-200 font-semibold shadow-lg flex items-center justify-center space-x-2"
                   >
                     <span>Browse Courses</span>
                     <ArrowRight className="w-5 h-5" />
@@ -292,7 +292,7 @@ const Contact = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => openEnrollmentModal('Consultation Request')}
-                    className="px-8 py-4 border-2 border-blue-500 text-gray-800 bg-white rounded-lg hover:bg-gray-50 transition-all duration-200 font-semibold shadow-lg"
+                    className="px-8 py-4 border-2 border-[#3B82F6] text-[#1F2937] bg-white rounded-lg hover:bg-[#3B82F6] hover:text-white transition-all duration-200 font-semibold shadow-lg"
                   >
                     Schedule Consultation
                   </motion.button>

@@ -20,10 +20,10 @@ const CategorySidebar = () => {
   return (
     <div className="w-full max-w-6xl mx-auto p-6">
       <div className="mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">
+        <h2 className="text-3xl font-bold text-[#1F2937] mb-2">
           Explore Courses
         </h2>
-        <p className="text-gray-600">
+        <p className="text-[#1F2937]/70">
           Choose a category to find the perfect course for you
         </p>
       </div>
@@ -40,8 +40,8 @@ const CategorySidebar = () => {
               className={`
                 group relative p-6 rounded-2xl border-2 transition-all duration-300
                 ${isSelected 
-                  ? 'border-blue-500 bg-blue-900 shadow-lg shadow-blue-900' 
-                  : 'border-blue-700 bg-blue-950 hover:border-blue-600 hover:shadow-md'
+                  ? 'border-[#3B82F6] bg-[#3B82F6]/10 shadow-lg shadow-[#3B82F6]/30' 
+                  : 'border-[#3B82F6]/50 bg-[#3B82F6]/5 hover:border-[#3B82F6]/70 hover:shadow-md'
                 }
               `}
             >
@@ -49,8 +49,8 @@ const CategorySidebar = () => {
                 <div className={`
                   w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300
                   ${isSelected 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-blue-800 text-blue-200 group-hover:bg-blue-700 group-hover:text-blue-100'
+                    ? 'bg-[#3B82F6] text-white' 
+                    : 'bg-[#3B82F6]/20 text-[#3B82F6] group-hover:bg-[#3B82F6]/30 group-hover:text-[#3B82F6]/90'
                   }
                 `}>
                   <Icon className="w-7 h-7" />
@@ -59,13 +59,13 @@ const CategorySidebar = () => {
                 <div>
                   <h3 className={`
                     font-semibold text-sm transition-colors duration-300
-                    ${isSelected ? 'text-blue-300' : 'text-white'}
+                    ${isSelected ? 'text-[#3B82F6]' : 'text-[#1F2937]'}
                   `}>
                     {category.name}
                   </h3>
                   <p className={`
                     text-xs mt-1 transition-colors duration-300
-                    ${isSelected ? 'text-blue-200' : 'text-blue-300'}
+                    ${isSelected ? 'text-[#3B82F6]/70' : 'text-[#3B82F6]/80'}
                   `}>
                     {category.count} courses
                   </p>
@@ -74,7 +74,7 @@ const CategorySidebar = () => {
 
               {isSelected && (
                 <div className="absolute top-3 right-3">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
+                  <div className="w-2 h-2 bg-[#3B82F6] rounded-full animate-pulse" />
                 </div>
               )}
             </button>
@@ -86,7 +86,7 @@ const CategorySidebar = () => {
         <div className="mt-6 flex justify-center">
           <button
             onClick={() => setSelectedCategory('all')}
-            className="px-6 py-2 bg-blue-800 hover:bg-blue-700 text-white rounded-full text-sm font-medium transition-colors duration-200"
+            className="px-6 py-2 bg-[#3B82F6]/80 hover:bg-[#3B82F6] text-white rounded-full text-sm font-medium transition-colors duration-200"
           >
             Clear Filter
           </button>

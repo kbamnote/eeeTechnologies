@@ -34,7 +34,7 @@ const About = () => {
   return (
     <>
 
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+      <div className="min-h-screen bg-gradient-to-br from-[#0A2540] via-[#0A2540] to-[#0A2540]">
         {/* Hero Section */}
        <AboutHeroSection/>
 
@@ -51,7 +51,7 @@ const About = () => {
         <Infrastructure />
 
         {/* Why Choose Us - Enhanced */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <section className="py-20 bg-gradient-to-br from-[#F8FAFC] to-[#F8FAFC]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -59,10 +59,10 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why Choose <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">eee Technologies?</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1F2937] mb-6">
+                Why Choose <span className="bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] bg-clip-text text-transparent">eee Technologies?</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-[#1F2937]/70 max-w-3xl mx-auto">
                 Discover what makes us the preferred choice for technology education and career transformation.
               </p>
             </motion.div>
@@ -73,37 +73,37 @@ const About = () => {
                   icon: Award,
                   title: "Industry Recognition",
                   description: "Recognized by top tech companies and industry leaders worldwide",
-                  color: "from-yellow-500 to-orange-600"
+                  color: "from-[#3B82F6] to-[#06B6D4]"
                 },
                 {
                   icon: Users,
                   title: "Expert Faculty",
                   description: "Learn from industry professionals with 10+ years of real-world experience",
-                  color: "from-blue-500 to-cyan-600"
+                  color: "from-[#06B6D4] to-[#3B82F6]"
                 },
                 {
                   icon: BookOpen,
                   title: "Comprehensive Curriculum",
                   description: "Updated curriculum aligned with latest industry trends and technologies",
-                  color: "from-green-500 to-emerald-600"
+                  color: "from-[#0A2540] to-[#3B82F6]"
                 },
                 {
                   icon: Target,
                   title: "100% Placement Assistance",
                   description: "Dedicated placement cell with extensive industry network and partnerships",
-                  color: "from-purple-500 to-pink-600"
+                  color: "from-[#3B82F6] to-[#06B6D4]"
                 },
                 {
                   icon: Zap,
                   title: "Hands-on Learning",
                   description: "Practical projects, real-world applications, and industry-standard tools",
-                  color: "from-red-500 to-rose-600"
+                  color: "from-[#06B6D4] to-[#0A2540]"
                 },
                 {
                   icon: CheckCircle,
                   title: "Modern Infrastructure",
                   description: "State-of-the-art facilities with latest technology and learning resources",
-                  color: "from-indigo-500 to-blue-600"
+                  color: "from-[#0A2540] to-[#3B82F6]"
                 }
               ].map((feature, index) => (
                 <motion.div
@@ -111,16 +111,16 @@ const About = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
-                  className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group cursor-pointer border border-gray-200 hover:border-gray-300"
+                  className="bg-[#F8FAFC]/80 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group cursor-pointer border border-[#3B82F6]/20 hover:border-[#3B82F6]/30"
                   whileHover={{ y: -10, scale: 1.02 }}
                 >
                   <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     <feature.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl md:text-2xl font-bold text-[#1F2937] mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-[#1F2937]/70 leading-relaxed">
                     {feature.description}
                   </p>
                   
