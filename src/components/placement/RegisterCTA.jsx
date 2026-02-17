@@ -79,7 +79,7 @@ const RegisterCTA = ({ onEnrollClick }) => {
     {
       id: 'premium',
       name: 'Premium',
-      price: '₹79,999',
+      price: '₹99,999',
       originalPrice: '₹99,999',
       duration: '8 months',
       popular: true,

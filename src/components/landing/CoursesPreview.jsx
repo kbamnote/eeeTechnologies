@@ -19,7 +19,7 @@ const CoursesPreview = () => {
       duration: "6 months",
       students: "2,847+",
       rating: 4.9,
-      price: "₹75,000",
+      price: "₹90,000",
       originalPrice: "₹90,000",
       technologies: ["React", "Node.js", "MongoDB", "Express", "JavaScript", "HTML/CSS"],
       color: "from-blue-500 to-cyan-500",
@@ -34,7 +34,7 @@ const CoursesPreview = () => {
       duration: "6 months",
       students: "1,923+",
       rating: 4.8,
-      price: "₹75,000",
+      price: "₹90,000", 
       originalPrice: "₹90,000",
       technologies: ["Python", "SQL", "Pandas", "NumPy", "Matplotlib", "Tableau", "Excel"],
       color: "from-purple-500 to-pink-500",
@@ -49,7 +49,7 @@ const CoursesPreview = () => {
       duration: "6 months",
       students: "1,456+",
       rating: 4.9,
-      price: "₹75,000",
+      price: "₹90,000",
       originalPrice: "₹90,000",
       technologies: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Neural Networks", "NLP"],
       color: "from-green-500 to-emerald-500",
@@ -64,7 +64,7 @@ const CoursesPreview = () => {
       duration: "6 months",
       students: "987+",
       rating: 4.7,
-      price: "₹75,000",
+      price: "₹90,000",
       originalPrice: "₹90,000",
       technologies: ["Manual Testing", "Selenium", "JIRA", "TestNG", "API Testing", "Automation"],
       color: "from-orange-500 to-red-500",
@@ -201,7 +201,7 @@ const CoursesPreview = () => {
                                 <div className="text-3xl font-bold text-white">{course.price}</div>
                                 <div className="text-sm text-blue-300">
                                   <span className="line-through mr-2">{course.originalPrice}</span>
-                                  <span className="text-green-400 font-semibold">Save 17%</span>
+                                  <span className="text-green-400 font-semibold"></span>
                                 </div>
                               </div>
                             </div>
