@@ -1,5 +1,5 @@
 import WebDevelopment from "../assets/Screenshot 2026-02-12 124725.png";
-import AI from "../assets/AI_ML courses information.jpg";
+import AI from "../assets/AI_Ml courses information.jpg";
 import Software from "../assets/shamin-haky-RIk-i9rXPao-unsplash.jpg";
 import SoftwareEng from "../assets/shamin-haky-RIk-i9rXPao-unsplash.jpg";
 import QA from "../assets/Screenshot 2026-02-12 140657.png";
