@@ -83,7 +83,7 @@ const CallToAction = () => {
             Transform Your Career Today
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold text-[#1F2937] mb-6 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#1F2937] mb-6 tracking-tight">
             Ready to Launch Your
             <span className="block text-[#3B82F6] mt-2">
               Tech Career?
@@ -122,22 +122,18 @@ const CallToAction = () => {
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <div key={index} className="group">
-                  <div className="bg-white backdrop-blur-xl rounded-3xl p-8 border border-gray-200 overflow-hidden hover:shadow-3xl hover:border-gray-300 transition-all duration-500 shadow-lg">
-                    {/* Icon and Title */}
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-16 h-16 bg-[#3B82F6] rounded-lg flex items-center justify-center shadow-lg mx-auto">
-                        <IconComponent className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-[#1F2937] mb-1">
-                          {feature.title}
-                        </h3>
-                      </div>
+                <div key={index} className="group h-full">
+                  <div className="bg-white rounded-3xl p-8 border border-gray-200 hover:shadow-xl hover:border-gray-300 transition-all duration-500 shadow-lg flex flex-col h-full">
+                    {/* Icon */}
+                    <div className="w-14 h-14 bg-[#3B82F6] rounded-2xl flex items-center justify-center shadow-lg mb-5 group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="w-7 h-7 text-white" />
                     </div>
-                    
+                    {/* Title */}
+                    <h3 className="text-lg font-bold text-[#1F2937] mb-3 leading-snug">
+                      {feature.title}
+                    </h3>
                     {/* Description */}
-                    <p className="text-[#1F2937] text-base leading-relaxed">
+                    <p className="text-[#4B5563] text-sm leading-relaxed flex-grow">
                       {feature.description}
                     </p>
                   </div>
@@ -145,6 +141,7 @@ const CallToAction = () => {
               );
             })}
           </div>
+
 
           {/* Stats Section */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">

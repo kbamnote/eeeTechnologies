@@ -19,8 +19,8 @@ const CoursesPreview = () => {
       duration: "6 months",
       students: "2,847+",
       rating: 4.9,
-      price: "₹90,000",
-      originalPrice: "₹90,000",
+      price: "₹99,999",
+      originalPrice: "₹99,999",
       technologies: ["React", "Node.js", "MongoDB", "Express", "JavaScript", "HTML/CSS"],
       color: "from-blue-500 to-cyan-500",
       icon: Code,
@@ -49,8 +49,8 @@ const CoursesPreview = () => {
       duration: "6 months",
       students: "1,456+",
       rating: 4.9,
-      price: "₹90,000",
-      originalPrice: "₹90,000",
+      price: "₹99,999",
+      originalPrice: "₹99,999",
       technologies: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Neural Networks", "NLP"],
       color: "from-green-500 to-emerald-500",
       icon: Brain,
@@ -64,8 +64,8 @@ const CoursesPreview = () => {
       duration: "6 months",
       students: "987+",
       rating: 4.7,
-      price: "₹90,000",
-      originalPrice: "₹90,000",
+      price: "₹99,999",
+      originalPrice: "₹99,999",
       technologies: ["Manual Testing", "Selenium", "JIRA", "TestNG", "API Testing", "Automation"],
       color: "from-orange-500 to-red-500",
       icon: Shield,
@@ -217,8 +217,8 @@ const CoursesPreview = () => {
                                backgroundImage: `url('${
                                  course.id === 1 ? 'https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2070&auto=format&fit=crop' : // Coding Workspace
                                  course.id === 2 ? 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop' : // Business Analytics
-                                 course.id === 3 ? 'https://images.unsplash.com/photo-1677442135132-7e01a94d70b9?q=80&w=2070&auto=format&fit=crop' : // AI Research
-                                 'https://images.unsplash.com/photo-1581772579474-991b31eb6819?q=80&w=2070&auto=format&fit=crop' // QA Testing
+                                 course.id === 3 ? 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2070&auto=format&fit=crop' : // AI/ML
+                                 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop' // QA Testing
                                }')`
                              }}>
                         </div>

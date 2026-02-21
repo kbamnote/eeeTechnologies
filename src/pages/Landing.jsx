@@ -6,6 +6,7 @@ import { useSEO } from "../hooks/useSEO.js";
 import HeroSection from "../components/landing/HeroSection.jsx";
 import AboutPreview from "../components/landing/AboutPreview.jsx";
 import CoursesPreview from "../components/landing/CoursesPreview.jsx";
+import EMIPricingSection from "../components/landing/EMIPricingSection.jsx";
 import WhyChooseUs from "../components/landing/WhyChooseUs.jsx";
 import Testimonials from "../components/landing/Testimonials.jsx";
 import PartnersSection from "../components/landing/PartnersSection.jsx";
@@ -32,6 +33,7 @@ export default function Landing() {
       <HeroSection />
       <AboutPreview />
       <CoursesPreview />
+      <EMIPricingSection />
       <WhyChooseUs />
       <CallToAction />
     </motion.div>

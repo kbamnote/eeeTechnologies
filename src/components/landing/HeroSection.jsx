@@ -182,6 +182,7 @@ const HeroSection = () => {
                 flex
                 flex-col
                 sm:flex-row
+                flex-wrap
                 gap-4
                 md:gap-6
                 items-start

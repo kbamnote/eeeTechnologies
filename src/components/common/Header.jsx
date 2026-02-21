@@ -28,7 +28,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0A2540]/95 backdrop-blur-xl border-b border-[#3B82F6]/30 shadow-lg">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand */}
           <Link to="/" className="flex items-center gap-3 group" onClick={scrollToTop}>
@@ -108,7 +108,7 @@ export default function Header() {
                     `block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 ${
                       isActive
                         ? "text-[#3B82F6] bg-[#3B82F6]/10 border-l-4 border-[#3B82F6]"
-                        : "text-[#1F2937] hover:text-[#3B82F6] hover:bg-[#F8FAFC]"
+                        : "text-white hover:text-[#3B82F6] hover:bg-white/10"
                     }`
                   }
                   onClick={() => {

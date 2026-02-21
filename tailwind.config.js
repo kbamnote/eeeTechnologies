@@ -15,7 +15,7 @@ export default {
         '2xl': '1536px',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Kumbh Sans', 'sans-serif'],
       },
       colors: {
         primary: {

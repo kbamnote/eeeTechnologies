@@ -38,7 +38,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#0A2540] text-[#F8FAFC]">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -51,7 +51,7 @@ export default function Footer() {
                 >
                   <img
                     src={logo}
-                    className="flex items-center justify-center w-auto h-14 md:h-22 p-2 transition-all duration-300"
+                    className="w-auto h-14 p-2 transition-all duration-300"
                   ></img>
                   <span className="text-xl font-bold text-[#F8FAFC] hidden md:block">EEE Technologies</span>
                 </Link>
@@ -72,7 +72,7 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-3 text-[#F8FAFC]/60">
                   <MapPin className="w-5 h-5 text-[#06B6D4]" />
-                  <span>
+                  <span className="break-words">
                     1st Floor Mohota Complex, Above State Bank Of India, Katol
                     Road, Chhaoni Rd, Nagpur, Maharashtra, 440013
                   </span>

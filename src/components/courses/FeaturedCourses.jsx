@@ -19,8 +19,8 @@ const FeaturedCourses = () => {
       rating: 5.0,
       students: 2847,
       duration: "6 months",
-      price: 75000,
-      originalPrice: 90000,
+      price: 99999,
+      originalPrice: 99999,
       isTrending: true
     },
     {
@@ -32,8 +32,8 @@ const FeaturedCourses = () => {
       rating: 4.8,
       students: 1923,
       duration: "6 months",
-      price: 75000,
-      originalPrice: 90000,
+      price: 99999,
+      originalPrice: 99999,
       isTrending: true
     },
     {
@@ -45,8 +45,8 @@ const FeaturedCourses = () => {
       rating: 4.9,
       students: 1456,
       duration: "6 months",
-      price: 75000,
-      originalPrice: 90000,
+      price: 99999,
+      originalPrice: 99999,
       isTrending: true
     },
     {
@@ -58,8 +58,8 @@ const FeaturedCourses = () => {
       rating: 4.7,
       students: 987,
       duration: "6 months",
-      price: 75000,
-      originalPrice: 90000,
+      price: 99999,
+      originalPrice: 99999,
       isTrending: true
     }
   ];
