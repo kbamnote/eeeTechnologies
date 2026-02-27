@@ -13,15 +13,15 @@ const plans = [
     icon: Zap,
     iconBg: 'from-amber-400 to-orange-500',
     originalPrice: '₹99,999',
-    offerPrice: '₹65,000',
-    savings: 'Save ₹34,999',
+    offerPrice: '₹64,999',
+    savings: 'Save ₹25,002',
     tagline: 'One-time payment · Lowest price guaranteed',
-    cta: 'Pay ₹65,000 Now',
+    cta: 'Pay ₹64,999 Now',
     ctaStyle: 'bg-gradient-to-r from-amber-400 to-orange-500 text-white hover:from-amber-500 hover:to-orange-600 shadow-amber-500/30',
     breakdown: [
       { label: 'Course Fees (Original)', value: '₹99,999', strike: true },
-      { label: 'Offer Price', value: '₹65,000', highlight: true },
-      { label: 'You Save', value: '₹34,999', green: true },
+      { label: 'Offer Price', value: '₹64,999', highlight: true },
+      { label: 'You Save', value: '₹25,002', green: true },
     ],
     features: [
       'Lowest overall cost',
@@ -39,19 +39,19 @@ const plans = [
     icon: Calendar,
     iconBg: 'from-blue-500 to-cyan-500',
     originalPrice: null,
-    offerPrice: '₹15,000/mo',
-    savings: 'Total payable ₹85,000',
-    tagline: 'Start your journey with just ₹40,000',
-    cta: 'Start with ₹40,000',
+    offerPrice: '₹19,999/mo',
+    savings: 'Total payable ₹89,995',
+    tagline: 'Start your journey with just ₹29,998',
+    cta: 'Start with ₹29,998',
     ctaStyle: 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600 shadow-blue-500/30',
     breakdown: [
-      { label: 'Registration Fee', value: '₹10,000' },
-      { label: 'Down Payment', value: '₹30,000' },
-      { label: 'EMI × 3 months', value: '₹15,000 × 3' },
-      { label: 'Total Payable', value: '₹85,000', highlight: true },
+      { label: 'Registration Fee', value: '₹9,999' },
+      { label: 'Down Payment', value: '₹19,999' },
+      { label: 'EMI × 3 months', value: '₹19,999 × 3' },
+      { label: 'Total Payable', value: '₹89,995', highlight: true },
     ],
     features: [
-      'Start with ₹40,000 today',
+      'Start with ₹29,998 today',
       'Spread cost over 3 months',
       'Full access from day 1',
       'Certificate of completion',
@@ -67,16 +67,16 @@ const plans = [
     icon: CreditCard,
     iconBg: 'from-purple-500 to-pink-500',
     originalPrice: null,
-    offerPrice: '₹12,500/mo',
-    savings: 'Total payable ₹1,00,000',
-    tagline: 'Start your journey with just ₹30,000',
-    cta: 'Start with ₹30,000',
+    offerPrice: '₹11,666/mo',
+    savings: 'Total payable ₹99,999',
+    tagline: 'Start your journey with just ₹29,998',
+    cta: 'Start with ₹29,998',
     ctaStyle: 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 shadow-purple-500/30',
     breakdown: [
-      { label: 'Registration Fee', value: '₹5,000' },
-      { label: 'Advance Payment', value: '₹25,000' },
-      { label: 'EMI × 6 months', value: '₹12,500 × 6' },
-      { label: 'Total Payable', value: '₹1,00,000', highlight: true },
+      { label: 'Registration Fee', value: '₹9,999' },
+      { label: 'Advance Payment', value: '₹19,999' },
+      { label: 'EMI × 6 months', value: '₹11,666 × 6' },
+      { label: 'Total Payable', value: '₹99,999', highlight: true },
     ],
     features: [
       'Lowest monthly outflow',
@@ -305,7 +305,7 @@ const EMIPricingSection = () => {
             Original Course Fees:&nbsp;
             <span className="line-through text-gray-400">₹99,999</span>
             &nbsp;·&nbsp;
-            <span className="text-green-600 font-bold">Save up to ₹34,999</span>
+            <span className="text-green-600 font-bold">Save up to ₹25,002</span>
           </div>
         </div>
 
