@@ -154,7 +154,7 @@ const AboutHeroSection = () => {
                 <div className="absolute inset-0 bg-[#3B82F6]/30 rounded-2xl blur-xl opacity-30" />
                 <div className="relative px-6 py-4 bg-[#0A2540]/70 backdrop-blur-xl border border-[#0A2540]/50 rounded-2xl hover:border-[#3B82F6]/50 transition-all">
                   <h3 className="text-lg font-semibold text-[#F8FAFC] group-hover:text-[#3B82F6] transition-colors">
-                    15+ Years Experience
+                    3+ Years Experience
                   </h3>
                 </div>
               </div>

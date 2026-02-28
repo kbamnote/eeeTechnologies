@@ -124,8 +124,8 @@ const Timeline = () => {
   ];
 
   const achievements = [
-    { number: "15+", label: "Years of Excellence", icon: Calendar },
-    { number: "20K+", label: "Students Trained", icon: Users },
+    { number: "3+", label: "Years of Excellence", icon: Calendar },
+    { number: "5000+", label: "Students Trained", icon: Users },
     { number: "50+", label: "Industry Awards", icon: Award },
     { number: "95%", label: "Success Rate", icon: TrendingUp }
   ];

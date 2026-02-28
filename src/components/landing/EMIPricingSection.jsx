@@ -19,8 +19,10 @@ const plans = [
     cta: 'Pay ₹64,999 Now',
     ctaStyle: 'bg-gradient-to-r from-amber-400 to-orange-500 text-white hover:from-amber-500 hover:to-orange-600 shadow-amber-500/30',
     breakdown: [
+      { label: 'Registration Fee', value: '₹9,999' },
       { label: 'Course Fees (Original)', value: '₹99,999', strike: true },
-      { label: 'Offer Price', value: '₹64,999', highlight: true },
+      { label: 'Offer Price', value: '₹64,999' },
+      { label: 'Total Payable', value: '₹99,999', highlight: true },
       { label: 'You Save', value: '₹25,002', green: true },
     ],
     features: [
@@ -176,7 +178,8 @@ function PlanCard({ plan, onViewBreakdown }) {
 
   return (
     <div
-      className={`relative flex flex-col rounded-3xl border transition-all duration-500 group
+      onClick={() => onViewBreakdown(plan)}
+      className={`relative flex flex-col rounded-3xl border transition-all duration-500 group cursor-pointer
         ${
           plan.highlight
             ? 'bg-gradient-to-b from-[#0D1E35] to-[#091829] border-amber-500/40 shadow-2xl shadow-amber-500/10 lg:scale-105 z-10'
@@ -225,7 +228,10 @@ function PlanCard({ plan, onViewBreakdown }) {
         {/* Features */}
         <div>
           <button
-            onClick={() => setFeaturesOpen(!featuresOpen)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setFeaturesOpen(!featuresOpen);
+            }}
             className="flex items-center justify-between w-full text-sm text-blue-300 font-semibold mb-2 hover:text-white transition-colors"
           >
             <span>What's included</span>
@@ -248,14 +254,18 @@ function PlanCard({ plan, onViewBreakdown }) {
 
         {/* Breakdown link */}
         <button
-          onClick={() => onViewBreakdown(plan)}
-          className="text-xs text-blue-400 hover:text-blue-200 underline underline-offset-2 transition-colors text-center"
+          onClick={(e) => {
+            e.stopPropagation();
+            onViewBreakdown(plan);
+          }}
+          className="text-xs text-blue-400 hover:text-blue-200 underline underline-offset-2 transition-colors text-center py-2"
         >
           View full payment breakdown
         </button>
 
         {/* CTA */}
         <button
+          onClick={(e) => e.stopPropagation()}
           className={`w-full py-3.5 rounded-xl font-bold text-base shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl ${plan.ctaStyle}`}
         >
           {plan.cta}

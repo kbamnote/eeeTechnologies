@@ -6,7 +6,7 @@ import EnrollmentModal from './EnrollmentModal';
 const EnrollBanner = () => {
   const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false);
   const stats = [
-    { icon: Users, value: "10,000+", label: "Students Enrolled" },
+    { icon: Users, value: "5000+", label: "Students Enrolled" },
     { icon: Star, value: "4.9", label: "Average Rating" },
     { icon: Award, value: "95%", label: "Job Placement" },
     { icon: Clock, value: "24/7", label: "Support Available" }

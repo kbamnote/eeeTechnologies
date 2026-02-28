@@ -72,10 +72,10 @@ const WhyChooseUs = () => {
   ];
 
   const achievements = [
-    { number: "10K+", label: "Students Trained", icon: Users },
+    { number: "5000+", label: "Students Trained", icon: Users },
     { number: "95%", label: "Placement Rate", icon: TrendingUp },
     { number: "500+", label: "Partner Companies", icon: Target },
-    { number: "15+", label: "Years Experience", icon: Award }
+    { number: "3+", label: "Years Experience", icon: Award }
   ];
 
   const containerVariants = {

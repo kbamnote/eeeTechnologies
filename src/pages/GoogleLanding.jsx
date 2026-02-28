@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronDown, Award, Users, BookOpen, Target, Star, CheckCircle, TrendingUp, Zap } from "lucide-react";
+import { ChevronDown, Award, Users, BookOpen, Target, Star, CheckCircle, TrendingUp, Zap, Menu, X } from "lucide-react";
 import aiMlImage from "../assets/AI_Ml courses information.jpg"
 import fullStackImage from "../assets/generate a image full stack developer course.jpg"
 import dataScienceImage from "../assets/generate a image of data analysis courses.jpg"
@@ -17,6 +17,7 @@ export default function GoogleLanding() {
   const [consentGiven, setConsentGiven] = useState(false);
   const [activeQuestion, setActiveQuestion] = useState(null);
   const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const [selectedCourse, setSelectedCourse] = useState("General Enrollment");
 
@@ -120,7 +121,7 @@ export default function GoogleLanding() {
   ];
 
   const stats = [
-    { number: "400+", label: "Students Trained", icon: <Users className="w-8 h-8" /> },
+    { number: "5000+", label: "Students Trained", icon: <Users className="w-8 h-8" /> },
     { number: "95%", label: "Placement Rate", icon: <CheckCircle className="w-8 h-8" /> },
     { number: "200+", label: "Hiring Partners", icon: <Award className="w-8 h-8" /> },
     { number: "50+", label: "Expert Instructors", icon: <Star className="w-8 h-8" /> }
@@ -163,37 +164,71 @@ export default function GoogleLanding() {
 
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-40">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">
               E
             </div>
             <span className="text-xl font-bold text-gray-900">EEE Technologies</span>
           </div>
-          <nav className="hidden md:flex gap-6 text-sm">
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex gap-6 text-sm">
             <a href="#courses" className="text-gray-600 hover:text-red-600 transition-colors">Courses</a>
             <a href="#instructors" className="text-gray-600 hover:text-red-600 transition-colors">Instructors</a>
             <a href="#faq" className="text-gray-600 hover:text-red-600 transition-colors">FAQ</a>
           </nav>
-          <button 
-            onClick={() => {
-              setSelectedCourse("General Enrollment");
-              setIsEnrollmentModalOpen(true);
-            }}
-            className="bg-red-600 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition-colors"
+
+          <div className="hidden lg:flex items-center gap-4">
+            <button
+              onClick={() => {
+                setSelectedCourse("General Enrollment");
+                setIsEnrollmentModalOpen(true);
+              }}
+              className="bg-red-600 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition-colors"
+            >
+              Enroll Now
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden p-2 text-gray-600 hover:text-red-600"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            Enroll Now
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+
+        {/* Mobile Navigation Drawer */}
+        {isMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-xl py-6 px-4 space-y-4 animate-slide-down">
+            <nav className="flex flex-col gap-4">
+              <a href="#courses" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium hover:text-red-600">Courses</a>
+              <a href="#instructors" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium hover:text-red-600">Instructors</a>
+              <a href="#faq" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium hover:text-red-600">FAQ</a>
+            </nav>
+            <button
+              onClick={() => {
+                setIsMenuOpen(false);
+                setSelectedCourse("General Enrollment");
+                setIsEnrollmentModalOpen(true);
+              }}
+              className="w-full bg-red-600 text-white px-5 py-3 rounded-lg font-bold hover:bg-red-700 transition-colors"
+            >
+              Enroll Now
+            </button>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4">
+      <section className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-6">
         <div className="max-w-5xl mx-auto text-center">
           <div className="inline-block bg-red-100 text-red-600 px-4 py-1 rounded-full text-sm font-semibold mb-4">
             🎓 Join 400+ Successful Students
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-900 leading-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900 leading-tight">
            Get Ready for A Tech Career, Study as a Fullstack-Developer, Data Scientist or Software Testing Engineer
           </h1>
           {/* <p className="text-xl md:text-2xl text-gray-600 mb-2">
@@ -211,7 +246,7 @@ export default function GoogleLanding() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 px-4 bg-white">
+      <section className="py-12 px-6 bg-white">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
             <div key={index} className="text-center p-6 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-md hover:shadow-xl transition-shadow">
@@ -237,7 +272,7 @@ export default function GoogleLanding() {
       </div> */}
 
       {/* What EXACTLY will you Learn Section */}
-      <section id="courses" className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4">
+      <section id="courses" className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center text-gray-900">
             What EXACTLY will you Learn
@@ -306,7 +341,7 @@ export default function GoogleLanding() {
       </section>
 
       {/* Transforming Lives Section */}
-      <section className="bg-white py-16 px-4">
+      <section className="bg-white py-16 px-6">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900 leading-tight">
             Transforming Lives Through
@@ -376,7 +411,7 @@ export default function GoogleLanding() {
       </div> */}
 
       {/* Meet Your Instructor Section */}
-      <section id="instructors" className="bg-white py-16 px-4">
+      <section id="instructors" className="bg-white py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center text-gray-900">
             Meet Your Instructors
@@ -452,7 +487,7 @@ export default function GoogleLanding() {
       </section>
 
       {/* Get Certified Section */}
-      <section className="bg-gradient-to-br from-orange-50 via-yellow-50 to-orange-50 py-16 px-4">
+      <section className="bg-gradient-to-br from-orange-50 via-yellow-50 to-orange-50 py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center text-gray-900">
             Why Get Certified? -  Placement-Focused Training & Career Support
@@ -526,7 +561,7 @@ export default function GoogleLanding() {
       </div> */}
 
       {/* FAQ Section */}
-      <section id="faq" className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4">
+      <section id="faq" className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center text-gray-900">
             Frequently Asked Questions
@@ -588,7 +623,7 @@ export default function GoogleLanding() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="bg-gradient-to-r from-red-600 to-orange-600 py-16 px-4 text-white">
+      <section className="bg-gradient-to-r from-red-600 to-orange-600 py-16 px-6 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to Transform Your Career?</h2>
           <p className="text-xl mb-8 opacity-90">Join 400+ students who have already started their journey</p>
@@ -701,12 +736,11 @@ export default function GoogleLanding() {
         }}
       />
 
-      {/* Floating Action Button */}
       <button 
         onClick={() => {
           window.open('https://wa.me/919503182807', '_blank');
         }}
-        className="fixed bottom-8 right-8 bg-gradient-to-r from-red-600 to-orange-600 text-white w-14 h-14 rounded-full shadow-2xl hover:shadow-3xl transition-all transform hover:scale-110 flex items-center justify-center z-40"
+        className="fixed bottom-24 right-6 sm:bottom-8 sm:right-8 bg-gradient-to-r from-red-600 to-orange-600 text-white w-14 h-14 rounded-full shadow-2xl hover:shadow-3xl transition-all transform hover:scale-110 flex items-center justify-center z-40"
       >
         <span className="text-2xl">💬</span>
       </button>

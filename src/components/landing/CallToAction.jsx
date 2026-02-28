@@ -40,7 +40,7 @@ const CallToAction = () => {
     { number: '5000+', label: 'Students Trained' },
     { number: '95%', label: 'Placement Rate' },
     { number: '500+', label: 'Hiring Partners' },
-    { number: '₹12L', label: 'Average Package' }
+    { number: '₹1.8L - ₹4L', label: 'Average Package' }
   ];
 
   const containerVariants = {

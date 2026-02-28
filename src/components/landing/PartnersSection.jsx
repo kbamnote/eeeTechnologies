@@ -166,7 +166,7 @@ const PartnersSection = () => {
             { number: '500+', label: 'Partner Companies', icon: '🏢' },
             { number: '95%', label: 'Placement Rate', icon: '📈' },
             { number: '10K+', label: 'Students Placed', icon: '👥' },
-            { number: '₹12L', label: 'Average Package', icon: '💰' }
+            { number: '₹1.8L - ₹4L', label: 'Average Package', icon: '💰' }
           ].map((stat, index) => (
             <motion.div
               key={index}

@@ -85,7 +85,7 @@ const JoinCTA = () => {
   ];
 
   const stats = [
-    { number: "20K+", label: "Students Trained", icon: Users },
+    { number: "5000+", label: "Students Trained", icon: Users },
     { number: "95%", label: "Success Rate", icon: Star },
     { number: "500+", label: "Companies Hiring", icon: Award },
     { number: "15+", label: "Years Experience", icon: BookOpen }
