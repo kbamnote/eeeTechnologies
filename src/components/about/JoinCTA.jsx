@@ -49,39 +49,39 @@ const JoinCTA = () => {
   const reasons = [
     {
       icon: Award,
-      title: "Industry Recognition",
-      description: "Join an institute recognized by top tech companies worldwide",
+      title: "Guaranteed Internship",
+      description: "Dedicated 6-month hands-on internship with real-world projects",
       color: "from-[#0A2540] to-[#3B82F6]"
     },
     {
       icon: Users,
       title: "Expert Mentors",
-      description: "Learn from industry professionals with 10+ years of experience",
+      description: "24/7 Intensive Support from expert mentors",
       color: "from-[#3B82F6] to-[#06B6D4]"
     },
     {
       icon: Target,
-      title: "100% Placement",
-      description: "Guaranteed job placement with our extensive industry network",
+      title: "Placement Support",
+      description: "100% placement assistance & career transformation",
       color: "from-[#06B6D4] to-[#3B82F6]"
     },
     {
       icon: Rocket,
-      title: "Career Growth",
-      description: "Fast-track your career with cutting-edge skills and knowledge",
+      title: "World-Class Infrastructure",
+      description: "Dedicated Workstation, 1Gbps Internet & Hardware Kits provided",
       color: "from-[#0A2540] to-[#06B6D4]"
     }
   ];
 
   const benefits = [
-    "Live interactive sessions with industry experts",
-    "Hands-on projects with real-world applications",
-    "24/7 doubt resolution and technical support",
-    "Industry-recognized certifications",
-    "Lifetime access to course materials",
-    "Career guidance and interview preparation",
-    "Alumni network of 20,000+ professionals",
-    "Flexible learning schedules"
+    "Transform into an industry-ready Software Engineer",
+    "Real-world projects & dedicated 6-month internship",
+    "Dedicated Workstation & high-speed 1Gbps Internet",
+    "Food & PG Accommodation included",
+    "Guaranteed Internship & Placement Support",
+    "100% Placement Assistance with 500+ global partners",
+    "Globally Recognized Course & Internship Certificates",
+    "Free Merchandise (Laptop, Bag, T-Shirt depending on course)"
   ];
 
   const stats = [
@@ -147,8 +147,8 @@ const JoinCTA = () => {
             </h2>
 
             <p className="text-lg text-[#1F2937] max-w-2xl mx-auto mb-12 leading-relaxed">
-              Join eee Technologies today and embark on a journey that will transform your career. 
-              With our proven track record and industry expertise, your success is guaranteed.
+              Launch your IT Career with EEE Technologies today. 
+              Our intensive 6-month programs combine premium training, live projects, and dedicated internships to guarantee your success.
             </p>
 
             {/* CTA Buttons */}

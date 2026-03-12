@@ -3,66 +3,12 @@ import { motion } from 'framer-motion';
 import { Star, Clock, Users, TrendingUp, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import EnrollmentModal from './EnrollmentModal';
+import { courseData as featuredCourses } from '../../data/coursesData';
 
 const FeaturedCourses = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
-
-  const featuredCourses = [
-    {
-      id: 1,
-      slug: "full-stack-development",
-      title: "Full Stack Development",
-      description: "Master modern web development with React, Node.js, and MongoDB. Build real-world applications from scratch with hands-on projects and industry best practices.",
-      image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      rating: 5.0,
-      students: 2847,
-      duration: "6 months",
-      price: 99999,
-      originalPrice: 99999,
-      isTrending: true
-    },
-    {
-      id: 2,
-      slug: "data-analysis",
-      title: "Data Analysis",
-      description: "Learn Python, SQL, data visualization, and statistical analysis to become a professional data analyst. Work with real datasets and industry tools.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      rating: 4.8,
-      students: 1923,
-      duration: "6 months",
-      price: 99999,
-      originalPrice: 99999,
-      isTrending: true
-    },
-    {
-      id: 3,
-      slug: "ai-ml",
-      title: "AI/ML",
-      description: "Master artificial intelligence and machine learning with Python. Learn algorithms, neural networks, deep learning, and computer vision with hands-on projects.",
-      image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      rating: 4.9,
-      students: 1456,
-      duration: "6 months",
-      price: 99999,
-      originalPrice: 99999,
-      isTrending: true
-    },
-    {
-      id: 4,
-      slug: "software-testing",
-      title: "Tester",
-      description: "Become a professional software tester with expertise in manual and automated testing. Learn testing frameworks, bug tracking, and quality assurance processes.",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      rating: 4.7,
-      students: 987,
-      duration: "6 months",
-      price: 99999,
-      originalPrice: 99999,
-      isTrending: true
-    }
-  ];
 
   const handleEnrollClick = (course) => {
     setSelectedCourse(course);
@@ -154,7 +100,7 @@ const FeaturedCourses = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   
-                  {course.isTrending && (
+                  {course.badge === "TRENDING" && (
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-[#06B6D4] text-white text-xs font-bold rounded-full">
                         TRENDING

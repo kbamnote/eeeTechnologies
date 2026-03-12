@@ -162,12 +162,12 @@ const Courses = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-8 leading-tight tracking-wide drop-shadow-xl"
               >
-                MASTER
+                LAUNCH YOUR
                 <span className="block bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#3B82F6] bg-clip-text text-transparent mt-2 mb-3 drop-shadow-sm">
-                  TECHNOLOGY
+                  IT CAREER
                 </span>
                 <span className="block bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#3B82F6] bg-clip-text text-transparent mt-2 mb-3 drop-shadow-sm">
-                  SKILLS THAT MATTER
+                  WITH EEE TECHNOLOGIES
                 </span>
               </motion.h1>
               
@@ -177,10 +177,10 @@ const Courses = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-lg sm:text-xl text-white/90 mb-12 leading-relaxed max-w-4xl mx-auto drop-shadow-lg font-medium"
               >
-                Discover our comprehensive range of cutting-edge technology courses 
-                <span className="text-white font-semibold"> designed by industry experts</span>. 
-                From beginner-friendly introductions to advanced specializations, 
-                <span className="text-white font-semibold"> we have the perfect course</span> to advance your career.
+                Join our comprehensive 6-month intensive training programs  
+                <span className="text-white font-semibold"> (Training + Hands-on Internship)</span>. 
+                Transform into an industry-ready Software Engineer with 
+                <span className="text-white font-semibold"> 100% Placement Assistance</span>.
               </motion.p>
 
               <motion.div 

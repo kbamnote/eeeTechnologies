@@ -24,391 +24,7 @@ import {
   Zap
 } from 'lucide-react';
 
-// Mock course data with comprehensive SEO-friendly content
-const courseData = [
-  {
-    id: 1,
-    slug: "full-stack-development",
-    title: "Full Stack Development Course",
-    shortTitle: "Full Stack Development",
-    description: "Master modern web development with React, Node.js, and MongoDB. Build real-world applications from scratch with hands-on projects and industry best practices.",
-    longDescription: "Our comprehensive Full Stack Development course is designed to transform beginners into job-ready developers. You'll learn both frontend and backend technologies, working with real-world projects that mirror industry standards. Our curriculum covers everything from HTML/CSS fundamentals to advanced React patterns and Node.js backend development. With hands-on projects and mentorship from industry experts, you'll gain practical experience that employers value.",
-    category: "Web Development",
-    level: "Beginner to Advanced",
-    duration: "6 months",
-    students: 2847,
-    rating: 4.9,
-    reviews: 1234,
-    price: 74998,
-    originalPrice: 100000,
-    instructor: "Sarah Johnson",
-    instructorBio: "Senior Software Engineer with 10+ years of experience at top tech companies. Specializes in full-stack development and has mentored over 5000 students.",
-    instructorImage: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
-    skills: ["React", "Node.js", "MongoDB", "Express", "JavaScript", "HTML/CSS", "REST APIs", "Git"],
-    features: ["Live Projects", "1-on-1 Mentoring", "Job Assistance", "Certificate", "Internship Opportunity"],
-    nextBatch: "Jan 15, 2025",
-    curriculum: [
-      {
-        module: "Module 1: Frontend Fundamentals",
-        topics: [
-          "HTML5 & Semantic Markup",
-          "CSS3 & Responsive Design", 
-          "JavaScript ES6+",
-          "DOM Manipulation",
-          "Flexbox & Grid Layout"
-        ]
-      },
-      {
-        module: "Module 2: React Development",
-        topics: [
-          "Components & Props",
-          "State Management",
-          "Hooks (useState, useEffect, useContext)",
-          "React Router",
-          "Redux State Management",
-          "Performance Optimization"
-        ]
-      },
-      {
-        module: "Module 3: Backend with Node.js",
-        topics: [
-          "Express Framework",
-          "RESTful APIs",
-          "Authentication & Authorization",
-          "Database Integration",
-          "Error Handling",
-          "Middleware Concepts"
-        ]
-      },
-      {
-        module: "Module 4: Database & Deployment",
-        topics: [
-          "MongoDB NoSQL Database",
-          "Mongoose ODM",
-          "Cloud Deployment (AWS/Heroku)",
-          "CI/CD Pipelines",
-          "Testing Strategies",
-          "Security Best Practices"
-        ]
-      }
-    ],
-    faqs: [
-      {
-        question: "Do I need prior programming experience?",
-        answer: "This course is designed for beginners with no programming background. We start with fundamentals and gradually build up to advanced concepts."
-      },
-      {
-        question: "What kind of projects will I build?",
-        answer: "You'll build 5+ real-world projects including a social media app, e-commerce platform, and portfolio website that you can showcase to employers."
-      },
-      {
-        question: "Will I get job assistance?",
-        answer: "Yes, we provide comprehensive job assistance including resume building, interview preparation, and direct connections with hiring partners."
-      },
-      {
-        question: "How long do I have access to course materials?",
-        answer: "You get lifetime access to all course materials, including future updates and new content additions."
-      }
-    ],
-    careerPaths: [
-      "Frontend Developer",
-      "Backend Developer", 
-      "Full Stack Developer",
-      "Software Engineer",
-      "Web Application Developer"
-    ],
-    isPopular: true,
-    isBestseller: true,
-    seoTitle: "Full Stack Development Course | Learn React, Node.js & MongoDB",
-    seoDescription: "Master full stack web development with our comprehensive course covering React, Node.js, MongoDB and more. Get job-ready skills with hands-on projects. Enroll now!",
-    keywords: "full stack development, react course, node.js training, mongodb tutorial, web development course, javascript, express.js, mern stack"
-  },
-  {
-    id: 2,
-    slug: "data-analysis",
-    title: "Data Analysis Course",
-    shortTitle: "Data Analysis",
-    description: "Learn Python, SQL, data visualization, and statistical analysis to become a professional data analyst. Work with real datasets and industry tools.",
-    longDescription: "Our Data Analysis course transforms beginners into skilled data professionals. You'll master essential tools like Python, SQL, and visualization libraries while working on real-world datasets from various industries. This hands-on approach ensures you gain practical experience that employers value. From data cleaning to advanced analytics, you'll learn the complete data analysis pipeline.",
-    category: "Data Science",
-    level: "Beginner to Intermediate",
-    duration: "6 months",
-    students: 1923,
-    rating: 4.8,
-    reviews: 876,
-    price: 74998,
-    originalPrice: 100000,
-    instructor: "Dr. Michael Chen",
-    instructorBio: "PhD in Data Science with 8 years of industry experience. Former data scientist at Fortune 500 companies and published researcher.",
-    instructorImage: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-    skills: ["Python", "SQL", "Pandas", "NumPy", "Matplotlib", "Tableau", "Excel", "Statistics"],
-    features: ["Real Datasets", "Industry Projects", "Certificate", "Job Assistance", "Portfolio Building"],
-    nextBatch: "Jan 20, 2025",
-    curriculum: [
-      {
-        module: "Module 1: Data Fundamentals",
-        topics: [
-          "Data Types & Structures",
-          "Descriptive Statistics",
-          "Data Cleaning Techniques",
-          "Excel Basics",
-          "Data Ethics & Privacy"
-        ]
-      },
-      {
-        module: "Module 2: Python for Data Analysis",
-        topics: [
-          "NumPy Arrays & Operations",
-          "Pandas DataFrames",
-          "Data Visualization (Matplotlib, Seaborn)",
-          "Statistical Analysis",
-          "Working with APIs"
-        ]
-      },
-      {
-        module: "Module 3: SQL & Databases",
-        topics: [
-          "Query Writing Basics",
-          "Joins & Aggregations",
-          "Database Design Principles",
-          "Advanced Queries",
-          "Performance Optimization"
-        ]
-      },
-      {
-        module: "Module 4: Business Intelligence",
-        topics: [
-          "Tableau Dashboard Creation",
-          "Storytelling with Data",
-          "Report Generation",
-          "Business Metrics & KPIs",
-          "Data Presentation Skills"
-        ]
-      }
-    ],
-    faqs: [
-      {
-        question: "Is Python difficult to learn for beginners?",
-        answer: "We start with Python basics and gradually build complexity. Our hands-on approach makes learning intuitive and engaging."
-      },
-      {
-        question: "What kind of datasets will I work with?",
-        answer: "You'll work with real datasets from finance, healthcare, e-commerce, and social media industries."
-      },
-      {
-        question: "Do I need a mathematics background?",
-        answer: "Basic math skills are helpful but not required. We cover all necessary statistical concepts."
-      },
-      {
-        question: "Will I get a certificate?",
-        answer: "Yes, you'll receive a verified certificate upon successful completion of the course."
-      }
-    ],
-    careerPaths: [
-      "Data Analyst",
-      "Business Analyst",
-      "Data Scientist",
-      "Market Research Analyst",
-      "Financial Analyst"
-    ],
-    isPopular: true,
-    seoTitle: "Data Analysis Course | Learn Python, SQL & Data Visualization",
-    seoDescription: "Become a professional data analyst with our comprehensive course covering Python, SQL, statistics and data visualization. Hands-on projects with real datasets. Enroll today!",
-    keywords: "data analysis course, python for data science, sql tutorial, data visualization, pandas, numpy, matplotlib, tableau, business intelligence"
-  },
-  {
-    id: 3,
-    slug: "ai-ml",
-    title: "AI/ML Course",
-    shortTitle: "AI/ML",
-    description: "Master artificial intelligence and machine learning with Python. Learn algorithms, neural networks, deep learning, and computer vision with hands-on projects.",
-    longDescription: "Dive into the world of Artificial Intelligence and Machine Learning with our intensive course. From foundational algorithms to cutting-edge deep learning techniques, you'll gain both theoretical knowledge and practical skills. Work on projects that solve real-world problems using the latest AI technologies. Our expert instructors guide you through complex concepts with practical examples.",
-    category: "Artificial Intelligence",
-    level: "Intermediate to Advanced",
-    duration: "6 months",
-    students: 1456,
-    rating: 4.9,
-    reviews: 654,
-    price: 74998,
-    originalPrice: 100000,
-    instructor: "Alex Rodriguez",
-    instructorBio: "Machine Learning Engineer with expertise in computer vision and NLP. Contributed to open-source ML projects and worked on AI products at leading tech companies.",
-    instructorImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
-    skills: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Neural Networks", "NLP", "Computer Vision", "Deep Learning"],
-    features: ["AI Projects", "Industry Case Studies", "Research Paper Reading", "Certificate", "Placement Support"],
-    nextBatch: "Feb 1, 2025",
-    curriculum: [
-      {
-        module: "Module 1: ML Foundations",
-        topics: [
-          "Linear Regression",
-          "Classification Algorithms",
-          "Model Evaluation Metrics",
-          "Feature Engineering",
-          "Cross-Validation Techniques"
-        ]
-      },
-      {
-        module: "Module 2: Deep Learning",
-        topics: [
-          "Neural Networks Fundamentals",
-          "Convolutional Neural Networks (CNNs)",
-          "Recurrent Neural Networks (RNNs)",
-          "Transfer Learning",
-          "Regularization Techniques"
-        ]
-      },
-      {
-        module: "Module 3: Computer Vision",
-        topics: [
-          "Image Processing Basics",
-          "Object Detection",
-          "Image Classification",
-          "OpenCV Library",
-          "Generative Models"
-        ]
-      },
-      {
-        module: "Module 4: Natural Language Processing",
-        topics: [
-          "Text Preprocessing",
-          "Sentiment Analysis",
-          "Language Models",
-          "Chatbots Development",
-          "Transformer Architecture"
-        ]
-      }
-    ],
-    faqs: [
-      {
-        question: "What are the prerequisites for this course?",
-        answer: "You should have intermediate Python skills and basic understanding of mathematics/statistics."
-      },
-      {
-        question: "Which frameworks will I learn?",
-        answer: "We cover TensorFlow, PyTorch, Scikit-learn, Keras, and other industry-standard frameworks."
-      },
-      {
-        question: "Are GPUs provided for training models?",
-        answer: "Yes, we provide cloud GPU access for all your model training needs during the course."
-      },
-      {
-        question: "Can I work on my own AI project?",
-        answer: "Absolutely! The final portion of the course is dedicated to your capstone project."
-      }
-    ],
-    careerPaths: [
-      "Machine Learning Engineer",
-      "AI Research Scientist",
-      "Data Scientist",
-      "Computer Vision Engineer",
-      "NLP Engineer"
-    ],
-    isPopular: true,
-    isBestseller: true,
-    seoTitle: "AI/ML Course | Machine Learning & Deep Learning Training",
-    seoDescription: "Master artificial intelligence and machine learning with Python. Learn neural networks, deep learning, computer vision and NLP. Hands-on projects with industry experts. Enroll now!",
-    keywords: "machine learning course, ai training, deep learning, neural networks, tensorflow, pytorch, computer vision, nlp, artificial intelligence"
-  },
-  {
-    id: 4,
-    slug: "software-testing",
-    title: "Software Testing Course",
-    shortTitle: "Software Testing",
-    description: "Become a professional software tester with expertise in manual and automated testing. Learn testing frameworks, bug tracking, and quality assurance processes.",
-    longDescription: "Our Software Testing course prepares you for a career in quality assurance. Learn both manual and automated testing methodologies, work with industry-standard tools, and understand the complete software testing lifecycle. Gain hands-on experience with real projects and prepare for QA roles in top companies. From test planning to automation, you'll master all essential testing skills.",
-    category: "Software Testing",
-    level: "Beginner",
-    duration: "6 months",
-    students: 987,
-    rating: 4.7,
-    reviews: 432,
-    price: 74998,
-    originalPrice: 100000,
-    instructor: "David Kumar",
-    instructorBio: "QA Lead with 12 years of experience in software testing. Certified tester with expertise in automation frameworks and agile testing practices.",
-    instructorImage: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80",
-    image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=800&q=80",
-    skills: ["Manual Testing", "Automation Testing", "Selenium", "JIRA", "TestNG", "API Testing", "Performance Testing", "Bug Reporting"],
-    features: ["Testing Tools", "Real Projects", "Internship", "Certificate", "Job Placement"],
-    nextBatch: "Jan 25, 2025",
-    curriculum: [
-      {
-        module: "Module 1: Testing Fundamentals",
-        topics: [
-          "SDLC & STLC",
-          "Testing Types & Levels",
-          "Test Cases Design",
-          "Bug Lifecycle",
-          "Quality Assurance Principles"
-        ]
-      },
-      {
-        module: "Module 2: Manual Testing",
-        topics: [
-          "Test Planning & Strategy",
-          "Test Execution Techniques",
-          "Defect Reporting & Tracking",
-          "Test Management Tools",
-          "Usability Testing"
-        ]
-      },
-      {
-        module: "Module 3: Automation Testing",
-        topics: [
-          "Selenium WebDriver",
-          "TestNG Framework",
-          "Page Object Model",
-          "API Testing with Postman",
-          "Continuous Integration"
-        ]
-      },
-      {
-        module: "Module 4: Performance & Security",
-        topics: [
-          "Load Testing with JMeter",
-          "Security Testing Fundamentals",
-          "Mobile Testing",
-          "Agile Testing Practices",
-          "Test Reporting & Metrics"
-        ]
-      }
-    ],
-    faqs: [
-      {
-        question: "Do I need programming knowledge?",
-        answer: "Basic computer literacy is sufficient. We'll teach you all the technical skills needed."
-      },
-      {
-        question: "Which tools will I learn?",
-        answer: "Selenium, JIRA, TestNG, Postman, JMeter, and other industry-standard testing tools."
-      },
-      {
-        question: "Is there a guarantee of job placement?",
-        answer: "While we can't guarantee jobs, we provide extensive job assistance and have a 90% placement rate."
-      },
-      {
-        question: "Will I get hands-on experience?",
-        answer: "Yes, you'll work on 10+ real projects and get internship opportunities."
-      }
-    ],
-    careerPaths: [
-      "Software Tester",
-      "QA Engineer",
-      "Test Automation Engineer",
-      "Performance Tester",
-      "Security Tester"
-    ],
-    isPopular: true,
-    seoTitle: "Software Testing Course | QA & Automation Testing Training",
-    seoDescription: "Become a professional software tester with our comprehensive course covering manual & automated testing. Learn Selenium, JIRA, API testing and more. Get job placement support. Enroll today!",
-    keywords: "software testing course, qa training, selenium tutorial, automation testing, manual testing, jira, testng, api testing, performance testing"
-  }
-];
-
+import { courseData } from '../data/coursesData';
 
 
 const CourseDetail = () => {
@@ -692,6 +308,17 @@ const CourseDetail = () => {
                 Curriculum
               </button>
               <button
+                onClick={() => setActiveTab('paymentPlans')}
+                className={`py-5 px-4 sm:px-6 text-center font-semibold text-sm rounded-t-lg transition-all duration-300 flex items-center gap-2 ${
+                  activeTab === 'paymentPlans'
+                    ? 'text-blue-400 border-b-2 border-blue-500 bg-slate-800/80 shadow-sm'
+                    : 'text-blue-300 hover:text-blue-400'
+                }`}
+              >
+                <DollarSign className="w-4 h-4" />
+                Payment Plans
+              </button>
+              <button
                 onClick={() => setActiveTab('instructor')}
                 className={`py-5 px-4 sm:px-6 text-center font-semibold text-sm rounded-t-lg transition-all duration-300 ${
                   activeTab === 'instructor'
@@ -847,6 +474,55 @@ const CourseDetail = () => {
               </div>
             )}
 
+            {activeTab === 'paymentPlans' && course.paymentPlans && (
+              <div className="p-2 sm:p-4">
+                <div className="mb-6 sm:mb-8">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-blue-100 mb-4 sm:mb-6 flex items-center gap-3">
+                    <DollarSign className="w-8 h-8 text-green-400" />
+                    Flexible Payment Plans
+                  </h2>
+                  <div className="bg-blue-950 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-blue-800">
+                    <p className="text-blue-200 mb-0 text-base sm:text-lg leading-relaxed">
+                      We offer multiple payment options to help you manage your investment in your future. Choose the plan that best suits your needs.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="overflow-x-auto rounded-2xl border border-blue-800">
+                  <table className="w-full text-left text-blue-100 bg-blue-950/50 backdrop-blur-xl">
+                    <thead className="bg-blue-900 border-b border-blue-700">
+                      <tr>
+                        <th className="px-6 py-4 font-bold text-lg whitespace-nowrap">Plan</th>
+                        <th className="px-6 py-4 font-bold text-lg whitespace-nowrap">Registration</th>
+                        <th className="px-6 py-4 font-bold text-lg whitespace-nowrap">Month 1</th>
+                        <th className="px-6 py-4 font-bold text-lg whitespace-nowrap">Month 2</th>
+                        <th className="px-6 py-4 font-bold text-lg whitespace-nowrap">Month 3</th>
+                        <th className="px-6 py-4 font-bold text-lg whitespace-nowrap">Month 4</th>
+                        <th className="px-6 py-4 font-bold text-lg whitespace-nowrap">Month 5</th>
+                        <th className="px-6 py-4 font-bold text-lg whitespace-nowrap">Month 6</th>
+                        <th className="px-6 py-4 font-bold text-lg whitespace-nowrap">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {course.paymentPlans.map((plan, index) => (
+                        <tr key={index} className="border-b border-blue-800 hover:bg-blue-900/50 transition-colors">
+                          <td className="px-6 py-4 font-semibold text-white whitespace-nowrap">{plan.name}</td>
+                          <td className="px-6 py-4 whitespace-nowrap">₹{plan.registration.toLocaleString()}</td>
+                          <td className="px-6 py-4 whitespace-nowrap">{plan.m1}</td>
+                          <td className="px-6 py-4 whitespace-nowrap">{plan.m2}</td>
+                          <td className="px-6 py-4 whitespace-nowrap">{plan.m3}</td>
+                          <td className="px-6 py-4 whitespace-nowrap">{plan.m4}</td>
+                          <td className="px-6 py-4 whitespace-nowrap">{plan.m5}</td>
+                          <td className="px-6 py-4 whitespace-nowrap">{plan.m6}</td>
+                          <td className="px-6 py-4 font-bold text-green-400 whitespace-nowrap">₹{plan.total.toLocaleString()}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
             {activeTab === 'instructor' && (
               <div className="p-2 sm:p-4">
                 <div className="bg-blue-950 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-blue-800 mb-8">
@@ -966,7 +642,7 @@ const CourseDetail = () => {
               <div className="p-2 sm:p-4">
                 <div className="mb-6 sm:mb-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-blue-100 mb-4 sm:mb-6 flex items-center gap-3">
-                    <HelpCircle className="w-8 h-8 text-teal-400" />
+                    <Users className="w-8 h-8 text-teal-400" />
                     Frequently Asked Questions
                   </h2>
                   <div className="bg-blue-950 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-blue-800">

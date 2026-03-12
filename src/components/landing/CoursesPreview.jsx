@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Code, Database, Brain, Shield, Clock, Users, Star } from 'lucide-react';
+import { ArrowRight, Code, Database, Brain, Shield, Clock, Users, Star, TrendingUp } from 'lucide-react';
 import EnrollmentModal from '../courses/EnrollmentModal';
+import { courseData as courses } from '../../data/coursesData';
 
 const CoursesPreview = () => {
   const navigate = useNavigate();
@@ -10,68 +11,10 @@ const CoursesPreview = () => {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const courses = [
-    {
-      id: 1,
-      slug: "full-stack-development",
-      title: "Full Stack Development",
-      description: "Master modern web development with React, Node.js, and MongoDB. Build real-world applications from scratch with hands-on projects and industry best practices.",
-      duration: "6 months",
-      students: "2,847+",
-      rating: 4.9,
-      price: "₹99,999",
-      // originalPrice: "₹99,999",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "JavaScript", "HTML/CSS"],
-      color: "from-blue-500 to-cyan-500",
-      icon: Code,
-      badge: "POPULAR"
-    },
-    {
-      id: 2,
-      slug: "data-analysis",
-      title: "Data Analysis",
-      description: "Learn Python, SQL, data visualization, and statistical analysis to become a professional data analyst. Work with real datasets and industry tools.",
-      duration: "6 months",
-      students: "1,923+",
-      rating: 4.8,
-      price: "₹99,999", 
-      // originalPrice: "₹90,000",
-      technologies: ["Python", "SQL", "Pandas", "NumPy", "Matplotlib", "Tableau", "Excel"],
-      color: "from-purple-500 to-pink-500",
-      icon: Database,
-      badge: "POPULAR"
-    },
-    {
-      id: 3,
-      slug: "ai-ml",
-      title: "AI/ML",
-      description: "Master artificial intelligence and machine learning with Python. Learn algorithms, neural networks, deep learning, and computer vision with hands-on projects.",
-      duration: "6 months",
-      students: "1,456+",
-      rating: 4.9,
-      price: "₹99,999",
-      // originalPrice: "₹99,999",
-      technologies: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Neural Networks", "NLP"],
-      color: "from-green-500 to-emerald-500",
-      icon: Brain,
-      badge: "TRENDING"
-    },
-    {
-      id: 4,
-      slug: "software-testing",
-      title: "Software Testing",
-      description: "Become a professional software tester with expertise in manual and automated testing. Learn testing frameworks, bug tracking, and quality assurance processes.",
-      duration: "6 months",
-      students: "987+",
-      rating: 4.7,
-      price: "₹99,999",
-      // originalPrice: "₹99,999",
-      technologies: ["Manual Testing", "Selenium", "JIRA", "TestNG", "API Testing", "Automation"],
-      color: "from-orange-500 to-red-500",
-      icon: Shield,
-      badge: "POPULAR"
-    }
-  ];
+  const getIconComponent = (iconName) => {
+    const icons = { Code, Database, Brain, Shield, TrendingUp };
+    return icons[iconName] || Code;
+  };
 
   const handleEnrollClick = (course) => {
     setSelectedCourse(course);
@@ -144,30 +87,33 @@ const CoursesPreview = () => {
                           <div>
                             <div className="flex items-center gap-4 mb-6">
                               <div className={`w-16 h-16 bg-[#3B82F6] rounded-2xl flex items-center justify-center shadow-lg`}>
-                                <course.icon className="w-8 h-8 text-white" />
+                                {(() => {
+                                  const IconComponent = getIconComponent(course.iconName);
+                                  return <IconComponent className="w-8 h-8 text-white" />;
+                                })()}
                               </div>
                               <span className={`px-4 py-1.5 text-white text-sm font-bold rounded-full shadow-md ${
                                 course.badge === 'TRENDING' 
                                   ? 'bg-gradient-to-r from-green-500 to-emerald-600' 
                                   : 'bg-gradient-to-r from-amber-500 to-orange-600'
                               }`}>
-                                {course.badge}
-                              </span>
-                            </div>
+                                  {course.badge}
+                                </span>
+                              </div>
 
-                            <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-                              {course.title}
-                            </h3>
-                            
-                            <p className="text-blue-200 text-base leading-relaxed mb-6">
-                              {course.description}
-                            </p>
+                              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+                                {course.title}
+                              </h3>
+                              
+                              <p className="text-blue-200 text-base leading-relaxed mb-6">
+                                {course.description}
+                              </p>
 
-                            {/* Technologies */}
-                            <div className="flex flex-wrap gap-2 mb-6">
-                              {course.technologies.map((tech) => (
-                                <span
-                                  key={tech}
+                              {/* Technologies */}
+                              <div className="flex flex-wrap gap-2 mb-6">
+                                {course.skills.slice(0, 6).map((tech) => (
+                                  <span
+                                    key={tech}
                                   className="px-3 py-1.5 bg-blue-800 border border-blue-700 text-blue-200 text-sm rounded-lg font-medium hover:bg-blue-700 transition-colors"
                                 >
                                   {tech}
@@ -196,15 +142,15 @@ const CoursesPreview = () => {
                               </div>
                             </div>
 
-                            <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl mb-6 border border-blue-500/20">
-                              <div>
-                                <div className="text-3xl font-bold text-white">{course.price}</div>
-                                <div className="text-sm text-blue-300">
-                                  <span className="line-through mr-2">{course.originalPrice}</span>
-                                  <span className="text-green-400 font-semibold"></span>
+                              <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl mb-6 border border-blue-500/20">
+                                <div>
+                                  <div className="text-3xl font-bold text-white">₹{course.price.toLocaleString()}</div>
+                                  <div className="text-sm text-blue-300">
+                                    <span className="line-through mr-2">₹{course.originalPrice?.toLocaleString()}</span>
+                                    <span className="text-green-400 font-semibold"></span>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
                           </div>
                         </div>
                       </div>

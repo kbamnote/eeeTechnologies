@@ -13,12 +13,12 @@ const EnrollBanner = () => {
   ];
 
   const benefits = [
-    "Industry-relevant curriculum",
-    "Expert instructors",
-    "Hands-on projects",
-    "Job placement assistance",
-    "Lifetime access",
-    "Certificate of completion"
+    "Intensive 6-Month Training",
+    "Hands-on Internship",
+    "100% Placement Assistance",
+    "Dedicated Workstation",
+    "1Gbps High-Speed Internet",
+    "24/7 Expert Support"
   ];
 
   const containerVariants = {
@@ -72,13 +72,13 @@ const EnrollBanner = () => {
                 </div>
                 
                 <h2 className="text-5xl md:text-6xl font-bold text-[#1F2937] mb-6 tracking-tight">
-                  Start Your
-                  <span className="block bg-[#3B82F6] bg-clip-text text-transparent mt-2"> Tech Journey</span>
+                  Launch Your
+                  <span className="block bg-[#3B82F6] bg-clip-text text-transparent mt-2"> IT Career</span>
                   Today!
                 </h2>
                 
                 <p className="text-lg text-[#1F2937] mb-8 leading-relaxed">
-                  Join thousands of successful students who have transformed their careers with our comprehensive courses. Get industry-ready skills and land your dream job.
+                  Join EEE Technologies for a comprehensive 6-month program featuring intensive training and a guaranteed hands-on internship to transform you into an industry-ready Software Engineer.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -153,11 +153,11 @@ const EnrollBanner = () => {
               </div>
               
               <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                Get <span className="text-[#06B6D4]">25% OFF</span> on All Courses
+                Premium Courses at just <span className="text-[#06B6D4]">₹34,999/-</span>
               </h3>
               
               <p className="text-lg text-[#f7f7f7] mb-6 max-w-2xl mx-auto">
-                Don't miss this opportunity to upskill at an unbeatable price. Offer valid for the next 7 days only!
+                Affordable excellence with world-class infrastructure. Don't miss this opportunity to kickstart your IT career with our guaranteed internship programs.
               </p>
               
               <div className="flex items-center justify-center gap-4 text-sm text-[#f9f9f9] mb-6">

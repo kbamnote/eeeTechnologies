@@ -16,23 +16,23 @@ const CallToAction = () => {
   const features = [
     {
       icon: Star,
-      title: 'Expert Mentorship',
-      description: 'Learn from industry professionals with 10+ years experience'
+      title: 'Premium Training',
+      description: 'Intensive 6-Month programs (Training + Hands-on Internship)'
     },
     {
       icon: Users,
-      title: 'Live Projects',
-      description: 'Work on real-world projects with actual client requirements'
+      title: 'Real-world Projects',
+      description: 'Dedicated 6-month internship working on live IT scenarios'
     },
     {
       icon: Award,
       title: 'Placement Support',
-      description: '100% placement assistance with top tech companies'
+      description: '100% placement assistance & guaranteed internship completion'
     },
     {
       icon: Zap,
-      title: 'Fast Track Learning',
-      description: 'Accelerated curriculum designed for quick skill acquisition'
+      title: 'World-Class Infrastructure',
+      description: 'Dedicated Workstations, 1Gbps internet, and full complete hardware kit'
     }
   ];
 
@@ -91,7 +91,7 @@ const CallToAction = () => {
           </h2>
 
           <p className="text-lg text-[#1F2937] max-w-2xl mx-auto mb-8">
-            Join thousands of successful professionals who've transformed their careers with our industry-leading training programs. Start your journey today!
+            Build your future in the IT Department! Join successful graduates who've transformed their careers with our guaranteed internship programs.
           </p>
 
           {/* CTA Buttons */}

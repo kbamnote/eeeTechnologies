@@ -141,8 +141,7 @@ const AboutHeroSection = () => {
               variants={itemVariants}
               className="text-lg sm:text-xl text-[#F8FAFC] mb-8 max-w-2xl leading-relaxed"
             >
-              Pioneering cutting-edge solutions in electronics, electrical engineering, 
-              and emerging technologies to power tomorrow's innovations.
+              Transforming graduates into industry-ready Software Engineers with intensive Full-Stack Development and Advanced IT training.
             </motion.p>
 
             {/* Feature Cards */}
