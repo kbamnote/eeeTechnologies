@@ -3,92 +3,115 @@ import { X, CheckCircle, CreditCard, Zap, Calendar, ChevronDown, ChevronUp, Shie
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
-const plans = [
-  {
-    id: 'full',
-    label: 'Full Payment',
-    badge: 'Best Value',
-    badgeColor: 'bg-gradient-to-r from-amber-400 to-orange-500',
-    highlight: true,
-    icon: Zap,
-    iconBg: 'from-amber-400 to-orange-500',
-    originalPrice: '₹99,999',
-    offerPrice: '₹64,999',
-    savings: 'Save ₹25,002',
-    tagline: 'One-time payment · Lowest price guaranteed',
-    cta: 'Pay ₹64,999 Now',
-    ctaStyle: 'bg-gradient-to-r from-amber-400 to-orange-500 text-white hover:from-amber-500 hover:to-orange-600 shadow-amber-500/30',
-    breakdown: [
-      { label: 'Registration Fee', value: '₹9,999' },
-      { label: 'Course Fees (Original)', value: '₹99,999', strike: true },
-      { label: 'Offer Price', value: '₹64,999' },
-      { label: 'Total Payable', value: '₹99,999', highlight: true },
-      { label: 'You Save', value: '₹25,002', green: true },
-    ],
-    features: [
-      'Lowest overall cost',
-      'Immediate full access',
-      'Certificate of completion',
-      'Lifetime course access',
-      'Priority placement support',
-    ],
-  },
-  {
-    id: 'emi3',
-    label: '3-Month EMI',
-    badge: null,
-    highlight: false,
-    icon: Calendar,
-    iconBg: 'from-blue-500 to-cyan-500',
-    originalPrice: null,
-    offerPrice: '₹19,999/mo',
-    savings: 'Total payable ₹89,995',
-    tagline: 'Start your journey with just ₹29,998',
-    cta: 'Start with ₹29,998',
-    ctaStyle: 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600 shadow-blue-500/30',
-    breakdown: [
-      { label: 'Registration Fee', value: '₹9,999' },
-      { label: 'Down Payment', value: '₹19,999' },
-      { label: 'EMI × 3 months', value: '₹19,999 × 3' },
-      { label: 'Total Payable', value: '₹89,995', highlight: true },
-    ],
-    features: [
-      'Start with ₹29,998 today',
-      'Spread cost over 3 months',
-      'Full access from day 1',
-      'Certificate of completion',
-      'Placement assistance',
-    ],
-  },
-  {
-    id: 'emi6',
-    label: '6-Month EMI',
-    badge: 'Flexible',
-    badgeColor: 'bg-gradient-to-r from-purple-500 to-pink-500',
-    highlight: false,
-    icon: CreditCard,
-    iconBg: 'from-purple-500 to-pink-500',
-    originalPrice: null,
-    offerPrice: '₹11,666/mo',
-    savings: 'Total payable ₹99,999',
-    tagline: 'Start your journey with just ₹29,998',
-    cta: 'Start with ₹29,998',
-    ctaStyle: 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 shadow-purple-500/30',
-    breakdown: [
-      { label: 'Registration Fee', value: '₹9,999' },
-      { label: 'Advance Payment', value: '₹19,999' },
-      { label: 'EMI × 6 months', value: '₹11,666 × 6' },
-      { label: 'Total Payable', value: '₹99,999', highlight: true },
-    ],
-    features: [
-      'Lowest monthly outflow',
-      'Spread cost over 6 months',
-      'Full access from day 1',
-      'Certificate of completion',
-      'Placement assistance',
-    ],
-  },
-];
+import { courseData } from '../../data/coursesData';
+
+// ─── Data Transformers ──────────────────────────────────────────────────────
+
+const parseK = (str) => {
+  if (!str || str === '-') return 0;
+  return parseFloat(str.replace('k', '')) * 1000;
+};
+
+const formatPrice = (num) => `₹${num.toLocaleString()}`;
+
+const generatePlansForCourse = (course) => {
+  return course.paymentPlans.map((pp, index) => {
+    const isPlanA = index === 0;
+    const isPlanB = index === 1;
+    
+    const m1Value = parseK(pp.m1);
+    const startAmount = pp.registration + m1Value;
+
+    if (isPlanA) {
+      return {
+        id: `full-${course.id}`,
+        label: 'Full Payment',
+        badge: 'Best Value',
+        badgeColor: 'bg-gradient-to-r from-amber-400 to-orange-500',
+        highlight: true,
+        icon: Zap,
+        iconBg: 'from-amber-400 to-orange-500',
+        originalPrice: formatPrice(course.originalPrice),
+        offerPrice: formatPrice(pp.total),
+        savings: `Save ${formatPrice(course.originalPrice - pp.total)}`,
+        tagline: 'One-time payment · Lowest price guaranteed',
+        cta: `Pay ${formatPrice(pp.total)} Now`,
+        ctaStyle: 'bg-gradient-to-r from-amber-400 to-orange-500 text-white hover:from-amber-500 hover:to-orange-600 shadow-amber-500/30',
+        breakdown: [
+          { label: 'Registration Fee', value: formatPrice(pp.registration) },
+          { label: 'Course Fees (Original)', value: formatPrice(course.originalPrice), strike: true },
+          { label: 'Offer Price', value: formatPrice(pp.total) },
+          { label: 'Total Payable', value: formatPrice(pp.total), highlight: true },
+          { label: 'You Save', value: formatPrice(course.originalPrice - pp.total), green: true },
+        ],
+        features: [
+          'Lowest overall cost',
+          'Immediate full access',
+          'Certificate of completion',
+          'Lifetime course access',
+          'Priority placement support',
+        ],
+      };
+    } else if (isPlanB) {
+      return {
+        id: `emi3-${course.id}`,
+        label: '3-Month EMI',
+        badge: null,
+        highlight: false,
+        icon: Calendar,
+        iconBg: 'from-blue-500 to-cyan-500',
+        originalPrice: null,
+        offerPrice: `${formatPrice(m1Value)}/mo`,
+        savings: `Total payable ${formatPrice(pp.total)}`,
+        tagline: `Start your journey with just ${formatPrice(startAmount)}`,
+        cta: `Start with ${formatPrice(startAmount)}`,
+        ctaStyle: 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600 shadow-blue-500/30',
+        breakdown: [
+          { label: 'Registration Fee', value: formatPrice(pp.registration) },
+          { label: 'Down Payment', value: formatPrice(m1Value) },
+          { label: 'EMI × 2 months', value: `${formatPrice(m1Value)} × 2` },
+          { label: 'Total Payable', value: formatPrice(pp.total), highlight: true },
+        ],
+        features: [
+          `Start with ${formatPrice(startAmount)} today`,
+          'Spread cost over 3 months',
+          'Full access from day 1',
+          'Certificate of completion',
+          'Placement assistance',
+        ],
+      };
+    } else {
+      return {
+        id: `emi6-${course.id}`,
+        label: '6-Month EMI',
+        badge: 'Flexible',
+        badgeColor: 'bg-gradient-to-r from-purple-500 to-pink-500',
+        highlight: false,
+        icon: CreditCard,
+        iconBg: 'from-purple-500 to-pink-500',
+        originalPrice: null,
+        offerPrice: `${formatPrice(m1Value)}/mo`,
+        savings: `Total payable ${formatPrice(pp.total)}`,
+        tagline: `Start your journey with just ${formatPrice(startAmount)}`,
+        cta: `Start with ${formatPrice(startAmount)}`,
+        ctaStyle: 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 shadow-purple-500/30',
+        breakdown: [
+          { label: 'Registration Fee', value: formatPrice(pp.registration) },
+          { label: 'Advance Payment', value: formatPrice(m1Value) },
+          { label: 'EMI × 5 months', value: `${formatPrice(m1Value)} × 5` },
+          { label: 'Total Payable', value: formatPrice(pp.total), highlight: true },
+        ],
+        features: [
+          'Lowest monthly outflow',
+          'Spread cost over 6 months',
+          'Full access from day 1',
+          'Certificate of completion',
+          'Placement assistance',
+        ],
+      };
+    }
+  });
+};
 
 // ─── EMI Breakdown Modal ─────────────────────────────────────────────────────
 
@@ -278,7 +301,12 @@ function PlanCard({ plan, onViewBreakdown }) {
 // ─── Main Section ────────────────────────────────────────────────────────────
 
 const EMIPricingSection = () => {
+  const [selectedCourseId, setSelectedCourseId] = useState(courseData[0].id);
   const [modalPlan, setModalPlan] = useState(null);
+
+  const selectedCourse = courseData.find(c => c.id === selectedCourseId) || courseData[0];
+  const dynamicPlans = generatePlansForCourse(selectedCourse);
+  const maxSavings = selectedCourse.originalPrice - selectedCourse.paymentPlans[0].total;
 
   return (
     <section className="relative py-24 bg-[#F8FAFC] overflow-hidden">
@@ -292,7 +320,7 @@ const EMIPricingSection = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-full text-[#3B82F6] text-sm font-semibold mb-6">
             <Shield className="w-4 h-4" />
             Flexible Payment Options
@@ -313,15 +341,31 @@ const EMIPricingSection = () => {
           <div className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 bg-white border border-gray-200 rounded-full shadow-sm text-sm text-gray-600">
             <Star className="w-4 h-4 text-amber-500" />
             Original Course Fees:&nbsp;
-            <span className="line-through text-gray-400">₹99,999</span>
+            <span className="line-through text-gray-400">₹{selectedCourse.originalPrice?.toLocaleString()}</span>
             &nbsp;·&nbsp;
-            <span className="text-green-600 font-bold">Save up to ₹25,002</span>
+            <span className="text-green-600 font-bold">Save up to ₹{maxSavings.toLocaleString()}</span>
           </div>
         </div>
 
+        {/* Course Selector Tabs */}
+        <div className="flex flex-wrap justify-center gap-3 mt-6 mb-12">
+          {courseData.map((course) => (
+            <button
+              key={course.id}
+              onClick={() => setSelectedCourseId(course.id)}
+              className={`px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-sm border
+                ${selectedCourseId === course.id 
+                  ? 'bg-[#0D1E35] text-white border-[#0D1E35] shadow-xl scale-105' 
+                  : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'}`}
+            >
+              {course.shortTitle}
+            </button>
+          ))}
+        </div>
+
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start mt-8">
-          {plans.map((plan) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
+          {dynamicPlans.map((plan) => (
             <PlanCard key={plan.id} plan={plan} onViewBreakdown={setModalPlan} />
           ))}
         </div>

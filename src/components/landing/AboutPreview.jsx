@@ -32,8 +32,8 @@ const AboutPreview = () => {
     {
       number: "04",
       icon: Bug,
-      title: "Software Testing Course",
-      description: "Become a quality assurance expert with comprehensive software testing skills. Learn manual and automated testing, test case design, bug tracking, and modern testing frameworks like Selenium and Jest. Master API testing, performance testing, and continuous integration practices to ensure software reliability and excellence.",
+      title: "Master Digital Marketing",
+      description: "Become a Digital Marketing Expert with comprehensive marketing skills. Learn SEO, social media marketing, content marketing, email marketing, and paid advertising. Master tools like Google Analytics, Google Ads, Meta Ads Manager, and modern marketing platforms. Develop skills in campaign strategy, audience targeting, conversion optimization, and data-driven marketing. Gain expertise in performance marketing, branding, and marketing automation to grow businesses and build powerful online presence.",
       color: "from-orange-500 to-red-500"
     }
   ];

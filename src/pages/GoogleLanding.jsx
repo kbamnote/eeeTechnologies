@@ -64,7 +64,7 @@ export default function GoogleLanding() {
       color: "from-green-500 to-emerald-500"
     },
     {
-      title: "Software Testing Course with Placement",
+      title: "Master Digital Marketing with Placement",
       description: "Our Software Testing & QA Automation course is designed for students who want fast entry into IT roles. Learn manual testing, automation testing, and QA processes used in real projects.",
       icon: <Target className="w-8 h-8" />,
       image: softwareTestImage,

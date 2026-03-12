@@ -151,11 +151,11 @@ export const blogPosts = [
     id: 4,
     category: "Software Testing",
     date: "2 Mar 2026",
-    title: "Software Testing Course in Nagpur – Build a Strong Career in Quality Assurance",
-    heading: "Software Testing Course in Nagpur – Build a Strong Career in Quality Assurance",
+    title: "Master Digital Marketing in Nagpur – Build a Strong Career in Quality Assurance",
+    heading: "Master Digital Marketing in Nagpur – Build a Strong Career in Quality Assurance",
     image: SoftwareEng,
 
-    Hparagraph1: `Software quality has become a top priority for companies across industries. Every application, website, or system must work smoothly before reaching users, and this is where software testers play a crucial role. Due to rising demand, many students and professionals are now searching for a reliable software testing course in Nagpur to start or advance their careers.`,
+    Hparagraph1: `Software quality has become a top priority for companies across industries. Every application, website, or system must work smoothly before reaching users, and this is where software testers play a crucial role. Due to rising demand, many students and professionals are now searching for a reliable Master Digital Marketing in Nagpur to start or advance their careers.`,
     Hparagraph2: `This blog explains what software testing is, the skills you will learn, career opportunities, and how to choose the right training program.`,
 
     title1: `What Is Software Testing and Why Is It Important?`,
