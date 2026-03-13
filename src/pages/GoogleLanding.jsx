@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ChevronDown, Award, Users, BookOpen, Target, Star, CheckCircle, TrendingUp, Zap, Menu, X } from "lucide-react";
 import aiMlImage from "../assets/AI_Ml courses information.jpg"
 import fullStackImage from "../assets/generate a image full stack developer course.jpg"
-import dataScienceImage from "../assets/generate a image of data analysis courses.jpg"
+import dataScienceImage from "../assets/generate a image of data Analytics courses.jpg"
 import softwareTestImage from "../assets/software test course image.jpg"
 import brochure from "../assets/EEE brochure new.pdf"
 import one from "../assets/teamone.jpeg"

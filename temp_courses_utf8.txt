@@ -1,4 +1,4 @@
-export const courseData = [
+﻿export const courseData = [
   {
     id: 1,
     slug: "full-stack-development",
@@ -33,7 +33,7 @@ export const courseData = [
         module: "Frontend Development",
         topics: [
           "HTML5 & CSS3 Fundamentals",
-          "Responsive Design & Bootstrap",
+          "Responsive Design & Bootstrap", 
           "Advanced JavaScript",
           "React JS Framework"
         ]
@@ -375,143 +375,5 @@ export const courseData = [
     iconName: "TrendingUp",
     seoTitle: "Digital Marketing Certification | EEE Technologies",
     seoDescription: "Master Digital Marketing with SEO, PPC, and SMM. Get hands-on experience with live budgets and complete accommodation support."
-  },
-  {
-    id: 5,
-    slug: "data-Analytics",
-    title: "Master Data Analytics",
-    shortTitle: "Data Analytics",
-    description: "Learn Python, SQL, data visualization, and statistical Analytics to become a professional data analyst. Work with real datasets and industry tools.",
-    longDescription: "Kickstart your career as a Data Analyst. This 6-month intensive program teaches you how to clean, analyze, and visualize data using Python, Pandas, SQL, and Tableau. Work on real-world projects, build a strong portfolio, and get guaranteed placement assistance.",
-    category: "Data Science & Analytics",
-    level: "Beginner to Intermediate",
-    duration: "6 Months Intensive Program",
-    students: "1,923+",
-    rating: 4.8,
-    reviews: 512,
-    price: 34999,
-    originalPrice: 44999,
-    instructor: "Data Analytics Experts",
-    instructorBio: "Industry professionals with years of experience in data visualization and statistical Analytics.",
-    instructorImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-    skills: ["Python", "SQL", "Pandas", "NumPy", "Matplotlib", "Tableau", "Excel"],
-    features: [
-      "Real-world projects and case studies",
-      "High-end workstations & 1Gbps dedicated internet",
-      "Educational Support Kit",
-      "Fully managed PG Accommodation and Food",
-      "Resume building and mock interviews"
-    ],
-    nextBatch: "Enroll Now",
-    curriculum: [
-      {
-        module: "Excel & SQL",
-        topics: ["Advanced Excel", "SQL Queries", "Relational Databases"]
-      },
-      {
-        module: "Python Programming",
-        topics: ["Python Basics", "Pandas & NumPy", "Data Cleaning"]
-      },
-      {
-        module: "Data Visualization",
-        topics: ["Matplotlib & Seaborn", "Tableau", "Dashboard Creation"]
-      },
-      {
-        module: "Advanced Analytics",
-        topics: ["Statistical Analytics", "A/B Testing", "Capstone Project"]
-      }
-    ],
-    paymentPlans: [
-      { name: "Plan A", registration: 9999, m1: "25k", m2: "-", m3: "-", m4: "-", m5: "-", m6: "-", total: 34999 },
-      { name: "Plan B", registration: 9999, m1: "10k", m2: "10k", m3: "10k", m4: "-", m5: "-", m6: "-", total: 39999 },
-      { name: "Plan C", registration: 9999, m1: "5.8k", m2: "5.8k", m3: "5.8k", m4: "5.8k", m5: "5.8k", m6: "5.8k", total: 44999 }
-    ],
-    faqs: [
-      {
-        question: "Is coding experience required?",
-        answer: "No, this course is designed for beginners. We start from the basics of programming."
-      },
-      {
-        question: "Will I learn Tableau?",
-        answer: "Yes, data visualization with Tableau is a core part of the curriculum."
-      }
-    ],
-    careerPaths: ["Data Analyst", "Business Intelligence Analyst", "Data Consultant"],
-    isPopular: true,
-    badge: "POPULAR",
-    color: "from-purple-500 to-pink-500",
-    iconName: "Database",
-    seoTitle: "Data Analytics Course | EEE Technologies",
-    seoDescription: "Learn Python, SQL, and Tableau. Master data Analytics and visualization with EEE Technologies' hands-on program."
-  },
-  {
-    id: 6,
-    slug: "software-testing",
-    title: "Professional Software Testing",
-    shortTitle: "Software Testing",
-    description: "Become a professional software tester with expertise in manual and automated testing. Learn testing frameworks, bug tracking, and quality assurance processes.",
-    longDescription: "Master both Manual and Automation testing in this comprehensive 6-month program. You will learn to write test cases, automate them using Selenium and TestNG, perform API testing, and work with Agile methodologies using JIRA. Includes real-world applications and dedicated placement support.",
-    category: "Software Testing",
-    level: "Any Graduate",
-    duration: "6 Months Intensive Program",
-    students: "987+",
-    rating: 4.7,
-    reviews: 320,
-    price: 34999,
-    originalPrice: 44999,
-    instructor: "QA Specialists",
-    instructorBio: "Experienced Quality Assurance engineers with deep knowledge of automated testing frameworks.",
-    instructorImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop",
-    skills: ["Manual Testing", "Selenium", "JIRA", "TestNG", "API Testing", "Automation", "Java"],
-    features: [
-      "Hands-on Automation Labs",
-      "Software Testing Certification",
-      "Educational Support Kit",
-      "Fully managed PG Accommodation and Food",
-      "Resume building and mock interviews"
-    ],
-    nextBatch: "Enroll Now",
-    curriculum: [
-      {
-        module: "Manual Testing",
-        topics: ["Software Testing Life Cycle (STLC)", "Test Case Design", "Agile & JIRA"]
-      },
-      {
-        module: "Core Java",
-        topics: ["Java Basics", "Object-Oriented Programming (OOP)", "Collections"]
-      },
-      {
-        module: "Automation Testing",
-        topics: ["Selenium WebDriver", "TestNG Framework", "Page Object Model (POM)"]
-      },
-      {
-        module: "API & Performance",
-        topics: ["Postman API Testing", "REST Assured", "JMeter Basics"]
-      }
-    ],
-    paymentPlans: [
-      { name: "Plan A", registration: 9999, m1: "25k", m2: "-", m3: "-", m4: "-", m5: "-", m6: "-", total: 34999 },
-      { name: "Plan B", registration: 9999, m1: "10k", m2: "10k", m3: "10k", m4: "-", m5: "-", m6: "-", total: 39999 },
-      { name: "Plan C", registration: 9999, m1: "5.8k", m2: "5.8k", m3: "5.8k", m4: "5.8k", m5: "5.8k", m6: "5.8k", total: 44999 }
-    ],
-    faqs: [
-      {
-        question: "Is this course suitable for non-IT backgrounds?",
-        answer: "Absolutely! Software testing is an excellent entry point into the IT industry for non-technical graduates."
-      },
-      {
-        question: "Will I learn automated testing?",
-        answer: "Yes, the course covers extensive automation testing using Selenium and TestNG."
-      }
-    ],
-    careerPaths: ["QA Engineer", "Automation Tester", "Software Tester"],
-    isPopular: true,
-    badge: "POPULAR",
-    color: "from-orange-500 to-red-500",
-    iconName: "Shield",
-    seoTitle: "Software Testing & QA Course | EEE Technologies",
-    seoDescription: "Become a professional software tester. Master manual and automated testing with Selenium, JIRA, and API testing."
   }
 ];

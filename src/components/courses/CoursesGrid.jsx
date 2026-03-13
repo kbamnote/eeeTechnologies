@@ -51,8 +51,8 @@ const CoursesGrid = ({ courses = [], loading = false, onEnroll }) => {
     },
     {
       id: 2,
-      title: "Data Analysis",
-      description: "Learn Python, SQL, data visualization, and statistical analysis to become a professional data analyst. Work with real datasets and industry tools.",
+      title: "Data Analytics",
+      description: "Learn Python, SQL, data visualization, and statistical Analytics to become a professional data analyst. Work with real datasets and industry tools.",
       category: "Data Science",
       level: "Beginner to Intermediate",
       duration: "6 months",

@@ -18,7 +18,7 @@ const AboutPreview = () => {
     {
       number: "02",
       icon: Database,
-      title: "Data Analysis with AI",
+      title: "Data Analytics with AI",
       description: "Transform raw data into actionable insights using AI and machine learning. Master Python, pandas, data visualization, and AI-powered analytics tools. Learn to clean, analyze, and interpret complex datasets while leveraging AI for predictive modeling, pattern recognition, and automated reporting.",
       color: "from-blue-500 to-cyan-500"
     },

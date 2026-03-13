@@ -84,21 +84,21 @@ const SuccessStories = ({ stories = [] }) => {
     },
     {
       id: 4,
-      name: "Shobhit Gajbe",  // From ShobhitGajbe Data_Analysis.jpg
+      name: "Shobhit Gajbe",  // From ShobhitGajbe Data_Analytics.jpg
       role: "Data Analyst",
       company: "Elite Jobs",
       location: "Nagpur, India",
-      image: "/src/assets/ShobhitGajbe Data_Analysis.jpg",
+      image: "/src/assets/ShobhitGajbe Data_Analytics.jpg",
       companyLogo: "/src/assets/logo.png",
-      course: "Data Analysis",
+      course: "Data Analytics",
       duration: "6 months",
       previousRole: "Student",
       story: "The hands-on labs and real-world scenarios at EEE Technologies prepared me perfectly for the data analyst role. The practical experience with analytics tools was invaluable.",
-      testimonial: "EEE Technologies' data analysis program is industry-leading. The practical approach and expert instructors made complex concepts easy to understand.",
+      testimonial: "EEE Technologies' data Analytics program is industry-leading. The practical approach and expert instructors made complex concepts easy to understand.",
       skills: ["Python", "SQL", "Excel", "Tableau", "Power BI"],
       achievements: ["Analyzed datasets saving $1.5M annually", "Created 12 interactive dashboards", "Identified cost reduction opportunities worth $500K"],
       videoUrl: "https://example.com/video4",
-      category: "data-analysis",
+      category: "data-Analytics",
       graduationYear: 2021,
       rating: 5
     }
@@ -108,7 +108,7 @@ const SuccessStories = ({ stories = [] }) => {
     { id: 'all', name: 'All Stories' },
     { id: 'full-stack', name: 'Full Stack Development' },
     { id: 'ai-ml', name: 'AI/ML' },
-    { id: 'data-analysis', name: 'Data Analysis' }
+    { id: 'data-Analytics', name: 'Data Analytics' }
   ];
 
   const displayStories = stories.length > 0 ? stories : defaultStories;

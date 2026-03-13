@@ -68,8 +68,8 @@ const generatePlansForCourse = (course) => {
         ctaStyle: 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600 shadow-blue-500/30',
         breakdown: [
           { label: 'Registration Fee', value: formatPrice(pp.registration) },
-          { label: 'Down Payment', value: formatPrice(m1Value) },
-          { label: 'EMI × 2 months', value: `${formatPrice(m1Value)} × 2` },
+          // { label: 'Down Payment', value: formatPrice(m1Value) },
+          { label: 'EMI × 3 months', value: `${formatPrice(m1Value)} ` },
           { label: 'Total Payable', value: formatPrice(pp.total), highlight: true },
         ],
         features: [
@@ -97,8 +97,8 @@ const generatePlansForCourse = (course) => {
         ctaStyle: 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 shadow-purple-500/30',
         breakdown: [
           { label: 'Registration Fee', value: formatPrice(pp.registration) },
-          { label: 'Advance Payment', value: formatPrice(m1Value) },
-          { label: 'EMI × 5 months', value: `${formatPrice(m1Value)} × 5` },
+          // { label: 'Advance Payment', value: formatPrice(m1Value) },
+          { label: 'EMI × 6 months', value: `${formatPrice(m1Value)} ` },
           { label: 'Total Payable', value: formatPrice(pp.total), highlight: true },
         ],
         features: [

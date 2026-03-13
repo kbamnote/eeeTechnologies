@@ -103,14 +103,14 @@ export const blogPosts = [
     id: 3,
     category: "Data Science",
     date: "25 Feb 2026",
-    title: "Best Data Analysis Course in Nagpur – A Practical Guide for a Successful Career",
-    heading: "Best Data Analysis Course in Nagpur – A Practical Guide for a Successful Career",
+    title: "Best Data Analytics Course in Nagpur – A Practical Guide for a Successful Career",
+    heading: "Best Data Analytics Course in Nagpur – A Practical Guide for a Successful Career",
     image: DataAnalytics,
 
     Hparagraph1: `In today’s digital world, data is everywhere — from business decisions to marketing strategies and financial planning. This growing reliance on data has made analytics one of the most valuable career skills. If you are exploring professional training in analytics, this guide will help you understand what makes a program truly valuable and how it can shape your future.`,
-    Hparagraph2: `Whether you are a student, a working professional, or someone planning a career switch, learning data analysis can open doors to multiple high-growth opportunities.`,
+    Hparagraph2: `Whether you are a student, a working professional, or someone planning a career switch, learning data Analytics can open doors to multiple high-growth opportunities.`,
 
-    title1: `Why Data Analysis Is a High-Demand Skill in 2026`,
+    title1: `Why Data Analytics Is a High-Demand Skill in 2026`,
     Tparagraph1: `Companies across industries rely on data to make smarter and faster decisions. From startups to global enterprises, organizations need skilled professionals who can collect, analyze, and interpret data effectively. Some key reasons behind the rising demand include:`,
     bullettitle11: `Increased Focus on Data-Driven Decisions`,
     bulletparagraph11: `Businesses are moving away from intuition-based choices to evidence-based strategies.`,
@@ -119,10 +119,10 @@ export const blogPosts = [
     bullettitle13: `Career Growth & Salary Potential`,
     bulletparagraph13: `Data roles offer strong long-term career prospects and competitive salaries.`,
 
-    title2: `Why Choose Nagpur for Learning Data Analysis?`,
+    title2: `Why Choose Nagpur for Learning Data Analytics?`,
     Tparagraph2: `Nagpur has emerged as a growing education and professional training hub. Many learners prefer studying locally due to the availability of quality programs at affordable costs. Key benefits include cost-effective training compared to metro cities, access to experienced trainers, and growing local job opportunities.`,
 
-    title3: `What Makes a Quality Data Analysis Program?`,
+    title3: `What Makes a Quality Data Analytics Program?`,
     titleparagraph3: `Not every training program delivers real value. A strong analytics program focuses on practical skills rather than only theoretical concepts.`,
 
     subtitle31: `1. Strong Foundation in Core Concepts`,
@@ -137,14 +137,14 @@ export const blogPosts = [
     subtitle34: `4. Career and Placement Support`,
     paragraph34: `Training should go beyond technical learning. Resume building, interview preparation, and placement assistance play an important role in career readiness.`,
 
-    title4: `Who Should Learn Data Analysis?`,
+    title4: `Who Should Learn Data Analytics?`,
     titleparagraph4: `Analytics is suitable for individuals from various educational and professional backgrounds, such as college students (BCA, BSc, BE, MBA), working professionals seeking upskilling, and business owners. Most beginner-level programs do not require prior coding experience.`,
 
-    title5: `Career Opportunities After Learning Data Analysis`,
+    title5: `Career Opportunities After Learning Data Analytics`,
     titleparagraph51: `After completing structured training, learners can explore roles such as Data Analyst, Business Analyst, Reporting Analyst, MIS Executive, and Junior Data Scientist. With experience, professionals can move into higher-paying leadership positions.`,
 
     summarytitle: `Conclusion`,
-    summaryparagraph1: `Data analysis is not a short-term trend but a long-term career path with excellent growth potential. Choosing the best data analysis course in Nagpur can help you build in-demand skills, gain practical experience, and succeed in today’s data-driven job market.`,
+    summaryparagraph1: `Data Analytics is not a short-term trend but a long-term career path with excellent growth potential. Choosing the best data Analytics course in Nagpur can help you build in-demand skills, gain practical experience, and succeed in today’s data-driven job market.`,
     summaryparagraph2: `If you are serious about building a future in analytics, investing in the right training can be the first step toward a rewarding career.`,
   },
   {
@@ -217,7 +217,7 @@ export const blogPosts = [
     paragraph21: `Software development and testing lifecycle, testing principles and methodologies, manual testing techniques, and defect life cycle and reporting.`,
 
     subtitle22: `Process & Quality Skills`,
-    paragraph22: `Requirement analysis, test planning and execution, risk-based testing, and quality assurance processes.`,
+    paragraph22: `Requirement Analytics, test planning and execution, risk-based testing, and quality assurance processes.`,
 
     subtitle23: `Modern Testing Exposure`,
     paragraph23: `Automation fundamentals, tool usage and frameworks, and Agile/DevOps testing concepts.`,
