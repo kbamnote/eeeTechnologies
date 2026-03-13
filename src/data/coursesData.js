@@ -389,8 +389,8 @@ export const courseData = [
     students: "1,923+",
     rating: 4.8,
     reviews: 512,
-    price: 34999,
-    originalPrice: 44999,
+    price: 44999,
+    originalPrice: 49999,
     instructor: "Data Analytics Experts",
     instructorBio: "Industry professionals with years of experience in data visualization and statistical Analytics.",
     instructorImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80",
@@ -423,9 +423,9 @@ export const courseData = [
       }
     ],
     paymentPlans: [
-      { name: "Plan A", registration: 9999, m1: "25k", m2: "-", m3: "-", m4: "-", m5: "-", m6: "-", total: 34999 },
-      { name: "Plan B", registration: 9999, m1: "10k", m2: "10k", m3: "10k", m4: "-", m5: "-", m6: "-", total: 39999 },
-      { name: "Plan C", registration: 9999, m1: "5.8k", m2: "5.8k", m3: "5.8k", m4: "5.8k", m5: "5.8k", m6: "5.8k", total: 44999 }
+      { name: "Plan A", registration: 9999, m1: "35k", m2: "-", m3: "-", m4: "-", m5: "-", m6: "-", total: 44999 },
+      { name: "Plan B", registration: 9999, m1: "13.333k", m2: "13.333k", m3: "13.333k", m4: "-", m5: "-", m6: "-", total: 49999 },
+      { name: "Plan C", registration: 9999, m1: "7.5k", m2: "7.5k", m3: "7.5k", m4: "7.5k", m5: "7.5k", m6: "7.5k", total: 54999 }
     ],
     faqs: [
       {
