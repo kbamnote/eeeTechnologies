@@ -20,7 +20,7 @@ const generatePlansForCourse = (course) => {
     const isPlanB = index === 1;
     
     const m1Value = parseK(pp.m1);
-    const startAmount = pp.registration + m1Value;
+    const startAmount = pp.registration ;
 
     if (isPlanA) {
       return {

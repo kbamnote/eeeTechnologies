@@ -168,7 +168,7 @@ export const courseData = [
     ],
     paymentPlans: [
       { name: "Plan A", registration: 9999, m1: "50k", m2: "-", m3: "-", m4: "-", m5: "-", m6: "-", total: 59999 },
-      { name: "Plan B", registration: 9999, m1: "18.3k", m2: "18.3k", m3: "18.3k", m4: "-", m5: "-", m6: "-", total: 64999 },
+      { name: "Plan B", registration: 9999, m1: "18.333k", m2: "18.333k", m3: "18.333k", m4: "-", m5: "-", m6: "-", total: 64999 },
       { name: "Plan C", registration: 9999, m1: "10k", m2: "10k", m3: "10k", m4: "10k", m5: "10k", m6: "10k", total: 69999 }
     ],
     faqs: [
@@ -260,9 +260,9 @@ export const courseData = [
       }
     ],
     paymentPlans: [
-      { name: "Plan A", registration: 15000, m1: "50k", m2: "-", m3: "-", m4: "-", m5: "-", m6: "-", total: 59999 },
-      { name: "Plan B", registration: 15000, m1: "18.3k", m2: "18.3k", m3: "18.3k", m4: "-", m5: "-", m6: "-", total: 64999 },
-      { name: "Plan C", registration: 15000, m1: "10k", m2: "10k", m3: "10k", m4: "10k", m5: "10k", m6: "10k", total: 69999 }
+      { name: "Plan A", registration: 9999, m1: "50k", m2: "-", m3: "-", m4: "-", m5: "-", m6: "-", total: 59999 },
+      { name: "Plan B", registration: 9999, m1: "18.333k", m2: "18.333k", m3: "18.333k", m4: "-", m5: "-", m6: "-", total: 64999 },
+      { name: "Plan C", registration: 9999, m1: "10k", m2: "10k", m3: "10k", m4: "10k", m5: "10k", m6: "10k", total: 69999 }
     ],
     faqs: [
       {
